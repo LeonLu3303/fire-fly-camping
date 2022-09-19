@@ -18,19 +18,20 @@
 //         border-bottom: 1px solid #333 ;
 // }
 .title_main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: aqua;
     padding: 0 0 50px;
 }
-//  .title_main::before{
-//      width: 40px;
-//      height: 40px;
-//      background: url(/src/assets/images/main_title_left.png);
-//  }
-//  .title_main::after{
-//      width: 40px;
-//      height: 40px;
-//      background: url(/src/assets/images/main_title_left.png);
-//  }
+.title_main h2{
+    padding: 0 10px
+}
+.title_main::before{
+    content: url(/src/assets/images/main_title_left.png);
+    width: 50px;
+    height: 30px;
+    background: center center;
+}
+.title_main::after{
+    content: url(/src/assets/images/main_title_right.png);
+    width: 50px;
+    height: 30px;
+    background: center center;
+}
