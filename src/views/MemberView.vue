@@ -25,7 +25,7 @@
                         </div>
                         
                         <div class="mem_image" v-for="i in 6">
-                            <input  type="radio"><img src="../assets/activity_20.png" alt="">
+                            <input  type="radio"><img src="../assets/images/activity_20.png" alt="">
                         </div>
                         <button>查詢</button>
                     </div>
