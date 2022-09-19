@@ -50,13 +50,20 @@
           </div>
         </div>
         <div class="bk_process_button_container">
-          <button class="bk_process_prev">
+          <button class="bk_process_button where_prev">
             <img src="../assets/booking_arrow_prev.png" alt="" />上一步
           </button>
-          <button class="bk_process_prev">
+          <button class="bk_process_button where_next">
             下一步
             <img src="../assets/booking_arrow_next.png" alt="" />
           </button>
+        </div>
+      </div>
+      <div class="bk_process_how_many">
+        <div class="bk_process_how_many_container">
+          <div class="bk_how_icon_container">
+            <img src="../assets/booking_how_icon.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
