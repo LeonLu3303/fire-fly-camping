@@ -1,21 +1,21 @@
 <template>
     <section class="wrap_report_publish">
-        <div class="container">
+        <div class="report_container">
             <div class="title_main">
                 <h2>發佈報告</h2>
             </div>
-            <div>
-                <h3></h3>
-                <p></p>
-            </div>
             <div class="row_report_write">
-
+                
                 <div class="col_postcard">
+                    <div class="postcard_release">
+                        <h3>請輸入標題</h3>
+                        <p>請輸入內文</p>
+                    </div>
                     <div class="postcard_user_data">
                         <div class="postcard_user_pic">
                             <img src="../assets/images/report_avatar_1.png" alt="avatar">
                         </div>
-                        <div class="postcard_user_name">1313</div>
+                        <h3 class="postcard_user_name">1313</h3>
                     </div>
                 </div>
 
@@ -43,7 +43,6 @@ export default {
 
 <style lang="scss">
     @import '../assets/scss/style.scss';
-
     .row_report_write{
         display: flex;
     }
@@ -52,19 +51,37 @@ export default {
         height: 200px;
     }
     .col_postcard{
-        width: 60%;
-        height: 500px;
-        background : url(../assets/images/report_jungle_p.png) center center;
-        background-size: contain;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        height: 460px;
+        background : url(../assets/images/report_jungle_p.png) no-repeat center center;
+        background-size: cover;
         padding: 0 20px;
     }
+    .postcard_release{
+        width: 60%;
+    }
+    .postcard_user_data{
+        text-align: center;
+    }
     .col_write_text{
-        width: 30%;
+        width: 25%;
         padding: 0 20px;
     }
     .postcard_user_pic{
         width: 120px;
         border-radius: 60px;
         overflow: hidden;
+    }
+    #enter_title{
+        width: 300px;
+        height: 50px;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid $color-main-green;
+    }
+    #enter_text{
+        
     }
 </style>

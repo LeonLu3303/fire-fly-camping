@@ -1,10 +1,12 @@
 <template>
+    <!-- banner -->
     <div class="banner">
         <img src="../assets/images/banner_report.png" alt="banner">
     </div>
+    <!-- 發布報告 -->
     <ReportPublish/>
     <section class="wrap_card_report">
-        <div class="container">
+        <div class="report_container">
             <div class="title_main">
                 <h2>報告討論</h2>
             </div>
@@ -31,7 +33,7 @@ export default {
     section.wrap_card_report{
         margin: auto;
     }
-    .container{
+    .report_container{
         margin: 0 10%;
     }
     .title_main{
