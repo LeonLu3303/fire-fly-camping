@@ -10,17 +10,53 @@
         </div>
         <div class="bk_where_block_container">
           <div class="bk_where_card">
-            <h3>叢林歷險</h3>
-            <button>預定</button>
+            <div>
+              <h3>叢林歷險</h3>
+              <button>預定</button>
+            </div>
+            <div>
+              <p class="hover_show">
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧!
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧！
+              </p>
+              <p>探索 叢林歷險 體驗不一樣的露營模式</p>
+            </div>
           </div>
           <div class="bk_where_card">
-            <h3>冰雪奇緣</h3>
-            <button>預定</button>
+            <div>
+              <h3>冰雪奇緣</h3>
+              <button>預定</button>
+            </div>
+            <div>
+              <p class="hover_show">
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧!
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧！
+              </p>
+              <p>探索 冰雪奇緣 體驗不一樣的露營模式</p>
+            </div>
           </div>
           <div class="bk_where_card">
-            <h3>荒野峽谷</h3>
-            <button>預定</button>
+            <div>
+              <h3>荒野峽谷</h3>
+              <button>預定</button>
+            </div>
+            <div>
+              <p class="hover_show">
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧!
+                大自然是我們的好朋友，快來一起體驗以前農村生活的小玩意吧！
+              </p>
+              <p>探索 荒野峽谷 體驗不一樣的露營模式</p>
+            </div>
           </div>
+        </div>
+        <div class="bk_process_button_container">
+          <button class="bk_process_prev">
+            <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+          </button>
+          <button class="bk_process_prev">
+            下一步
+            <img src="../assets/booking_arrow_next.png" alt="" />
+          </button>
         </div>
       </div>
     </div>
@@ -34,5 +70,5 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import '../assets/scss/style.scss';
+@import '../assets/scss/style.scss';
 </style>
