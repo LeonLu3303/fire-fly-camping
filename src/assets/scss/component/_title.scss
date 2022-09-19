@@ -22,14 +22,15 @@
     justify-content: center;
     align-items: center;
     color: aqua;
+    padding: 0 0 50px;
 }
-.title_main::before{
-    width: 40px;
-    height: 40px;
-    background: url(/src/assets/images/main_title_left.png);
-}
-.title_main::after{
-    width: 40px;
-    height: 40px;
-    background: url(/src/assets/images/main_title_left.png);
-}
+// .title_main::before{
+//     width: 40px;
+//     height: 40px;
+//     background: url(/src/assets/images/main_title_left.png);
+// }
+// .title_main::after{
+//     width: 40px;
+//     height: 40px;
+//     background: url(/src/assets/images/main_title_left.png);
+// }

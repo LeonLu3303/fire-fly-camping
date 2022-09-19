@@ -1,19 +1,19 @@
 <template>
-    <div class="page_banner">
-        <h1 class="banner_title">{{pageTitle}}</h1>
-    </div>
     <section class="wrap_report_publish">
         <div class="container">
             <div class="title_main">
-                <h2>{{titleMain}}</h2>
+                <h2>發佈報告</h2>
             </div>
-
+            <div>
+                <h3></h3>
+                <p></p>
+            </div>
             <div class="row_report_write">
+
                 <div class="col_postcard">
-                    <div></div>
                     <div class="postcard_user_data">
                         <div class="postcard_user_pic">
-                            <!-- <img src="../assets/images/avatar_1.png" alt="avatar"> -->
+                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
                         </div>
                         <div class="postcard_user_name">1313</div>
                     </div>
@@ -38,16 +38,15 @@
 <script>
 export default {
     name: "ReportPublish",
-    data(){
-        return{
-            titleMain: "發佈報告"
-        }
-    }
 }
 </script>
 
 <style lang="scss">
     @import '../assets/scss/style.scss';
+
+    .row_report_write{
+        display: flex;
+    }
     .row_report_write .enter_text{
         width: 100%;
         height: 200px;
@@ -55,6 +54,17 @@ export default {
     .col_postcard{
         width: 60%;
         height: 500px;
-        background: #aaa;
+        background : url(../assets/images/report_jungle_p.png) center center;
+        background-size: contain;
+        padding: 0 20px;
+    }
+    .col_write_text{
+        width: 30%;
+        padding: 0 20px;
+    }
+    .postcard_user_pic{
+        width: 120px;
+        border-radius: 60px;
+        overflow: hidden;
     }
 </style>
