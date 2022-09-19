@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/booking">Booking</router-link>|
+    <router-link to="/booking">營區預訂</router-link>|
     <router-link to="/Shopping">Shopping</router-link>|
     <router-link to="/report">營火報告</router-link>|
   </nav>
