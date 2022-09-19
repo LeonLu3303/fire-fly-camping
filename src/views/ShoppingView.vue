@@ -6,11 +6,7 @@
           <div class="product_list_group">
             <h3>所有商品</h3>
             <hr />
-            <ul
-              class="product_list"
-              v-for="(product_list, index) in product_list"
-              :key="index"
-            >
+            <ul class="product_list">
               <li>T恤</li>
               <li>帽T</li>
               <li>漁夫帽</li>
@@ -56,42 +52,42 @@ export default {
       itemList: [
         {
           id: "hat_1",
-          img: "./images/prod-hat-1.jpg",
+          img: "../assets/images/shopping-prod-hat-green.jpg",
           title: "營火叢不怕風吹帽",
           price: 2680,
           // color: green
         },
         {
           id: "hat_2",
-          img: "./images/prod-hat-2.jpg",
+          img: "../assets/images/shopping-prod-hat-white.jpg",
           title: "營火叢漁夫帽",
           price: 2680,
           // color: white
         },
         {
           id: "mug_1",
-          img: "./images/prod-mug-1.jpg",
+          img: "../assets/images/shopping-prod-mug.jpg",
           title: "營火叢金勾杯",
           price: 2680,
           // color: white
         },
         {
           id: "bottle_1",
-          img: "./images/prod-bottle.jpg",
+          img: "../assets/images/shopping-prod-bottle.jpg",
           title: "營火叢多喝水瓶",
           price: 2680,
           // color: blue
         },
         {
           id: "top_1",
-          img: "./images/prod-top-1.jpg",
+          img: "../assets/images/shopping-prod-jumper",
           title: "營火叢帽t",
           price: 2680,
           // color: white
         },
         {
           id: "top_2",
-          img: "./images/prod-top-2.jpg",
+          img: "../assets/images/shopping-prod-tShirt",
           title: "營火叢t-shirt",
           price: 2680,
           // color: black
