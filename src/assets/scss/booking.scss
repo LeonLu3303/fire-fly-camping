@@ -211,10 +211,38 @@
               }
             }
           }
+          .bk_how_content_img {
+            display: flex;
+            width: 60%;
+            justify-content: space-between;
+            .bk_how_content_img_two_block {
+              width: 49%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              .img_two_block {
+                width: 100%;
+                height: 49%;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+            .bk_how_content_img_one_block {
+              width: 49%;
+              height: 100%;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
         }
       }
       .bk_process_button_container {
-        padding: 60px 0;
         width: 100%;
         margin: auto;
         display: flex;

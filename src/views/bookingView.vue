@@ -77,6 +77,19 @@
                 <a class="btn_confirm" href="#">確認房型</a>
               </div>
             </div>
+            <div class="bk_how_content_img">
+              <div class="bk_how_content_img_two_block">
+                <div class="img_two_block top_container">
+                  <img src="https://picsum.photos/300/300/?random=10" />
+                </div>
+                <div class="img_two_block bottom_container">
+                  <img src="https://picsum.photos/300/300/?random=11" />
+                </div>
+              </div>
+              <div class="bk_how_content_img_one_block">
+                <img src="https://picsum.photos/300/600/?random=12" />
+              </div>
+            </div>
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button where_prev">
@@ -89,6 +102,7 @@
           </div>
         </div>
       </div>
+      <div class="bk_process_when"></div>
     </div>
   </div>
 </template>
