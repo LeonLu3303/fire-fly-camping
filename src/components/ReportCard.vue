@@ -4,7 +4,7 @@
             <div class="user_pic">
                 <!-- <img :src="item.userPic" alt="avatar"> -->
                 <!-- <img :src={{item.userPic}} alt=""> -->
-                <img src="../assets/images/report/avatar_1.png" alt="">
+                <img src="../assets/images/report_avatar_1.png" alt="">
             </div>
             <div class="user_data">
                 <h4 class="user_name">{{item.userName}}</h4>
@@ -16,8 +16,8 @@
             <p class="report_txt">{{item.reportTxt}}</p>
         </div>
         <div class="report_btn">
-            <div class="inform_icon"><img src="../assets/images/report/report_1.png" alt="report"></div>
-            <div class="message_icon"><img src="../assets/images/report/message_1.png" alt="report"></div>
+            <a class="inform_icon"><img src="../assets/images/report_inform_1.png" alt="report"></a>
+            <a class="message_icon"><img src="../assets/images/report_msge_1.png" alt="report"></a>
             <h4 class="message_count">{{messageCount}}</h4>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 cardReport: [
                     {
                         id:1,
-                        userPic: '../../src/assets/images/report/avatar_1.png',
+                        userPic: '../../src/assets/images/report_avatar_1.png',
                         userName: "1313",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -39,7 +39,7 @@
                     },
                     {
                         id:2,
-                        userPic: '../assets/images/report/avatar_2.png',
+                        userPic: '../assets/images/report_avatar_2.png',
                         userName: "TK律師",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -47,7 +47,7 @@
                     },
                     {
                         id:3,
-                        userPic: '../assets/images/report/avatar_3.png',
+                        userPic: '../assets/images/report_avatar_3.png',
                         userName: "小羽",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -55,7 +55,7 @@
                     },
                     {
                         id:4,
-                        userPic: '../assets/images/report/avatar_4.png',
+                        userPic: '../assets/images/report_avatar_4.png',
                         userName: "Esthermaru",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -63,7 +63,7 @@
                     },
                     {
                         id:5,
-                        userPic: '../assets/images/report/avatar_5.png',
+                        userPic: '../assets/images/report_avatar_5.png',
                         userName: "蕭董",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -71,7 +71,7 @@
                     },
                     {
                         id:6,
-                        userPic: '../assets/images/report/avatar_6.png',
+                        userPic: '../assets/images/report_avatar_6.png',
                         userName: "柏霖老師",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",

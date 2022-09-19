@@ -1,4 +1,7 @@
 <template>
+    <div class="page_banner">
+        <h1 class="banner_title">{{pageTitle}}</h1>
+    </div>
     <section class="wrap_report_publish">
         <div class="container">
             <div class="title_main">
