@@ -1,6 +1,9 @@
 <template>
   <div>
     <div id="view">
+      <div class="banner">
+        <img src="../assets/images/banner_shop.png" alt="" />
+      </div>
       <div class="container">
         <div class="wrap wrap_product_list">
           <div class="product_list_group">
@@ -44,7 +47,7 @@
   </div>
 </template>
   
-   <script>
+<script>
 export default {
   data() {
     return {
@@ -103,7 +106,8 @@ export default {
   watch: {},
 };
 </script>
-    <style>
+<style lang="scss">
+@import "../assets/scss/style.scss";
 .container {
   max-width: 1200px;
   display: flex;
