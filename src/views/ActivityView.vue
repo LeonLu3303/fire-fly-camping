@@ -160,10 +160,9 @@
           {{ canyonTitle }}
         </button>
         <div v-if="activeTab === 'jungle'" class="tabcontent" id="jungletab">
-            
-            <div class="tabcontent_jungle">
+            <div class="tabcontent_jungle_group">
                 <div class="tabcontent_jungle_picture">
-                    <img src="" alt="滑雪體驗">
+                    <img src="../assets/images/activity_tab1.jpg" alt="">
                 </div>
                 <div class="tabcontent_jungle_text">
                     <h3>{{skiTitle}}</h3>
@@ -177,7 +176,9 @@
                 <p>適合族群:{{group}}</p>
                 <p>注意事項:{{notice}}</p>
             </div>
+            
         </div>
+            
         <div v-else-if="activeTab === 'snow'" class="tabcontent" id="snowtab">
           哈哈哈哈
         </div>
