@@ -12,7 +12,7 @@
           <div class="bk_where_card">
             <div>
               <h3>叢林歷險</h3>
-              <button>預定</button>
+              <a class="btn_booking_min" href="#">預訂</a>
             </div>
             <div>
               <p class="hover_show">
@@ -25,7 +25,7 @@
           <div class="bk_where_card">
             <div>
               <h3>冰雪奇緣</h3>
-              <button>預定</button>
+              <a class="btn_booking_min" href="#">預訂</a>
             </div>
             <div>
               <p class="hover_show">
@@ -38,7 +38,7 @@
           <div class="bk_where_card">
             <div>
               <h3>荒野峽谷</h3>
-              <button>預定</button>
+              <a class="btn_booking_min" href="#">預訂</a>
             </div>
             <div>
               <p class="hover_show">
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <div class="bk_how_content_confirm">
-                <button>確認房型</button>
+                <a class="btn_confirm" href="#">確認房型</a>
               </div>
             </div>
           </div>

@@ -43,6 +43,7 @@
           h3 {
             // font-size: 28px;
             // font-weight: 800;
+<<<<<<< HEAD
             color: #f0ece7;
           }
           button {
@@ -53,6 +54,8 @@
             border-radius: 25px;
             background-color: transparent;
             border: 2px solid #f0ece7;
+=======
+>>>>>>> d0e9008f7677d1b8abd32f06c4feebf4430aab26
             color: #f0ece7;
           }
           p {
@@ -70,10 +73,6 @@
         .bk_where_card:hover {
           .hover_show {
             opacity: 1;
-          }
-          button {
-            background-color: #f0ece7;
-            color: #064444;
           }
         }
         .bk_where_card::before {
@@ -224,17 +223,6 @@
                   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
                   background: #4d8084;
                 }
-              }
-            }
-            .bk_how_content_confirm {
-              button {
-                width: 100px;
-                height: 40px;
-                font-size: 14px;
-                background-color: #168d80;
-                border: none;
-                border-radius: 20px;
-                color: #f0ece7;
               }
             }
           }
