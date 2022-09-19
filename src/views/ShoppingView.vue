@@ -2,7 +2,7 @@
   <div>
     <div id="view">
       <div class="banner">
-        <img src="../assets/banner_shop.png" alt="" />
+        <img src="../assets/images/banner_shop.png" alt="" />
       </div>
       <div class="container">
         <div class="wrap wrap_product_list">
@@ -50,52 +50,52 @@
     </div>
   </div>
 </template>
-  
-   <script>
+
+<script>
 export default {
   data() {
     return {
       cart_count: 0,
       itemList: [
         {
-          id: "hat_1",
-          img: "./images/prod-hat-1.jpg",
-          title: "營火叢不怕風吹帽",
+          id: 'hat_1',
+          img: './images/prod-hat-1.jpg',
+          title: '營火叢不怕風吹帽',
           price: 2680,
           // color: green
         },
         {
-          id: "hat_2",
-          img: "./images/prod-hat-2.jpg",
-          title: "營火叢漁夫帽",
+          id: 'hat_2',
+          img: './images/prod-hat-2.jpg',
+          title: '營火叢漁夫帽',
           price: 2680,
           // color: white
         },
         {
-          id: "mug_1",
-          img: "./images/prod-mug-1.jpg",
-          title: "營火叢金勾杯",
+          id: 'mug_1',
+          img: './images/prod-mug-1.jpg',
+          title: '營火叢金勾杯',
           price: 2680,
           // color: white
         },
         {
-          id: "bottle_1",
-          img: "./images/prod-bottle.jpg",
-          title: "營火叢多喝水瓶",
+          id: 'bottle_1',
+          img: './images/prod-bottle.jpg',
+          title: '營火叢多喝水瓶',
           price: 2680,
           // color: blue
         },
         {
-          id: "top_1",
-          img: "./images/prod-top-1.jpg",
-          title: "營火叢帽t",
+          id: 'top_1',
+          img: './images/prod-top-1.jpg',
+          title: '營火叢帽t',
           price: 2680,
           // color: white
         },
         {
-          id: "top_2",
-          img: "./images/prod-top-2.jpg",
-          title: "營火叢t-shirt",
+          id: 'top_2',
+          img: './images/prod-top-2.jpg',
+          title: '營火叢t-shirt',
           price: 2680,
           // color: black
         },
@@ -110,7 +110,7 @@ export default {
   watch: {},
 };
 </script>
-    <style>
+<style>
 .container {
   max-width: 1200px;
   display: flex;
