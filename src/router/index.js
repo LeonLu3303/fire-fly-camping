@@ -1,8 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import Test from '../views/TestView.vue';
-import Activity from '../views/ActivityView.vue';
-import ReportView from '../views/ReportView.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import Activity from '../views/ActivityView.vue'
+import ReportView from '../views/ReportView.vue'
 import ShoppingView from '../views/ShoppingView.vue';
 
 const routes = [
@@ -10,12 +9,6 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-  },
-  {
-    path: '/Test',
-    name: 'Test',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/TestView.vue'),
   },
   {
     path: '/Activity',
