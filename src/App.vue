@@ -4,6 +4,7 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/booking">Booking</router-link>|
     <router-link to="/Shopping">Shopping</router-link>|
+    <router-link to="/report">營火報告</router-link>|
   </nav>
   <router-view />
 </template>

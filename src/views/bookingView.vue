@@ -1,7 +1,7 @@
 <template>
   <div class="booking_pages">
     <div class="bk_banner_container">
-      <img src="../assets/imgFile/booking_banner.jpg" alt="banner" />
+      <img src="../assets/images/booking/booking_banner.jpg" alt="banner" />
     </div>
     <div class="bk_process_container">
       <div class="bk_process_where">
@@ -33,4 +33,6 @@ export default {
   components: {},
 };
 </script>
-<style lang="scss" src="../assets/styles/booking.scss"></style>
+<style lang="scss">
+  @import '../assets/scss/style.scss';
+</style>

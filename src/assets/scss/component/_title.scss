@@ -1,0 +1,35 @@
+// .title_master {
+//     font-size: 30px;
+//     @include m(){
+//         font-size: 40px;
+//     }
+//     @include t(){
+//         font-size: 36px;
+//     }
+//     &::after {
+
+//     }
+//     &::before {
+
+//     }
+// }
+// .title_underline {
+//         font-size: 28px;
+//         border-bottom: 1px solid #333 ;
+// }
+.title_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+}
+.title_main::before{
+    width: 40px;
+    height: 40px;
+    background: url(/src/assets/images/title_left.png);
+}
+.title_main::after{
+    width: 40px;
+    height: 40px;
+    background: url(/src/assets/images/title_left.png);
+}

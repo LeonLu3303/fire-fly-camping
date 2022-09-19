@@ -1,13 +1,13 @@
 <template>
     <div>
-      
+
     <div id="view">
         <div class="container">
             <div class="wrap wrap_product_list">
                 <div class="product_list_group">
                     <h3>所有商品</h3>
                     <hr>
-                    <ul class="product_list" v-model="(product_list, index) in product_list" :key="index">
+                    <ul class="product_list" v-for="(product_list, index) in product_list" :key="index">
                         <li>T恤</li>
                         <li>帽T</li>
                         <li>漁夫帽</li>
@@ -37,6 +37,7 @@
                             <p>$ {{item.price}}</p>
                             <!-- <button @click="add_cart">❤️收藏</button> -->
                         </div>
+
 
                     </div>
                 </div>

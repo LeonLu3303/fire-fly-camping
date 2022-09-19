@@ -1,0 +1,21 @@
+@mixin lg(){
+    @media screen and (max-width : 1200px) {
+        @content
+    }
+};
+@mixin tb(){
+    @media screen and (max-width : 1024px) {
+        @content
+    }
+};
+@mixin md(){
+    @media screen and (max-width : 768px) {
+        @content
+    }
+};
+
+@mixin sm(){
+    @media screen and (max-width : 375px) {
+        @content
+    }
+}
