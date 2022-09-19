@@ -64,6 +64,29 @@
           <div class="bk_how_icon_container">
             <img src="../assets/booking_how_icon.png" alt="" />
           </div>
+          <div class="bk_how_content_container">
+            <div class="bk_how_content_txt">
+              <h2>你要幾人的營帳？</h2>
+              <div class="bk_how_content_choose">
+                <div class="bk_how_content_people"><ChoosePeople /></div>
+                <div class="bk_how_content_campsite">
+                  <ChooseCamp />
+                </div>
+              </div>
+              <div class="bk_how_content_confirm">
+                <button>確認房型</button>
+              </div>
+            </div>
+          </div>
+          <div class="bk_process_button_container">
+            <button class="bk_process_button where_prev">
+              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+            </button>
+            <button class="bk_process_button where_next">
+              下一步
+              <img src="../assets/booking_arrow_next.png" alt="" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -71,9 +94,14 @@
 </template>
 
 <script>
+import ChoosePeople from '@/components/ChoosePeople.vue';
+import ChooseCamp from '@/components/ChooseCamp.vue';
 export default {
   name: 'booking',
-  components: {},
+  components: {
+    ChoosePeople,
+    ChooseCamp,
+  },
 };
 </script>
 <style lang="scss">

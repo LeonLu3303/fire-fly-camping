@@ -140,6 +140,130 @@
             width: 100%;
           }
         }
+        .bk_how_content_container {
+          padding: 60px 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .bk_how_content_txt {
+            width: 25%;
+            h2 {
+              font-size: 48px;
+              font-weight: 800;
+              color: #2d5252;
+            }
+            .bk_how_content_choose {
+              display: flex;
+              .bk_how_content_people {
+                padding: 60px 0;
+                .ant-radio-group {
+                  width: 96px;
+                  border-radius: 10px;
+                }
+                .ant-radio-button-wrapper {
+                  text-align: center;
+                  height: 50px;
+                  line-height: 50px;
+                  padding: 0;
+                  margin: 0;
+                  border: none;
+                  display: block;
+                  color: #f0ece7;
+                  background: #8dccb9;
+                  font-size: 20px;
+                  font-weight: 600;
+                }
+                .ant-radio-button-wrapper:hover {
+                  background-color: #4d8084;
+                }
+                .ant-radio-button-wrapper::before {
+                  opacity: 0;
+                }
+                .ant-radio-button-wrapper:first-child {
+                  border-radius: 10px 10px 0 0;
+                }
+                .ant-radio-button-wrapper:last-child {
+                  border-radius: 0 0 10px 10px;
+                }
+                .ant-radio-group-solid
+                  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+                  background: #4d8084;
+                }
+              }
+              .bk_how_content_campsite {
+                padding: 60px 40px;
+                .ant-radio-group {
+                  width: 96px;
+                  border-radius: 10px;
+                }
+                .ant-radio-button-wrapper {
+                  text-align: center;
+                  height: 50px;
+                  line-height: 50px;
+                  padding: 0;
+                  margin: 0;
+                  border: none;
+                  display: block;
+                  color: #f0ece7;
+                  background: #8dccb9;
+                  font-size: 20px;
+                  font-weight: 600;
+                }
+                .ant-radio-button-wrapper:hover {
+                  background-color: #4d8084;
+                }
+                .ant-radio-button-wrapper::before {
+                  opacity: 0;
+                }
+                .ant-radio-button-wrapper:first-child {
+                  border-radius: 10px 10px 0 0;
+                }
+                .ant-radio-button-wrapper:last-child {
+                  border-radius: 0 0 10px 10px;
+                }
+                .ant-radio-group-solid
+                  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+                  background: #4d8084;
+                }
+              }
+            }
+            .bk_how_content_confirm {
+              button {
+                width: 100px;
+                height: 40px;
+                font-size: 14px;
+                background-color: #168d80;
+                border: none;
+                border-radius: 20px;
+                color: #f0ece7;
+              }
+            }
+          }
+        }
+      }
+      .bk_process_button_container {
+        padding: 60px 0;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        .bk_process_button {
+          border: none;
+          background-color: transparent;
+          display: flex;
+          width: 130px;
+          height: 40px;
+          font-size: 20px;
+          font-weight: 800;
+          color: #168d80;
+          line-height: 40px;
+          justify-content: space-between;
+          img {
+            display: block;
+            width: 40px;
+            height: 40px;
+          }
+        }
       }
     }
     .bk_process_how_many::before {
