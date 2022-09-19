@@ -1,5 +1,4 @@
 <template>
-    <PageBanner/>
     <ReportPublish/>
     <section class="wrap_card_report">
         <div class="container">
@@ -14,12 +13,10 @@
 </template>
 
 <script>
-import PageBanner from '@/components/PageBanner.vue';
 import ReportPublish from '@/components/ReportPublish.vue';
 import ReportCard from '@/components/ReportCard.vue';
 export default {
     components: {
-        PageBanner,
         ReportPublish,
         ReportCard,
     },

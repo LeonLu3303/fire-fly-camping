@@ -5,7 +5,6 @@ import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
+import Antd from 'ant-design-vue';
 
-import "./assets/scss/style.scss";
-
-createApp(App).use(DatePicker).use(store).use(router).mount('#app');
+createApp(App).use(Antd).use(DatePicker).use(store).use(router).mount('#app');

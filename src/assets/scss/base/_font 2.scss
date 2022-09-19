@@ -1,0 +1,29 @@
+/* 文字共用 */
+h1{
+    font-size: $title_h1;
+    font-weight: 700;
+    letter-spacing: 6px
+}
+h2{
+    font-size: $title_h2;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+h3{
+    font-size: $title_h3;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 34px;
+}
+h4{
+    font-size: $title_h4;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 24px;
+}
+p{
+    font-size: $fontSize;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
