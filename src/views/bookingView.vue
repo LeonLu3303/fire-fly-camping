@@ -1,7 +1,7 @@
 <template>
   <div class="booking_pages">
     <div class="bk_banner_container">
-      <img src="../assets/images/booking/booking_banner.jpg" alt="banner" />
+      <img src="../assets/images/banner_booking.png" alt="banner" />
     </div>
     <div class="bk_process_container">
       <div class="bk_process_where">
