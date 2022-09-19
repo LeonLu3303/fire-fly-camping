@@ -1,15 +1,9 @@
 <template>
   <div>
     <div id="view">
-<<<<<<< HEAD
       <div class="banner">
         <img src="../assets/images/banner_shop.png" alt="" />
       </div>
-=======
-      <!-- <div class="banner">
-        <img src="../assets/banner_shop.png" alt="" />
-      </div> -->
->>>>>>> 2a850f2 (no change)
       <div class="container">
         <div class="wrap wrap_product_list">
           <div class="product_list_group">
