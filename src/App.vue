@@ -9,7 +9,7 @@
     <router-link to="/Shopping">Shopping</router-link>|
     <router-link to="/report">營火報告</router-link>|
   </nav>
-  <router-view />
+  <router-view/>
 </template>
 
 <style lang="scss">

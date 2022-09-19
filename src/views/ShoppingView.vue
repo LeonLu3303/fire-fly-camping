@@ -1,6 +1,9 @@
 <template>
   <div>
     <div id="view">
+      <div class="banner">
+        <img src="../assets/banner_shop.png" alt="" />
+      </div>
       <div class="container">
         <div class="wrap wrap_product_list">
           <div class="product_list_group">
