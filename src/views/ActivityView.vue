@@ -178,7 +178,7 @@
             padding: 150px 0;
         }
         .activity_jungle{
-            background:linear-gradient(to bottom,$back_color-main1, $back_color-main2);
+            background:linear-gradient(to bottom,$color-main-yellow, $color-main-green);
         }
         .activity_ice{
             background:linear-gradient(to bottom,#F5F2E9, #A1C6E8);
@@ -187,7 +187,7 @@
             background:linear-gradient(to bottom,#F5F2E9, #D9B294);
         }
         .activity_overview{
-            background-color:$back_color-main1;
+            background-color:$color-main-yellow;
         }
         .wrapper{
             max-width: 1296px;
