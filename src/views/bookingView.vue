@@ -66,7 +66,10 @@
           </div>
           <div class="bk_how_content_container">
             <div class="bk_how_content_txt">
-              <h2>你要幾人的營帳？</h2>
+              <h2>
+                你要幾人的 <br />
+                營帳？
+              </h2>
               <div class="bk_how_content_choose">
                 <div class="bk_how_content_people"><ChoosePeople /></div>
                 <div class="bk_how_content_campsite">
