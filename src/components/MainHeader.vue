@@ -6,7 +6,7 @@
                     <li>
                         <router-link to="/Booking" class="reservation_icon">
                             <div class="reservation_icon_photo">
-                                <img src="../assets/images/main_icon_reservation.png" alt="營區預定">
+                                <img src="#" alt="營區預定">
                             </div>
                             <div class="reservation_icon_text">營區預訂</div>
                         </router-link>
@@ -14,14 +14,14 @@
                     <li>
                         <router-link to="/Member" class="account_icon">
                             <div class="account_icon_photo">
-                                <img src="../assets/images/main_icon_account.png" alt="登入註冊"> 
+                                <img src="#" alt="登入註冊"> 
                             </div>
                         </router-link>
                     </li>
                     <li>
                         <router-link to="/Bag" class="shoppingbag_icon">
                             <div class="shoppingbag_icon_photo">
-                                <img src="../assets/images/main_icon_shoppingbag.png" alt="購物車">
+                                <img src="#" alt="購物車">
                             </div>
                         </router-link>
                     </li>
