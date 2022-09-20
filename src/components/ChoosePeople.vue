@@ -18,5 +18,10 @@ export default defineComponent({
       value1,
     };
   },
+  watch: {
+    value1(e) {
+      this.$emit('update-result', e);
+    },
+  },
 });
 </script>
