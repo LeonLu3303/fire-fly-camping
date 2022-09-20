@@ -4,7 +4,9 @@
   </div>
   <section class="activity_jungle activity_wrapper">
     <div class="wrapper">
-      <h2 class="title_main activity_title">{{ jungleTitle }}</h2>
+        <div class="title_main">
+           <h2>{{ jungleTitle }}</h2>
+        </div>
       <div class="activity_group">
         <div class="activity_item">
           <div class="activity_item_tour activity_items">
@@ -48,7 +50,9 @@
   </section>
   <section class="activity_ice activity_wrapper">
     <div class="wrapper">
-      <h2 class="title_main activity_title">{{ iceTitle }}</h2>
+      <div class="title_main">
+        <h2>{{ iceTitle }}</h2>
+      </div>
       <div class="activity_group">
         <div class="activity_picture">
           <img
@@ -91,7 +95,9 @@
   </section>
   <section class="activity_canyon activity_wrapper">
     <div class="wrapper">
-      <h2 class="title_main activity_title">{{ canyonTitle }}</h2>
+      <div class="title_main">
+        <h2>{{ canyonTitle }}</h2>
+      </div>
       <div class="activity_group">
         <div class="activity_item">
           <div class="activity_item_ballon activity_items">
@@ -134,33 +140,49 @@
   </section>
   <section class="activity_overview activity_wrapper">
     <div class="wrapper">
-      <h2 class="title_main activity_title">{{ activityTitle }}</h2>
+      <div class="title_main">
+        <h2>{{ activityTitle }}</h2>
+      </div>
       <div class="activity_tabs">
         <button
           class="activity_tabs tab_jungle tab_title"
-          @click="activeTab = 'A'"
-        >
+          @click="activeTab = 'jungle'">
           {{ jungleTitle }}
         </button>
         <button
           class="activity_tabs tab_snow tab_title"
-          @click="activeTab = 'B'"
-        >
+          @click="activeTab = 'snow'">
           {{ iceTitle }}
         </button>
         <button
           class="activity_tabs tab_canyon tab_title"
-          @click="activeTab = 'C'"
-        >
+          @click="activeTab = 'canyon'">
           {{ canyonTitle }}
         </button>
-        <div v-if="activeTab === 'A'" class="tabcontent" id="jungletab">
-          哈哈
+        <div v-if="activeTab === 'jungle'" class="tabcontent" id="jungletab">
+            <div class="tabcontent_jungle_group">
+                <div class="tabcontent_jungle_picture">
+                    <img src="../assets/images/activity_tab1.jpg" alt="">
+                </div>
+                <div class="tabcontent_jungle_text">
+                    <h3>{{skiTitle}}</h3>
+                    <p>{{skiTabSub}}</p>
+                    <p>{{skiTabText}}</p>
+                </div>
+            </div>
+            <div class="tabcontent_jungle_notice">
+                <p>開放時間:{{openTime}}</p>
+                <p>體驗價格:{{priceSki}}</p>
+                <p>適合族群:{{group}}</p>
+                <p>注意事項:{{notice}}</p>
+            </div>
+            
         </div>
-        <div v-else-if="activeTab === 'B'" class="tabcontent" id="snowtab">
+            
+        <div v-else-if="activeTab === 'snow'" class="tabcontent" id="snowtab">
           哈哈哈哈
         </div>
-        <div v-else="activeTab === 'C'" class="tabcontent" id="canyontab">
+        <div v-else="activeTab === 'canyon'" class="tabcontent" id="canyontab">
           哈哈哈哈哈哈
         </div>
       </div>
@@ -203,6 +225,13 @@ export default {
         '臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，最有名的可能就像太魯閣峽谷，但是我們這個大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形、湍急的河水，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，臺灣的峽谷在短短幾年間就能形成，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇。',
       activityTitle: '活動介紹',
       activeTab: '',
+      skiTabSub:'彷彿置身雪國，滑雪設備',
+      notice:'心臟病、高血壓、脊椎/頸首部問題、骨質疏鬆症者、孕婦、身心不舒服者，請斟酌自己能力要不要參加，小心不要跌倒，我們不負責賠償，謝謝。',
+      skiTabText:'雪道變化是藉由調整機器坡度，主要的滑雪道介面是特殊材質滑雪毯比較像是毛毯換的感覺，鋼邊與之接觸模擬滑雪時的感覺，但是還是跟雪況有點不一樣，較沒有真雪蓬鬆厚度所產生的容錯率，因此滑行時要求的精準度更高，基本上需要一定的適應與訓練，另外摔倒要注意擦傷，iSKI都會提供的護具，務必要穿上。雪道變化是藉由調整機器坡度，主要的滑雪道介面是特殊材質滑雪毯比較像是毛毯換的感覺，另外摔倒要注意擦傷，iSKI都會提供的護具，務必要穿上。',
+      openTime:'每日08:30~17:30',
+      priceSki:'每人3,500元',
+      group:'全年齡喜歡刺激的人'
+      
     };
   },
 };
@@ -299,16 +328,19 @@ export default {
   background-color: #a6cec2;
   border: none;
   padding: 20px 30px;
+  cursor: pointer;
 }
 .tab_snow {
   background-color: #bcd4e8;
   border: none;
   padding: 20px 30px;
+  cursor: pointer;
 }
 .tab_canyon {
   background-color: #c99f7f;
   border: none;
   padding: 20px 30px;
+  cursor: pointer;
 }
 .tab_title {
   color: #537979;
@@ -329,10 +361,12 @@ export default {
 }
 #snowtab {
   background-color: #bcd4e8;
-  background-image: url(../assets/images/home_snow_2.png);
+  background-image: url(../assets/images/home_snow_3.png);
   background-size: cover;
 }
 #canyontab {
   background-color: #c99f7f;
+  background-image: url(../assets/images/home_canyon_2.png);
+  background-size: cover;
 }
 </style>
