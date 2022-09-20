@@ -4,21 +4,21 @@
             <div class="row">
                 <div class="footer_info">
                     <div class="footer_info_attention">
-                        <a href="#">預訂須知</a>｜
-                        <a href="#">使用者條款</a>｜
-                        <a href="#">隱私權政策</a>
+                        <router-link to="">預訂須知</router-link>｜
+                        <router-link to="">使用者條款</router-link>｜
+                        <router-link to="">隱私權政策</router-link>
                     </div>
                     <div class="footer_info_navigation">
-                        <a href="#">營區預訂</a>｜
-                        <a href="#">營區導覽</a>｜
-                        <a href="#">營區服務</a>｜
-                        <a href="#">營火報告</a>
+                        <router-link to="/booking">營區預訂</router-link>｜
+                        <router-link to="/Activity">營區導覽</router-link>｜
+                        <router-link to="/">營區服務</router-link>｜
+                        <router-link to="/report">營火報告</router-link>
                     </div>    
                     <div class="footer_info_navigation">
-                        <a href="#">最新消息</a>｜
-                        <a href="#">營火商城</a>｜
-                        <a href="#">登入註冊</a>｜
-                        <a href="#">會員中心</a>
+                        <router-link to="/">最新消息</router-link>｜
+                        <router-link to="/Shopping">營火商城</router-link>｜
+                        <router-link to="/">登入註冊</router-link>｜
+                        <router-link to="/Member">會員中心</router-link>
                     </div>
                     <hr>
                     <div class="footer_info_social_media">
@@ -55,80 +55,7 @@
 </script>
 
 <style lang="scss">
+    @import '../assets/scss/base/reset';
     @import '../assets/scss/style.scss';
-
-    footer{
-        width: 100%;
-        background-color: #4D8084;
-    }
-    .footer_cotainer{
-        padding: 60px 10%;
-    }
-    .row{
-        display: flex;
-        justify-content: space-between;
-    }
-    .footer_info{
-        margin: auto 0;
-    }
-    .footer_info_attention, .footer_info_navigation, .footer_info_social_media, .media_photo{
-        display: flex;
-    }
-    .footer_info_attention{
-        padding-bottom: 50px;
-        font-size: 20px;
-        font-weight: 600;
-        color: #FFFFFF;
-    }
-    .footer_info_navigation{
-        padding-bottom: 20px;
-        font-size: 20px;
-        font-weight: 600;
-        color: #FFFFFF;
-    }
-    a{
-        color: #FFFFFF;
-    }
-    .footer_info_social_media{
-        padding-top: 20px;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .media_photo{
-        width: 48px;
-        height: 48px;
-    }
-    .media_title{
-        font-size: 24px;
-        font-weight: 600;
-        color: #FFFFFF;
-    }
-    .footer_about_cotainer{
-        margin: auto 0;
-        padding: 50px 30px;
-        background-color: #FFFFFF;
-        border-radius: 10px;
-    }
-    .about_title{
-        text-align: center;
-        color: #4D8084;
-    }
-    .about_txt{
-        padding: 20px 0;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 600;
-        color:#454545;
-    }
-    .footer_logo{
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-    }
-    .copyright{
-        padding-top: 50px;
-        font-size: 12px;
-        text-align: center;
-        color: #FFFFFF;
-    }
+    @import '../assets/scss/layout/footer';
 </style>
