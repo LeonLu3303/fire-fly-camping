@@ -5,13 +5,18 @@
     </div>
     <!-- 發布報告 -->
     <ReportPublish/>
+    <!-- 報告討論 -->
     <section class="wrap_card_report">
         <div class="report_container">
             <div class="title_main">
                 <h2>報告討論</h2>
             </div>
+            <!-- 報告卡片 -->
             <div class="row_card_report">
                 <ReportCard/>
+                <div class="report_pagination">
+                    <a-pagination v-model:current="current" :total="100" />
+                </div>
             </div>
         </div>
     </section>
@@ -20,7 +25,9 @@
 <script>
 import ReportPublish from '@/components/ReportPublish.vue';
 import ReportCard from '@/components/ReportCard.vue';
-export default {
+// import { defineComponent, ref } from 'vue';
+
+export default{
     components: {
         ReportPublish,
         ReportCard,
@@ -28,10 +35,15 @@ export default {
 }
 </script>
 
+
+
 <style lang="scss">
-    // @import '../assets/scss/style.scss';
+    @import '../assets/scss/style.scss';
+
     section.wrap_card_report{
         margin: auto;
+        padding: 120px 0;
+        background: $color-main-yellow;
     }
     .report_container{
         margin: 0 10%;

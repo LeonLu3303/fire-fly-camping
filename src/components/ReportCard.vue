@@ -2,9 +2,8 @@
     <div class="col_card_report" v-for="item in cardReport" :key="item.id">
         <div class="report_user">
             <div class="user_pic">
-                <!-- <img :src="item.userPic" alt="avatar"> -->
-                <!-- <img :src={{item.userPic}} alt=""> -->
-                <img src="../assets/images/report_avatar_1.png" alt="">
+                <!-- 因為assets裡面的會被瀏覽器再編譯，所以需要require -->
+                <img :src="require(`../assets/images/report_avatar_${item.id}.png`)" alt="avatar">
             </div>
             <div class="user_data">
                 <h4 class="user_name">{{item.userName}}</h4>
@@ -31,35 +30,35 @@
                 cardReport: [
                     {
                         id:1,
-                        userPic: '../../src/assets/images/report_avatar_1.png',
+                        userPic: '../assets/images/report_avatar_1.png',
                         userName: "1313",
                         releaseTime: "2022/08/29",
-                        reportTitle: "我剛剛好像看到恐龍",
-                        reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!"
+                        reportTitle: "露營景色還是好美，難怪這麼多人愛露營",
+                        reportTxt: "第一次露營最大的心得感想就是好忙，一到營區把東西從車子拿出來擺定位、接著準備午餐、吃午餐、洗碗整理、休息、小孩放電、準備晚餐食材、煮晚餐、吃晚餐、洗碗整理、洗澡、準備睡覺，起床後準備早餐、吃早餐、洗碗整理、準備午餐、吃午餐、洗碗整理、收裝備、塞裝備、然後離開，一整個好忙好忙，時間一下子就過去了，回家還要繼續曬帳，跟想像中會無聊、時間多到可以放空的露營怎麼不太一樣，但是營區的景色還是好美，難怪這麼多人愛露營。"
                     },
                     {
                         id:2,
-                        userPic: '../assets/images/report_avatar_2.png',
+                        userPic: '../assets/images/report_avatar_1.png',
                         userName: "TK律師",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
-                        reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!"
+                        reportTxt: "啊~看錯惹，是你媽媽經過啦:P"
                     },
                     {
                         id:3,
                         userPic: '../assets/images/report_avatar_3.png',
                         userName: "小羽",
                         releaseTime: "2022/08/29",
-                        reportTitle: "我剛剛好像看到恐龍",
-                        reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!啊~看錯惹，是你媽媽經過啦:P啊~看錯惹，是你媽媽經過啦:P"
+                        reportTitle: "完蛋了心得",
+                        reportTxt: "我完蛋了QQ 我的動畫完蛋了"
                     },
                     {
                         id:4,
                         userPic: '../assets/images/report_avatar_4.png',
                         userName: "Esthermaru",
                         releaseTime: "2022/08/29",
-                        reportTitle: "我剛剛好像看到恐龍",
-                        reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!"
+                        reportTitle: "活動體驗超棒的",
+                        reportTxt: "不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!"
                     },
                     {
                         id:5,
@@ -121,6 +120,12 @@
     }
     .report_title{
         padding-bottom: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-align: justify;
     }
     .report_txt{
         overflow: hidden;
