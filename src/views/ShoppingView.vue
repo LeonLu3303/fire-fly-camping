@@ -83,14 +83,14 @@ export default {
         },
         {
           id: "top_1",
-          img: "../assets/images/shopping-prod-jumper",
+          img: "../assets/images/shopping-prod-jumper.jpg",
           title: "營火叢帽t",
           price: 2680,
           // color: white
         },
         {
           id: "top_2",
-          img: "../assets/images/shopping-prod-tShirt",
+          img: "../assets/images/shopping-prod-tShirt.jpg",
           title: "營火叢t-shirt",
           price: 2680,
           // color: black
