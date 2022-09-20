@@ -43,7 +43,7 @@ export default{
                 title:"神秘力量壟罩，叢林探險區域暫時關閉",
                 content:"近期有未知神秘力量壟罩著叢林探險區域，暫停叢林探險區域暫停開放，以防發生危險，待力量散去時將再度開放叢林探險區域，造成不便敬請見諒。",
                 news_post_time:"2022/09/10 12:39:56",
-                news_pic:"../../assets/images/news-3.jpg"
+                news_pic:"../assets/images/news-3.jpg"
             }
         ]
       }
