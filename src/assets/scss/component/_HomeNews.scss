@@ -1,6 +1,9 @@
 .wrap_News{
     background-color: #44726B;
 }
+.title_main.news{
+    color: #ffffff;
+}
 .news_container{
     max-width: 1200px;
     margin-right: auto;
@@ -11,6 +14,7 @@
     position: relative;
     align-items: flex-end;
     padding-top: 150px;
+    padding-bottom: 150px;
 }
 .news_box{
     width: 40%;
