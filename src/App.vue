@@ -7,8 +7,7 @@
     <router-link to="/booking">營區預訂</router-link>|
     <router-link to="/Shopping">Shopping</router-link>|
     <router-link to="/report">營火報告</router-link>|
-    <router-link to="/News">最新消息</router-link>|
-  </nav> -->
+  </nav>
   <router-view/>
 </template>
 
