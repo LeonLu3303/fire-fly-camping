@@ -23,10 +23,10 @@
                     <hr>
                     <div class="footer_info_social_media">
                         <p class="media_title">官方社群</p>
-                        <a class="media_photo" href="#"><img src="#" alt="營火叢instagrm"></a>
-                        <a class="media_photo" href="#"><img src="#" alt="營火叢twitter"></a>
-                        <a class="media_photo" href="#"><img src="#" alt="營火叢youtube"></a>
-                        <a class="media_photo" href="#"><img src="#" alt="營火叢facebook"></a>
+                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_instagram.png" alt="營火叢instagrm"></a>
+                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_twitter.png" alt="營火叢twitter"></a>
+                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_youtube.png" alt="營火叢youtube"></a>
+                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_facebook.png" alt="營火叢facebook"></a>
                     </div>
                 </div>
                 <div class="footer_about_cotainer">
