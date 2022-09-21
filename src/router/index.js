@@ -4,6 +4,7 @@ import Activity from '../views/ActivityView.vue';
 import ReportView from '../views/ReportView.vue';
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
+import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
@@ -33,7 +34,7 @@ const routes = [
   {
     path: '/Booking',
     name: 'Booking',
-    component: () => import('../views/BookingView.vue'),
+    component: () => import('../views/bookingView.vue'),
   },
   {
     path: '/News',
@@ -49,6 +50,11 @@ const routes = [
     path: '/report',
     name: 'report',
     component: ReportView,
+  },
+  {
+    path: '/reportMessage',
+    name: 'reportMessage',
+    component: ReportMessageView
   },
   {
     path: '/ShoppingDetails',

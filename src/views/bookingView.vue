@@ -127,10 +127,10 @@
               </h2>
               <div class="rangeDateShow">
                 <p>
-                  開始日期 <span>{{ dateStart }}</span>
+                  開始日期 <span>{{ getStart }}</span>
                 </p>
                 <p>
-                  結束日期 <span>{{ dateEnd }}</span>
+                  結束日期 <span>{{ getEnd }}</span>
                 </p>
               </div>
               <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
@@ -138,11 +138,7 @@
             </div>
             <div class="bk_when_calendar_select_container">
               <div class="bk_range_date_picker_controll">
-                <a-range-picker
-                  v-model:value="value1"
-                  :open="true"
-                  :ranges="ranges"
-                />
+                <DatePicker @update-result="updateWhenResult" />
               </div>
             </div>
           </div>
@@ -165,6 +161,8 @@
 import ChoosePeople from '@/components/ChoosePeople.vue';
 import ChooseCamp from '@/components/ChooseCamp.vue';
 import DatePickerVue from '@/components/DatePicker.vue';
+import dayjs, { Dayjs } from 'dayjs';
+import DatePicker from '../components/DatePicker.vue';
 
 export default {
   name: 'Booking',
@@ -172,11 +170,15 @@ export default {
     ChoosePeople,
     ChooseCamp,
     DatePickerVue,
+    DatePicker,
   },
   data() {
     return {
       step: 3,
       wherePick: '1',
+      getStart: dayjs().format('YYYY-MM-DD'),
+      getEnd: dayjs().format('YYYY-MM-DD'),
+      // getDate:,
     };
   },
   methods: {
@@ -185,6 +187,15 @@ export default {
     },
     updateHowResult(e) {
       console.log(e);
+    },
+    updateWhenResult(e) {
+      this.getStart = dayjs(e[0].$d).format('YYYY-MM-DD');
+      this.getEnd = dayjs(e[1].$d).format('YYYY-MM-DD');
+      console.log(
+        dayjs(e[0].$d).format('YYYY-MM-DD'),
+        '+',
+        dayjs(e[1].$d).format('YYYY-MM-DD')
+      );
     },
   },
 };
