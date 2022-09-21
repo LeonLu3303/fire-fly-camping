@@ -7,7 +7,7 @@
                 :src="require(`../assets/images/shopping_prod_${tempProduct.id}.jpg`)"
                 alt="hello"/>
             </div>
-            <div class="content">
+            <div class="shopping_content">
                 <h1>{{tempProduct.title}}</h1>
                 <p>單價：${{tempProduct.price}}</p>
                 <div class="btn_box">
@@ -23,12 +23,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="check_order">
-                <h2>查看購物車明細</h2>
-                <div class="check_out">
-                </div>
-                <button>結帳</button>
-            </div> -->
 </div>
 </template>
 <script>

@@ -1,8 +1,9 @@
 <template>
+  <img src="../assets/images/banner_shop.png" alt="">
   <div class="container">
     <div class="wrap wrap_product_list">
       <div class="product_list_group">
-        <h3>所有商品</h3>
+        <p>所有商品</p>
         <hr />
         <ul class="product_list">
           <li>T恤</li>
@@ -15,21 +16,14 @@
     </div>
 
     <div class="wrap_product_info">
-      <!-- <div class="breadcrumb">
-                    <h3>所有商品 / <span>上著 / 帽款 / 其它</span></h3> 
-                    <a href="./camp_cart.html" id="show_cart">
-                        <img class="cart" src="https://cdn-icons-png.flaticon.com/128/891/891407.png" alt="">
-                    </a> 
-                    <p>{{cart_count}}</p>
-
-                </div> -->
+      
       <div class="wrap_product" v-for="(item, index) in itemList"
           :key="index">
         <router-link to="/ShoppingDetails"
           @click="selectToDetails(item)"
           :href="`./camp_prod_info copy.html?id=${item.id}`"
         >
-          <div class="item">
+          <div class="wrap_product_item">
             <div class="img_box">
               <img
                 :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)"
@@ -37,10 +31,9 @@
               />
             </div>
 
-            <div class="content">
+            <div class="shop_product_content">
               <p>{{ item.title }}</p>
               <p>$ {{ item.price }}</p>
-              <!-- <button @click="add_cart">❤️收藏</button> -->
             </div>
           </div>
         </router-link>
@@ -146,68 +139,5 @@ export default {
 </script>
 <style lang="scss">
 @import "../assets/scss/style.scss";
-.container {
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
-}
 
-.wrap_product_list {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
-.product_list_group {
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.wrap_product_info {
-  width: 80%;
-}
-
-.img_box {
-  /* box-sizing: border-box; */
-  margin: 0.5rem;
-}
-
-.wrap_product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-ul {
-  list-style: none;
-}
-
-li,
-h3 {
-  padding: 0.5rem;
-}
-
-.content {
-  padding: 1rem;
-  background-color: #fff;
-}
-
-.item {
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-  margin: 1rem;
-  width: clamp(180px, calc((100vw - 375px) / 10.65 + 180px), 280px);
-  box-sizing: border-box;
-}
-
-.product_img {
-  width: 100%;
-  vertical-align: top;
-}
 </style>
