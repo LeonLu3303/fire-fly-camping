@@ -2,8 +2,8 @@
 
 
 <MainHeader></MainHeader>
-<ActivityIsland/>
 <HomeNews/>
+<ActivityIsland/>
 <MainFooter></MainFooter>
 
   <!-- loadingPage 建議寫法-->
