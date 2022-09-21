@@ -3,8 +3,8 @@
 
 <MainHeader/>
 <HomeReservation/>
-<ActivityIsland/>
 <HomeNews/>
+<HomeActivityIsland/>
 <MainFooter/>
 
   <!-- loadingPage 建議寫法-->
