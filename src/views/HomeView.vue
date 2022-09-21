@@ -1,10 +1,11 @@
 <template>
+<h1 class="sr_only">營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇</h1>
 
-
-<MainHeader></MainHeader>
+<MainHeader/>
+<HomeReservation/>
 <ActivityIsland/>
 <HomeNews/>
-<MainFooter></MainFooter>
+<MainFooter/>
 
   <!-- loadingPage 建議寫法-->
 
@@ -23,21 +24,23 @@
 <script>
 // @ is an alias to /src
 import MainHeader from '../components/MainHeader.vue'
+import HomeReservation from '../components/HomeReservation.vue'
 import HomeNews from '../components/HomeNews.vue'
 import ActivityIsland from '../components/ActivityIsland.vue'
 import MainFooter from '../components/MainFooter.vue'
 
-
-
 export default{
   components:{
     MainHeader,
+    HomeReservation,
     HomeNews,
     ActivityIsland,
     MainFooter
   }
 }
-  
+
+  //loadingPage 建議寫法
+
   // data() {
   //   return {
   //     isLoading: true,
@@ -60,4 +63,13 @@ export default{
   // mounted() {
   //   this.setFirstLoad();
   // },
+
 </script>
+
+<style lang="scss">
+  .sr_only{
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+  }
+</style>

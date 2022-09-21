@@ -1,0 +1,60 @@
+.reservation_camp{
+    width: 100%;
+    height: 800px;
+    background: url(/src/assets/images/home_jungle_all.png);
+    background-size: 100% 100%;
+    margin-top: 200px;
+    
+}
+.reservation_cotainer{
+    width: 80%;
+    margin-left: 10%;
+}
+.search_zone{
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.search_zone_title{
+    font-size: 48px;
+    color: #1F4F4F;
+}
+.search_zone_option{
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.option_theme select, 
+.option_tent select, 
+.option_month select{
+    width: 260px;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #555555;
+    box-shadow: 0 0 10px rgba(97, 97, 97,10%);
+    background-color: rgba(255, 255, 255, 80%);
+}
+
+
+.btn_search{
+    width: 200px;
+    height: 70px;    
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    background-color: #BC6C61;
+    border: transparent;
+    border-radius: 50px;
+}
