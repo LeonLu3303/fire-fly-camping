@@ -49,7 +49,7 @@ export default{
 <style lang="scss">
     @import '../assets/scss/style.scss';
 
-    section.wrap_card_report{
+    .wrap_card_report{
         margin: auto;
         padding: 150px 0;
         background: $color-main-yellow;
