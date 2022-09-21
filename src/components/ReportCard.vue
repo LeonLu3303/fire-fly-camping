@@ -87,6 +87,7 @@
 
 <style  lang="scss">
     @import '../assets/scss/style.scss';
+    
     .col_card_report{
         display: flex;
         flex-direction: column;

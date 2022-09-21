@@ -1,4 +1,5 @@
 <template>
+    <MainHeader/>
     <!-- banner -->
     <div class="banner">
         <img src="../assets/images/banner_report.png" alt="banner">
@@ -56,12 +57,19 @@
             </div>
         </div>
     </section>
+    <MainFooter/>
 </template>
 
 <script>
+import MainHeader from '../components/MainHeader.vue';
+import MainFooter from '../components/MainFooter.vue';
 
 export default{
     name: "ReportMessage",
+    components: {
+        MainHeader,
+        MainFooter,
+    },
     data() {
         return {
             enterTitle : "完蛋了心得",
