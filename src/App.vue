@@ -7,16 +7,15 @@
     <router-link to="/booking">營區預訂</router-link>|
     <router-link to="/Shopping">Shopping</router-link>|
     <router-link to="/report">營火報告</router-link>|
-    <router-link to="/News">最新消息</router-link>|
   </nav> -->
   <router-view/>
 </template>
 
 <style lang="scss">
-  // #app {
-  //   font-family: Avenir, Helvetica, Arial, sans-serif;
-  //   -webkit-font-smoothing: antialiased;
-  //   -moz-osx-font-smoothing: grayscale;
+  #app {
+     font-family: Avenir, Helvetica, Arial, sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
   //   text-align: center;
   //   color: #2c3e50;
   // }
@@ -32,5 +31,5 @@
   //       color: #42b983;
   //     }
   //   }
-  // }
+   }
   </style>

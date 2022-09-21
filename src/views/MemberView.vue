@@ -1,87 +1,72 @@
 <template>
-    <section>
-        <div class="banner">
-            <img src="../assets/images/banner_member.png" alt="banner" />
+    <MainHeader/>
+    <div class="banner">
+        <img src="../assets/images/banner_member.png" alt="banner" />
+    </div>
+    <section class="wrapper">
+        <div class="activity_tabs">
+        <button
+          class="activity_tabs tab_memdata tab_title"
+          @click="activeTab = 'jungle'">
+          會員資料
+        </button>
+        <button
+          class="activity_tabs tab_snow tab_title"
+          @click="activeTab = 'snow'">
+          營地預定查詢
+        </button>
+        <button
+          class="activity_tabs tab_canyon tab_title"
+          @click="activeTab = 'canyon'">
+          商品訂單查詢
+        </button>
+        <div v-if="activeTab === 'jungle'" class="tabcontent" id="jungletab">
+            <div class="tabcontent_group">
+                <div class="tabcontent_text">
+                    <h3>123</h3>
+                    <h4>123</h4>
+                    <p>123</p>
+                </div>
+            </div>
         </div>
-        <div class="group">
-            <a-tabs type="card" v-model:activeKey="activeKey">
-                <a-tab-pane key="1" tab="會員資料">
-                    <h2>{{userName}}</h2>
-                    <h3>編輯會員資料</h3>
-                    <div class="table_group">
-                        <div class="memtxt_group">
-                            <div class="memtxt">
-                            <p>暱稱:<input type="text"></p>
-                            <p>信箱:<input type="email"></p> 
-                            <p>密碼:<a href="">重設密碼</a></p>
-                            <p>電話:<input type="text"></p> 
-                        </div>
-                        <div class="memtxt">
-                            <p>縣市:<select name="" id="">
-                                <option value="">桃園市</option>
-                                <option value="">桃園市</option>
-                            </select></p>
-                            <p>鄉鎮市區:<select name="" id=""></select></p>
-                                <option value="">中壢區</option>  
-                            <p>地址:<textarea name="" id="" cols="20" rows="3"></textarea></p>
-                        </div>
-                        </div>
-                        
-                        <div class="mem_image" v-for="i in 6">
-                            <input  type="radio"><img src="../assets/images/activity_20.png" alt="">
-                        </div>
-                        <button>儲存</button>
-                    </div>
-                </a-tab-pane>
-
-                <a-tab-pane key="2" tab="營地預定查詢">
-                    
-                </a-tab-pane>
-
-                <a-tab-pane key="3" tab="商品訂單查詢">Content of Tab Pane 3</a-tab-pane>
-            </a-tabs> 
+            
+        <div v-else-if="activeTab === 'snow'" class="tabcontent" id="snowtab">
+          <div class="tabcontent_group">
+                <div class="tabcontent_text">
+                    <h3>123</h3>
+                    <h4>123</h4>
+                    <p>123</p>
+                </div>
+            </div>
         </div>
-        
+        <div v-else class="tabcontent" id="canyontab">
+          <div class="tabcontent_group">
+                <div class="tabcontent_text">
+                    <h3>123</h3>
+                    <h4>123</h4>
+                    <p>123</p>
+                </div>
+            </div>
+        </div>
+      </div> 
     </section>
+    <MainFooter/>
 </template>
 <script>
-    export default ({
-      data() {
-        return {
-            
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+export default {
+    components:{
+        MainHeader,
+        MainFooter
+    },
+    data(){
+        return{
+            activeTab: '',
         }
-      }
-    });
+    }
+    };
     </script>
     <style lang="scss">
-        /* 套件 */
-        .group{
-            width: 600px;
-            margin: 0 auto;
-            background-color:#6CAEA2;
-        }
-        .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab{
-            background-color:#6CAEA2;
-            border:none;
-        }
-        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-            color:#fff;
-        }
-        .ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before{
-            border:none;
-        }
-        .memtxt_group{
-            display: flex;
-            justify-content: space-evenly;
-        }
-        .memtxt{
-            text-align: start;
-        }
-        .mem_image{
-            display: inline-block;
-            img{
-                width: 50px;
-            }
-        }
-        
+       
     </style>
