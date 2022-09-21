@@ -1,6 +1,7 @@
 <template>
+<MainHeader></MainHeader>
   <img src="../assets/images/banner_shop.png" alt="">
-  <div class="container">
+  <div class="shop_container">
     <div class="wrap wrap_product_list">
       <div class="product_list_group">
         <p>所有商品</p>
@@ -40,10 +41,18 @@
       </div>
     </div>
   </div>
+  <MainFooter></MainFooter>
 </template>
   
 <script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+
 export default {
+  components:{
+    MainHeader,
+    MainFooter,
+  },
   data() {
     return {
       cart_count: 0,
@@ -139,5 +148,68 @@ export default {
 </script>
 <style lang="scss">
 @import "../assets/scss/style.scss";
+body{
+    background-color: $color-main-yellow;
+}
+.shop_container {
+    padding: 150px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10%;
+    margin-left: 10%;
+    box-sizing: border-box;
+  }
+  
+  .wrap_product_list {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  .product_list_group {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .wrap_product_info {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .img_box {
+    padding: 0.5rem;
+    // width: clamp(160px, calc((100vw - 375px) / 10.65 + 160px), 260px);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  
+  .product_list{
+    list-style: none;
+    li{
+      padding: 0.5rem;
+    }
+  }
+  
+  .shop_product_content {
+    padding: 1rem;
+    background-color: #fff;
+    p{
+        color: #000;
+    }
+}
 
+  .wrap_product_item {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 1rem;
+    width: clamp(180px, calc((100vw - 375px) / 10.65 + 180px), 280px);
+    box-sizing: border-box;
+  }
 </style>
