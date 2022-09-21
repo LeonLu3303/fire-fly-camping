@@ -127,26 +127,26 @@
               </h2>
               <div class="rangeDateShow">
                 <p>
-                  開始日期 <span>{{ dateStart }}</span>
+                  開始日期 <span>{{ getStart }}</span>
                 </p>
                 <p>
-                  結束日期 <span>{{ dateEnd }}</span>
+                  結束日期 <span>{{ getEnd }}</span>
                 </p>
               </div>
+              <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
+              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_when_calendar_select_container">
-              <a-range-picker
-                v-model:value="value1"
-                :open="true"
-                :ranges="ranges"
-              />
+              <div class="bk_range_date_picker_controll">
+                <DatePicker @update-result="updateWhenResult" />
+              </div>
             </div>
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 2">
               <img src="../assets/booking_arrow_prev.png" alt="" />上一步
             </button>
-            <button class="bk_process_button" @click="step = 3">
+            <button class="bk_process_button" @click="step = 4">
               下一步
               <img src="../assets/booking_arrow_next.png" alt="" />
             </button>
@@ -161,6 +161,8 @@
 import ChoosePeople from '@/components/ChoosePeople.vue';
 import ChooseCamp from '@/components/ChooseCamp.vue';
 import DatePickerVue from '@/components/DatePicker.vue';
+import dayjs, { Dayjs } from 'dayjs';
+import DatePicker from '../components/DatePicker.vue';
 
 export default {
   name: 'Booking',
@@ -168,11 +170,15 @@ export default {
     ChoosePeople,
     ChooseCamp,
     DatePickerVue,
+    DatePicker,
   },
   data() {
     return {
       step: 3,
       wherePick: '1',
+      getStart: dayjs().format('YYYY-MM-DD'),
+      getEnd: dayjs().format('YYYY-MM-DD'),
+      // getDate:,
     };
   },
   methods: {
@@ -181,6 +187,15 @@ export default {
     },
     updateHowResult(e) {
       console.log(e);
+    },
+    updateWhenResult(e) {
+      this.getStart = dayjs(e[0].$d).format('YYYY-MM-DD');
+      this.getEnd = dayjs(e[1].$d).format('YYYY-MM-DD');
+      console.log(
+        dayjs(e[0].$d).format('YYYY-MM-DD'),
+        '+',
+        dayjs(e[1].$d).format('YYYY-MM-DD')
+      );
     },
   },
 };
