@@ -391,12 +391,12 @@ export default {
 .activity_item_text{
   span{
     font-weight: 600;
-    padding:0 10px;
   }
   p{
-    padding: 10px;
+    padding: 15px 0;
     text-indent:2em;
     text-align: justify;
+    line-height: 2em;
   }
 }
 .activity_picture {
@@ -423,6 +423,9 @@ export default {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 2px 2px 1px 1px #44726B;
+  h3{
+    padding-bottom: 10px;
+  }
 }
 .activity_group_introduction {
   display: flex;
@@ -438,10 +441,10 @@ export default {
     position: relative;
     padding: 35px;
     h4{
-      padding:0 10px;
+      padding:10px 0;
+      color:$color-basic-gray2 ;
     }
     p{
-      padding: 10px;
       text-align: justify;
       text-indent:2em;
       line-height: 2em;
@@ -522,10 +525,10 @@ export default {
     width: 50%;
     padding:0 20px;
     h4{
-      padding:10px ;
+      padding:10px 0;
+      color:$color-basic-gray3 ;
     }
     p{
-      padding:10px;
       text-align: justify;
       text-indent:2em;
       line-height: 2em;
