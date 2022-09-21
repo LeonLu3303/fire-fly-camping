@@ -153,6 +153,50 @@
           </div>
         </div>
       </div>
+      <div class="bk_process_more_option" v-if="step == 4">
+        <div class="bk_process_more_container">
+          <div class="bk_icon_container">
+            <img src="../assets/booking_how_icon.png" alt="" />
+          </div>
+          <div class="bk_more_container">
+            <div class="bk_more_content_container">
+              <h2>
+                你要加選更多 <br />
+                方案？
+              </h2>
+              <div class="rangeDateShow">
+                <p>
+                  主題活動 <span>{{ getStart }}</span>
+                </p>
+                <p>
+                  其他裝備 <span>{{ getEnd }}</span>
+                </p>
+                <p>
+                  食材方案 <span>{{ getEnd }}</span>
+                </p>
+              </div>
+              <p>
+                生活無力嗎？ <br />
+                上班上到厭世嗎？ <br />
+                和朋友一起創造美好的回憶吧！
+              </p>
+              <button class="btn_confirm">提交</button>
+            </div>
+            <div class="bk_more_selector_container">
+              <TypeSelection />
+            </div>
+          </div>
+          <div class="bk_process_button_container">
+            <button class="bk_process_button" @click="step = 3">
+              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+            </button>
+            <button class="bk_process_button" @click="step = 5">
+              下一步
+              <img src="../assets/booking_arrow_next.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -162,7 +206,8 @@ import ChoosePeople from '@/components/ChoosePeople.vue';
 import ChooseCamp from '@/components/ChooseCamp.vue';
 import DatePickerVue from '@/components/DatePicker.vue';
 import dayjs, { Dayjs } from 'dayjs';
-import DatePicker from '../components/DatePicker.vue';
+import DatePicker from '@/components/DatePicker.vue';
+import TypeSelection from '@/components/TypeSelection.vue';
 
 export default {
   name: 'Booking',
@@ -171,10 +216,18 @@ export default {
     ChooseCamp,
     DatePickerVue,
     DatePicker,
+    TypeSelection,
   },
   data() {
     return {
-      step: 3,
+      bookingList: {
+        where: null,
+        howMany: null,
+        campType: null,
+        getGoingDate: null,
+        getLeaveDate: null,
+      },
+      step: 4,
       wherePick: '1',
       getStart: dayjs().format('YYYY-MM-DD'),
       getEnd: dayjs().format('YYYY-MM-DD'),
