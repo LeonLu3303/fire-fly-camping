@@ -4,6 +4,7 @@ import Activity from '../views/ActivityView.vue'
 import ReportView from '../views/ReportView.vue'
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
+import ReportMessageView from '../views/ReportMessageView.vue';
 
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
     path: '/report',
     name: 'report',
     component: ReportView,
+  },
+  {
+    path: '/reportMessage',
+    name: 'reportMessage',
+    component: ReportMessageView,
   },
 ];
 

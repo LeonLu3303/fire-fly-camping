@@ -16,8 +16,10 @@
         </div>
         <div class="report_btn">
             <a class="inform_icon"><img src="../assets/images/report_inform_1.png" alt="report"></a>
-            <a class="message_icon"><img src="../assets/images/report_msge_1.png" alt="report"></a>
-            <h4 class="message_count">{{messageCount}}</h4>
+            <router-link to="/reportMessage" class="message_icon">
+                <img src="../assets/images/report_msge_1.png" alt="report">
+                <span class="message_count">{{messageCount}}</span>
+            </router-link>
         </div>
     </div>
 </template>
@@ -79,7 +81,7 @@
                 ],
                 messageCount: 5
             }
-        }
+        },
     }
 </script>
 
@@ -88,7 +90,7 @@
     .col_card_report{
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 31%;
         height: 480px;
         margin: 10px;
         padding: 30px;
@@ -119,15 +121,16 @@
         padding: 20px 0;
     }
     .report_title{
-        padding-bottom: 10px;
+        margin-bottom: 10px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         text-align: justify;
     }
     .report_txt{
+        color: $color-basic-gray2;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -142,7 +145,18 @@
     }
     .inform_icon,
     .message_icon{
+        display: inline-block;
         width: 30px;
         margin: 0 8px;
+    }
+    .message_icon{
+        display: flex;
+    }
+    .message_icon span{
+        padding-left: 5px;
+        color: #939393;
+        font-size: 20px;
+        font-weight: 700;
+        vertical-align: middle;
     }
 </style>
