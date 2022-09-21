@@ -5,9 +5,7 @@
     </div>
     <div class="bk_process_container">
       <div class="bk_process_where" v-if="step == 1">
-        <div class="decoration_where">
-          <h2>你要去哪裡露營呢？</h2>
-        </div>
+        <h2>你要去哪裡露營呢？</h2>
         <div class="bk_where_block_container">
           <div class="bk_where_card" :class="{ onPick: wherePick == '1' }">
             <div>
@@ -202,6 +200,47 @@
       <div class="bk_process_confirm" v-if="step == 5">
         <div class="bk_process_confirm_container">
           <h2>你要確定欸？</h2>
+          <div class="bk_confirm_cards_container">
+            <div class="bk_confirm_card_container">
+              <h4>出發區域</h4>
+              <div class="middle_content">
+                <p>不知道拉</p>
+              </div>
+              <button @click="step = 1" class="btn_booking_min">修改</button>
+            </div>
+            <div class="bk_confirm_card_container">
+              <h4>我的營帳</h4>
+              <div class="middle_content">
+                <p>{{ howMany }}</p>
+                <p>{{ campType }}</p>
+              </div>
+              <button @click="step = 2" class="btn_booking_min">修改</button>
+            </div>
+            <div class="bk_confirm_card_container">
+              <h4>出發時間</h4>
+              <div class="middle_content">
+                <p class="bigMonth">{{ getStartMonth }}月</p>
+                <p class="bigDate">{{ getStartDate }}</p>
+              </div>
+              <button @click="step = 3" class="btn_booking_min">修改</button>
+            </div>
+            <div class="bk_confirm_card_container">
+              <h4>我的方案</h4>
+              <div class="middle_content">
+                <p>{{ whichActivity }}</p>
+                <p>{{ whichEquipment }}</p>
+                <p>{{ whichMeal }}</p>
+              </div>
+              <button @click="step = 4" class="btn_booking_min">修改</button>
+            </div>
+          </div>
+          <div class="bk_confirm_payment_container">
+            <p>訂單總金額</p>
+            <div class="bk_payment_show">
+              <p>＄{{ totalPay }}</p>
+              <button class="btn_confirm">結帳</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -235,52 +274,113 @@ export default {
         where: null,
         howMany: null,
         campType: null,
-        getGoingDate: null,
-        getLeaveDate: null,
+        getStartDate: dayjs().format('DD'),
+        getStartMonth: dayjs().format('MM'),
         whichActivity: null,
         whichEquipment: null,
         whichMeal: null,
         whichActivityShow: null,
         whichEquipmentShow: null,
         whichMealShow: null,
+        paymentTotal: null,
       },
-      step: 4,
+      step: 2,
       wherePick: '1',
       getStart: dayjs().format('YYYY-MM-DD'),
       getEnd: dayjs().format('YYYY-MM-DD'),
       // getDate:,
+      howManyDays: null,
     };
   },
   methods: {
     updateTypeResult(e) {
+      this.campType = e;
       console.log(e);
     },
     updateHowResult(e) {
+      this.howMany = e;
+
       console.log(e);
     },
     updateWhenResult(e) {
       this.getStart = dayjs(e[0].$d).format('YYYY-MM-DD');
       this.getEnd = dayjs(e[1].$d).format('YYYY-MM-DD');
+      this.getStartDate = dayjs(e[0].$d).format('DD');
+      this.getStartMonth = dayjs(e[0].$d).format('MM');
+      this.howManyDays = parseInt(
+        (dayjs(e[1].$d) - dayjs(e[0].$d)) / 3600 / 24 / 1000
+      );
       console.log(
         dayjs(e[0].$d).format('YYYY-MM-DD'),
         '+',
-        dayjs(e[1].$d).format('YYYY-MM-DD')
+        dayjs(e[1].$d).format('YYYY-MM-DD'),
+        '+',
+        this.howManyDays
       );
     },
     updateWhichResult1(e) {
       this.whichActivity = e;
-      this.whichActivityShow = e.label;
       console.log(e);
     },
     updateWhichResult2(e) {
       this.whichEquipment = e;
-      this.whichEquipmentShow = e.label;
       console.log(e);
     },
     updateWhichResult3(e) {
       this.whichMeal = e;
-      this.whichMealShow = e.label;
       console.log(e);
+    },
+  },
+  computed: {
+    totalPay() {
+      let sum = 0;
+      let basic = 6000;
+      let howMany = this.bookingList.howMany;
+      let campType = this.bookingList.campType;
+      let days = this.howManyDays;
+      let whichActivity = this.bookingList.whichActivity;
+      let whichEquipment = this.bookingList.whichEquipment;
+      let whichMeal = this.bookingList.whichMeal;
+
+      switch (howMany) {
+        case '2':
+          sum = basic;
+          break;
+        case '4':
+          sum = basic + 2000;
+          break;
+        case '6':
+          sum = basic + 4000;
+          break;
+      }
+
+      switch (campType) {
+        case 'a':
+          sum = sum * 1;
+          break;
+        case 'b':
+          sum = sum * 1.6;
+          break;
+        case 'c':
+          sum = sum * 1.4;
+          break;
+      }
+
+      sum = sum * days;
+
+      if (whichActivity != null) {
+        sum += 2000;
+      }
+      if (whichEquipment != null) {
+        sum += 2000;
+      }
+      if (whichMeal == '1' || whichMeal == '2') {
+        sum = sum + 1000 * days;
+      } else if (whichMeal == '3') {
+        sum = sum + 300 * days;
+      }
+
+      return sum;
     },
   },
 };

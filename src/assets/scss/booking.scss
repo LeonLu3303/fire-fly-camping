@@ -40,24 +40,18 @@
   .bk_process_container {
     width: 100vw;
     .bk_process_where {
+      padding: 60px 0;
       position: relative;
       width: 100%;
       min-height: 100vh;
-      .decoration_where {
-        width: 100%;
-        height: 325px;
-        background-color: #f0ece7;
-        padding-top: 60px;
-        text-align: center;
-        h2 {
-          // font-size: 48px;
-          // font-weight: 800;
-          color: #2d5252;
-        }
+      text-align: center;
+      h2 {
+        color: #2d5252;
       }
       .bk_where_block_container {
+        padding: 60px 0;
         width: 80%;
-        margin: -125px auto 0 auto;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         .bk_where_card {
@@ -73,6 +67,7 @@
           justify-content: space-between;
           h3 {
             color: #fff;
+            margin-bottom: 40px;
           }
           p {
             text-align: start;
@@ -140,6 +135,17 @@
           pointer-events: none;
         }
       }
+    }
+    .bk_process_where::before {
+      top: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 30%;
+      background-color: #f0ece7;
+      position: absolute;
+      text-align: center;
+      z-index: -1;
     }
     .bk_process_how_many {
       width: 100%;
@@ -436,6 +442,106 @@
       height: 100%;
       background-color: #f0ece7;
       z-index: -1;
+    }
+    .bk_process_confirm {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      background-color: transparent;
+      .bk_process_confirm_container {
+        padding: 60px 0;
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+        ::before {
+          content: '';
+          background-color: #f0ece7;
+          height: 30%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        h2 {
+          color: #2d5252;
+          font-size: 48px;
+          font-weight: 800;
+        }
+        .bk_confirm_cards_container {
+          flex-grow: 1;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          padding: 60px 0;
+          .bk_confirm_card_container {
+            height: 100%;
+            padding: 40px 10px;
+            width: 23%;
+            max-width: 300px;
+            height: 550px;
+            background-color: #fa0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            h4 {
+              color: #f0ece7;
+              font-style: 30px;
+              font-weight: 600;
+            }
+            .middle_content {
+              flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              p {
+                font-size: 40px;
+                color: #f0ece7;
+                font-weight: 800;
+                line-height: 80px;
+              }
+              .bigMonth {
+                font-size: 50 !important;
+                font-weight: 800 !important;
+              }
+              .bigDate {
+                font-size: 80px !important;
+                font-weight: 800 !important;
+              }
+            }
+
+            .btn_booking_min {
+              width: 60%;
+            }
+          }
+        }
+        .bk_confirm_payment_container {
+          width: 100%;
+          background-color: #f0ece7;
+          padding: 40px 10px;
+          margin-bottom: -60px;
+          display: flex;
+          justify-content: space-between;
+          p {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            font-weight: 600;
+          }
+          .bk_payment_show {
+            display: flex;
+            p {
+              padding-right: 20px;
+            }
+          }
+        }
+      }
     }
   }
 }
