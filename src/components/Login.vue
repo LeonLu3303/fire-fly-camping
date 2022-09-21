@@ -108,4 +108,5 @@
 
 <style lang="scss">
     @import '../assets/scss/style.scss';
+    @import '../assets/scss/page/_LoginView.scss';
 </style>
