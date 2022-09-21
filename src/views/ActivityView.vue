@@ -11,9 +11,11 @@
       <div class="activity_group">
         <div class="activity_item_group">
           <div class="activity_item_tour activity_items">
-            <!-- <div class="activity_item_tour_title">{{ tourTitle }}</div> -->
-            <div class="activity_item_text">
+            <div class="activity_item_tour_title" @click="show = !show">
               <h3>{{ tourTitle }}</h3>
+            </div> 
+            <div class="activity_item_text" v-show="show" >
+              <!-- <h3>{{ tourTitle }}</h3> -->
               <span>{{ jungleSub }}</span>
               <p>{{ tourText }}</p>
             </div>
@@ -236,6 +238,7 @@ export default {
     },
   data() {
     return {
+      show: true,
       jungleTitle: '叢林歷險',
       tourTitle: '遊覽動物',
       jungleSub: '叢林歷險',
@@ -267,13 +270,13 @@ export default {
       canyonText:
         '臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形、湍急的河水，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇。',
       activityTitle: '活動介紹',
-      activeTab: '',
       skiTabSub:'彷彿置身雪國，滑雪設備',
       notice:'心臟病、高血壓、脊椎/頸首部問題、骨質疏鬆症者、孕婦、身心不舒服者，請斟酌自己能力要不要參加，小心不要跌倒，我們不負責賠償，謝謝。',
       skiTabText:'雪道變化是藉由調整機器坡度，主要的滑雪道介面是特殊材質滑雪毯比較像是毛毯換的感覺，鋼邊與之接觸模擬滑雪時的感覺，但是還是跟雪況有點不一樣，較沒有真雪蓬鬆厚度所產生的容錯率，因此滑行時要求的精準度更高，基本上需要一定的適應與訓練，另外摔倒要注意擦傷，iSKI都會提供的護具，務必要穿上。雪道變化是藉由調整機器坡度，主要的滑雪道介面是特殊材質滑雪毯比較像是毛毯換的感覺，另外摔倒要注意擦傷，iSKI都會提供的護具，務必要穿上。',
       openTime:'每日08:30~17:30',
       priceSki:'每人3,500元',
       group:'全年齡喜歡刺激的人',
+      activeTab: 'jungle',
       cardJungle: [
                     {
                         id:'tour',
@@ -345,12 +348,11 @@ export default {
                         people:'全年齡喜歡刺激的人',
                         notice:'心臟病、高血壓、脊椎/頸首部問題、骨質疏鬆症者、孕婦、身心不舒服者，請斟酌自己能力要不要參加，小心不要跌倒，謝謝。'
                     }              
-                ],
-                
-      
-    };
-  },
-};
+                ],      
+    }
+  } 
+}
+
 </script>
 <style lang="scss">
 @import '../assets/scss/style.scss';
@@ -391,6 +393,8 @@ export default {
 .activity_item_text{
   span{
     font-weight: 600;
+    display: inline-block;
+    padding: 10px 0;
   }
   p{
     padding: 15px 0;
@@ -423,9 +427,6 @@ export default {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 2px 2px 1px 1px #44726B;
-  h3{
-    padding-bottom: 10px;
-  }
 }
 .activity_group_introduction {
   display: flex;
