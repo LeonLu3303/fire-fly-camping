@@ -133,20 +133,24 @@
                   結束日期 <span>{{ dateEnd }}</span>
                 </p>
               </div>
+              <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
+              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_when_calendar_select_container">
-              <a-range-picker
-                v-model:value="value1"
-                :open="true"
-                :ranges="ranges"
-              />
+              <div class="bk_range_date_picker_controll">
+                <a-range-picker
+                  v-model:value="value1"
+                  :open="true"
+                  :ranges="ranges"
+                />
+              </div>
             </div>
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 2">
               <img src="../assets/booking_arrow_prev.png" alt="" />上一步
             </button>
-            <button class="bk_process_button" @click="step = 3">
+            <button class="bk_process_button" @click="step = 4">
               下一步
               <img src="../assets/booking_arrow_next.png" alt="" />
             </button>
