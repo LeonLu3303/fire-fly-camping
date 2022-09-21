@@ -26,15 +26,16 @@
 import MainHeader from '../components/MainHeader.vue'
 import HomeReservation from '../components/HomeReservation.vue'
 import HomeNews from '../components/HomeNews.vue'
-import ActivityIsland from '../components/ActivityIsland.vue'
+import HomeActivityIsland from '../components/HomeActivityIsland.vue'
 import MainFooter from '../components/MainFooter.vue'
+
 
 export default{
   components:{
     MainHeader,
     HomeReservation,
     HomeNews,
-    ActivityIsland,
+    HomeActivityIsland,
     MainFooter
   }
 }

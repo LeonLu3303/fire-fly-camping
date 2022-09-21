@@ -24,7 +24,7 @@
                 <div class="report_pagination">
                     <a-pagination v-model:current="current" :total="100" />
                 </div>
-                <ReportLightBox/>
+                <!-- <ReportLightBox/> -->
             </div>
         </div>
     </section>
@@ -33,13 +33,13 @@
 <script>
 import ReportPublish from '@/components/ReportPublish.vue';
 import ReportCard from '@/components/ReportCard.vue';
-import ReportLightBox from '@/components/ReportLightBox.vue';
+// import ReportLightBox from '@/components/ReportLightBox.vue';
 
 export default{
     components: {
         ReportPublish,
         ReportCard,
-        ReportLightBox
+        // ReportLightBox
     },
 }
 </script>

@@ -1,0 +1,56 @@
+<template>
+  <a-space>
+    <a-select
+      v-model:value="value"
+      :options="options"
+      @focus="focus"
+      @change="handleChange"
+    ></a-select>
+  </a-space>
+</template>
+<script>
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  setup() {
+    const options = ref([
+      {
+        value: null,
+        label: '食材方案',
+        disabled: true,
+      },
+      {
+        value: '1',
+        label: '奢侈海鮮大餐',
+      },
+      {
+        value: '2',
+        label: '海陸雙重享受',
+      },
+      {
+        value: '3',
+        label: '養身素食通腸胃',
+      },
+    ]);
+
+    const focus = () => {
+      console.log('focus');
+    };
+
+    const handleChange = (value) => {
+      console.log(`selected ${value}`);
+    };
+
+    return {
+      focus,
+      handleChange,
+      value: ref('食材方案'),
+      options,
+    };
+  },
+  watch: {
+    value(e) {
+      this.$emit('update-result', e);
+    },
+  },
+});
+</script>

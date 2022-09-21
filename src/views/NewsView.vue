@@ -1,28 +1,38 @@
 <template>
+<MainHeader></MainHeader>
+<section class="wrap_news">
     <div id="app">
         <div class="banner">
             <img src="../assets/images/banner_news.png" alt="" />
         </div>
-        <div class="container">
-            <div class="box" 
+        <div class="news_v_container">
+            <div class="news_v_box" 
                 v-for="(news,index) in newsList"
-                :class="{reverse: index % 2 === 0}"
+                :class="{news_v_reverse: index % 2 === 0}"
                 :key="news">
-                <div class="pic">
-                    <!-- <img :src="require(`../assets/images/news_${news.index}.jpg`)" alt=""> -->
+                <div class="news_v_pic">
+                    <img :src="require(`../assets/images/news_${index}.jpg`)" alt="最新消息照片">
                 </div>
-                <div class="txt">
+                <div class="news_v_txt">
                     <h2>{{news.title}}</h2>
-                    <p class="content">{{news.content}}</p>
-                    <p class="post_time">{{news.news_post_time}}</p>
+                    <p class="news_v_content">{{news.content}}</p>
+                    <p class="news_v_post_time">{{news.news_post_time}}</p>
                 </div>
             </div>
         </div>
     </div>
+</section>
+<MainFooter></MainFooter>
 </template>
 
 <script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
 export default{
+    components:{
+    MainHeader,
+    MainFooter
+    },
     data(){
       return{//用陣列位置的方式紀錄資料
           //reverse:"red bold"
@@ -50,46 +60,7 @@ export default{
     }
 } 
 </script>
-<style>
-    .banner{
-        width: 100%;
-    }
-    .container{
-        max-width: 1200px;
-        margin-right: auto;
-        margin-left: auto;
-        box-sizing: border-box;
-    }
-    .box{
-        width: 100%;
-        height: 300px;
-        display:flex;
-        background-color: #f3f6fd;
-        margin:auto;
-        margin-bottom: 10px;
-    }
-    .pic{
-        width: 60%;
-        overflow: hidden;
-    }
-    .pic img{
-        width: 100%;
-    }
-    .txt{
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        word-wrap: break-word;
-        word-break: break-all;
-    }
-    .content{
-        flex-grow:1 ;
-    }
-    .bold {
-        font-weight: bold;
-    }
-    .reverse{
-        flex-direction: row-reverse;
-    }
+<style lang="scss">
+    @import '../assets/scss/base/reset';
+    @import '../assets/scss/style.scss';
 </style>
