@@ -1,7 +1,7 @@
 <template>
     <section class="wrap_News">
-        <div class="title_main" id="home_news">
-            <h2>最新消息</h2>
+        <div class="title_main" >
+            <h2 id="home_news">最新消息</h2>
         </div>
         <div class="news_container">
             <div class="news_box" 
