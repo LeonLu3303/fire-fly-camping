@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/images/main_logo_row.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ActivityIsland/>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
   name: "HomeView",
   components: {
     HelloWorld,
+
   },
 };
 </script>

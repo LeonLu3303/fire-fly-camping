@@ -1,5 +1,8 @@
 <template>
     <section>
+        <div class="banner">
+            <img src="../assets/images/banner_member.png" alt="banner" />
+        </div>
         <div class="group">
             <a-tabs type="card" v-model:activeKey="activeKey">
                 <a-tab-pane key="1" tab="會員資料">
@@ -27,7 +30,7 @@
                         <div class="mem_image" v-for="i in 6">
                             <input  type="radio"><img src="../assets/images/activity_20.png" alt="">
                         </div>
-                        <button>查詢</button>
+                        <button>儲存</button>
                     </div>
                 </a-tab-pane>
 
