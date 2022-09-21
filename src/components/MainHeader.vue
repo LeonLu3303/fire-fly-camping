@@ -12,7 +12,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/Member" class="account_icon">
+                        <router-link to="/Login" class="account_icon">
                             <div class="account_icon_photo">
                                 <img src="../assets/images/main_icon_account.png" alt="登入註冊"> 
                             </div>

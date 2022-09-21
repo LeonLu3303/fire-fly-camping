@@ -9,6 +9,7 @@ import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
 import ServiceView from '../views/ServiceView.vue';
+import LoginView from '../views/LoginView.vue';
 
 const routes = [
   {
@@ -27,14 +28,19 @@ const routes = [
     component: () => import('../views/MemberView.vue'),
   },
   {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue'),
+  },
+  {
     path: '/Booking',
     name: 'Booking',
-    component: () => import('../views/BookingView.vue'),
+    component: () => import('../views/bookingView.vue'),
   },
   {
     path: '/News',
     name: 'News',
-    component: () => import('../views/NewsView.vue'),
+    component:NewsView,
   },
   {
     path: '/Shopping',

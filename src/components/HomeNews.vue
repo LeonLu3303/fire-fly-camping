@@ -23,6 +23,9 @@
                 </div>
             </div>
         </div>
+        <div class="btn_spacing">
+                <router-link to ="/News" class="btn_page_link news_link">觀看更多</router-link>
+        </div>
     </section>
     
 </template>
