@@ -1,27 +1,30 @@
 <template>
-    <div class="news_title">
-        最新消息
-    </div>
-    <div class="news_container">
-        <div class="news_box" 
-            v-for="(news,index) in newsList"
-            :class="{
-                'mid':currentPage === index,
-                'left':currentPage === index-1,
-                'right':currentPage === index+1,
-            }"
-            :key="news"
-            @click="selectPage(index)">
-            <div class="news_pic">
-                <img :src="news.news_pic" alt="">
-            </div>
-            <div class="news_txt">
-                <h3>{{news.title}}</h3>
-                <p class="news_content">{{news.content}}</p>
-                <p class="news_post_time">{{news.news_post_time}}</p>
+    <section class="wrap_News">
+        <div class="title_main">
+            <h2>最新消息</h2>
+        </div>
+        <div class="news_container">
+            <div class="news_box" 
+                v-for="(news,index) in newsList"
+                :class="{
+                    'mid':currentPage === index,
+                    'left':currentPage === index-1,
+                    'right':currentPage === index+1,
+                }"
+                :key="news"
+                @click="selectPage(index)">
+                <div class="news_pic">
+                    <img :src="require(`../assets/images/news_${index}.jpg`)" alt="小島照片">
+                </div>
+                <div class="news_txt">
+                    <h3>{{news.title}}</h3>
+                    <p class="news_content">{{news.content}}</p>
+                    <p class="news_post_time">{{news.news_post_time}}</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    
 </template>
 
 <script>
@@ -60,6 +63,9 @@
     }
 </script>
 <style>
+    .wrap_News{
+        background-color: #44726B;
+    }
     .news_container{
         max-width: 1200px;
         margin-right: auto;
@@ -69,6 +75,7 @@
         justify-content: center;
         position: relative;
         align-items: flex-end;
+        margin-top: 150px;
     }
     .news_box{
         width: 40%;
@@ -109,15 +116,19 @@
     .news_pic{
         height: 100%;
         overflow: hidden;
-        position: absolute;
         z-index: -0;
         opacity: 0.5;
+        position: absolute;
     }
     .news_pic img{
         width: 100%;
+        display: block;
     }
     .news_txt{
         display: none;
+    }
+    .news_txt p{
+        padding: 8px;
     }
     .news_txt h3{
         color: transparent;
