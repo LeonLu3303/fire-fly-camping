@@ -14,9 +14,15 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   setup() {
     const value1 = ref('a');
+
     return {
       value1,
     };
+  },
+  watch: {
+    value1(e) {
+      this.$emit('update-result', e);
+    },
   },
 });
 </script>

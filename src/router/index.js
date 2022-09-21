@@ -1,10 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Activity from '../views/ActivityView.vue'
-import ReportView from '../views/ReportView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import Activity from '../views/ActivityView.vue';
+import ReportView from '../views/ReportView.vue';
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
 import ReportMessageView from '../views/ReportMessageView.vue';
+import ShoppingDetails from '../views/ShoppingDetails.vue';
 
 
 const routes = [
@@ -29,8 +30,8 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/MemberView.vue'),
   },
   {
-    path: '/booking',
-    name: 'booking',
+    path: '/Booking',
+    name: 'Booking',
     component: () => import('../views/bookingView.vue'),
   },
   {
@@ -51,7 +52,12 @@ const routes = [
   {
     path: '/reportMessage',
     name: 'reportMessage',
-    component: ReportMessageView,
+    component: ReportMessageView
+  },
+  {
+    path: '/ShoppingDetails',
+    name: 'ShoppingDetails',
+    component: ShoppingDetails,
   },
 ];
 

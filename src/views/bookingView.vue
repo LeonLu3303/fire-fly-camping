@@ -4,15 +4,17 @@
       <img src="../assets/images/banner_booking.png" alt="banner" />
     </div>
     <div class="bk_process_container">
-      <div class="bk_process_where">
+      <div class="bk_process_where" v-if="step == 1">
         <div class="decoration_where">
           <h2>你要去哪裡露營呢？</h2>
         </div>
         <div class="bk_where_block_container">
-          <div class="bk_where_card">
+          <div class="bk_where_card" :class="{ onPick: wherePick == '1' }">
             <div>
               <h3>叢林歷險</h3>
-              <a class="btn_booking_min" href="#">預訂</a>
+              <button class="btn_booking_min" @click="wherePick = '1'">
+                預訂
+              </button>
             </div>
             <div>
               <p class="hover_show">
@@ -22,10 +24,12 @@
               <p>探索 叢林歷險 體驗不一樣的露營模式</p>
             </div>
           </div>
-          <div class="bk_where_card">
+          <div class="bk_where_card" :class="{ onPick: wherePick == '2' }">
             <div>
               <h3>冰雪奇緣</h3>
-              <a class="btn_booking_min" href="#">預訂</a>
+              <button class="btn_booking_min" @click="wherePick = '2'">
+                預訂
+              </button>
             </div>
             <div>
               <p class="hover_show">
@@ -35,10 +39,12 @@
               <p>探索 冰雪奇緣 體驗不一樣的露營模式</p>
             </div>
           </div>
-          <div class="bk_where_card">
+          <div class="bk_where_card" :class="{ onPick: wherePick == '3' }">
             <div>
               <h3>荒野峽谷</h3>
-              <a class="btn_booking_min" href="#">預訂</a>
+              <button class="btn_booking_min" @click="wherePick = '3'">
+                預訂
+              </button>
             </div>
             <div>
               <p class="hover_show">
@@ -50,18 +56,18 @@
           </div>
         </div>
         <div class="bk_process_button_container">
-          <button class="bk_process_button where_prev">
+          <button class="bk_process_button">
             <img src="../assets/booking_arrow_prev.png" alt="" />上一步
           </button>
-          <button class="bk_process_button where_next">
+          <button class="bk_process_button" @click="step = 2">
             下一步
             <img src="../assets/booking_arrow_next.png" alt="" />
           </button>
         </div>
       </div>
-      <div class="bk_process_how_many">
+      <div class="bk_process_how_many" v-if="step == 2">
         <div class="bk_process_how_many_container">
-          <div class="bk_how_icon_container">
+          <div class="bk_icon_container">
             <img src="../assets/booking_how_icon.png" alt="" />
           </div>
           <div class="bk_how_content_container">
@@ -71,9 +77,11 @@
                 營帳？
               </h2>
               <div class="bk_how_content_choose">
-                <div class="bk_how_content_people"><ChoosePeople /></div>
+                <div class="bk_how_content_people">
+                  <ChoosePeople @update-result="updateHowResult" />
+                </div>
                 <div class="bk_how_content_campsite">
-                  <ChooseCamp />
+                  <ChooseCamp @update-result="updateTypeResult" />
                 </div>
               </div>
               <div class="bk_how_content_confirm">
@@ -95,17 +103,56 @@
             </div>
           </div>
           <div class="bk_process_button_container">
-            <button class="bk_process_button where_prev">
+            <button class="bk_process_button" @click="step = 1">
               <img src="../assets/booking_arrow_prev.png" alt="" />上一步
             </button>
-            <button class="bk_process_button where_next">
+            <button class="bk_process_button" @click="step = 3">
               下一步
               <img src="../assets/booking_arrow_next.png" alt="" />
             </button>
           </div>
         </div>
       </div>
-      <div class="bk_process_when"></div>
+      <div class="bk_process_when" v-if="step == 3">
+        <div class="bk_process_when_container">
+          <div class="bk_icon_container">
+            <img src="../assets/booking_how_icon.png" alt="" />
+          </div>
+          <div class="bk_when_container">
+            <div class="bk_when_content_container">
+              <h2>
+                你要什麼時候
+                <br />
+                出發？
+              </h2>
+              <div class="rangeDateShow">
+                <p>
+                  開始日期 <span>{{ getStart }}</span>
+                </p>
+                <p>
+                  結束日期 <span>{{ getEnd }}</span>
+                </p>
+              </div>
+              <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
+              <button class="btn_confirm">提交</button>
+            </div>
+            <div class="bk_when_calendar_select_container">
+              <div class="bk_range_date_picker_controll">
+                <DatePicker @update-result="updateWhenResult" />
+              </div>
+            </div>
+          </div>
+          <div class="bk_process_button_container">
+            <button class="bk_process_button" @click="step = 2">
+              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+            </button>
+            <button class="bk_process_button" @click="step = 4">
+              下一步
+              <img src="../assets/booking_arrow_next.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -113,11 +160,43 @@
 <script>
 import ChoosePeople from '@/components/ChoosePeople.vue';
 import ChooseCamp from '@/components/ChooseCamp.vue';
+import DatePickerVue from '@/components/DatePicker.vue';
+import dayjs, { Dayjs } from 'dayjs';
+import DatePicker from '../components/DatePicker.vue';
+
 export default {
-  name: 'booking',
+  name: 'Booking',
   components: {
     ChoosePeople,
     ChooseCamp,
+    DatePickerVue,
+    DatePicker,
+  },
+  data() {
+    return {
+      step: 3,
+      wherePick: '1',
+      getStart: dayjs().format('YYYY-MM-DD'),
+      getEnd: dayjs().format('YYYY-MM-DD'),
+      // getDate:,
+    };
+  },
+  methods: {
+    updateTypeResult(e) {
+      console.log(e);
+    },
+    updateHowResult(e) {
+      console.log(e);
+    },
+    updateWhenResult(e) {
+      this.getStart = dayjs(e[0].$d).format('YYYY-MM-DD');
+      this.getEnd = dayjs(e[1].$d).format('YYYY-MM-DD');
+      console.log(
+        dayjs(e[0].$d).format('YYYY-MM-DD'),
+        '+',
+        dayjs(e[1].$d).format('YYYY-MM-DD')
+      );
+    },
   },
 };
 </script>
