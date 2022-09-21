@@ -166,13 +166,13 @@
               </h2>
               <div class="rangeDateShow">
                 <p>
-                  主題活動 <span>{{ getStart }}</span>
+                  主題活動 <span>{{ whichActivityShow }}</span>
                 </p>
                 <p>
-                  其他裝備 <span>{{ getEnd }}</span>
+                  其他裝備 <span>{{ whichEquipmentShow }}</span>
                 </p>
                 <p>
-                  食材方案 <span>{{ getEnd }}</span>
+                  食材方案 <span>{{ whichMealShow }}</span>
                 </p>
               </div>
               <p>
@@ -183,7 +183,9 @@
               <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_more_selector_container">
-              <TypeSelection />
+              <SelectWhichActivity @update-result="updateWhichResult1" />
+              <SelectWhichEquipment @update-result="updateWhichResult2" />
+              <SelectWhichMeal @update-result="updateWhichResult3" />
             </div>
           </div>
           <div class="bk_process_button_container">
@@ -197,6 +199,11 @@
           </div>
         </div>
       </div>
+      <div class="bk_process_confirm" v-if="step == 5">
+        <div class="bk_process_confirm_container">
+          <h2>你要確定欸？</h2>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -207,7 +214,9 @@ import ChooseCamp from '@/components/ChooseCamp.vue';
 import DatePickerVue from '@/components/DatePicker.vue';
 import dayjs, { Dayjs } from 'dayjs';
 import DatePicker from '@/components/DatePicker.vue';
-import TypeSelection from '@/components/TypeSelection.vue';
+import SelectWhichActivity from '@/components/SelectWhichActivity.vue';
+import SelectWhichEquipment from '@/components/SelectWhichEquipment.vue';
+import SelectWhichMeal from '@/components/SelectWhichMeal.vue';
 
 export default {
   name: 'Booking',
@@ -216,7 +225,9 @@ export default {
     ChooseCamp,
     DatePickerVue,
     DatePicker,
-    TypeSelection,
+    SelectWhichActivity,
+    SelectWhichEquipment,
+    SelectWhichMeal,
   },
   data() {
     return {
@@ -226,6 +237,12 @@ export default {
         campType: null,
         getGoingDate: null,
         getLeaveDate: null,
+        whichActivity: null,
+        whichEquipment: null,
+        whichMeal: null,
+        whichActivityShow: null,
+        whichEquipmentShow: null,
+        whichMealShow: null,
       },
       step: 4,
       wherePick: '1',
@@ -249,6 +266,21 @@ export default {
         '+',
         dayjs(e[1].$d).format('YYYY-MM-DD')
       );
+    },
+    updateWhichResult1(e) {
+      this.whichActivity = e;
+      this.whichActivityShow = e.label;
+      console.log(e);
+    },
+    updateWhichResult2(e) {
+      this.whichEquipment = e;
+      this.whichEquipmentShow = e.label;
+      console.log(e);
+    },
+    updateWhichResult3(e) {
+      this.whichMeal = e;
+      this.whichMealShow = e.label;
+      console.log(e);
     },
   },
 };
