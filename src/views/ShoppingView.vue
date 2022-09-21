@@ -31,10 +31,15 @@
           <div class="wrap_product">
             <div class="item" v-for="(item, index) in itemList" :key="index">
               <div class="img_box">
-                <img :src="item.img" class="product_img" alt="" />
+                <img
+                  :src="
+                    require(`../assets/images/shopping_prod_${item.id}.jpg`)
+                  "
+                  alt=""
+                />
               </div>
 
-              <div class="content">
+              <div class="product_content">
                 <p>{{ item.title }}</p>
                 <p>$ {{ item.price }}</p>
                 <!-- <button @click="add_cart">❤️收藏</button> -->
@@ -54,46 +59,40 @@ export default {
       cart_count: 0,
       itemList: [
         {
-          id: "hat_1",
-          img: "../assets/images/shopping-prod-hat-green.jpg",
-          title: "營火叢不怕風吹帽",
-          price: 2680,
-          // color: green
-        },
-        {
-          id: "hat_2",
-          img: "../assets/images/shopping-prod-hat-white.jpg",
-          title: "營火叢漁夫帽",
-          price: 2680,
-          // color: white
-        },
-        {
-          id: "mug_1",
-          img: "../assets/images/shopping-prod-mug.jpg",
-          title: "營火叢金勾杯",
-          price: 2680,
-          // color: white
-        },
-        {
-          id: "bottle_1",
-          img: "../assets/images/shopping-prod-bottle.jpg",
+          id: "1",
+          img: "../assets/images/shopping_prod_1.jpg",
           title: "營火叢多喝水瓶",
           price: 2680,
-          // color: blue
         },
         {
-          id: "top_1",
-          img: "../assets/images/shopping-prod-jumper",
+          id: "2",
+          img: "../assets/images/shopping_prod_2.jpg",
+          title: "營火叢不怕風吹帽",
+          price: 2680,
+        },
+        {
+          id: "3",
+          img: "../assets/images/shopping_prod_3.jpg",
+          title: "營火叢漁夫帽",
+          price: 2680,
+        },
+        {
+          id: "4",
+          img: "../assets/images/shopping_prod_4.jpg",
           title: "營火叢帽t",
           price: 2680,
-          // color: white
         },
         {
-          id: "top_2",
-          img: "../assets/images/shopping-prod-tShirt",
-          title: "營火叢t-shirt",
+          id: "5",
+          img: "../assets/images/shopping_prod_5.jpg",
+          title: "營火叢金勾杯",
           price: 2680,
-          // color: black
+        },
+        {
+          id: "6",
+          img: "../assets/images/shopping_prod_6.jpg",
+          title: "營火叢T-Shirt",
+          price: 2680,
         },
       ],
     };

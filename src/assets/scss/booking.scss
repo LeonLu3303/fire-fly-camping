@@ -7,11 +7,42 @@
       object-fit: cover;
     }
   }
+  .bk_icon_container {
+    width: 110px;
+    img {
+      width: 100%;
+    }
+  }
+  .bk_process_button_container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    .bk_process_button {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      display: flex;
+      width: 130px;
+      height: 40px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #168d80;
+      line-height: 40px;
+      justify-content: space-between;
+      img {
+        display: block;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
   .bk_process_container {
     width: 100vw;
     .bk_process_where {
       position: relative;
       width: 100%;
+      min-height: 100vh;
       .decoration_where {
         width: 100%;
         height: 325px;
@@ -41,11 +72,11 @@
           align-items: flex-start;
           justify-content: space-between;
           h3 {
-            color: #f0ece7;
+            color: #fff;
           }
           p {
             text-align: start;
-            color: #f0ece7;
+            color: #fff;
             font-size: 14px;
             font-weight: 600;
           }
@@ -112,17 +143,12 @@
     }
     .bk_process_how_many {
       width: 100%;
+      min-height: 100vh;
       position: relative;
       .bk_process_how_many_container {
         padding: 60px 0;
         width: 80%;
         margin: auto;
-        .bk_how_icon_container {
-          width: 110px;
-          img {
-            width: 100%;
-          }
-        }
         .bk_how_content_container {
           padding: 60px 0;
           display: flex;
@@ -187,7 +213,7 @@
                   margin: 0;
                   border: none;
                   display: block;
-                  color: #f0ece7;
+                  color: #fff;
                   background: #8dccb9;
                   font-size: 20px;
                   font-weight: 600;
@@ -242,29 +268,6 @@
           }
         }
       }
-      .bk_process_button_container {
-        width: 100%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        .bk_process_button {
-          border: none;
-          background-color: transparent;
-          display: flex;
-          width: 130px;
-          height: 40px;
-          font-size: 20px;
-          font-weight: 800;
-          color: #168d80;
-          line-height: 40px;
-          justify-content: space-between;
-          img {
-            display: block;
-            width: 40px;
-            height: 40px;
-          }
-        }
-      }
     }
     .bk_process_how_many::before {
       content: '';
@@ -277,6 +280,55 @@
       z-index: -1;
     }
     .bk_process_how_many::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #f0ece7;
+      z-index: -1;
+    }
+    .bk_process_when {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      .bk_process_when_container {
+        width: 80%;
+        padding: 60px 0;
+        margin: 0 auto;
+        .bk_when_container {
+          display: flex;
+          .bk_when_content_container {
+            width: 30%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: space-between;
+            justify-content: center;
+            h2 {
+              font-size: 48;
+              font-weight: 800;
+              color: #2d5252;
+            }
+          }
+          .bk_when_calendar_select_container {
+            width: 70%;
+          }
+        }
+      }
+    }
+    .bk_process_when::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #fff;
+      z-index: -1;
+    }
+    .bk_process_when::after {
       content: '';
       position: absolute;
       top: 0;

@@ -1,89 +1,162 @@
 <template>
-  <section class="wrap_report_publish">
-    <div class="report_container">
-      <div class="title_main">
-        <h2>發佈報告</h2>
-      </div>
-      <div class="row_report_write">
-        <div class="col_postcard">
-          <div class="postcard_release">
-            <h3>請輸入標題</h3>
-            <p>請輸入內文</p>
-          </div>
-          <div class="postcard_user_data">
-            <div class="postcard_user_pic">
-              <img src="../assets/images/report_avatar_1.png" alt="avatar" />
+    <section class="wrap_report_publish">
+        <div class="report_container">
+            <div class="title_main">
+                <h2>發佈報告</h2>
             </div>
-            <h3 class="postcard_user_name">1313</h3>
-          </div>
-        </div>
+            <div class="row_report_write">
+                
+                <div class="col_postcard">
+                    <div class="postcard_release">
+                        <h3 class="postcard_title_area">{{enterTitle}}</h3>
+                        <p class="postcard_text_area">{{enterText}}</p>
+                    </div>
+                    <div class="postcard_user_data">
+                        <div class="postcard_user_pic">
+                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
+                        </div>
+                        <h3 class="postcard_user_name">會員名稱</h3>
+                    </div>
+                </div>
 
-        <form class="col_write_text">
-          <input id="enter_title" type="text" placeholder="請入標題" />
-          <textarea
-            id="enter_text"
-            name="enter_text"
-            placeholder="請輸入內文..."
-          ></textarea>
-          <button>發布報告</button>
-          <select class="btn_choose" name="bg_select" id="bg_select">
-            <option value="1">背景選擇</option>
-            <option value="2">叢林歷險</option>
-            <option value="3">冰選奇緣</option>
-            <option value="4">荒野峽谷</option>
-          </select>
-        </form>
-      </div>
-    </div>
-  </section>
+                <form class="col_write_text">
+                    <input class="enter_title" id="enter_title" type="text" maxlength="15" v-model="enterTitle">
+                    <textarea class="enter_text" id="enter_text" name="enter_text" type="text" maxlength="300" v-model="enterText"></textarea>
+                    <div class="confirm_choose_contain">
+                        <a class="btn_confirm" id="publish_report" href="#">發佈報告</a>
+                        <select class="btn_bg_choose" name="bg_select" id="bg_select">
+                            <option class="bg_choose" value="1">背景選擇</option>
+                            <option class="bg_choose" value="2">叢林歷險</option>
+                            <option class="bg_choose" value="3">冰雪奇緣</option>
+                            <option class="bg_choose" value="4">荒野峽谷</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
 export default {
-  name: "ReportPublish",
-};
+    name: "ReportPublish",
+    data() {
+        return {
+            enterTitle : "請輸入標題",
+            enterText : "請輸入內文",
+            userName: "1313"
+        }
+    }
+}
+
 </script>
 
 <style lang="scss">
-@import "../assets/scss/style.scss";
-.row_report_write {
-  display: flex;
-}
-.row_report_write .enter_text {
-  width: 100%;
-  height: 200px;
-}
-.col_postcard {
-  display: flex;
-  justify-content: center;
-  width: 70%;
-  height: 460px;
-  background: url(../assets/images/report_jungle_p.png) no-repeat center center;
-  background-size: cover;
-  padding: 0 20px;
-}
-.postcard_release {
-  width: 60%;
-}
-.postcard_user_data {
-  text-align: center;
-}
-.col_write_text {
-  width: 25%;
-  padding: 0 20px;
-}
-.postcard_user_pic {
-  width: 120px;
-  border-radius: 60px;
-  overflow: hidden;
-}
-#enter_title {
-  width: 300px;
-  height: 50px;
-  border-radius: 10px;
-  padding: 10px;
-  border: 1px solid $color-main-green;
-}
-#enter_text {
-}
+    @import '../assets/scss/style.scss';
+    .wrap_report_publish{
+        padding: 120px 0;
+    }
+    .row_report_write{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .col_postcard{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 65%;
+        height: 460px;
+        background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
+        @include lg(){
+            width: 80%;
+            height: 440px;
+            margin: 0 0 20px;
+            
+        }
+        @include tb(){
+            width: 100%;
+            height: 440px;
+        }
+        @include md(){
+            width: 100%;
+            height: 400px;
+        }
+    }
+    .postcard_title_area{
+        padding: 0 0 20px;
+        color: $color-basic-gray3;
+    }
+    .postcard_release{
+        width: 60%;
+    }
+    .postcard_user_data{
+        width: 18%;
+        text-align: center;
+    }
+    .postcard_user_data .postcard_user_name{
+        color: $color-basic-gray3;
+    }
+    .col_write_text{
+        width: 30%;
+        // padding: 0 20px;
+        @include lg(){
+            width: 80%;
+        }
+        @include tb(){
+            width: 100%;
+        }
+        @include md(){
+            width: 100%;
+        }
+    }
+    .postcard_user_pic{
+        width: 100%;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    .enter_title{
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid $color-main-green;
+        margin: 0 0 20px;
+    }
+    .enter_text{
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid $color-main-green;
+        resize: none;
+    }
+    .confirm_choose_contain{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .confirm_choose_contain .btn_confirm{
+        margin-right: 20px;
+    }
+    .btn_bg_choose{
+        width: 120px;
+        height: 40px;
+        font-size: $txt_btn;
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 10px;
+        color: $color-str-green;
+        background: $color-basic-White;
+        border: 2px solid $color-str-green;
+    }
 </style>
