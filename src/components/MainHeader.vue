@@ -21,7 +21,7 @@
                     <li>
                         <router-link to="/" class="shoppingbag_icon">
                             <div class="shoppingbag_icon_photo">
-                                <router-link to="/shoppingCart"><img src="../assets/images/shopping-cart.png" alt="購物車"></router-link>
+                                <router-link to="/shoppingCart"><img src="../assets/images/main_icon_shoppingbag.png" alt="購物車"></router-link>
                             </div>
                         </router-link>
                     </li>

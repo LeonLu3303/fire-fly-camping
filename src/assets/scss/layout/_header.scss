@@ -1,7 +1,6 @@
 .original_header_nav{
   width: 98%;
   height: 90px;
-  margin-top: 6px;
   margin-left: 1%;
   margin-left: 1%;
   display: flex;
@@ -16,6 +15,9 @@
 }
 .original_header{
   display: flex;
+}
+.original_header li{
+  padding-left: 12px;
 }
 .reservation_icon{
   width: 200px;
@@ -41,7 +43,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .shoppingbag_icon{
   width: 60px;
   height: 60px;
