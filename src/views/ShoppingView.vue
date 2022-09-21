@@ -81,7 +81,7 @@ export default {
         {
           id: "4",
           img: "../assets/images/shopping_prod_4.jpg",
-          title: "營火叢帽t",
+          title: "營火叢帽Ｔ",
           price: 2680,
           qty: 1
         },
