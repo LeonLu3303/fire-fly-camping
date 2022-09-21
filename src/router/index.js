@@ -10,7 +10,6 @@ import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
 import ServiceView from '../views/ServiceView.vue';
 
-
 const routes = [
   {
     path: '/',
@@ -33,7 +32,7 @@ const routes = [
   {
     path: '/Booking',
     name: 'Booking',
-    component: () => import('../views/BookingView.vue'),
+    component: () => import('../views/bookingView.vue'),
   },
   {
     path: '/News',
@@ -53,7 +52,7 @@ const routes = [
   {
     path: '/reportMessage',
     name: 'reportMessage',
-    component: ReportMessageView
+    component: ReportMessageView,
   },
   {
     path: '/ShoppingDetails',

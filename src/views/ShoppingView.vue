@@ -4,14 +4,14 @@
   <div class="shop_container">
     <div class="wrap wrap_product_list">
       <div class="product_list_group">
-        <p>所有商品</p>
+        <h3>所有商品</h3>
         <hr />
         <ul class="product_list">
-          <li>T恤</li>
-          <li>帽T</li>
-          <li>漁夫帽</li>
-          <li>杯子</li>
-          <li>水瓶</li>
+          <li class="product_list_item">T恤</li>
+          <li class="product_list_item">帽T</li>
+          <li class="product_list_item">漁夫帽</li>
+          <li class="product_list_item">杯子</li>
+          <li class="product_list_item">水瓶</li>
         </ul>
       </div>
     </div>
@@ -33,8 +33,8 @@
             </div>
 
             <div class="shop_product_content">
-              <p>{{ item.title }}</p>
-              <p>$ {{ item.price }}</p>
+              <h3>{{ item.title }}</h3>
+              <h4>$ {{ item.price }}</h4>
             </div>
           </div>
         </router-link>
@@ -81,7 +81,7 @@ export default {
         {
           id: "4",
           img: "../assets/images/shopping_prod_4.jpg",
-          title: "營火叢帽t",
+          title: "營火叢帽Ｔ",
           price: 2680,
           qty: 1
         },
@@ -170,6 +170,7 @@ body{
   .product_list_group {
     background-color: #fff;
     border-radius: 10px;
+    padding: 1rem;
   }
   
   .wrap_product_info {
@@ -190,8 +191,10 @@ body{
   
   .product_list{
     list-style: none;
-    li{
+    .product_list_item{
       padding: 0.5rem;
+      font-size: 16px;
+      letter-spacing: 1px;
     }
   }
   
@@ -204,12 +207,16 @@ body{
 }
 
   .wrap_product_item {
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     margin: 1rem;
     width: clamp(180px, calc((100vw - 375px) / 10.65 + 180px), 280px);
     box-sizing: border-box;
-  }
+    // &:hover{
+    //   transform: scale(1.1);
+    //   transition: .5s ease-in;
+    }
+  
 </style>

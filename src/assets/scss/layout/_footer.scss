@@ -1,9 +1,11 @@
 footer{
-    width: 100%;
     background-color: #4D8084;
 }
 .footer_cotainer{
-    padding: 60px 10%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 60px 0
 }
 .row{
     display: flex;
@@ -36,8 +38,8 @@ a{
     align-items: center;
 }
 .media_photo{
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 }
 .media_title{
     font-size: 24px;
@@ -46,7 +48,7 @@ a{
 }
 .footer_about_cotainer{
     margin: auto 0;
-    padding: 50px 30px;
+    padding: 30px 30px;
     background-color: #FFFFFF;
     border-radius: 10px;
 }
@@ -62,8 +64,8 @@ a{
     color:#454545;
 }
 .footer_logo{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto;
 }
 .copyright{
