@@ -6,7 +6,7 @@
                     <li>
                         <router-link to="/Booking" class="reservation_icon">
                             <div class="reservation_icon_photo">
-                                <img src="#" alt="營區預定">
+                                <img src="../assets/images/main_icon_reservation.png" alt="營區預定">
                             </div>
                             <div class="reservation_icon_text">營區預訂</div>
                         </router-link>
@@ -14,14 +14,14 @@
                     <li>
                         <router-link to="/Member" class="account_icon">
                             <div class="account_icon_photo">
-                                <img src="#" alt="登入註冊"> 
+                                <img src="../assets/images/main_icon_account.png" alt="登入註冊"> 
                             </div>
                         </router-link>
                     </li>
                     <li>
                         <router-link to="/Bag" class="shoppingbag_icon">
                             <div class="shoppingbag_icon_photo">
-                                <img src="#" alt="購物車">
+                                <img src="../assets/images/main_icon_shoppingbag.png" alt="購物車">
                             </div>
                         </router-link>
                     </li>
@@ -36,7 +36,7 @@
                     <li>
                         <router-link to="/Activity" class="hamburger_menu">
                             <div class="hamburger_menu_icon">
-                                <img src="#" alt="營區導覽">
+                                <img src="../assets/images/main_icon_map.png" alt="營區導覽">
                             </div>
                             <p class="hamburger_menu_text">營區導覽</p>
                         </router-link>
@@ -44,7 +44,7 @@
                     <li>
                         <router-link to="/Service" class="hamburger_menu">
                             <div class="hamburger_menu_icon">
-                                <img src="#" alt="營區服務">
+                                <img src="../assets/images/main_icon_service.png" alt="營區服務">
                             </div>
                             <p class="hamburger_menu_text">營區服務</p>
                         </router-link>
@@ -52,7 +52,7 @@
                     <li>
                         <router-link to="/Report" class="hamburger_menu">
                             <div class="hamburger_menu_icon">
-                                <img src="#" alt="營火報告">
+                                <img src="../assets/images/main_icon_feedback.png" alt="營火報告">
                             </div>
                             <p class="hamburger_menu_text">營火報告</p>
                         </router-link>
@@ -60,7 +60,7 @@
                     <li>
                         <router-link to="/News" class="hamburger_menu">
                             <div class="hamburger_menu_icon">
-                                <img src="#" alt="最新消息">
+                                <img src="../assets/images/main_icon_news.png" alt="最新消息">
                             </div>
                             <p class="hamburger_menu_text">最新消息</p>
                         </router-link>
@@ -68,7 +68,7 @@
                     <li>
                         <router-link to="/Shopping" class="hamburger_menu">
                             <div class="hamburger_menu_icon">
-                                <img src="#" alt="營火商城">
+                                <img src="../assets/images/main_icon_store.png" alt="營火商城">
                             </div>
                             <p class="hamburger_menu_text">營火商城</p>
                         </router-link>
