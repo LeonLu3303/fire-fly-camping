@@ -451,7 +451,7 @@
       .bk_process_confirm_container {
         padding: 60px 0;
         width: 80%;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         margin: auto;
@@ -475,6 +475,7 @@
           flex-grow: 1;
           width: 100%;
           display: flex;
+          align-items: center;
           justify-content: space-between;
           padding: 60px 0;
           .bk_confirm_card_container {
@@ -524,7 +525,7 @@
         .bk_confirm_payment_container {
           width: 100%;
           background-color: #f0ece7;
-          padding: 40px 10px;
+          padding: 40px;
           margin-bottom: -60px;
           display: flex;
           justify-content: space-between;
