@@ -32,7 +32,7 @@
                 <h4>合計：${{tempProduct.price * tempProduct.qty}}</h4>
                 <div class="order_btn_box">
                     <router-link to ="/shoppingPayment"><button class="btn_purchase">直接購買</button></router-link>
-                    <button class="btn_return">加入購物車</button>
+                    <button class="btn_return" @click="addToOrder(tempProduct)">加入購物車</button>
                 </div> 
             </div>
         </div>
@@ -48,29 +48,30 @@ export default {
     components:{
     MainHeader,
     MainFooter,
-  },
+    },
     data() {
         return {
             tempProduct: {},
+            orderList: [],
         };
     },
     computed: {
-        shoppingCart: function () {
-        return JSON.parse(JSON.stringify(this.orderList));
-        console.log(orderList);
-        },
-        total() {
-        const sum = 0;
+        // shoppingCart: function () {
+        // return JSON.parse(JSON.stringify(this.orderList));
+        // console.log(orderList);
+        // },
+        // total() {
+        // const sum = 0;
         //因前面的toFixed()會將值轉為字串 所以後面的currentValue前面加+符號  將值轉為數值
         //reduce將orderList陣列裡面的值相加，最後輸出總金額(totalPrice)
         //https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#%E6%8F%8F%E8%BF%B0
         // return (this.order_list.reduce((previousValue, currentValue) => previousValue + +currentValue.total,
         //     sum)).toFixed(2);
-        return this.count * this.products[0].price;
-        },
-        itemSelected() {
-        return this.cart.find((item) => item.id == this.itemSelectId) ?? {};
-        },
+        // return this.count * this.products[0].price;
+        // },
+        // itemSelected() {
+        // return this.cart.find((item) => item.id == this.itemSelectId) ?? {};
+        // },
     },
     methods: {
         reduce_order(qty) {
@@ -81,27 +82,14 @@ export default {
         add_order() {
         this.tempProduct.qty += 1;
         },
-        addToOrder() {
+        addToOrder(product) {
         // check current cart from localStorage
-        const cartStr = localStorage.getItem("cart");
-        let cart = [];
-
-        // update cart
-        if (cartStr) {
-            cart = JSON.parse(cartStr);
-        }
-        const index = cart.findIndex((item) => item.id == this.itemSelectId);
-        if (index > -1) {
-            cart[index].qty = this.qty;
-        } else {
-            cart.push({
-            ...this.itemSelected,
-            qty: this.qty,
-            });
-        }
-
-        // set cart to localStorage
-        localStorage.setItem("cart", JSON.stringify(cart));
+            this.orderList.push({...product})
+            this.setStorage(this.orderList)
+        },
+        setStorage(product) {
+            const cart = JSON.stringify(product)
+            localStorage.setItem('cart', cart)
         },
         online() {
             // 拿商品list 的資料
@@ -120,12 +108,18 @@ export default {
             if (!tempProduct || tempProduct === 'undefined') return
             this.tempProduct = JSON.parse(tempProduct)
         },
+        getCart() {
+            const tempProduct = localStorage.getItem('cart')
+            if (!tempProduct || tempProduct === 'undefined') return
+            this.orderList = JSON.parse(tempProduct)
+        }
     },
     created() {
         this.online();
         console.log(this.cart);
         this.itemSelectId = window.location.search.split("id=")[1];
         this.getStorage();
+        this.getCart();
     },
     };
 </script>
