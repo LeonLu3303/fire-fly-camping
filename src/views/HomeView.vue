@@ -1,9 +1,7 @@
 <template>
 
-<MainHeader></MainHeader>
-<ActivityIsland/>
-<!-- <MainFooter></MainFooter> -->
   <MainHeader></MainHeader>
+  <ActivityIsland/>
   <MainFooter></MainFooter>
 
   <!-- loadingPage 建議寫法-->
@@ -23,17 +21,18 @@
 <script>
 // @ is an alias to /src
 import MainHeader from '../components/MainHeader.vue'
+import ActivityIsland from '../components/ActivityIsland.vue'
 import MainFooter from '../components/MainFooter.vue'
-import ActivityIsland from "@/components/ActivityIsland.vue";
+
 
 
 export default{
   components:{
     MainHeader,
-    MainFooter,
-    ActivityIsland
+    ActivityIsland,
+    MainFooter
   }
-  },
+}
   
   // data() {
   //   return {
