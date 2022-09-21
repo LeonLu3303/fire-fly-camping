@@ -84,7 +84,29 @@
     background-color: $color-str-hov-green;
     border: 2px solid $color-str-hov-green;
 }
-// 點擊購買 
+//商城的返回按鈕 同submit 只是沒有line-height版本
+.btn_return{
+    width: 130px;
+    height: 40px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 0px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 30px;
+    color: $color-str-green;
+    background: $color-basic-White;
+    border: 2px solid $color-str-green;
+    // background: $color-aid-green1;
+    // border: 2px solid $color-aid-green1;
+}
+.btn_return:hover{
+    color: $color-basic-White;
+    background-color: $color-str-hov-green;
+    border: 2px solid $color-str-hov-green;
+}
+// 商城的點擊購買 
 .btn_purchase{
     width: 130px;
     height: 40px;
@@ -96,13 +118,11 @@
     vertical-align: middle;
     border-radius: 30px;
     color: $color-basic-White;
-    background: $color-str-hov-green;
-    border: 2px solid $color-str-hov-green;
-    // background: $color-aid-green1;
-    // border: 2px solid $color-aid-green1;
+    background: $color-str-green;
+    border: 2px solid $color-str-green;
     &:hover{
-        color: $color-str-hov-green;
-        background-color: $color-basic-White;
+        color: $color-basic-White;
+        background-color: $color-str-hov-green;
         border: 2px solid $color-str-hov-green;
 }
 }
