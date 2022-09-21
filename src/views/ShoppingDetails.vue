@@ -1,33 +1,38 @@
 <template>
 <MainHeader></MainHeader>
-<div class="container">
+<img src="../assets/images/banner_shop.png" alt="">
+<div class="container_details">
     <div class="wrap_details">
         <div class="details_item">
             <div class="details_img_box">
-                <img
+                <img class="details_product_img"
                 :src="require(`../assets/images/shopping_prod_${tempProduct.id}.jpg`)"
                 alt="hello"/>
                 <div class="details_link_path">
                     <router-link to="/Shopping">
                     <div class="back_shopping_page">
-                        <img src="../assets/booking_arrow_prev.png" alt="">
-                        <p>繼續購物</p>
+                        <img class="back_shopping_img" src="../assets/booking_arrow_prev.png" alt="">
+                        <h4>繼續購物</h4>
                     </div>
                     </router-link>
                 </div>
             </div>
             <div class="details_content">
-                <p>{{tempProduct.title}}</p>
+                <h3>{{tempProduct.title}}</h3>
                 <p>單價：${{tempProduct.price}}</p>
-                <div class="details_add_reduce_btn_box">
-                    <button @click="reduce_order(tempProduct.qty)">-</button>
-                    <p>{{tempProduct.qty}}</p>
-                    <button @click="add_order(tempProduct.qty)">+</button>
+                <div class="details_qty_btn_box">
+                    <button @click="reduce_order(tempProduct.qty)">
+                        <img src="../assets/images/shopping_minus.png" alt="">
+                    </button>
+                    <p class="details_qty">{{tempProduct.qty}}</p>
+                    <button @click="add_order(tempProduct.qty)">
+                        <img src="../assets/images/shopping_plus.png" alt="">
+                    </button>
                 </div>
-                <p>合計：${{tempProduct.price * tempProduct.qty}}</p>
+                <h4>合計：${{tempProduct.price * tempProduct.qty}}</h4>
                 <div class="order_btn_box">
                     <router-link to ="/shoppingPayment"><button class="btn_purchase">直接購買</button></router-link>
-                    <button class="btn_submit">加入購物車</button>
+                    <button class="btn_return">加入購物車</button>
                 </div> 
             </div>
         </div>
@@ -38,7 +43,6 @@
 <script>
 import MainHeader from '../components/MainHeader.vue'
 import MainFooter from '../components/MainFooter.vue'
-
 
 export default {
     components:{
@@ -128,9 +132,11 @@ export default {
 <style lang="scss">
 @import "../assets/scss/style.scss";
 
-    .container{
+
+    .container_details{
         margin-left: 10%;
         margin-right: 10%;
+        padding: 150px 0px;
     }
     .wrap_details{
         width: 100%;
@@ -138,9 +144,35 @@ export default {
         justify-content: center;
         // background-color: #fff;
     }
-    .details_add_reduce_btn_box{
+    .details_qty_btn_box{
         display: flex;
-        justify-content: space-evenly;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid gray;
+        box-sizing: border-box;
+        width: 8rem;
+        
+        button{
+            border: 0;
+            background-color: transparent;
+            margin: 0.5rem;
+        }
+        .details_qty{
+            font-size: $title_h4;
+            text-align: center; 
+            padding: 0;      
+        }
+        img{
+            width: 1rem;
+        }
+    }
+    .details_img_box{
+        width: clamp(200px, calc((100vw - 375px) / 5.325 + 200px), 400px);
+        padding: 1rem;
+        .details_product_img{
+            box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
+            border-radius: 10px;
+        }
     }
     .details_item{
         display: flex;
@@ -148,7 +180,7 @@ export default {
     }
     .details_content{
         display: grid;
-        padding: 1rem;
+        padding: 4rem;
         box-sizing: border-box;
         align-items: center;
         p{
@@ -165,15 +197,23 @@ export default {
     .back_shopping_page{
             display: flex;
             padding-top: 4rem;
-            img{
+            .back_shopping_img{
                 width: 35px;
                 padding-right: 10px;
             }
         }
+    // .back_shopping_img:hover{
+    //     animation: moving 0.5s infinite;
+    //     }
+                
+    // @keyframes moving{
+    //     0%{transform: left(0%)}
+    //     100%{transform: left(10%)}
+    // }
     .order_btn_box button{
-        padding: 5px;
+        margin: 0.5rem 0;
     }
-    
+   
     .btn_submit{
         line-height: 0;
     }
