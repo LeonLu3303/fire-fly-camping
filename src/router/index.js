@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import Activity from '../views/ActivityView.vue';
+// import Activity from '../views/ActivityView.vue';
 import ReportView from '../views/ReportView.vue';
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
@@ -8,6 +8,7 @@ import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
+import ServiceView from '../views/ServiceView.vue';
 
 const routes = [
   {
@@ -18,8 +19,7 @@ const routes = [
   {
     path: '/Activity',
     name: 'Activity',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ActivityView.vue'),
+    component: () => import('../views/ActivityView.vue'),
   },
   {
     path: '/Member',
@@ -27,8 +27,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/MemberView.vue'),
+    component: () => import('../views/MemberView.vue'),
   },
   {
     path: '/Booking',
@@ -46,8 +45,8 @@ const routes = [
     component: () => import('../views/ShoppingView.vue'),
   },
   {
-    path: '/report',
-    name: 'report',
+    path: '/Report',
+    name: 'Report',
     component: ReportView,
   },
   {
@@ -69,6 +68,11 @@ const routes = [
     path: '/ShoppingCart',
     name: 'ShoppingCart',
     component: ShoppingCart,
+  },
+  {
+    path: '/Service',
+    name: 'Service',
+    component: () => import('../views/ServiceView.vue'),
   },
 ];
 

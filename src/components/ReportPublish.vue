@@ -53,8 +53,10 @@ export default {
 
 <style lang="scss">
     @import '../assets/scss/style.scss';
+    
     .wrap_report_publish{
         padding: 150px 0;
+        background: $color-basic-White;
     }
     .report_publish_container{
         margin: 0 10%;
