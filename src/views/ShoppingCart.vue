@@ -1,18 +1,14 @@
 <template>
+<MainHeader></MainHeader>
+<img src="../assets/images/banner_shop.png" alt="">
 <div class="cart_container">
-            <div class="cart_wrap">
-                <div class="cart_title">
-                    <h1>購物車</h1>
-                    <!-- <h2>品項:{{item.count}}</h2> -->
-                </div>
-
+        <div class="cart_wrap">
                 <table class="cart_info">
                     <thead>
                         <tr>
                             <th>圖片</th>
                             <th>名稱</th>
                             <th>單價</th>
-                            <!-- <th>顏色</th> -->
                             <th>數量</th>
                             <th>小計</th>
                             <th>刪除</th>
@@ -43,14 +39,23 @@
 
                 </table>
                 <div class="cart_table_btn">
-                    <button class="back_btn">返回購物</button>
-                    <router-link to="/ShoppingPayment"><button class="check_out_btn">前往結帳</button></router-link>
+                    <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
+                    <router-link to="/ShoppingPayment"><button class="btn_purchase">前往結帳</button></router-link>
                 </div>
             </div>
         </div>
+<MainFooter></MainFooter>
 </template>
 <script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+
 export default {
+
+    components:{
+    MainHeader,
+    MainFooter,
+    },
     data() {
                 return {
                     itemSelect: {},
@@ -93,17 +98,13 @@ export default {
 }
 </script>
 <style lang="scss">
-  .cart_container {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        /* z-index: -1; */
-        /* opacity: 0; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+@import "../assets/scss/style.scss";
 
+    .cart_container {
+        width: 80%;
+        margin: 0 10%;
+        padding: 150px 0;
+    }
 
     .cart_title {
         display: flex;
@@ -124,18 +125,28 @@ export default {
     .cart_wrap {
         /* border-radius: 10px; */
         padding: 1rem;
-        width: 1000px;
-        height: 100vh;
         background-color: #fff;
         /* overflow: scroll; */
         display: grid;
         grid-template-rows: repeat(7, 1fr);
         text-align: center;
-        overflow: scroll;
-        border-bottom: 1px solid gray;
+        // overflow: scroll;
+        border-radius: 10px;
+        box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
     }
 
     .cart_table_btn {
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cart_info {
+        th{
+        font-size: $title_h4;
+        padding: 1rem;
+    }
+    thead{
+        border-bottom: 1px solid gray;
+        
+    }
     }
 </style>

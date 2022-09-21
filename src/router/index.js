@@ -34,7 +34,7 @@ const routes = [
   {
     path: '/Booking',
     name: 'Booking',
-    component: () => import('../views/BookingView.vue'),
+    component: () => import('../views/bookingView.vue'),
   },
   {
     path: '/News',
