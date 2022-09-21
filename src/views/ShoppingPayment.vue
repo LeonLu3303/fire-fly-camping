@@ -81,14 +81,20 @@
         <div class="wrap_cart">
           <div class="amount">
             <h3>結帳金額</h3>
-            <h3>$1234</h3>
+            <h3>${{itemTotal}}</h3>
           </div>
           <hr />
-          <div class="cart_payment_info">
-            <img src="../assets/images/shopping_prod_6.jpg" alt="" />
-            <p>商品</p>
-            <p>$1234</p>
-          </div>
+          <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
+            <tbody>
+              <tr class="table_tr_grid">
+                <td><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" /></td>
+                <td><p>{{item.title}}</p></td>
+                <td><p>{{item.qty}}</p></td>
+                <td><p>${{item.price}}</p></td>
+                <td><p>${{item.qty * item.price}}</p></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -103,7 +109,26 @@ export default {
     MainHeader,
     MainFooter,
   },
-
+  date(){
+    return {
+      orderList: [],
+      itemTotal: 0,
+    }
+  },
+  methods: {
+    getOrderList() {
+      const tempOrderList = localStorage.getItem('cart')
+      if (!tempOrderList || tempOrderList === 'undefined') return
+      this.orderList = JSON.parse(tempOrderList)
+    },
+    itemSum(){
+      this.itemTotal = this.orderList.reduce((acc, obj) => acc + (obj.qty * obj.price), 0)
+    }
+  },
+  created() {
+    this.getOrderList()
+    this.itemSum()
+  }
 }
 </script>
 <style lang="scss">
@@ -118,6 +143,7 @@ export default {
   padding-bottom: 150px;
   input, select {
     border: 1px solid $color-aid-green2;
+    box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
   width: 100%;
   background-color: #fff;
   padding: 0.5rem 0;
@@ -136,7 +162,7 @@ export default {
 .payment_col_1 {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0 3rem;
+  padding: 0 2rem;
   background-color: #f9f9f9;
   border-radius: 5px;
 }
@@ -165,17 +191,17 @@ export default {
 .wrap_payment {
   height: 50vh;
 }
-
-.cart_payment_info,
-.amount {
+.cart_payment_info{
   display: flex;
-  height: 100px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart_payment_info img {
-  width: 80px;
+  .amount{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  img{
+    width: 80px;
+  }
 }
 
 .btn_link_group {
@@ -186,7 +212,6 @@ export default {
   }
 
 }
-
 input,
 label,
 select {
