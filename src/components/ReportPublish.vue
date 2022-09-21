@@ -1,6 +1,6 @@
 <template>
     <section class="wrap_report_publish">
-        <div class="report_container">
+        <div class="report_publish_container">
             <div class="title_main">
                 <h2>發佈報告</h2>
             </div>
@@ -11,11 +11,11 @@
                         <h3 class="postcard_title_area">{{enterTitle}}</h3>
                         <p class="postcard_text_area">{{enterText}}</p>
                     </div>
-                    <div class="postcard_user_data">
-                        <div class="postcard_user_pic">
+                    <div class="postcard_member_data">
+                        <div class="postcard_member_pic">
                             <img src="../assets/images/report_avatar_1.png" alt="avatar">
                         </div>
-                        <h3 class="postcard_user_name">會員名稱</h3>
+                        <h4 class="postcard_member_name">{{memberName}}</h4>
                     </div>
                 </div>
 
@@ -23,7 +23,7 @@
                     <input class="enter_title" id="enter_title" type="text" maxlength="15" v-model="enterTitle">
                     <textarea class="enter_text" id="enter_text" name="enter_text" type="text" maxlength="300" v-model="enterText"></textarea>
                     <div class="confirm_choose_contain">
-                        <a class="btn_confirm" id="publish_report" href="#">發佈報告</a>
+                        <button class="btn_confirm" id="publish_report" href="#">發佈報告</button>
                         <select class="btn_bg_choose" name="bg_select" id="bg_select">
                             <option class="bg_choose" value="1">背景選擇</option>
                             <option class="bg_choose" value="2">叢林歷險</option>
@@ -42,9 +42,9 @@ export default {
     name: "ReportPublish",
     data() {
         return {
-            enterTitle : "請輸入標題",
-            enterText : "請輸入內文",
-            userName: "1313"
+            enterTitle : "請輸入標題(15字以內)",
+            enterText : "請輸入內文(300字以內)",
+            memberName: "會員名稱"
         }
     }
 }
@@ -54,31 +54,40 @@ export default {
 <style lang="scss">
     @import '../assets/scss/style.scss';
     .wrap_report_publish{
-        padding: 120px 0;
+        padding: 150px 0;
+    }
+    .report_publish_container{
+        margin: 0 10%;
+        @include lg(){
+            margin: 0 5%;
+        }
+        @include tb(){
+            margin: 0 5%;
+        }
+        @include md(){
+            margin: 0 2%;
+        }
     }
     .row_report_write{
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
     }
-    .col_postcard{
+    .row_report_write .col_postcard{
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        width: 65%;
+        width: 74%;
         height: 460px;
         background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        padding: 30px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
         @include lg(){
             width: 80%;
             height: 440px;
             margin: 0 0 20px;
-            
         }
         @include tb(){
             width: 100%;
@@ -96,15 +105,15 @@ export default {
     .postcard_release{
         width: 60%;
     }
-    .postcard_user_data{
+    .postcard_member_data{
         width: 18%;
         text-align: center;
     }
-    .postcard_user_data .postcard_user_name{
+    .postcard_member_data .postcard_member_name{
         color: $color-basic-gray3;
     }
     .col_write_text{
-        width: 30%;
+        width: 20%;
         // padding: 0 20px;
         @include lg(){
             width: 80%;
@@ -116,7 +125,7 @@ export default {
             width: 100%;
         }
     }
-    .postcard_user_pic{
+    .postcard_member_pic{
         width: 100%;
         border-radius: 100%;
         overflow: hidden;

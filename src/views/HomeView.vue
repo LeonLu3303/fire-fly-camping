@@ -1,8 +1,10 @@
 <template>
 
-  <MainHeader></MainHeader>
-  <ActivityIsland/>
-  <MainFooter></MainFooter>
+
+<MainHeader></MainHeader>
+<ActivityIsland/>
+<HomeNews/>
+<MainFooter></MainFooter>
 
   <!-- loadingPage 建議寫法-->
 
@@ -21,6 +23,7 @@
 <script>
 // @ is an alias to /src
 import MainHeader from '../components/MainHeader.vue'
+import HomeNews from '../components/HomeNews.vue'
 import ActivityIsland from '../components/ActivityIsland.vue'
 import MainFooter from '../components/MainFooter.vue'
 
@@ -29,6 +32,7 @@ import MainFooter from '../components/MainFooter.vue'
 export default{
   components:{
     MainHeader,
+    HomeNews,
     ActivityIsland,
     MainFooter
   }
