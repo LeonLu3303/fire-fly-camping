@@ -1,4 +1,5 @@
 <template>
+  <MainHeader/>
   <div class="banner">
     <img src="../assets/images/banner_activity.png" alt="banner" />
   </div>
@@ -8,7 +9,7 @@
            <h2>{{ jungleTitle }}</h2>
         </div>
       <div class="activity_group">
-        <div class="activity_item">
+        <div class="activity_item_group">
           <div class="activity_item_tour activity_items">
             <!-- <div class="activity_item_tour_title">{{ tourTitle }}</div> -->
             <div class="activity_item_text">
@@ -62,7 +63,7 @@
           />
           <img src="../assets/images/activity_2.png" alt="小島陰影" />
         </div>
-        <div class="activity_item">
+        <div class="activity_item_group">
           <div class="activity_item_ski activity_items">
             <!-- <div class="activity_item_ski_title">{{ skiTitle }}</div> -->
             <div class="activity_item_text">
@@ -99,7 +100,7 @@
         <h2>{{ canyonTitle }}</h2>
       </div>
       <div class="activity_group">
-        <div class="activity_item">
+        <div class="activity_item_group">
           <div class="activity_item_ballon activity_items">
             <!-- <div class="activity_item_ballon_title">{{ balloonTitle }}</div> -->
             <div class="activity_item_text">
@@ -222,11 +223,17 @@
         </div>
       </div>
     </div>
-  
-  </section>
+    </section>
+  <MainFooter/>  
 </template>
 <script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
 export default {
+  components:{
+    MainHeader,
+    MainFooter
+    },
   data() {
     return {
       jungleTitle: '叢林歷險',
@@ -258,7 +265,7 @@ export default {
       rockText:
         '運動攀登意指先鋒攀登保護支點都已經事先用錨栓打好的路線，該些錨栓在路線上的距離配置均勻，不會讓攀登者的墜落距離過長。錨栓通常都是路線開發者從路線上方垂降下來時打進岩壁的。天然岩場用錨栓架設的路線，以及人工岩場中可供先鋒的路線，都是屬於運動攀登路線。',
       canyonText:
-        '臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，最有名的可能就像太魯閣峽谷，但是我們這個大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形、湍急的河水，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，臺灣的峽谷在短短幾年間就能形成，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇。',
+        '臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形、湍急的河水，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇。',
       activityTitle: '活動介紹',
       activeTab: '',
       skiTabSub:'彷彿置身雪國，滑雪設備',
@@ -366,7 +373,8 @@ export default {
 }
 .wrapper {
   max-width: 1296px;
-  margin: auto;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .activity_title {
   margin-bottom: 50px;
@@ -377,7 +385,7 @@ export default {
   flex-wrap: wrap;
   padding-bottom: 50px;
 }
-.activity_item {
+.activity_item_group {
   width: 35%;
 }
 .activity_item_text{
@@ -413,6 +421,8 @@ export default {
   margin-bottom: 20px;
   box-sizing: border-box;
   padding: 30px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px 1px #44726B;
 }
 .activity_group_introduction {
   display: flex;
