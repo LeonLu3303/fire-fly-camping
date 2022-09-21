@@ -14,10 +14,9 @@
                             <th>刪除</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr v-for="(item, key) in products" :key="'product' + item">
-                            <a href="#"></a>
-                            <td><img :src="item.img" alt="" width="200"></td>
+                    <tbody v-for="(item, key) in cart" :key="'product' + item">
+                        <tr>
+                            <td><img class="cart_image" :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" ></td>
                             <td>{{item.title}}</td>
                             <td>${{item.price}}</td>
                             <!-- <td>{{item.color}}</td> -->
@@ -31,7 +30,7 @@
                                 </div>
                             </td>
                             <td>${{item.price * item.qty}}</td>
-                            <td><a href="#" @click="del_order(index)"><img src="../assets/images/shopping-trash-can.png" alt=""
+                            <td><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shopping-trash-can.png" alt=""
                                         width="30"></a>
                             </td>
                         </tr>
@@ -60,29 +59,35 @@ export default {
                 return {
                     itemSelect: {},
                     products: [],
+                    cart: []
                 }
             },
             methods: {
                 reduce_order(index) {
-                    if (this.products[index]["qty"] === 1) {
+                    if (this.cart[index]["qty"] === 1) {
                         return;
                     } else {
-                        this.products[index]["qty"] -= 1
+                        this.cart[index]["qty"] -= 1
                     }
                     this.updateCart();
                 },
                 add_order(index) {
-                    this.products[index]["qty"] += 1
+                    this.cart[index]["qty"] += 1
                     this.updateCart();
                 },
                 del_order(index) {
-                    this.products.splice(index, 1);
+                    this.cart.splice(index, 1);
                     this.updateCart();
 
                 },
                 updateCart() {
                     localStorage.setItem('cart', JSON.stringify(this.products));
-                }
+                },
+                getCart(){
+                    const tempCart = localStorage.getItem('cart')
+                    if (!tempCart || tempCart === 'undefined') return
+                    this.cart = JSON.parse(tempCart)
+                },
 
             },
             created() {
@@ -93,6 +98,8 @@ export default {
                     this.products = JSON.parse(cartStr)
                     console.log(JSON.parse(cartStr))
                 }
+                this.getCart()
+                console.log(this.cart)
             }
 
 }
@@ -126,11 +133,11 @@ export default {
         /* border-radius: 10px; */
         padding: 1rem;
         background-color: #fff;
-        /* overflow: scroll; */
+        overflow: scroll;
         display: grid;
+        max-height: 1000px;
         grid-template-rows: repeat(7, 1fr);
         text-align: center;
-        // overflow: scroll;
         border-radius: 10px;
         box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
     }
@@ -138,6 +145,12 @@ export default {
     .cart_table_btn {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+        height: 100px;
+        .btn_purchase{
+            margin-left: 1rem;
+        }
+
     }
     .cart_info {
         th{
@@ -148,5 +161,11 @@ export default {
         border-bottom: 1px solid gray;
         
     }
+    }
+    .cart_trash_icon{
+        width: 30px;
+    }
+    .cart_image{
+        width: 150px;
     }
 </style>
