@@ -5,6 +5,8 @@ import ReportView from '../views/ReportView.vue';
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
+import ShoppingPayment from '../views/ShoppingPayment.vue';
+import ShoppingCart from '../views/ShoppingCart.vue';
 
 
 const routes = [
@@ -52,6 +54,16 @@ const routes = [
     path: '/ShoppingDetails',
     name: 'ShoppingDetails',
     component: ShoppingDetails,
+  },
+  {
+    path: '/ShoppingPayment',
+    name: 'ShoppingPayment',
+    component: ShoppingPayment,
+  },
+  {
+    path: '/ShoppingCart',
+    name: 'ShoppingCart',
+    component: ShoppingCart,
   },
 ];
 

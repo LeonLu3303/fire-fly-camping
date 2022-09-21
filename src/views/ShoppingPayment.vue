@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container_shop_user_info">
+    <div class="payment_container">
       <div class="rows_2">
-        <div class="wrap_deliver">
+        <div class="wrap_delivery">
           <p class="para">配送資訊</p>
           <p class="para">收件人資訊</p>
           <div class="delivery_info">
@@ -84,7 +84,7 @@
           </div>
           <hr />
           <div class="cart_payment_info">
-            <img src="./images/prod-bottle.jpg" alt="" />
+            <img src="../assets/images/shopping_prod_6.jpg" alt="" />
             <p>商品</p>
             <p>$1234</p>
           </div>
@@ -94,12 +94,8 @@
   </div>
 </template>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
 
-.container_shop_user_info {
+.payment_container {
   display: grid;
   grid-template-columns: 2fr 1fr;
   max-width: 1200px;
@@ -122,8 +118,8 @@
   background-color: #f9f9f9;
 }
 
-.container_shop_user_info input,
-.container_shop_user_info select {
+.payment_container input,
+.payment_container select {
   border: none;
   border-bottom: 1px solid #000;
   width: 100%;
@@ -142,7 +138,7 @@
   padding-left: 1rem;
 }
 
-.wrap_deliver {
+.wrap_delivery {
   /* background-color: #fa0; */
   height: 50vh;
 }

@@ -1,32 +1,50 @@
 <template>
+<MainHeader></MainHeader>
 <div class="container">
-    <div class="wrap">
-        <div class="item">
-            <div class="img_box">
+    <div class="wrap_details">
+        <div class="details_item">
+            <div class="details_img_box">
                 <img
                 :src="require(`../assets/images/shopping_prod_${tempProduct.id}.jpg`)"
                 alt="hello"/>
+                <div class="details_link_path">
+                    <router-link to="/Shopping">
+                    <div class="back_shopping_page">
+                        <img src="../assets/booking_arrow_prev.png" alt="">
+                        <p>繼續購物</p>
+                    </div>
+                    </router-link>
+                </div>
             </div>
-            <div class="shopping_content">
-                <h1>{{tempProduct.title}}</h1>
+            <div class="details_content">
+                <p>{{tempProduct.title}}</p>
                 <p>單價：${{tempProduct.price}}</p>
-                <div class="btn_box">
+                <div class="details_add_reduce_btn_box">
                     <button @click="reduce_order(tempProduct.qty)">-</button>
                     <p>{{tempProduct.qty}}</p>
                     <button @click="add_order(tempProduct.qty)">+</button>
                 </div>
+                <p>合計：${{tempProduct.price * tempProduct.qty}}</p>
                 <div class="order_btn_box">
-                    <button>直接購買</button>
-                    <button>加入購物車</button>
-                </div>
-                <h3>合計：${{tempProduct.price * tempProduct.qty}}</h3>
+                    <router-link to ="/shoppingPayment"><button class="btn_purchase">直接購買</button></router-link>
+                    <button class="btn_submit">加入購物車</button>
+                </div> 
             </div>
         </div>
     </div>
 </div>
+<MainFooter></MainFooter>
 </template>
 <script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+
+
 export default {
+    components:{
+    MainHeader,
+    MainFooter,
+  },
     data() {
         return {
             tempProduct: {},
@@ -107,3 +125,57 @@ export default {
     },
     };
 </script>
+<style lang="scss">
+@import "../assets/scss/style.scss";
+
+    .container{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .wrap_details{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        // background-color: #fff;
+    }
+    .details_add_reduce_btn_box{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .details_item{
+        display: flex;
+        justify-content: center;
+    }
+    .details_content{
+        display: grid;
+        padding: 1rem;
+        box-sizing: border-box;
+        align-items: center;
+        p{
+            padding-right: 1rem;
+        }
+        }
+    .details_link_path{
+        display: flex;
+        justify-content: center;
+        p{
+            color: #000;
+        }
+    }
+    .back_shopping_page{
+            display: flex;
+            padding-top: 4rem;
+            img{
+                width: 35px;
+                padding-right: 10px;
+            }
+        }
+    .order_btn_box button{
+        padding: 5px;
+    }
+    
+    .btn_submit{
+        line-height: 0;
+    }
+    
+</style>
