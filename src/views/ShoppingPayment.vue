@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <MainHeader></MainHeader>
+    <img src="../assets/images/banner_shop.png" alt="">
     <div class="payment_container">
-      <div class="rows_2">
+      <div class="payment_rows_2">
         <div class="wrap_delivery">
-          <p class="para">配送資訊</p>
-          <p class="para">收件人資訊</p>
+          <h3 class="para">配送資訊</h3>
+          <h4 class="para">收件人資訊</h4>
           <div class="delivery_info">
             <div class="user_input_box">
-              <label for=""
+              <label for="name"
                 >姓名
-                <input type="text" placeholder="營火叢" />
+                <input type="text" id="name" placeholder="營火叢" />
               </label>
               <label for=""
                 >電話
@@ -42,8 +43,8 @@
         </div>
 
         <div class="wrap_payment">
-          <p class="para">付款資訊</p>
-          <p class="para">信用卡資訊</p>
+          <h3 class="para">付款資訊</h3>
+          <h4 class="para">信用卡資訊</h4>
           <div class="payment_info">
             <div class="user_input_box">
               <label
@@ -71,16 +72,16 @@
             </div>
           </div>
           <div class="btn_link_group">
-            <a href="#">返回購物</a>
-            <a href="#">前往結帳</a>
+            <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
+            <router-link to="#" ><button class="btn_purchase">確認結帳</button></router-link>
           </div>
         </div>
       </div>
-      <div class="col_1">
+      <div class="payment_col_1">
         <div class="wrap_cart">
           <div class="amount">
-            <p>結帳金額</p>
-            <p>$1234</p>
+            <h3>結帳金額</h3>
+            <h3>$1234</h3>
           </div>
           <hr />
           <div class="cart_payment_info">
@@ -91,38 +92,53 @@
         </div>
       </div>
     </div>
-  </div>
+<MainFooter></MainFooter>
 </template>
-<style>
+<script>
+import MainHeader from '../components/MainHeader.vue'
+import MainFooter from '../components/MainFooter.vue'
+
+export default {
+   components:{
+    MainHeader,
+    MainFooter,
+  },
+
+}
+</script>
+<style lang="scss">
+@import "../assets/scss/style.scss";
 
 .payment_container {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  height: 100vh;
+  margin-right: 10%;
+  margin-left: 10%;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  input, select {
+    border: 1px solid $color-aid-green2;
+  width: 100%;
+  background-color: #fff;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  }
 }
 
-.rows_2 {
+.payment_rows_2 {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   height: 100%;
   padding: 0 3rem;
 }
 
-.col_1 {
+.payment_col_1 {
   display: grid;
   grid-template-columns: 1fr;
   padding: 0 3rem;
   background-color: #f9f9f9;
-}
-
-.payment_container input,
-.payment_container select {
-  border: none;
-  border-bottom: 1px solid #000;
-  width: 100%;
+  border-radius: 5px;
 }
 
 .user_input_box {
@@ -139,7 +155,6 @@
 }
 
 .wrap_delivery {
-  /* background-color: #fa0; */
   height: 50vh;
 }
 
@@ -148,12 +163,7 @@
 }
 
 .wrap_payment {
-  /* background-color: blanchedalmond; */
   height: 50vh;
-}
-
-.wrap_cart {
-  /* background-color: gray; */
 }
 
 .cart_payment_info,
@@ -169,7 +179,12 @@
 }
 
 .btn_link_group {
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+  .btn_purchase{
+    margin-left: 1rem;
+  }
+
 }
 
 input,
