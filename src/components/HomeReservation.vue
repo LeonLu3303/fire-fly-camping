@@ -34,6 +34,6 @@
 
 <script></script>
 
-<style>
+<style lang="scss">
     @import '../assets/scss/component/_HomeReservation.scss';
 </style>
