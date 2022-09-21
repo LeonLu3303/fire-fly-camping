@@ -14,7 +14,7 @@
                 :key="news"
                 @click="selectPage(index)">
                 <div class="news_pic">
-                    <img :src="require(`../assets/images/news_${index}.jpg`)" alt="小島照片">
+                    <img :src="require(`../assets/images/news_${index}.jpg`)" alt="最新消息照片">
                 </div>
                 <div class="news_txt">
                     <h3>{{news.title}}</h3>
@@ -62,88 +62,6 @@
         }
     }
 </script>
-<style>
-    .wrap_News{
-        background-color: #44726B;
-    }
-    .news_container{
-        max-width: 1200px;
-        margin-right: auto;
-        margin-left: auto;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        align-items: flex-end;
-        margin-top: 150px;
-    }
-    .news_box{
-        width: 40%;
-        height: 300px;
-        display:flex;
-        background-color: #f3f6fd;
-        margin:auto;
-        margin-bottom: 10px;
-        position: relative;
-        overflow: hidden;
-    }
-    .mid{
-        width: 50%;
-        height: 400px;
-        position: absolute;
-        left:0;
-        right:0;
-        z-index: 2;
-        transition: 1s;
-    }
-    .mid .news_pic{
-        opacity: 1;
-    }
-    .mid .news_pic::before{
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(transparent,rgb(0, 0, 0));
-        position: absolute;
-        z-index: 2;
-    }
-    .left{
-        transition: 1s;
-    }
-    .right{
-        transition: 1s;
-    }
-    .news_pic{
-        height: 100%;
-        overflow: hidden;
-        z-index: -0;
-        opacity: 0.5;
-        position: absolute;
-    }
-    .news_pic img{
-        width: 100%;
-        display: block;
-    }
-    .news_txt{
-        display: none;
-    }
-    .news_txt p{
-        padding: 8px;
-    }
-    .news_txt h3{
-        color: transparent;
-    }
-    .mid .news_txt{
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        padding: 10px;
-        word-wrap: break-word;
-        word-break: break-all;
-        color: #ffffff;
-        z-index: 3;
-    }
-    .mid .news_txt h3{
-        color: #ffffff;
-    }
+<style lang="scss">
+    @import '../assets/scss/style.scss';
 </style>

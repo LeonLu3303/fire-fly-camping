@@ -22,13 +22,12 @@
     </div>
   </section>
 </template>
-
 <script>
 export default {
-  name: "ActivityIsland",
+  name: "HomeActivityIsland",
   data(){
     return{
-        activityIsland: [
+      activityIsland: [
                     {
                         id:'jungle',
                         islandPic: '../assets/images/activity_jungle.png',
