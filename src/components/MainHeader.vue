@@ -1,8 +1,8 @@
 <template>
     <header>
-            <nav class="origenal_header_nav">
+            <nav class="original_header_nav">
                 <router-link to="/" class="firefly_logo"><img src="../assets/images/main_logo_row.png" alt="營火叢LOGO"></router-link>
-                <ul class="origenal_header">    
+                <ul class="original_header">    
                     <li>
                         <router-link to="/Booking" class="reservation_icon">
                             <div class="reservation_icon_photo">

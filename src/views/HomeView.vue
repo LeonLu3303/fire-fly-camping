@@ -1,13 +1,19 @@
 <template>
 
+  <MainHeader></MainHeader>
+  <MainFooter></MainFooter>
+
+  <!-- loadingPage 建議寫法-->
+
   <!-- <section v-show="isLoading">
     <LoadingPage></LoadingPage>
   </section> -->
 
-  <div v-show="!isLoading">
+  
+  <!-- <div v-show="!isLoading">
     <MainHeader></MainHeader>
     <MainFooter></MainFooter>
-  </div>
+  </div> -->
 
 </template>
 
