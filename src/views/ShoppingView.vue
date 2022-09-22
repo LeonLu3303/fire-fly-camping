@@ -18,7 +18,7 @@
         </ul>
       </div>
     </div>
-  
+  </div>
   <section class="shopping_section">
       <div class="shop_container">
       <div class="wrap wrap_product_list">
