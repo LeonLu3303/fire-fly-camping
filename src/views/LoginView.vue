@@ -6,12 +6,8 @@
             <div class="form-container sign-up-container">
                 <form>
                     <h2 class="title">註冊</h2>           
-                    <div class="check_id">
-                        <div id="check_id" class="btn_submit">
-                            檢查帳號
-                        </div>
-                    </div>
-                    <div class="txtb">
+                    
+                    <div class="txtb" id="register_id_block">
                         <input  type="email" 
                                 name="register_id" 
                                 id="register_id"
@@ -19,6 +15,9 @@
                                 @focus="focus_txtb(focus_index)"
                                 @blur="blur_txtb(focus_index)">
                         <span data-placeholder="帳號/信箱"></span>
+                        <div id="check_id" class="btn_submit">
+                        檢查帳號
+                    </div>
                     </div>
                     <div class="txtb">
                         <input  type="password" 
