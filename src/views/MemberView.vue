@@ -20,8 +20,8 @@
           @click="activeTab = 'product'">
           商品訂單查詢
         </button>
-        <div v-if="activeTab === 'memdata'" class="tabcontent mem_content">
-            <div class="tabcontent_group">
+        <div v-if="activeTab === 'memdata'" class="mem_content">
+            <div class="mem_content_group">
                 <form class="mem_form" action="">
                     <div class="tabcontent_txt_group">
                         <ul class="tabcontent_txt">
@@ -62,8 +62,8 @@
             </div>
         </div>
             
-        <div v-else-if="activeTab === 'booking'" class="tabcontent mem_content">
-          <div class="tabcontent_group">
+        <div v-else-if="activeTab === 'booking'" class="mem_content">
+          <div class="mem_content_group">
                 <div class="tabcontent_txt">
                     <h3>456</h3>
                     <h4>123</h4>
@@ -71,8 +71,8 @@
                 </div>
             </div>
         </div>
-        <div v-else class="tabcontent mem_content">
-          <div class="tabcontent_group">
+        <div v-else class="mem_content">
+          <div class="mem_content_group">
                 <div class="tabcontent_txt">
                     <h3>789</h3>
                     <h4>123</h4>
@@ -117,7 +117,6 @@ export default {
         color: #ffff;
         }
     }
-    
     .mem_button{
         background-color: #ffff;
         border: none;
@@ -153,6 +152,7 @@ export default {
     }
     .mem_form{
         width: 100%;
+        padding: 50px 0;
         .tabcontent_txt_group{
             display: flex;
             flex-wrap: wrap;

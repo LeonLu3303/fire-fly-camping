@@ -1,8 +1,9 @@
 .wrap_News{
     background-color: #44726B;
+    // padding-bottom: 250px;
 }
-.title_main.news{
-    color: #ffffff;
+#home_news{
+    color: #ffffff !important;
 }
 .news_container{
     max-width: 1200px;
@@ -14,7 +15,6 @@
     position: relative;
     align-items: flex-end;
     padding-top: 150px;
-    padding-bottom: 150px;
 }
 .news_box{
     width: 40%;
@@ -87,4 +87,7 @@
 }
 .mid .news_txt h3{
     color: #ffffff;
+}
+.btn_page_link.news_link{
+    margin: auto;
 }

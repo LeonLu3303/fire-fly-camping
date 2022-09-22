@@ -1,7 +1,7 @@
 <template>
     <section class="wrap_News">
-        <div class="title_main news">
-            <h2>最新消息</h2>
+        <div class="title_main" >
+            <h2 id="home_news">最新消息</h2>
         </div>
         <div class="news_container">
             <div class="news_box" 
@@ -22,6 +22,9 @@
                     <p class="news_post_time">{{news.news_post_time}}</p>
                 </div>
             </div>
+        </div>
+        <div class="btn_spacing">
+                <router-link to ="/News" class="btn_page_link news_link">觀看更多</router-link>
         </div>
     </section>
     
@@ -64,4 +67,5 @@
 </script>
 <style lang="scss">
     @import '../assets/scss/style.scss';
+    @import '../assets/scss/page/NewsView';
 </style>

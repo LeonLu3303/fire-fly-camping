@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import Activity from '../views/ActivityView.vue';
+// import Activity from '../views/ActivityView.vue';
 import ReportView from '../views/ReportView.vue';
 import ShoppingView from '../views/ShoppingView.vue';
 import NewsView from '../views/NewsView.vue';
@@ -8,8 +8,13 @@ import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
+<<<<<<< HEAD
 import LoadingPage from '../components/LoadingPage.vue';
 
+=======
+import ServiceView from '../views/ServiceView.vue';
+import LoginView from '../views/LoginView.vue';
+>>>>>>> 717b3f43ee5c9c4e048a2c330fd25425a1adcbf4
 
 const routes = [
   {
@@ -20,17 +25,17 @@ const routes = [
   {
     path: '/Activity',
     name: 'Activity',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ActivityView.vue'),
+    component: () => import('../views/ActivityView.vue'),
   },
   {
     path: '/Member',
     name: 'Member',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/MemberView.vue'),
+    component: () => import('../views/MemberView.vue'),
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue'),
   },
   {
     path: '/Booking',
@@ -40,7 +45,7 @@ const routes = [
   {
     path: '/News',
     name: 'News',
-    component: () => import('../views/NewsView.vue'),
+    component:NewsView,
   },
   {
     path: '/Shopping',
@@ -48,14 +53,14 @@ const routes = [
     component: () => import('../views/ShoppingView.vue'),
   },
   {
-    path: '/report',
-    name: 'report',
+    path: '/Report',
+    name: 'Report',
     component: ReportView,
   },
   {
     path: '/reportMessage',
     name: 'reportMessage',
-    component: ReportMessageView
+    component: ReportMessageView,
   },
   {
     path: '/ShoppingDetails',
@@ -73,11 +78,18 @@ const routes = [
     component: ShoppingCart,
   },
   {
+<<<<<<< HEAD
     path: '/LoadingPage',
     name: 'LoadingPage',
     component: LoadingPage,
   },
 
+=======
+    path: '/Service',
+    name: 'Service',
+    component: () => import('../views/ServiceView.vue'),
+  },
+>>>>>>> 717b3f43ee5c9c4e048a2c330fd25425a1adcbf4
 ];
 
 const router = createRouter({
