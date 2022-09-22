@@ -1,4 +1,5 @@
 <template>
+    <MainHeader/>
     <section class="wrap_login">
         <div class="container" 
              id="login-box"
@@ -123,9 +124,17 @@
             </div>
         </div>
     </section>
+    <MainFooter/>
 </template>
 <script>
+    import MainHeader from '../components/MainHeader.vue'
+    import MainFooter from '../components/MainFooter.vue'
+
     export default{
+        components:{
+            MainHeader,
+            MainFooter
+        },
         data(){
                 return{
                 index:0,

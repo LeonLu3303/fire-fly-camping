@@ -22,11 +22,11 @@
             <!-- 報告卡片 -->
             <div class="row_card_report">
                 <ReportCard/>
-                <div class="report_pagination">
-                    <a-pagination v-model:current="current" :total="100" />
-                </div>
-                <!-- <ReportLightBox/> -->
             </div>
+            <div class="report_pagination">
+                <a-pagination v-model:current="current" :total="100" />
+            </div>
+            <!-- <ReportLightBox/> -->
         </div>
     </section>
     <MainFooter/>
@@ -89,5 +89,6 @@ export default{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 0 60px;
     }
 </style>
