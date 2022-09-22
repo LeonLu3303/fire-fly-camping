@@ -105,6 +105,7 @@ export default {
   }
 }
 .reverse{
+  flex-direction: row-reverse;
     .island_picture{
         position: relative;
         left: 50px;

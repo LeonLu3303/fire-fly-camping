@@ -8,6 +8,8 @@ import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
+import LoadingPage from '../components/LoadingPage.vue';
+
 import ServiceView from '../views/ServiceView.vue';
 import LoginView from '../views/LoginView.vue';
 
@@ -71,6 +73,11 @@ const routes = [
     path: '/ShoppingCart',
     name: 'ShoppingCart',
     component: ShoppingCart,
+  },
+  {
+    path: '/LoadingPage',
+    name: 'LoadingPage',
+    component: LoadingPage,
   },
   {
     path: '/Service',
