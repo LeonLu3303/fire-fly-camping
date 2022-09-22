@@ -8,6 +8,7 @@ import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
+import LoadingPage from '../components/LoadingPage.vue';
 
 
 const routes = [
@@ -71,6 +72,12 @@ const routes = [
     name: 'ShoppingCart',
     component: ShoppingCart,
   },
+  {
+    path: '/LoadingPage',
+    name: 'LoadingPage',
+    component: LoadingPage,
+  },
+
 ];
 
 const router = createRouter({
