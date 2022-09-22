@@ -42,9 +42,13 @@
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© 2022 Firefly campsite All Rights Reserved.</p>
-                <p class="statement">本網站為緯育TibaMe_前端設計工程師班第77期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊<a href="https://www.facebook.com/TibaMe/">[緯育TibaMe]</a>，後續會由專人協助處理。</p>
+            <div class="copyright_group">
+                <p class="copyright">© 2022 Firefly campsite All Rights Reserved.</p>
+                <hr>
+                <p class="statement">
+                本網站為緯育TibaMe_前端設計工程師班第77期學員專題成果作品，本平台僅供學習、展示之用。<br>
+                若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。<br>
+                若有侵權疑慮，您可以私訊<a href="https://www.facebook.com/TibaMe/">［緯育TibaMe］</a>，後續會由專人協助處理。</p>
             </div>
         </div>
     </footer>
