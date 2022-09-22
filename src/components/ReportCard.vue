@@ -57,7 +57,7 @@
                     {
                         id:4,
                         userPic: '../assets/images/report_avatar_4.png',
-                        userName: "Esthermaru",
+                        userName: "Esther",
                         releaseTime: "2022/08/29",
                         reportTitle: "活動體驗超棒的",
                         reportTxt: "不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!"

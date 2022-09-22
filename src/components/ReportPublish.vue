@@ -82,7 +82,7 @@ export default {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        width: 74%;
+        width: 72%;
         height: 540px;
         background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
         background-repeat: no-repeat;
@@ -119,7 +119,7 @@ export default {
         color: $color-basic-gray3;
     }
     .col_write_text{
-        width: 20%;
+        width: 24%;
         // height: 100%;
         @include lg(){
             width: 80%;
