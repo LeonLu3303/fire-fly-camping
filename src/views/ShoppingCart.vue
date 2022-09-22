@@ -2,7 +2,7 @@
 <MainHeader></MainHeader>
 <div class="banner">
     <img src="../assets/images/banner_shop.png" alt="">
-  </div>
+</div>
 <div class="cart_container">
         <div class="cart_wrap">
                 <table class="cart_info">
