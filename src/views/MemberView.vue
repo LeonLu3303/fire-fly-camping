@@ -20,7 +20,7 @@
           @click="activeTab = 'product'">
           商品訂單查詢
         </button>
-        <div v-if="activeTab === 'memdata'" class="tabcontent mem_content">
+        <div v-if="activeTab === 'memdata'" class="mem_content">
             <div class="mem_content_group">
                 <form class="mem_form" action="">
                     <div class="tabcontent_txt_group">
@@ -62,7 +62,7 @@
             </div>
         </div>
             
-        <div v-else-if="activeTab === 'booking'" class="tabcontent mem_content">
+        <div v-else-if="activeTab === 'booking'" class="mem_content">
           <div class="mem_content_group">
                 <div class="tabcontent_txt">
                     <h3>456</h3>
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <div v-else class="tabcontent mem_content">
+        <div v-else class="mem_content">
           <div class="mem_content_group">
                 <div class="tabcontent_txt">
                     <h3>789</h3>
