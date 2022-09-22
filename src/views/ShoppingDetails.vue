@@ -1,6 +1,8 @@
 <template>
 <MainHeader></MainHeader>
-<img src="../assets/images/banner_shop.png" alt="">
+<div class="banner">
+    <img src="../assets/images/banner_shop.png" alt="">
+</div>
 <div class="container_details">
     <div class="wrap_details">
         <div class="details_item">

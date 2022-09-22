@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <MainHeader></MainHeader>
   <img src="../assets/images/banner_shop.png" alt="" />
   <div class="shop_container">
@@ -14,8 +15,30 @@
           <li class="product_list_item">水瓶</li>
         </ul>
       </div>
+=======
+<MainHeader></MainHeader>
+  <div class="banner">
+        <img src="../assets/images/banner_shop.png" alt="banner">
+>>>>>>> 3c75818 (banner image modified)
     </div>
+  
+  <section class="shopping_section">
+      <div class="shop_container">
+      <div class="wrap wrap_product_list">
+        <div class="product_list_group">
+          <h3>所有商品</h3>
+          <hr />
+          <ul class="product_list">
+            <li class="product_list_item">T恤</li>
+            <li class="product_list_item">帽T</li>
+            <li class="product_list_item">漁夫帽</li>
+            <li class="product_list_item">杯子</li>
+            <li class="product_list_item">水瓶</li>
+          </ul>
+        </div>
+      </div>
 
+<<<<<<< HEAD
     <div class="wrap_product_info">
       <div class="wrap_product" v-for="(item, index) in itemList" :key="index">
         <router-link
@@ -30,16 +53,37 @@
                 alt="hello"
               />
             </div>
+=======
+      <div class="wrap_product_info">
+        
+        <div class="wrap_product" v-for="(item, index) in itemList"
+            :key="index">
+          <router-link to="/ShoppingDetails"
+            @click="selectToDetails(item)"
+            :href="`./camp_prod_info copy.html?id=${item.id}`"
+          >
+            <div class="wrap_product_item">
+              <div class="container_product_item">
+                  <div class="product_img_box">
+                    <img class="product_item_img"
+                      :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)"
+                      alt="hello"
+                    />
+                  </div>
+              </div>
+>>>>>>> 3c75818 (banner image modified)
 
-            <div class="shop_product_content">
-              <h3>{{ item.title }}</h3>
-              <h4>$ {{ item.price }}</h4>
+              <div class="shop_product_content">
+                <h3>{{ item.title }}</h3>
+                <h4>$ {{ item.price }}</h4>
+              </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  
   <MainFooter></MainFooter>
 </template>
 
@@ -148,15 +192,23 @@ export default {
 </script>
 <style lang="scss">
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import '../assets/scss/style.scss';
 body {
   background-color: $color-main-yellow;
+=======
+@import "../assets/scss/style.scss";
+
+.shopping_section{
+  background: $color-main-yellow;
+>>>>>>> 3c75818 (banner image modified)
 }
 =======
 @import "../assets/scss/style.scss";
 
 >>>>>>> 61f9f1c7303b11b1615882792c0da85f5b84e73d
 .shop_container {
+<<<<<<< HEAD
   padding: 150px 0px;
   display: flex;
   flex-wrap: wrap;
@@ -200,6 +252,56 @@ body {
     padding: 0.5rem;
     font-size: 16px;
     letter-spacing: 1px;
+=======
+    padding: 150px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10%;
+    margin-left: 10%;
+    box-sizing: border-box;
+  }
+  
+  .wrap_product_list {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  .product_list_group {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  
+  .wrap_product_info {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .container_product_item{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    .product_img_box {
+    position: relative;
+    overflow: hidden;
+    z-index:2;
+    .product_item_img{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:hover img{
+      transform: scale(1.1);
+      transition: .5s;
+    }
+  }
+>>>>>>> 3c75818 (banner image modified)
   }
 }
 
