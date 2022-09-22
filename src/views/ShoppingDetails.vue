@@ -82,10 +82,17 @@ export default {
         add_order() {
         this.tempProduct.qty += 1;
         },
-        addToOrder(product) {
-        // check current cart from localStorage
-            this.orderList.push({...product})
+        addToOrder (product) {
+        const indexProduct = this.orderList.findIndex((item) => item.title === product.title)
+        if (indexProduct === -1) {
+            this.orderList.push({ ...product })
             this.setStorage(this.orderList)
+        } 
+        else {
+            console.log(product.qty)
+            this.orderList[indexProduct].qty += product.qty
+            this.setStorage(this.orderList)
+        }
         },
         setStorage(product) {
             const cart = JSON.stringify(product)
@@ -103,11 +110,13 @@ export default {
             if (!product_details) return;
             this.detail = JSON.parse(product_details);
         },
+        // tempProduct(變數名只存在這個函式) - 為了讀取 tempStock 的東西
         getStorage () {
             const tempProduct = localStorage.getItem('tempStock')
             if (!tempProduct || tempProduct === 'undefined') return
             this.tempProduct = JSON.parse(tempProduct)
         },
+        // cart - 購物車 點擊的商品會存於購物車裡面
         getCart() {
             const tempProduct = localStorage.getItem('cart')
             if (!tempProduct || tempProduct === 'undefined') return
