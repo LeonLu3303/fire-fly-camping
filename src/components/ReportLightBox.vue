@@ -71,9 +71,9 @@ export default {
     height: 22rem;
     } */
 
-    button {
+    /* button {
         font-size: 30px;
-    }
+    } */
 
     .lightbox {
         position: absolute;

@@ -1,11 +1,14 @@
 .wrap_login{
-    margin: -20px 0 50px;
+    // margin: -20px 0 50px;
+    padding-bottom: 150px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat',sans-serif;
     background-image: url(/src/assets/images/home_jungle_all.png);
+    background-size: cover;
+    background-position: bottom center;
 }
 //大標題
 .overlay .title{
@@ -100,7 +103,7 @@ a{
     height: 35px;
     font-size: 15px;
     color: #333;
-    border: none;
+    // border: none;
     width: 80%;
     outline: none;
     background: none;
