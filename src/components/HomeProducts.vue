@@ -1,7 +1,9 @@
 <template>
     <section class="featured_products">
             <div class="products_cotainer">
-                <h2 class="section_title">{{sectionTitle}}</h2>
+                <div class="title_main">
+                    <h2>{{sectionTitle}}</h2>
+                </div>
                 <div class="content_group">
                     <div v-for="item in itemArray" :class="{content_card: products_item==i}">
                         <div class="card_photo"><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="精選商品"></div>
