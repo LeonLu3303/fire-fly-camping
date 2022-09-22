@@ -24,7 +24,7 @@
                 <ReportCard/>
             </div>
             <div class="report_pagination">
-                <a-pagination v-model:current="current" :total="100" />
+                <a-pagination v-model:current="current" :total="50" show-less-items />
             </div>
             <!-- <ReportLightBox/> -->
         </div>
@@ -90,5 +90,9 @@ export default{
         flex-wrap: wrap;
         justify-content: center;
         padding: 0 0 60px;
+    }
+    // 頁碼
+    .report_pagination{
+        text-align: center;
     }
 </style>
