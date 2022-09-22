@@ -8,7 +8,10 @@
       <div class="bk_process_where" v-if="step == 1">
         <h2>你要去哪裡露營呢？</h2>
         <div class="bk_where_block_container">
-          <div class="bk_where_card" :class="{ onPick: wherePick == '1' }">
+          <div
+            class="bk_where_card booking_snow"
+            :class="{ onPick: wherePick == '1' }"
+          >
             <div>
               <h3>叢林歷險</h3>
               <button class="btn_booking_min" @click="wherePick = '1'">
@@ -23,7 +26,10 @@
               <p>探索 叢林歷險 體驗不一樣的露營模式</p>
             </div>
           </div>
-          <div class="bk_where_card" :class="{ onPick: wherePick == '2' }">
+          <div
+            class="bk_where_card booking_j"
+            :class="{ onPick: wherePick == '2' }"
+          >
             <div>
               <h3>冰雪奇緣</h3>
               <button class="btn_booking_min" @click="wherePick = '2'">
@@ -38,7 +44,10 @@
               <p>探索 冰雪奇緣 體驗不一樣的露營模式</p>
             </div>
           </div>
-          <div class="bk_where_card" :class="{ onPick: wherePick == '3' }">
+          <div
+            class="bk_where_card booking_v"
+            :class="{ onPick: wherePick == '3' }"
+          >
             <div>
               <h3>荒野峽谷</h3>
               <button class="btn_booking_min" @click="wherePick = '3'">
@@ -291,7 +300,7 @@ export default {
         paymentTotal: null,
       },
       step: 1,
-      wherePick: '1',
+      wherePick: null,
       getStart: dayjs().format('YYYY-MM-DD'),
       getEnd: dayjs().format('YYYY-MM-DD'),
       // getDate:,
@@ -394,4 +403,22 @@ export default {
 <style lang="scss">
 @import '../assets/scss/style.scss';
 @import '../assets/scss/booking.scss';
+.booking_snow::before {
+  background: url(../assets/images/home_jungle_all.png),
+    linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
+  background-size: cover;
+  background-position: center left;
+}
+.booking_j::before {
+  background: url(../assets/images/home_snow_all.png),
+    linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
+  background-size: cover;
+  background-position: bottom right;
+}
+.booking_v::before {
+  background: url(../assets/images/home_canyon_all.png),
+    linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
+  background-size: cover;
+  background-position: bottom right;
+}
 </style>

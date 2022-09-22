@@ -10,7 +10,7 @@
             <div class="user_input_box">
               <label for="name"
                 >姓名
-                <input type="text" id="name" placeholder="營火叢" />
+                <input type="text" id="name" placeholder="營火叢" required/>
               </label>
               <label for=""
                 >電話
@@ -82,19 +82,19 @@
           <div class="amount">
             <h3>結帳金額</h3>
             <h3>${{itemTotal}}</h3>
-          </div>
-          <hr />
-          <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
-            <tbody>
-              <tr class="table_tr_grid">
-                <td><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" /></td>
-                <td><p>{{item.title}}</p></td>
-                <td><p>{{item.qty}}</p></td>
-                <td><p>${{item.price}}</p></td>
-                <td><p>${{item.qty * item.price}}</p></td>
+            </div>
+          
+          <div class="cart_payment_container">
+            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
+            <tbody >
+              <tr class="table_tr_grid" >
+                <td class="payment_item_image"><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" /></td>
+                <td><p>{{item.title}}</p><p>數量:{{item.qty}}</p><p>單價:${{item.price}}</p><p>小計:${{item.qty * item.price}}</p></td>
               </tr>
             </tbody>
           </table>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -146,25 +146,47 @@ export default {
     box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
   width: 100%;
   background-color: #fff;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   border-radius: 10px;
   margin: 0.5rem 0;
   }
 }
-
+.payment_item_image{
+  width: 120px;
+  margin: 0 20px;
+  img{
+    width: 120px;
+    height: 120px;
+  }
+}
 .payment_rows_2 {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  height: 100%;
   padding: 0 3rem;
+  height: 100vh;
 }
-
+.cart_payment_container{
+  height: 85vh;
+  overflow: scroll;
+}
 .payment_col_1 {
   display: grid;
+  height: 100vh;
   grid-template-columns: 1fr;
   padding: 0 2rem;
   background-color: #f9f9f9;
   border-radius: 5px;
+  .wrap_cart{
+    width: 100%;
+    .amount{
+      border-bottom: 1px solid gray;
+      display: flex;
+      height: 15vh;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+    }
+  }
 }
 
 .user_input_box {
@@ -191,33 +213,29 @@ export default {
 .wrap_payment {
   height: 50vh;
 }
-.cart_payment_info{
+
+.table_tr_grid{
+  width: 100%;
   display: flex;
-  .amount{
-    display: flex;
-    height: 100px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  img{
-    width: 80px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  td{
+    p{
+      padding: 0 5px;
+    }
   }
 }
 
 .btn_link_group {
   display: flex;
   justify-content: flex-end;
+  padding-top: 60px;
   .btn_purchase{
     margin-left: 1rem;
   }
 
 }
-input,
-label,
-select {
-  margin-bottom: 2rem;
-}
-
 .para {
   padding: 1rem;
 }
