@@ -1,3 +1,8 @@
+.sr_only{
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+}
 .original_header_nav{
   width: 98%;
   height: 90px;
@@ -32,6 +37,7 @@
   padding-left: 10px;
   font-size: 20px;
   font-weight: 600;
+  color: #FFFFFF;
 }
 .reservation_icon_photo{
   width: 20%

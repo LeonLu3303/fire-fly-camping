@@ -20,8 +20,15 @@
           @click="activeTab = 'product'">
           商品訂單查詢
         </button>
+        <button
+          class="member_tabs mem_button"
+          @click="activeTab = 'signout'">
+          <router-link to ="/" class="mem_signout">登出</router-link>
+        </button>
+
         <div v-if="activeTab === 'memdata'" class="mem_content">
             <div class="mem_content_group">
+                <h3>編輯會員資料</h3>
                 <form class="mem_form" action="">
                     <div class="tabcontent_txt_group">
                         <ul class="tabcontent_txt">
@@ -58,19 +65,20 @@
                     </ul>
                     <button class="btn_confirm" type="submit" value="Submit">儲存</button>
                 </form>
-                
             </div>
         </div>
             
         <div v-else-if="activeTab === 'booking'" class="mem_content">
           <div class="mem_content_group">
-                <div class="tabcontent_txt">
-                    <h3>456</h3>
-                    <h4>123</h4>
-                    <p>123</p>
+                <div class="tabcontent_booking_search">
+                    <input type="text" class="mem_search"><input type="button" value="搜尋" class="btn_purchase">
+                </div>
+                <div class="tabcontent_booking_info">
+                    
                 </div>
             </div>
         </div>
+
         <div v-else class="mem_content">
           <div class="mem_content_group">
                 <div class="tabcontent_txt">
@@ -80,6 +88,9 @@
                 </div>
             </div>
         </div>
+        <!-- <div v-else class="mem_content"></div>      -->
+        
+
       </div> 
     </section>
     <MainFooter/>
@@ -129,30 +140,50 @@ export default {
         &:nth-child(1){
             border-radius: 5px 0 0 5px ;
         }
-        &:nth-child(3){
+        &:nth-child(4){
             border-radius: 0 5px 5px 0;
+            padding: 0;
+        }
+        .mem_signout{
+            color:$color-str-green;
+            display: inline-block;
+            padding: 20px 30px;
         }
         
     }
+    .mem_content_group{
+        padding: 70px 0;
+        h3{
+            color:$color-str-green;
+            margin-bottom: 20px;
+        }
+    }
     .mem_content{
-        background-color: #ffff;
+        background-color: $color-basic-White;
         border-radius:10px;
         box-shadow: 0px 0px 4px 3px rgba($color:$color-basic-gray1, $alpha: .3);
     }
     .tabcontent_txt{
-        color: #168D80;
+        color: $color-str-green;
         text-align: start;
         li a{
-            color: #168D80;
+            color: $color-str-green;
         }
         li .tab_label,li .tab_input, li .tab_select{
             margin-bottom:0; 
         }
         
+        
     }
+    .mem_search{
+        width: 200px;
+        border-radius: 10px;
+        padding: 5px;
+        border: 1px solid #4D8084;
+        }
     .mem_form{
         width: 100%;
-        padding: 50px 0;
+        // padding: 50px 0;
         .tabcontent_txt_group{
             display: flex;
             flex-wrap: wrap;

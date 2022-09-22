@@ -227,7 +227,6 @@ export default {
   }
 }
 
-
 .btn_link_group {
   display: flex;
   justify-content: flex-end;
@@ -237,12 +236,6 @@ export default {
   }
 
 }
-input,
-label,
-select {
-  margin-bottom: 2rem;
-}
-
 .para {
   padding: 1rem;
 }

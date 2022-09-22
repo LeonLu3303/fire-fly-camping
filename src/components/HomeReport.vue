@@ -30,7 +30,7 @@
     @import '../assets/scss/style.scss';
 
     .wrap_home_report{
-        background: $color-aid-blue1;
+        background: $color-aid-blue2;
         padding: 150px 0;
     }
     .wrap_home_report .report_container .title_main h2{

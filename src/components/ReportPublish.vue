@@ -16,6 +16,9 @@
                             <img src="../assets/images/report_avatar_1.png" alt="avatar">
                         </div>
                         <h4 class="postcard_member_name">{{memberName}}</h4>
+                        <div class="release_time">
+                            <p>{{releaseTime}}</p>
+                        </div>
                     </div>
                 </div>
 
@@ -42,9 +45,10 @@ export default {
     name: "ReportPublish",
     data() {
         return {
-            enterTitle : "請輸入標題(15字以內)",
-            enterText : "請輸入內文(300字以內)",
-            memberName: "會員名稱"
+            enterTitle: "請輸入標題(15字以內)",
+            enterText: "請輸入內文(300字以內)",
+            memberName: "會員名稱",
+            releaseTime: "2022/09/22",
         }
     }
 }
@@ -78,8 +82,8 @@ export default {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        width: 74%;
-        height: 460px;
+        width: 72%;
+        height: 540px;
         background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
         background-repeat: no-repeat;
         background-position: center center;
@@ -115,8 +119,8 @@ export default {
         color: $color-basic-gray3;
     }
     .col_write_text{
-        width: 20%;
-        // padding: 0 20px;
+        width: 24%;
+        // height: 100%;
         @include lg(){
             width: 80%;
         }
@@ -128,9 +132,10 @@ export default {
         }
     }
     .postcard_member_pic{
-        width: 100%;
+        width: 80%;
         border-radius: 100%;
         overflow: hidden;
+        margin: 0 auto 10px;
     }
     .enter_title{
         width: 100%;
@@ -142,7 +147,7 @@ export default {
     }
     .enter_text{
         width: 100%;
-        height: 300px;
+        height: 70%;
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 20px;
@@ -152,6 +157,7 @@ export default {
     .confirm_choose_contain{
         display: flex;
         justify-content: flex-end;
+        flex-wrap: wrap;
     }
     .confirm_choose_contain .btn_confirm{
         margin-right: 20px;
