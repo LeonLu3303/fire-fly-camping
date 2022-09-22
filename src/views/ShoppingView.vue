@@ -149,9 +149,7 @@ export default {
 </script>
 <style lang="scss">
 @import "../assets/scss/style.scss";
-body{
-    background-color: $color-main-yellow;
-}
+
 .shop_container {
     padding: 150px 0px;
     display: flex;
