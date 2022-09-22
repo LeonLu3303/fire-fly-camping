@@ -362,13 +362,13 @@ export default {
   padding: 150px 0;
 }
 .activity_jungle {
-  background: linear-gradient(to bottom, $color-main-yellow, $color-main-green);
+  background: linear-gradient(to bottom, $color-main-yellow,$color-aid-green1);
 }
 .activity_ice {
-  background: linear-gradient(to bottom, #f5f2e9, #a1c6e8);
+  background: linear-gradient(to bottom, $color-main-yellow, $color-aid-blue1);
 }
 .activity_canyon {
-  background: linear-gradient(to bottom, #f5f2e9, #d9b294);
+  background: linear-gradient(to bottom, $color-main-yellow, $color-aid-orange1);
 }
 .activity_overview {
   background-color: $color-main-yellow;
@@ -471,19 +471,19 @@ export default {
   bottom: -110px;
 }
 .tab_jungle {
-  background-color: #a6cec2;
+  background-color: $color-aid-green1;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
 }
 .tab_snow {
-  background-color: #bcd4e8;
+  background-color: $color-aid-blue1;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
 }
 .tab_canyon {
-  background-color: #c99f7f;
+  background-color: $color-aid-orange1;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
@@ -498,21 +498,24 @@ export default {
   }
 }
 .tabcontent {
-  background-color: #a6cec2;
   height: 100%;
 }
 #jungletab {
-  background-image: url(../assets/images/home_jungle_3.png);
+  background: url(../assets/images/home_jungle_3.png),
+    linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 #snowtab {
-  background-color: #bcd4e8;
-  background-image: url(../assets/images/home_snow_3.png);
+  background: url(../assets/images/home_snow_3.png),
+    linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 #canyontab {
-  background-color: #c99f7f;
-  background-image: url(../assets/images/home_canyon_2.png);
+  background: url(../assets/images/home_canyon_1.png),
+    linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 .tabcontent_group{
