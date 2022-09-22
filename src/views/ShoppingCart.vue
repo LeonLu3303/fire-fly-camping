@@ -81,7 +81,7 @@ export default {
 
                 },
                 updateCart() {
-                    localStorage.setItem('cart', JSON.stringify(this.products));
+                    localStorage.setItem('cart', JSON.stringify(this.cart));
                 },
                 getCart(){
                     const tempCart = localStorage.getItem('cart')

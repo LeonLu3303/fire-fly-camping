@@ -131,6 +131,7 @@ export default {
       // localStorage.setItem("shoppingCart", JSON.stringify(this.cart));
       // localStorage.setItem("detail", JSON.stringify(this.detail));
     },
+    //tempStock - 當商品頁被點擊時，會先暫存
     selectToDetails(tempStock) {
       localStorage.setItem("tempStock", JSON.stringify(tempStock));
     },
