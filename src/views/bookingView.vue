@@ -237,7 +237,7 @@
               <h4>我的營帳</h4>
               <div class="middle_content">
                 <p>{{ howMany }}人 <br />營帳</p>
-                <p>{{ bookingCampType.campType }}</p>
+                <p>{{ bookingCampType[campType - 1] }}</p>
               </div>
               <button @click="step = 2" class="btn_booking_min">修改</button>
             </div>
@@ -317,11 +317,7 @@ export default {
   data() {
     return {
       bookingBlock: ['叢林歷險', '冰雪奇緣', '荒野峽谷'],
-      bookingCampType: {
-        a: '經濟營帳',
-        b: '豪華營帳',
-        c: '特色營帳',
-      },
+      bookingCampType: ['經濟營帳', '豪華營帳', '特色營帳'],
       bookingWhich: [
         {
           block: '叢林歷險',
