@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="activity_item_adventure activity_items">
-            <!-- <div class="activity_item_adventure_title">{{ advTitle }}</div> -->
+            <div class="activity_item_adventure_title" :class="btnOptions">{{ advTitle }}</div> 
             <div class="activity_item_text">
               <h3>{{ advTitle }}</h3>
               <span>{{ jungleSub }}</span>
@@ -374,9 +374,8 @@ export default {
   background-color: $color-main-yellow;
 }
 .wrapper {
-  max-width: 1296px;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 80%;
+  margin:auto;
 }
 .activity_title {
   margin-bottom: 50px;
@@ -471,22 +470,24 @@ export default {
   bottom: -110px;
 }
 .tab_jungle {
-  background-color: $color-aid-green1;
+  background-color:#abe8d6;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
+  border-radius:10px 0 0 0;
 }
 .tab_snow {
-  background-color: $color-aid-blue1;
+  background-color: #abcbe9;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
 }
 .tab_canyon {
-  background-color: $color-aid-orange1;
+  background-color:#e1bb9e;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
+  border-radius:0 10px 0 0;
 }
 .tab_title {
   color: #537979;
@@ -502,32 +503,37 @@ export default {
 }
 #jungletab {
   background: url(../assets/images/home_jungle_3.png),
-    linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
+    linear-gradient(to bottom, #abe8d6, $color-main-yellow);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom center;
+  border-radius:0 10px 10px 10px;
 }
 #snowtab {
   background: url(../assets/images/home_snow_3.png),
-    linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
+    linear-gradient(to bottom, #abcbe9, $color-main-yellow);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom center;
+  background-size: contain;
+  border-radius:0 10px 10px 10px;
 }
 #canyontab {
-  background: url(../assets/images/home_canyon_1.png),
-    linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
+  background: url(../assets/images/home_canyon_2.png),
+    linear-gradient(to bottom, #e1bb9e, $color-main-yellow);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom center;
+  background-size: contain;
+  border-radius:0 10px 10px 10px;
 }
 .tabcontent_group{
   display: flex;
   flex-wrap: wrap;
-  padding:100px 50px;
+  padding:120px 50px;
   .tabcontent_picture{
     width: 50%;
   }
   .tabcontent_text{
     width: 50%;
-    padding:0 20px;
+    padding: 0 20px;
     h4{
       padding:10px 0;
       color:$color-basic-gray3 ;
@@ -540,7 +546,7 @@ export default {
   }
   .tabcontent_notice{
     width: 100%;
-    background-color: rgba($color: #ffff, $alpha: .3);
+    background-color: rgba($color: #ffff, $alpha: .6);
     padding: 20px;
     margin-top: 50px;
     p{

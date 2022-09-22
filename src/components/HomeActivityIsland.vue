@@ -68,7 +68,7 @@ export default {
     padding-bottom: 450px;
 }
 .activityIsland_group{
-    max-width: 1296px;
+    width: 80%;
     margin: auto;
     .btn_spacing{
         display: flex;

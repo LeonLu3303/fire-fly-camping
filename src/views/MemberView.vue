@@ -5,25 +5,14 @@
     </div>
     <section class="member_wrapper">
         <div class="member_tabs member_group">
-        <button
-          class="member_tabs mem_button"
-          @click="activeTab = 'memdata'" >
-          會員資料
-        </button>
-        <button
-          class="member_tabs mem_button"
-          @click="activeTab = 'booking'">
-          營地預定查詢
-        </button>
-        <button
-          class="member_tabs mem_button"
-          @click="activeTab = 'product'">
-          商品訂單查詢
-        </button>
-        <button
-          class="member_tabs mem_button"
-          @click="activeTab = 'signout'">
-          <router-link to ="/" class="mem_signout">登出</router-link>
+        <button class="member_tabs mem_button" @click="activeTab = 'memdata'" 
+                :class="{mem_btn_active:activeTab === 'memdata'}">會員資料</button>
+        <button class="member_tabs mem_button" @click="activeTab = 'booking'"
+                :class="{mem_btn_active:activeTab === 'booking'}">營地預定查詢</button>
+        <button class="member_tabs mem_button" @click="activeTab = 'product'"
+                :class="{mem_btn_active:activeTab === 'product'}">商品訂單查詢</button>
+        <button class="member_tabs mem_button" @click="activeTab = 'signout'">
+            <router-link to ="/" class="mem_signout">登出</router-link>
         </button>
 
         <div v-if="activeTab === 'memdata'" class="mem_content">
@@ -87,10 +76,7 @@
                     <p>123</p>
                 </div>
             </div>
-        </div>
-        <!-- <div v-else class="mem_content"></div>      -->
-        
-
+        </div>     
       </div> 
     </section>
     <MainFooter/>
@@ -117,16 +103,12 @@ export default {
         padding: 150px 0;
     }
     .member_group{
-        max-width: 1296px;
+        width: 80%;
         margin: auto;
     }
     .member_tabs{
         color: #168D80;
         text-align: center;
-        &:focus{
-        background-color: $color-str-green ;
-        color: #ffff;
-        }
     }
     .mem_button{
         background-color: #ffff;
@@ -169,11 +151,6 @@ export default {
         li a{
             color: $color-str-green;
         }
-        li .tab_label,li .tab_input, li .tab_select{
-            margin-bottom:0; 
-        }
-        
-        
     }
     .mem_search{
         width: 200px;
@@ -183,7 +160,6 @@ export default {
         }
     .mem_form{
         width: 100%;
-        // padding: 50px 0;
         .tabcontent_txt_group{
             display: flex;
             flex-wrap: wrap;
@@ -203,5 +179,12 @@ export default {
             width: 100px;
             margin:10px ;
         }
+    }
+    .btn_confirm{
+        cursor: pointer;
+    }
+    .mem_btn_active{
+        background-color: #168D80;
+        color: #ffff;
     }
 </style>
