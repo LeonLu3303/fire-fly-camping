@@ -10,7 +10,7 @@
         <div class="bk_where_block_container">
           <div
             class="bk_where_card booking_snow"
-            :class="{ onPick: wherePick == '1' }"
+            :class="{ onPick: wherePick == 1 }"
           >
             <div>
               <h3>叢林歷險</h3>
@@ -28,7 +28,7 @@
           </div>
           <div
             class="bk_where_card booking_j"
-            :class="{ onPick: wherePick == '2' }"
+            :class="{ onPick: wherePick == 2 }"
           >
             <div>
               <h3>冰雪奇緣</h3>
@@ -46,7 +46,7 @@
           </div>
           <div
             class="bk_where_card booking_v"
-            :class="{ onPick: wherePick == '3' }"
+            :class="{ onPick: wherePick == 3 }"
           >
             <div>
               <h3>荒野峽谷</h3>
@@ -174,13 +174,26 @@
               </h2>
               <div class="rangeDateShow">
                 <p>
-                  主題活動 <span>{{ whichActivityShow }}</span>
+                  主題活動
+                  <span>{{
+                    bookingWhich[wherePick - 1].whichActivityShow[
+                      whichActivity - 1
+                    ]
+                  }}</span>
                 </p>
                 <p>
-                  其他裝備 <span>{{ whichEquipmentShow }}</span>
+                  其他裝備
+                  <span>{{
+                    bookingWhich[wherePick - 1].whichEquipmentShow[
+                      whichEquipment - 1
+                    ]
+                  }}</span>
                 </p>
                 <p>
-                  食材方案 <span>{{ whichMealShow }}</span>
+                  食材方案
+                  <span>{{
+                    bookingWhich[wherePick - 1].whichMealShow[whichMeal - 1]
+                  }}</span>
                 </p>
               </div>
               <p>
@@ -212,21 +225,24 @@
           <h2>你要確定欸？</h2>
           <div class="bk_confirm_cards_container">
             <div class="bk_confirm_card_container">
+              <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>出發區域</h4>
               <div class="middle_content">
-                <p>不知道拉</p>
+                <p>{{ bookingBlock[wherePick - 1] }}</p>
               </div>
               <button @click="step = 1" class="btn_booking_min">修改</button>
             </div>
             <div class="bk_confirm_card_container">
+              <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>我的營帳</h4>
               <div class="middle_content">
-                <p>{{ howMany }}</p>
-                <p>{{ campType }}</p>
+                <p>{{ howMany }}人 <br />營帳</p>
+                <p>{{ bookingCampType.campType }}</p>
               </div>
               <button @click="step = 2" class="btn_booking_min">修改</button>
             </div>
             <div class="bk_confirm_card_container">
+              <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>出發時間</h4>
               <div class="middle_content">
                 <p class="bigMonth">{{ getStartMonth }}月</p>
@@ -235,11 +251,26 @@
               <button @click="step = 3" class="btn_booking_min">修改</button>
             </div>
             <div class="bk_confirm_card_container">
+              <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>我的方案</h4>
               <div class="middle_content">
-                <p>{{ whichActivity }}</p>
-                <p>{{ whichEquipment }}</p>
-                <p>{{ whichMeal }}</p>
+                <p>
+                  {{
+                    bookingWhich[wherePick - 1].whichActivityShow[
+                      whichActivity - 1
+                    ]
+                  }}
+                </p>
+                <p>
+                  {{
+                    bookingWhich[wherePick - 1].whichEquipmentShow[
+                      whichEquipment - 1
+                    ]
+                  }}
+                </p>
+                <p>
+                  {{ bookingWhich[wherePick - 1].whichMealShow[whichMeal - 1] }}
+                </p>
               </div>
               <button @click="step = 4" class="btn_booking_min">修改</button>
             </div>
@@ -285,6 +316,44 @@ export default {
   },
   data() {
     return {
+      bookingBlock: ['叢林歷險', '冰雪奇緣', '荒野峽谷'],
+      bookingCampType: {
+        a: '經濟營帳',
+        b: '豪華營帳',
+        c: '特色營帳',
+      },
+      bookingWhich: [
+        {
+          block: '叢林歷險',
+          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichEquipmentShow: [
+            '看起來很有氣氛的吊燈',
+            '超級防蚊攜帶裝置',
+            '你在想一個我沒主意了',
+          ],
+          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+        },
+        {
+          block: '冰雪奇緣',
+          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichEquipmentShow: [
+            '看起來很有氣氛的吊燈',
+            '超級防蚊攜帶裝置',
+            '你在想一個我沒主意了',
+          ],
+          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+        },
+        {
+          block: '荒野峽谷',
+          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichEquipmentShow: [
+            '看起來很有氣氛的吊燈',
+            '超級防蚊攜帶裝置',
+            '你在想一個我沒主意了',
+          ],
+          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+        },
+      ],
       bookingList: {
         where: null,
         howMany: null,
@@ -294,9 +363,6 @@ export default {
         whichActivity: null,
         whichEquipment: null,
         whichMeal: null,
-        whichActivityShow: null,
-        whichEquipmentShow: null,
-        whichMealShow: null,
         paymentTotal: null,
       },
       step: 1,
@@ -420,5 +486,42 @@ export default {
     linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
+}
+.bookConfirmImg_1 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../assets/images/home_jungle_all.png),
+    linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
+  background-size: cover;
+  background-position: center left;
+}
+.bookConfirmImg_2 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../assets/images/home_snow_all.png),
+    linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
+  background-size: cover;
+  background-position: bottom right;
+}
+.bookConfirmImg_3 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../assets/images/home_canyon_all.png),
+    linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
+  background-size: cover;
+  background-position: bottom right;
+  opacity: 0.6;
 }
 </style>
