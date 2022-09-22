@@ -147,10 +147,15 @@ export default {
 };
 </script>
 <style lang="scss">
+<<<<<<< HEAD
 @import '../assets/scss/style.scss';
 body {
   background-color: $color-main-yellow;
 }
+=======
+@import "../assets/scss/style.scss";
+
+>>>>>>> 61f9f1c7303b11b1615882792c0da85f5b84e73d
 .shop_container {
   padding: 150px 0px;
   display: flex;

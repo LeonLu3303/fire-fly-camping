@@ -144,11 +144,11 @@ export default {
   input, select {
     border: 1px solid $color-aid-green2;
     box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-  width: 100%;
-  background-color: #fff;
-  padding: 0.5rem 0.5rem;
-  border-radius: 10px;
-  margin: 0.5rem 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
   }
 }
 .payment_item_image{
