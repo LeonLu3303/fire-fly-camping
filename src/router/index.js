@@ -8,13 +8,10 @@ import ReportMessageView from '../views/ReportMessageView.vue';
 import ShoppingDetails from '../views/ShoppingDetails.vue';
 import ShoppingPayment from '../views/ShoppingPayment.vue';
 import ShoppingCart from '../views/ShoppingCart.vue';
-<<<<<<< HEAD
 import LoadingPage from '../components/LoadingPage.vue';
 
-=======
 import ServiceView from '../views/ServiceView.vue';
 import LoginView from '../views/LoginView.vue';
->>>>>>> 717b3f43ee5c9c4e048a2c330fd25425a1adcbf4
 
 const routes = [
   {
@@ -78,18 +75,15 @@ const routes = [
     component: ShoppingCart,
   },
   {
-<<<<<<< HEAD
     path: '/LoadingPage',
     name: 'LoadingPage',
     component: LoadingPage,
   },
-
-=======
+  {
     path: '/Service',
     name: 'Service',
     component: () => import('../views/ServiceView.vue'),
   },
->>>>>>> 717b3f43ee5c9c4e048a2c330fd25425a1adcbf4
 ];
 
 const router = createRouter({
