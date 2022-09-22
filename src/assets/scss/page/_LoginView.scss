@@ -57,6 +57,7 @@ a{
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    margin-top: 200px;
 }
 
 .form-container form{
@@ -100,9 +101,13 @@ a{
     font-size: 15px;
     color: #333;
     border: none;
-    width: 100%;
+    width: 80%;
     outline: none;
     background: none;
+    float: left;
+}
+#register_id_block{
+    position: relative;
 }
 
 .txtb span::before {
@@ -269,10 +274,14 @@ button.ghost:hover{
 }
 #check_id{
     font-size: 12px;
-    width: 100px;
+    width: 60px;
     height: 20px;
     float: right;
     line-height: 18px;
+    position: absolute;
+    right: 0;
+    top: 40%;
+
 }
 #check_id:hover{
     cursor: pointer;
