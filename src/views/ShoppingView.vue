@@ -3,22 +3,6 @@
   <div class="banner">
     <img src="../assets/images/banner_shop.png" alt="" />
   </div>
-  
-  <div class="shop_container">
-    <div class="wrap wrap_product_list">
-      <div class="product_list_group">
-        <h3>所有商品</h3>
-        <hr />
-        <ul class="product_list">
-          <li class="product_list_item">T恤</li>
-          <li class="product_list_item">帽T</li>
-          <li class="product_list_item">漁夫帽</li>
-          <li class="product_list_item">杯子</li>
-          <li class="product_list_item">水瓶</li>
-        </ul>
-      </div>
-    </div>
-  </div>
   <section class="shopping_section">
       <div class="shop_container">
       <div class="wrap wrap_product_list">
