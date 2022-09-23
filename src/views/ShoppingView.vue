@@ -1,6 +1,9 @@
 <template>
   <MainHeader></MainHeader>
-  <img src="../assets/images/banner_shop.png" alt="" />
+  <div class="banner">
+    <img src="../assets/images/banner_shop.png" alt="" />
+  </div>
+  
   <div class="shop_container">
     <div class="wrap wrap_product_list">
       <div class="product_list_group">
@@ -15,6 +18,22 @@
         </ul>
       </div>
     </div>
+  </div>
+  <section class="shopping_section">
+      <div class="shop_container">
+      <div class="wrap wrap_product_list">
+        <div class="product_list_group">
+          <h3>所有商品</h3>
+          <hr />
+          <ul class="product_list">
+            <li class="product_list_item">T恤</li>
+            <li class="product_list_item">帽T</li>
+            <li class="product_list_item">漁夫帽</li>
+            <li class="product_list_item">杯子</li>
+            <li class="product_list_item">水瓶</li>
+          </ul>
+        </div>
+      </div>
 
     <div class="wrap_product_info">
       <div class="wrap_product" v-for="(item, index) in itemList" :key="index">
@@ -31,15 +50,17 @@
               />
             </div>
 
-            <div class="shop_product_content">
-              <h3>{{ item.title }}</h3>
-              <h4>$ {{ item.price }}</h4>
+              <div class="shop_product_content">
+                <h3>{{ item.title }}</h3>
+                <h4>$ {{ item.price }}</h4>
+              </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  
   <MainFooter></MainFooter>
 </template>
 
@@ -147,7 +168,12 @@ export default {
 };
 </script>
 <style lang="scss">
+<<<<<<< HEAD
 @import '../assets/scss/style.scss';
+=======
+
+@import "../assets/scss/style.scss";
+>>>>>>> abae67a42a0de939fe41caf41bdf117a74918d8e
 
 .shop_container {
   padding: 150px 0px;
