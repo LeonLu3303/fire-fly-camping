@@ -4,7 +4,7 @@
     <img src="../assets/images/banner_shop.png" alt="" />
   </div>
   <section class="shopping_section">
-      <div class="shop_container">
+    <div class="shop_container">
       <div class="wrap wrap_product_list">
         <div class="product_list_group">
           <h3>所有商品</h3>
@@ -19,20 +19,26 @@
         </div>
       </div>
 
-    <div class="wrap_product_info">
-      <div class="wrap_product" v-for="(item, index) in itemList" :key="index">
-        <router-link
-          to="/ShoppingDetails"
-          @click="selectToDetails(item)"
-          :href="`./camp_prod_info copy.html?id=${item.id}`"
+      <div class="wrap_product_info">
+        <div
+          class="wrap_product"
+          v-for="(item, index) in itemList"
+          :key="index"
         >
-          <div class="wrap_product_item">
-            <div class="img_box">
-              <img
-                :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)"
-                alt="hello"
-              />
-            </div>
+          <router-link
+            to="/ShoppingDetails"
+            @click="selectToDetails(item)"
+            :href="`./camp_prod_info copy.html?id=${item.id}`"
+          >
+            <div class="wrap_product_item">
+              <div class="img_box">
+                <img
+                  :src="
+                    require(`../assets/images/shopping_prod_${item.id}.jpg`)
+                  "
+                  alt="hello"
+                />
+              </div>
 
               <div class="shop_product_content">
                 <h3>{{ item.title }}</h3>
@@ -44,7 +50,7 @@
       </div>
     </div>
   </section>
-  
+
   <MainFooter></MainFooter>
 </template>
 
@@ -152,8 +158,7 @@ export default {
 };
 </script>
 <style lang="scss">
-
-@import "../assets/scss/style.scss";
+@import '../assets/scss/style.scss';
 
 .shop_container {
   padding: 150px 0px;
