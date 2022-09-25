@@ -350,8 +350,18 @@ export default {
                     }              
                 ],      
     }
-  } 
-}
+  },
+      methods:{
+        scrollToTop(){
+          window.scrollTo(0,0)
+        }
+      },
+      mounted(){
+        //要用到mounted，不能用在created中，因為Dom元件還沒被掛載，讀不到window
+        this.scrollToTop()
+      }
+    }
+
 
 </script>
 <style lang="scss">
@@ -506,6 +516,7 @@ export default {
     linear-gradient(to bottom, #abe8d6, $color-main-yellow);
   background-repeat: no-repeat;
   background-position: bottom center;
+  background-size: contain;
   border-radius:0 10px 10px 10px;
 }
 #snowtab {
