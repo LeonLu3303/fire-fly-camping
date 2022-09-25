@@ -3,6 +3,10 @@
   <div class="banner">
     <img src="../assets/images/banner_shop.png" alt="" />
   </div>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 8d160b7 (no message)
   <section class="shopping_section">
     <div class="shop_container">
       <div class="wrap wrap_product_list">
@@ -160,71 +164,5 @@ export default {
 <style lang="scss">
 @import '../assets/scss/style.scss';
 
-.shop_container {
-  padding: 150px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 10%;
-  margin-left: 10%;
-  box-sizing: border-box;
-}
 
-.wrap_product_list {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
-.product_list_group {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.wrap_product_info {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.img_box {
-  padding: 0.5rem;
-  // width: clamp(160px, calc((100vw - 375px) / 10.65 + 160px), 260px);
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.product_list {
-  list-style: none;
-  .product_list_item {
-    padding: 0.5rem;
-    font-size: 16px;
-    letter-spacing: 1px;
-  }
-}
-
-.shop_product_content {
-  padding: 1rem;
-  background-color: #fff;
-  p {
-    color: #000;
-  }
-}
-
-.wrap_product_item {
-  box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-  margin: 1rem;
-  width: clamp(180px, calc((100vw - 375px) / 10.65 + 180px), 280px);
-  box-sizing: border-box;
-  // &:hover{
-  //   transform: scale(1.1);
-  //   transition: .5s ease-in;
-}
 </style>
