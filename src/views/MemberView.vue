@@ -46,56 +46,33 @@
                             <li><input  class="tab_input" type="text" placeholder="桃園市中壢市46號9樓" /></li>
                         </ul>
                     </div>
-<<<<<<< HEAD
                     </div>
                     <p>選取大頭貼</p>
-                    <!-- <ul class="tabcontent_img">
-                        <li><img src="../assets/images/report_avatar_1.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_2.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_3.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_4.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_5.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_6.png" alt=""></li>
-                    </ul> -->
                     <ul class="tabcontent_img">
                         <li>
-                            <label for="a"><img src="../assets/images/report_avatar_1.png" alt=""></label>
+                            <label for="a"><img src="@/assets/images/report/report_avatar_1.png" alt=""></label>
                             <input type="radio" id="a">
                         </li>
                         <li>
-                            <label for="b"><img src="../assets/images/report_avatar_2.png" alt=""></label>
+                            <label for="b"><img src="@/assets/images/report/report_avatar_2.png" alt=""></label>
                         <input type="radio" id="b">
                         </li>
                         <li>
-                            <label for="c"><img src="../assets/images/report_avatar_3.png" alt=""></label>
+                            <label for="c"><img src="@/assets/images/report/report_avatar_3.png" alt=""></label>
                         <input type="radio" id="c">
                         </li>
                         <li>
-                            <label for="d"><img src="../assets/images/report_avatar_4.png" alt=""></label>
+                            <label for="d"><img src="@/assets/images/report/report_avatar_4.png" alt=""></label>
                         <input type="radio" id="d">
                         </li>
                         <li>
-                            <label for="e"><img src="../assets/images/report_avatar_5.png" alt=""></label>
+                            <label for="e"><img src="@/assets/images/report/report_avatar_5.png" alt=""></label>
                         <input type="radio" id="e">
                         </li>
                         <li>
-                            <label for="g"><img src="../assets/images/report_avatar_6.png" alt=""></label>
+                            <label for="g"><img src="@/assets/images/report/report_avatar_5.png" alt=""></label>
                         <input type="radio" id="g">
                         </li>
-                        
-                        
-                        
-                        
-=======
-                    <ul class="tabcontent_img">
-                        <li>選取大頭貼</li>
-                        <li><img src="@/assets/images/report/report_avatar_1.png" alt=""></li>
-                        <li><img src="@/assets/images/report/report_avatar_2.png" alt=""></li>
-                        <li><img src="@/assets/images/report/report_avatar_3.png" alt=""></li>
-                        <li><img src="@/assets/images/report/report_avatar_4.png" alt=""></li>
-                        <li><img src="@/assets/images/report/report_avatar_5.png" alt=""></li>
-                        <li><img src="@/assets/images/report/report_avatar_6.png" alt=""></li>
->>>>>>> dev
                     </ul>
                     <button class="btn_confirm" type="submit" value="Submit">儲存</button>
                 </form>
@@ -127,8 +104,8 @@
     <MainFooter/>
 </template>
 <script>
-import MainHeader from '../components/MainHeader.vue'
-import MainFooter from '../components/MainFooter.vue'
+import MainHeader from '@/components/MainHeader.vue'
+import MainFooter from '@/components/MainFooter.vue'
 export default {
     components:{
         MainHeader,
