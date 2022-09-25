@@ -1,19 +1,19 @@
 <template>
 <MainHeader></MainHeader>
 <div class="banner">
-    <img src="../assets/images/banner_shop.png" alt="">
+    <img src="../assets/images/main/banner_shop.png" alt="">
 </div>
 <div class="container_details">
     <div class="wrap_details">
         <div class="details_item">
             <div class="details_img_box">
                 <img class="details_product_img"
-                :src="require(`../assets/images/shopping_prod_${realProduct.id}.jpg`)"
+                :src="require(`../assets/images/shop/shopping_prod_${realProduct.id}.jpg`)"
                 alt="hello"/>
                 <div class="details_link_path">
                     <router-link to="/Shopping">
                     <div class="back_shopping_page">
-                        <img class="back_shopping_img" src="../assets/booking_arrow_prev.png" alt="">
+                        <img class="back_shopping_img" src="../assets/images/booking/booking_arrow_prev.png" alt="">
                         <h4>繼續購物</h4>
                     </div>
                     </router-link>
@@ -24,11 +24,11 @@
                 <p>單價：${{realProduct.price}}</p>
                 <div class="details_qty_btn_box">
                     <button @click="reduce_order(realProduct.qty)">
-                        <img src="../assets/images/shopping_minus.png" alt="">
+                        <img src="../assets/images/shop/shopping_minus.png" alt="">
                     </button>
                     <p class="details_qty">{{realProduct.qty}}</p>
                     <button @click="plus_order(realProduct.qty)">
-                        <img src="../assets/images/shopping_plus.png" alt="">
+                        <img src="../assets/images/shop/shopping_plus.png" alt="">
                     </button>
                 </div>
                 <h4>合計：${{realProduct.price * realProduct.qty}}</h4>
