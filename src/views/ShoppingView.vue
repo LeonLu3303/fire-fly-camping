@@ -3,10 +3,6 @@
   <div class="banner">
     <img src="../assets/images/banner_shop.png" alt="" />
   </div>
-<<<<<<< HEAD
-=======
-  
->>>>>>> 8d160b7 (no message)
   <section class="shopping_section">
     <div class="shop_container">
       <div class="wrap wrap_product_list">
