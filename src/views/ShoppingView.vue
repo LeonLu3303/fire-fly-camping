@@ -1,9 +1,9 @@
 <template>
   <MainHeader></MainHeader>
   <div class="banner">
-    <img src="../assets/images/banner_shop.png" alt="" />
+    <img src="../assets/images/main/banner_shop.png" alt="" />
   </div>
-  <section class="shopping_section">
+  <section class="shop_section">
     <div class="shop_container">
       <div class="wrap wrap_product_list">
         <div class="product_list_group">
@@ -20,27 +20,28 @@
       </div>
 
       <div class="wrap_product_info">
+        <!-- 第二步 v-for 渲染這個清單 :key 在程式碼必須是唯一值 (類似身份證)-->
         <div
           class="wrap_product"
           v-for="(item, index) in itemList"
-          :key="index"
+          :key="'item' + index" 
         >
           <router-link
             to="/ShoppingDetails"
             @click="selectToDetails(item)"
             :href="`./camp_prod_info copy.html?id=${item.id}`"
           >
-            <div class="wrap_product_item">
-              <div class="img_box">
+            <div class="product_card_item">
+              <div class="product_img_box">
                 <img
                   :src="
-                    require(`../assets/images/shopping_prod_${item.id}.jpg`)
+                    require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)
                   "
                   alt="hello"
                 />
               </div>
 
-              <div class="shop_product_content">
+              <div class="product_content">
                 <h3>{{ item.title }}</h3>
                 <h4>$ {{ item.price }}</h4>
               </div>
@@ -55,8 +56,8 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
-import MainFooter from '../components/MainFooter.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
   components: {
@@ -67,6 +68,7 @@ export default {
     return {
       cart_count: 0,
       itemList: [
+        // {} 包住的為 object
         {
           id: '1',
           img: '../assets/images/shopping_prod_1.jpg',
@@ -113,118 +115,19 @@ export default {
     };
   },
   methods: {
-    // add_cart() {
-    //     this.cart_count = this.cart_count + 1;
-    // },
-    addToCart(item, id) {
-      let index = this.itemList.findIndex((item) => item.id === id);
-
-      let count = this.detail.find((detail) => detail.id === item.id);
-      console.log(count);
-
-      if (!count) {
-        this.detail.push({
-          id: this.itemList[index].id,
-          img: this.itemList[index].img,
-          title: this.itemList[index].title,
-        });
-      } else {
-        alert('no');
-      }
-
-      this.setStorage();
-    },
-    setStorage() {
-      // 將 shoppingCart 透過參數的方式傳過來
-
-      localStorage.setItem('stock', JSON.stringify(this.itemList));
-      // localStorage.setItem("shoppingCart", JSON.stringify(this.cart));
-      // localStorage.setItem("detail", JSON.stringify(this.detail));
-    },
-    //tempStock - 當商品頁被點擊時，會先暫存
+    //119 的tempStock - 當html 的商品 selectToDetails 被點擊時，會先暫存到tempStock
     selectToDetails(tempStock) {
-      localStorage.setItem('tempStock', JSON.stringify(tempStock));
+      //tempStorage - 是 localStorage 裡面存放的變數名稱
+      //JSON - 將點擊的資料轉成JSON 的字串格式轉換，因 javascript 陣列或物件無法直接存入localStorage
+      //localStorage.setItem 是內建的函式
+      localStorage.setItem('tempStorage', JSON.stringify(tempStock));
     },
-
-    clear() {
-      // this.detail.splice(0, 1);
-      // console.log(this.detail)
-    },
-  },
-  created() {
-    // this.online()
-    this.clear();
   },
 };
 </script>
 <style lang="scss">
-@import '../assets/scss/style.scss';
+@import '@/assets/scss/style.scss';
+@import '@/assets/scss/shopping.scss';
 
-.shop_container {
-  padding: 150px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 10%;
-  margin-left: 10%;
-  box-sizing: border-box;
-}
 
-.wrap_product_list {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
-.product_list_group {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.wrap_product_info {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.img_box {
-  padding: 0.5rem;
-  // width: clamp(160px, calc((100vw - 375px) / 10.65 + 160px), 260px);
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.product_list {
-  list-style: none;
-  .product_list_item {
-    padding: 0.5rem;
-    font-size: 16px;
-    letter-spacing: 1px;
-  }
-}
-
-.shop_product_content {
-  padding: 1rem;
-  background-color: #fff;
-  p {
-    color: #000;
-  }
-}
-
-.wrap_product_item {
-  box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-  margin: 1rem;
-  width: clamp(180px, calc((100vw - 375px) / 10.65 + 180px), 280px);
-  box-sizing: border-box;
-  // &:hover{
-  //   transform: scale(1.1);
-  //   transition: .5s ease-in;
-}
 </style>

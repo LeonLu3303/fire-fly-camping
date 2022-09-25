@@ -7,7 +7,7 @@
             <ul class="row_food_group">
                 <li class="col_card_food" v-for="item in cardFood" :key="item.id">
                     <div class="food_pic">
-                        <img :src="require(`../assets/images/service_food_${item.id}.jpg`)" alt="avatar">
+                        <img :src="require(`@/assets/images/service/service_food_${item.id}.jpg`)" alt="avatar">
                     </div>
                     <div class="food_txt">
                         <h4>{{item.foodTitle}}</h4>
@@ -28,28 +28,28 @@ export default {
             cardFood: [
                     {
                         id: 1,
-                        foodPic: '../assets/images/service_food_1.jpg',
+                        foodPic: '@/assets/images/service/service_food_1.jpg',
                         foodTitle: '陸地肉肉吃到爽', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",
                     },
                     {
                         id: 2,
-                        foodTitle: '../assets/images/service_food_2.jpg',
+                        foodTitle: '@/assets/images/service/service_food_1.jpg',
                         foodTitle: '健康蔬食素食最愛', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",
                     }, 
                     {
                         id: 3,
-                        foodTitle: '../assets/images/service_food_3.jpg',
+                        foodTitle: '@/assets/images/service/service_food_1.jpg',
                         foodTitle: '海鮮吃到痛風', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",
                     },
                     {
                         id: 4,
-                        foodTitle: '../assets/images/service_food_4.jpg',
+                        foodTitle: '@/assets/images/service/service_food_1.jpg',
                         foodTitle: '小孩才選擇我都要', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",

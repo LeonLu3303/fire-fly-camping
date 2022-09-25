@@ -5,8 +5,27 @@
                 <h2>發佈報告</h2>
             </div>
             <div class="row_report_write">
-                
+
                 <div class="col_postcard">
+                    <div class="postcard_release">
+                        <h3 class="postcard_title_area">{{enterTitle}}</h3>
+                        <p class="postcard_text_area">{{enterText}}</p>
+                    </div>
+                    <div class="postcard_member_data">
+                        <div class="postcard_member_pic">
+                            <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                        </div>
+                        <h4 class="postcard_member_name">{{memberName}}</h4>
+                        <div class="release_time">
+                            <p>{{releaseTime}}</p>
+                        </div>
+                    </div>
+                    <div class="bg_postcard">
+                        <!-- <img src="@/assets/images" alt=""> -->
+                    </div>
+                </div>
+                
+                <!-- <div class="col_postcard">
                     <div class="postcard_release">
                         <h3 class="postcard_title_area">{{enterTitle}}</h3>
                         <p class="postcard_text_area">{{enterText}}</p>
@@ -20,7 +39,7 @@
                             <p>{{releaseTime}}</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <form class="col_write_text">
                     <input class="enter_title" id="enter_title" type="text" maxlength="15" v-model="enterTitle">
@@ -84,7 +103,7 @@ export default {
         flex-wrap: wrap;
         width: 72%;
         height: 540px;
-        background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
+        // background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -140,16 +159,18 @@ export default {
     .enter_title{
         width: 100%;
         height: 50px;
-        border-radius: 10px;
-        padding: 10px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-bottom: 20px;
         border: 1px solid $color-main-green;
-        margin: 0 0 20px;
     }
     .enter_text{
         width: 100%;
         height: 70%;
-        border-radius: 10px;
-        padding: 10px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        padding: 10px 10px;
         margin-bottom: 20px;
         border: 1px solid $color-main-green;
         resize: none;
@@ -163,17 +184,13 @@ export default {
         margin-right: 20px;
     }
     .btn_bg_choose{
-        width: 120px;
-        height: 40px;
         font-size: $txt_btn;
         font-weight: 700;
         letter-spacing: 1px;
-        line-height: 40px;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 10px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        border: 2px solid $color-str-green;
         color: $color-str-green;
         background: $color-basic-White;
-        border: 2px solid $color-str-green;
     }
 </style>

@@ -2,7 +2,7 @@
     <MainHeader/>
     <!-- banner -->
     <div class="banner">
-        <img src="../assets/images/banner_serve.png" alt="banner">
+        <img src="@/assets/images/main/banner_serve.png" alt="banner">
     </div>
     <ServiceTent/>
     <ServiceFood/>

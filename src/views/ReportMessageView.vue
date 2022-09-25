@@ -2,7 +2,7 @@
     <MainHeader/>
     <!-- banner -->
     <div class="banner">
-        <img src="../assets/images/banner_report.png" alt="banner">
+        <img src="@/assets/images/main/banner_report.png" alt="banner">
     </div>
     <!-- 報告留言 -->
     <section class="wrap_report_publish">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="postcard_member_data">
                         <div class="postcard_member_pic">
-                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
+                            <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
                         </div>
                         <h3 class="postcard_member_name">{{memberName}}</h3>
                     </div>
@@ -40,7 +40,7 @@
             <div class="row_other_member" v-for="item in otherMsg" :key="item.id">
                 <div class="col_other_data">
                     <div class="member_pic">
-                        <img :src="require(`../assets/images/report_avatar_${item.id}.png`)" alt="avatar">
+                        <img :src="require(`@/assets/images/report/report_avatar_${item.id}.png`)" alt="avatar">
                     </div>
                     <h4 class="member_name">{{item.otherMemName}}</h4>
                 </div>
@@ -50,7 +50,7 @@
                         <div class="other_write">{{item.otherMemTxt}}</div>
                         <div class="message_time_inform">
                             <p class="message_time">{{item.otherMemTime}}</p>
-                            <a class="message_inform_icon"><img src="../assets/images/report_inform_1.png" alt="report"></a>
+                            <a class="message_inform_icon"><img src="@/assets/images/report/report_inform_1.png" alt="report"></a>
                         </div>
                     </div>
                 </div>
@@ -78,21 +78,21 @@ export default{
             otherMsg: [
                     {
                         id:1,
-                        otherMemPic: '../assets/images/report_avatar_1.png',
+                        otherMemPic: '@/assets/images/report/report_avatar_1.png',
                         otherMemName: "1313",
                         otherMemTime: "2022/09/21",
                         otherMemTxt: "沒關係我也是XD"
                     },
                     {
                         id:2,
-                        otherMemPic: '../assets/images/report_avatar_2.png',
+                        otherMemPic: '@/assets/images/report/report_avatar_2.png',
                         otherMemName: "TK律師",
                         otherMemTime: "2022/09/21",
                         otherMemTxt: "我剛剛好像看到恐龍"
                     },
                     {
                         id:3,
-                        otherMemPic: '../assets/images/report_avatar_3.png',
+                        otherMemPic: '@/assets/images/report/report_avatar_3.png',
                         otherMemName: "Esther",
                         otherMemTime: "2022/09/21",
                         otherMemTxt: "活動體驗超棒的"
@@ -124,7 +124,7 @@ export default{
         flex-wrap: wrap;
         width: 65%;
         height: 460px;
-        background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
+        background : url(@/assets/images/report/report_postcard_1.jpg), $color-main-yellow;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
