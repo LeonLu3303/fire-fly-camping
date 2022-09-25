@@ -103,8 +103,8 @@
 <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '../components/MainHeader.vue'
-import MainFooter from '../components/MainFooter.vue'
+import MainHeader from '@/components/MainHeader.vue'
+import MainFooter from '@/components/MainFooter.vue'
 
 export default {
    components:{
