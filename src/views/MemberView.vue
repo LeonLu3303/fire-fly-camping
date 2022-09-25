@@ -1,7 +1,7 @@
 <template>
     <MainHeader/>
     <div class="banner">
-        <img src="../assets/images/banner_member.png" alt="banner" />
+        <img src="@/assets/images/main/banner_member.png" alt="banner" />
     </div>
     <section class="member_wrapper">
         <div class="member_tabs member_group">
@@ -45,12 +45,12 @@
                     </div>
                     <ul class="tabcontent_img">
                         <li>選取大頭貼</li>
-                        <li><img src="../assets/images/report_avatar_1.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_2.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_3.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_4.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_5.png" alt=""></li>
-                        <li><img src="../assets/images/report_avatar_6.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_1.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_2.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_3.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_4.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_5.png" alt=""></li>
+                        <li><img src="@/assets/images/report/report_avatar_6.png" alt=""></li>
                     </ul>
                     <button class="btn_confirm" type="submit" value="Submit">儲存</button>
                 </form>
@@ -97,7 +97,7 @@ export default {
     };
     </script>
 <style lang="scss">
-    @import '../assets/scss/style.scss';
+    @import '@/assets/scss/style.scss';
     .member_wrapper{
         width: 100%;
         padding: 150px 0;
