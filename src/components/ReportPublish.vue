@@ -140,16 +140,18 @@ export default {
     .enter_title{
         width: 100%;
         height: 50px;
-        border-radius: 10px;
+        letter-spacing: 1px;
+        border-radius: 5px;
         padding: 5px 10px;
+        margin-bottom: 20px;
         border: 1px solid $color-main-green;
-        margin: 0 0 20px;
     }
     .enter_text{
         width: 100%;
         height: 70%;
-        border-radius: 10px;
-        padding: 10px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        padding: 10px 10px;
         margin-bottom: 20px;
         border: 1px solid $color-main-green;
         resize: none;
@@ -163,17 +165,13 @@ export default {
         margin-right: 20px;
     }
     .btn_bg_choose{
-        width: 120px;
-        height: 40px;
         font-size: $txt_btn;
         font-weight: 700;
         letter-spacing: 1px;
-        line-height: 40px;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 10px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        border: 2px solid $color-str-green;
         color: $color-str-green;
         background: $color-basic-White;
-        border: 2px solid $color-str-green;
     }
 </style>

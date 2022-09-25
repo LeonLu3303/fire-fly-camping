@@ -71,18 +71,14 @@ export default{
         padding: 0 30px 30px;
     }
     .new_hot_choose{
-        width: 120px;
-        height: 40px;
         font-size: $txt_btn;
         font-weight: 700;
         letter-spacing: 1px;
-        line-height: 40px;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 10px;
+        border-radius: 5px;
+        padding: 8px 10px;
+        border: 2px solid $color-str-green;
         color: $color-str-green;
         background: $color-basic-White;
-        border: 2px solid $color-str-green;
     }
     //卡片
     .row_card_report{
