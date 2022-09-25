@@ -1,7 +1,7 @@
 <template>
   <MainHeader></MainHeader>
     <div class="banner">
-        <img src="../assets/images/banner_shop.png" alt="banner">
+        <img src="../assets/images/main/banner_shop.png" alt="banner">
     </div>
     <div class="payment_container">
       <div class="payment_rows_2">
@@ -90,7 +90,7 @@
             <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
             <tbody >
               <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" /></td>
+                <td class="payment_item_image"><img :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" /></td>
                 <td><p>{{item.title}}</p><p>數量:{{item.qty}}</p><p>單價:${{item.price}}</p><p>小計:${{item.qty * item.price}}</p></td>
               </tr>
             </tbody>

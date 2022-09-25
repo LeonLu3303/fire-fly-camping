@@ -1,7 +1,7 @@
 <template>
   <MainHeader></MainHeader>
   <div class="banner">
-    <img src="../assets/images/banner_shop.png" alt="" />
+    <img src="../assets/images/main/banner_shop.png" alt="" />
   </div>
   <section class="shop_section">
     <div class="shop_container">
@@ -35,7 +35,7 @@
               <div class="product_img_box">
                 <img
                   :src="
-                    require(`../assets/images/shopping_prod_${item.id}.jpg`)
+                    require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)
                   "
                   alt="hello"
                 />
@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
-import MainFooter from '../components/MainFooter.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
   components: {

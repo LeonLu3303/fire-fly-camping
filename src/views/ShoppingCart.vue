@@ -1,7 +1,7 @@
 <template>
 <MainHeader></MainHeader>
 <div class="banner">
-    <img src="../assets/images/banner_shop.png" alt="">
+    <img src="../assets/images/main/banner_shop.png" alt="">
 </div>
 <div class="cart_container">
         <h3 class="msg_empty_cart" v-if="cart.length === 0">疑~ 還沒有購買商品唷</h3>
@@ -19,7 +19,7 @@
                     </thead>
                     <tbody v-for="(item, key) in cart" :key="'product' + item">
                         <tr>
-                            <td><img class="cart_image" :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="" ></td>
+                            <td><img class="cart_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
                             <td>{{item.title}}</td>
                             <td>${{item.price}}</td>
                             <!-- <td>{{item.color}}</td> -->
@@ -33,7 +33,7 @@
                                 </div>
                             </td>
                             <td>${{item.price * item.qty}}</td>
-                            <td><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shopping-trash-can.png" alt=""
+                            <td><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""
                                         width="30"></a>
                             </td>
                         </tr>
@@ -49,8 +49,8 @@
 <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '../components/MainHeader.vue'
-import MainFooter from '../components/MainFooter.vue'
+import MainHeader from '@/components/MainHeader.vue'
+import MainFooter from '@/components/MainFooter.vue'
 
 export default {
 
