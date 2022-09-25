@@ -11,7 +11,7 @@
                     <!-- 特色型 -->
                     <div class="tent_introduce" id="jungle_tab" v-if="activeTab === 'feature'" >
                         <div class="tent_introduce_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_type_text">
                             <h4>特色型 x 二人 x 四人 x 六人</h4>
@@ -22,7 +22,7 @@
                     <!-- 豪華型 -->    
                     <div class="tent_introduce" id="snow_tab" v-else-if="activeTab === 'luxury'" >
                         <div class="tent_introduce_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_type_text">
                             <h4>豪華型 x 二人 x 四人 x 六人</h4>
@@ -33,7 +33,7 @@
                     <!-- 普通型 -->
                     <div class="tent_introduce" id="canyon_tab" v-else>
                         <div class="tent_introduce_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_type_text">
                             <h4>普通型 x 二人 x 四人 x 六人</h4>
@@ -47,7 +47,7 @@
                 <div class="col_tent_tabs">
                     <div class="tent_tab_group" @click="activeTab = 'feature'">
                         <div class="tent_btn_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_btn_text">
                             <h4>特色型 x 二人 x 四人 x 六人</h4>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="tent_tab_group" @click="activeTab = 'luxury'">
                         <div class="tent_btn_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_btn_text">
                             <h4>豪華型 x 二人 x 四人 x 六人</h4>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="tent_tab_group" @click="activeTab = 'ordinary'">
                         <div class="tent_btn_pic">
-                            <img src="../assets/images/service_tent_1.jpg" alt="">
+                            <img src="@/assets/images/service/service_tent_1.jpg" alt="">
                         </div>
                         <div class="tent_btn_text">
                             <h4>普通型 x 二人 x 四人 x 六人</h4>

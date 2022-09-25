@@ -3,7 +3,7 @@
         <div class="report_user">
             <div class="user_pic">
                 <!-- 因為assets裡面的會被瀏覽器再編譯，所以需要require -->
-                <img :src="require(`../assets/images/report_avatar_${item.id}.png`)" alt="avatar">
+                <img :src="require(`@/assets/images/report/report_avatar_${item.id}.png`)" alt="avatar">
             </div>
             <div class="user_data">
                 <h4 class="user_name">{{item.userName}}</h4>
@@ -15,9 +15,9 @@
             <p class="report_txt">{{item.reportTxt}}</p>
         </div>
         <div class="report_btn">
-            <a class="inform_icon"><img src="../assets/images/report_inform_1.png" alt="report"></a>
+            <a class="inform_icon"><img src="@/assets/images/report/report_inform_1.png" alt="report"></a>
             <router-link to="/reportMessage" class="message_icon">
-                <img src="../assets/images/report_msge_1.png" alt="report">
+                <img src="@/assets/images/report/report_msge_1.png" alt="report">
                 <span class="message_count">{{messageCount}}</span>
             </router-link>
         </div>
@@ -32,7 +32,7 @@
                 cardReport: [
                     {
                         id:1,
-                        userPic: '../assets/images/report_avatar_1.png',
+                        userPic: '@/assets/images/report/report_avatar_1.png',
                         userName: "1313",
                         releaseTime: "2022/08/29",
                         reportTitle: "露營景色還是好美，難怪這麼多人愛露營",
@@ -40,7 +40,7 @@
                     },
                     {
                         id:2,
-                        userPic: '../assets/images/report_avatar_1.png',
+                        userPic: '@/assets/images/report/report_avatar_2.png',
                         userName: "TK律師",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -48,7 +48,7 @@
                     },
                     {
                         id:3,
-                        userPic: '../assets/images/report_avatar_3.png',
+                        userPic: '@/assets/images/report/report_avatar_3.png',
                         userName: "小羽",
                         releaseTime: "2022/08/29",
                         reportTitle: "完蛋了心得",
@@ -56,7 +56,7 @@
                     },
                     {
                         id:4,
-                        userPic: '../assets/images/report_avatar_4.png',
+                        userPic: '@/assets/images/report/report_avatar_4.png',
                         userName: "Esther",
                         releaseTime: "2022/08/29",
                         reportTitle: "活動體驗超棒的",
@@ -64,7 +64,7 @@
                     },
                     {
                         id:5,
-                        userPic: '../assets/images/report_avatar_5.png',
+                        userPic: '@/assets/images/report/report_avatar_5.png',
                         userName: "蕭董",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",
@@ -72,7 +72,7 @@
                     },
                     {
                         id:6,
-                        userPic: '../assets/images/report_avatar_6.png',
+                        userPic: '@/assets/images/report/report_avatar_6.png',
                         userName: "柏霖老師",
                         releaseTime: "2022/08/29",
                         reportTitle: "我剛剛好像看到恐龍",

@@ -7,7 +7,7 @@
             <ul class="row_equipment_group">
                 <li class="col_card_equipment" v-for="item in cardEquipment" :key="item.id">
                     <div class="equipment_pic">
-                        <img src="../assets/images/service_equipment_1.jpg" alt="">
+                        <img src="@/assets/images/service/service_equipment_1.jpg" alt="">
                     </div>
                     <div class="equipment_txt">
                         <h4>{{item.foodTitle}}</h4>
@@ -28,28 +28,28 @@ export default {
             cardEquipment: [
                     {
                         id: 1,
-                        foodPic: '../assets/images/service_equipment_1.jpg',
+                        foodPic: '@/assets/images/service/service_equipment_1.jpg',
                         foodTitle: '漂亮燈燈阿~', 
                         foodTxt: '尺寸 KZM 保冷袋 25 L / 45 L，採氣鎖系統 AirLock System，內裏採 20 mm 厚泡棉保溫層，適合戶外使用的外層防水抗汙材質，搭配簡約低調黑色，不用擔心留下髒污，大容量空間，深度、厚度足夠，可放任何食材及飲料，適用於露營、釣魚、野餐。',
                         foodPrice: "$1000",
                     },
                     {
                         id: 2,
-                        foodTitle: '../assets/images/service_equipment_.jpg',
+                        foodTitle: '@/assets/images/service/service_equipment_1.jpg',
                         foodTitle: '豪華燈飾', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",
                     }, 
                     {
                         id: 3,
-                        foodTitle: '../assets/images/service_equipment_1.jpg',
+                        foodTitle: '@/assets/images/service/service_equipment_1.jpg',
                         foodTitle: '鍋碗瓢盆你需要嗎', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",
                     },
                     {
                         id: 4,
-                        foodTitle: '../assets/images/service_equipment_1.jpg',
+                        foodTitle: '@/assets/images/service/service_equipment_1.jpg',
                         foodTitle: '特色裝備', 
                         foodTxt: '陸地肉肉吃到爽，食材擁有日本A5和牛、牛五花肉片、骰子牛排、豬五花肉、豬梅花肉片、台灣香腸、醃漬雞肉、雞腿排、棒棒腿',
                         foodPrice: "$1000",

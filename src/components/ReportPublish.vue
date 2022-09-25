@@ -13,7 +13,7 @@
                     </div>
                     <div class="postcard_member_data">
                         <div class="postcard_member_pic">
-                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
+                            <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
                         </div>
                         <h4 class="postcard_member_name">{{memberName}}</h4>
                         <div class="release_time">
