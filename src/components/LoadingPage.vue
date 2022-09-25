@@ -19,7 +19,7 @@
         <div class="cursor"></div>
 
         <div class="loading_container">
-            <div class="photo"><img src="../assets/images/main_logo_white.png" alt="營火叢LOGO"></div>
+            <div class="photo"><img src="@/assets/images/main/main_logo_white.png" alt="營火叢LOGO"></div>
             <div class="entrance">
                 <router-link to="/HomeView">
                     <div class="circle ">

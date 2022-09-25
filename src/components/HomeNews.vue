@@ -14,7 +14,7 @@
                 :key="news"
                 @click="selectPage(index)">
                 <div class="news_pic">
-                    <img :src="require(`@assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
+                    <img :src="require(`@/assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
                 </div>
                 <div class="news_txt">
                     <h3>{{news.title}}</h3>

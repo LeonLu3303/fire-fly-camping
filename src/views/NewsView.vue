@@ -3,7 +3,7 @@
 <section class="wrap_news">
     <div id="app">
         <div class="banner">
-            <img src="@assets/images/main/banner_news.png" alt="" />
+            <img src="@/assets/images/main/banner_news.png" alt="" />
         </div>
         <div class="news_v_container">
             <div class="news_v_box" 
@@ -11,7 +11,7 @@
                 :class="{news_v_reverse: index % 2 === 0}"
                 :key="news">
                 <div class="news_v_pic">
-                    <img :src="require(`@assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
+                    <img :src="require(`@/assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
                 </div>
                 <div class="news_v_txt">
                     <h3>{{news.title}}</h3>
@@ -58,6 +58,5 @@ export default{
 } 
 </script>
 <style lang="scss">
-    @import '@assets/scss/base/reset';
-    @import '@assets/scss/style.scss';
+@import '@/assets/scss/style.scss';
 </style>

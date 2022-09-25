@@ -23,10 +23,10 @@
                     <hr>
                     <div class="footer_info_social_media">
                         <p class="media_title">官方社群</p>
-                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_instagram.png" alt="營火叢instagrm"></a>
-                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_twitter.png" alt="營火叢twitter"></a>
-                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_youtube.png" alt="營火叢youtube"></a>
-                        <a class="media_photo" href="#"><img src="../assets/images/main_icon_facebook.png" alt="營火叢facebook"></a>
+                        <a class="media_photo" href="#"><img src="@/assets/images/main/main_icon_instagram.png" alt="營火叢instagrm"></a>
+                        <a class="media_photo" href="#"><img src="@/assets/images/main/main_icon_twitter.png" alt="營火叢twitter"></a>
+                        <a class="media_photo" href="#"><img src="@/assets/images/main/main_icon_youtube.png" alt="營火叢youtube"></a>
+                        <a class="media_photo" href="#"><img src="@/assets/images/main/main_icon_facebook.png" alt="營火叢facebook"></a>
                     </div>
                 </div>
                 <div class="footer_about_cotainer">
@@ -38,7 +38,7 @@
                     營火叢為目前全網最虛擬、最時尚的露營預訂入口網站
                     </p>
                     <div class="footer_logo">
-                    <img src="../assets/images/main_logo_gren.png" alt="營火叢 Firefly campsite LOGO">
+                    <img src="@/assets/images/main/main_logo_green.png" alt="營火叢 Firefly campsite LOGO">
                     </div>
                 </div>
             </div>
