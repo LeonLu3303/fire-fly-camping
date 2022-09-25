@@ -5,7 +5,7 @@
                 <h2>發佈報告</h2>
             </div>
             <div class="row_report_write">
-                
+
                 <div class="col_postcard">
                     <div class="postcard_release">
                         <h3 class="postcard_title_area">{{enterTitle}}</h3>
@@ -20,7 +20,26 @@
                             <p>{{releaseTime}}</p>
                         </div>
                     </div>
+                    <div class="bg_postcard">
+                        <!-- <img src="@/assets/images" alt=""> -->
+                    </div>
                 </div>
+                
+                <!-- <div class="col_postcard">
+                    <div class="postcard_release">
+                        <h3 class="postcard_title_area">{{enterTitle}}</h3>
+                        <p class="postcard_text_area">{{enterText}}</p>
+                    </div>
+                    <div class="postcard_member_data">
+                        <div class="postcard_member_pic">
+                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
+                        </div>
+                        <h4 class="postcard_member_name">{{memberName}}</h4>
+                        <div class="release_time">
+                            <p>{{releaseTime}}</p>
+                        </div>
+                    </div>
+                </div> -->
 
                 <form class="col_write_text">
                     <input class="enter_title" id="enter_title" type="text" maxlength="15" v-model="enterTitle">
@@ -84,7 +103,7 @@ export default {
         flex-wrap: wrap;
         width: 72%;
         height: 540px;
-        background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
+        // background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
