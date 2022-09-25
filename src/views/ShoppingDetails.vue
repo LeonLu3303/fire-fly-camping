@@ -8,7 +8,7 @@
         <div class="details_item">
             <div class="details_img_box">
                 <img class="details_product_img"
-                :src="require(`../assets/images/shopping_prod_${tempProduct.id}.jpg`)"
+                :src="require(`../assets/images/shopping_prod_${realProduct.id}.jpg`)"
                 alt="hello"/>
                 <div class="details_link_path">
                     <router-link to="/Shopping">
@@ -20,21 +20,21 @@
                 </div>
             </div>
             <div class="details_content">
-                <h3>{{tempProduct.title}}</h3>
-                <p>單價：${{tempProduct.price}}</p>
+                <h3>{{realProduct.title}}</h3>
+                <p>單價：${{realProduct.price}}</p>
                 <div class="details_qty_btn_box">
-                    <button @click="reduce_order(tempProduct.qty)">
+                    <button @click="reduce_order(realProduct.qty)">
                         <img src="../assets/images/shopping_minus.png" alt="">
                     </button>
-                    <p class="details_qty">{{tempProduct.qty}}</p>
-                    <button @click="add_order(tempProduct.qty)">
+                    <p class="details_qty">{{realProduct.qty}}</p>
+                    <button @click="plus_order(realProduct.qty)">
                         <img src="../assets/images/shopping_plus.png" alt="">
                     </button>
                 </div>
-                <h4>合計：${{tempProduct.price * tempProduct.qty}}</h4>
+                <h4>合計：${{realProduct.price * realProduct.qty}}</h4>
                 <div class="order_btn_box">
                     <router-link to ="/shoppingPayment"><button class="btn_purchase">直接購買</button></router-link>
-                    <button class="btn_return" @click="addToOrder(tempProduct)">加入購物車</button>
+                    <button class="btn_return" @click="addToOrder(realProduct)">加入購物車</button>
                 </div> 
             </div>
         </div>
@@ -53,72 +53,51 @@ export default {
     },
     data() {
         return {
-            tempProduct: {},
-            orderList: [],
+            realProduct: {}, //當時的商品
+            orderList: [], //存入購物車
         };
-    },
-    computed: {
-        // shoppingCart: function () {
-        // return JSON.parse(JSON.stringify(this.orderList));
-        // console.log(orderList);
-        // },
-        // total() {
-        // const sum = 0;
-        //因前面的toFixed()會將值轉為字串 所以後面的currentValue前面加+符號  將值轉為數值
-        //reduce將orderList陣列裡面的值相加，最後輸出總金額(totalPrice)
-        //https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#%E6%8F%8F%E8%BF%B0
-        // return (this.order_list.reduce((previousValue, currentValue) => previousValue + +currentValue.total,
-        //     sum)).toFixed(2);
-        // return this.count * this.products[0].price;
-        // },
-        // itemSelected() {
-        // return this.cart.find((item) => item.id == this.itemSelectId) ?? {};
-        // },
     },
     methods: {
         reduce_order(qty) {
         if (qty !== 1) {
-            this.tempProduct.qty -= 1;
+            this.realProduct.qty -= 1;
         }
         },
-        add_order() {
-        this.tempProduct.qty += 1;
+        plus_order(qty) {
+        if (qty <= 9) {
+            this.realProduct.qty += 1;
+        }
         },
-        addToOrder (product) {
-        const indexProduct = this.orderList.findIndex((item) => item.title === product.title)
+        addToOrder (realProduct) {
+        // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
+        const indexProduct = this.orderList.findIndex((item) => item.title === realProduct.title)
+        // 判斷商品是否已存在購物車
         if (indexProduct === -1) {
-            this.orderList.push({ ...product })
+            // 如未存在於購物車，即 push 進去 orderList
+            this.orderList.push(realProduct) 
+            // orderList 更新至 localStorage
             this.setStorage(this.orderList)
         } 
         else {
-            console.log(product.qty)
-            this.orderList[indexProduct].qty += product.qty
+            // 如在購物車中，透過 indexProudct 知道是第幾個索引
+            // 對 索引中商品 qty 進行 + 動作
+            this.orderList[indexProduct].qty += realProduct.qty
             this.setStorage(this.orderList)
         }
         },
-        setStorage(product) {
-            const cart = JSON.stringify(product)
-            localStorage.setItem('cart', cart)
+        setStorage(realProduct) {
+            // 將 realProduct 進行javaScript 字串轉換，存入 localStorage 的cart 中。
+            localStorage.setItem('cart', JSON.stringify(realProduct))
         },
-        online() {
-            // 拿商品list 的資料
-            // stocks 是將shoppingCart 的陣列資料傳stocks
-            // let stocks = localStorage.getItem("stock");
-            // if (!stocks) return;
-            // this.cart = JSON.parse(stocks)
-            this.cart = this.itemList;
-
-            let product_details = localStorage.getItem("detail");
-            if (!product_details) return;
-            this.detail = JSON.parse(product_details);
-        },
-        // tempProduct(變數名只存在這個函式) - 為了讀取 tempStock 的東西
+        // getStorage - 抓取shoppingView 點擊的商品
         getStorage () {
-            const tempProduct = localStorage.getItem('tempStock')
+            const tempProduct = localStorage.getItem('tempStorage')
+            // || = or
+            // JSON.parse - 將之前 JSON.stringify 轉換成字串的轉換回 javaScript 格式
             if (!tempProduct || tempProduct === 'undefined') return
-            this.tempProduct = JSON.parse(tempProduct)
+            this.realProduct = JSON.parse(tempProduct)
         },
-        // cart - 購物車 點擊的商品會存於購物車裡面
+        // cart - 抓取購物車的商品
         getCart() {
             const tempProduct = localStorage.getItem('cart')
             if (!tempProduct || tempProduct === 'undefined') return
@@ -126,9 +105,6 @@ export default {
         }
     },
     created() {
-        this.online();
-        console.log(this.cart);
-        this.itemSelectId = window.location.search.split("id=")[1];
         this.getStorage();
         this.getCart();
     },

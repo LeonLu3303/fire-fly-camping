@@ -4,7 +4,8 @@
     <img src="../assets/images/banner_shop.png" alt="">
 </div>
 <div class="cart_container">
-        <div class="cart_wrap">
+        <h3 class="msg_empty_cart" v-if="cart.length === 0">疑~ 還沒有購買商品唷</h3>
+        <div class="cart_wrap" v-if="cart.length !== 0">
                 <table class="cart_info">
                     <thead>
                         <tr>
@@ -43,8 +44,8 @@
                     <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
                     <router-link to="/ShoppingPayment"><button class="btn_purchase">前往結帳</button></router-link>
                 </div>
-            </div>
         </div>
+</div>
 <MainFooter></MainFooter>
 </template>
 <script>
