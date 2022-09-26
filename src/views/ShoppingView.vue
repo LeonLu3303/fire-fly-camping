@@ -5,7 +5,7 @@
   </div>
   <section class="shop_section">
     <div class="shop_container">
-      <div class="wrap wrap_product_list">
+      <div class="wrap_product_list">
         <div class="product_list_group">
           <h3>所有商品</h3>
           <hr />
@@ -33,7 +33,7 @@
           >
             <div class="product_card_item">
               <div class="product_img_box">
-                <img
+                <img class="details_product_img"
                   :src="
                     require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)
                   "

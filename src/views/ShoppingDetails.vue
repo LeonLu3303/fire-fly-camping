@@ -6,6 +6,7 @@
 <div class="container_details">
     <div class="wrap_details">
         <div class="details_item">
+            <img class="shopping_badge_img" src="../assets/images/shop/shopping_badge.png" alt="">
             <div class="details_img_box">
                 <img class="details_product_img"
                 :src="require(`../assets/images/shop/shopping_prod_${realProduct.id}.jpg`)"
@@ -24,16 +25,16 @@
                 <p>單價：${{realProduct.price}}</p>
                 <div class="details_qty_btn_box">
                     <button @click="reduce_order(realProduct.qty)">
-                        <img src="../assets/images/shop/shopping_minus.png" alt="">
+                        <img class="cart_img" src="../assets/images/shop/shopping_minus.png" alt="">
                     </button>
                     <p class="details_qty">{{realProduct.qty}}</p>
                     <button @click="plus_order(realProduct.qty)">
-                        <img src="../assets/images/shop/shopping_plus.png" alt="">
+                        <img class="cart_img" src="../assets/images/shop/shopping_plus.png" alt="">
                     </button>
                 </div>
                 <h4>合計：${{realProduct.price * realProduct.qty}}</h4>
                 <div class="order_btn_box">
-                    <router-link to ="/shoppingPayment"><button class="btn_purchase">直接購買</button></router-link>
+                    <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link>
                     <button class="btn_return" @click="addToOrder(realProduct)">加入購物車</button>
                 </div> 
             </div>
@@ -132,6 +133,9 @@ export default {
         border: 1px solid gray;
         box-sizing: border-box;
         width: 8rem;
+        .cart_img{
+            width: 1rem;
+        }
         
         button{
             border: 0;
@@ -142,9 +146,6 @@ export default {
             font-size: $title_h4;
             text-align: center; 
             padding: 0;      
-        }
-        img{
-            width: 1rem;
         }
     }
     .details_img_box{
@@ -158,6 +159,19 @@ export default {
     .details_item{
         display: flex;
         justify-content: center;
+        .shopping_badge_img{
+        position: relative;
+        width: 130px;
+        height: 130px;
+        left: 80px;
+        top: 0px;
+        transform-style: preserve-3d;
+        animation: spin 1s .8s linear;
+    }
+        @keyframes spin{
+            from{transform: rotateY(-87deg)};
+            to{transform: rotatey(0deg)};
+        }
     }
     .details_content{
         display: grid;
@@ -183,18 +197,10 @@ export default {
                 padding-right: 10px;
             }
         }
-    // .back_shopping_img:hover{
-    //     animation: moving 0.5s infinite;
-    //     }
-                
-    // @keyframes moving{
-    //     0%{transform: left(0%)}
-    //     100%{transform: left(10%)}
-    // }
     .order_btn_box button{
         margin: 0.5rem 0;
     }
-   
+    
     .btn_submit{
         line-height: 0;
     }
