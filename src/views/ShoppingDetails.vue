@@ -1,12 +1,12 @@
 <template>
 <MainHeader></MainHeader>
 <div class="banner">
-    <img src="../assets/images/main/banner_shop.png" alt="">
+    <img src="@/assets/images/main/banner_shop.png" alt="">
 </div>
-<div class="container_details">
+<section class="section_details">
     <div class="wrap_details">
         <div class="details_item">
-            <img class="shopping_badge_img" src="../assets/images/shop/shopping_badge.png" alt="">
+            <img class="shopping_badge_img" src="@/assets/images/shop/shopping_badge.png" alt="">
             <div class="details_img_box">
                 <img class="details_product_img"
                 :src="require(`../assets/images/shop/shopping_prod_${realProduct.id}.jpg`)"
@@ -14,7 +14,7 @@
                 <div class="details_link_path">
                     <router-link to="/Shopping">
                     <div class="back_shopping_page">
-                        <img class="back_shopping_img" src="../assets/images/booking/booking_arrow_prev.png" alt="">
+                        <img class="back_shopping_img" src="@/assets/images/booking/booking_arrow_prev.png" alt="">
                         <h4>繼續購物</h4>
                     </div>
                     </router-link>
@@ -25,11 +25,11 @@
                 <p>單價：${{realProduct.price}}</p>
                 <div class="details_qty_btn_box">
                     <button @click="reduce_order(realProduct.qty)">
-                        <img class="cart_img" src="../assets/images/shop/shopping_minus.png" alt="">
+                        <img class="cart_img" src="@/assets/images/shop/shopping_minus.png" alt="">
                     </button>
                     <p class="details_qty">{{realProduct.qty}}</p>
                     <button @click="plus_order(realProduct.qty)">
-                        <img class="cart_img" src="../assets/images/shop/shopping_plus.png" alt="">
+                        <img class="cart_img" src="@/assets/images/shop/shopping_plus.png" alt="">
                     </button>
                 </div>
                 <h4>合計：${{realProduct.price * realProduct.qty}}</h4>
@@ -40,12 +40,12 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '../components/MainHeader.vue'
-import MainFooter from '../components/MainFooter.vue'
+import MainHeader from '@/components/MainHeader.vue'
+import MainFooter from '@/components/MainFooter.vue'
 
 export default {
     components:{
@@ -112,20 +112,17 @@ export default {
     };
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/style.scss";
+@import "@/assets/scss/style.scss";
 
-
-    .container_details{
+    .wrap_details{
+        width: 80%;
+        display: flex;
+        justify-content: center;
         margin-left: 10%;
         margin-right: 10%;
         padding: 150px 0px;
     }
-    .wrap_details{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: #fff;
-    }
+    
     .details_qty_btn_box{
         display: flex;
         align-items: center;

@@ -13,7 +13,7 @@
 <script>
 import MainHeader from '../components/MainHeader.vue';
 import MainFooter from '../components/MainFooter.vue';
-import ServiceTent from '@/components/ServiceTent.vue';
+import ServiceTent from '../components/ServiceTent.vue';
 import ServiceFood from '@/components/ServiceFood.vue';
 import ServiceEquipment from '@/components/ServiceEquipment.vue';
 
