@@ -105,7 +105,7 @@
                     <div class="overlay-panel overlay-left">
                         <h2 class="title">已經有帳號了？</h2>
                         <p>那還等什麼？馬上登入吧！</p>
-                        <button class="ghost" 
+                        <button class="ghost btn_submit" 
                                 id="signIn" 
                                 @click="show_login(index)">
                             馬上登入
@@ -114,7 +114,7 @@
                     <div class="overlay-panel overlay-right">
                         <h2 class="title">沒有帳號？</h2>
                         <p>立即註冊加入我們，和我們一起體驗露營吧！</p>
-                        <button class="ghost" 
+                        <button class="ghost btn_submit" 
                                 id="signUp"
                                 @click="show_register(index)">
                             立即註冊
@@ -138,7 +138,14 @@
         data(){
                 return{
                 index:0,
-                focus_index:0
+                focus_index:0,
+                focus_index:{
+                    input1: 0,
+                    input1: 0,
+                    input1: 0,
+                    input1: 0,
+                    input1: 0,
+                }
                 }
             },
             methods:{

@@ -1,11 +1,11 @@
 <template>
   <MainHeader></MainHeader>
   <div class="banner">
-    <img src="../assets/images/banner_shop.png" alt="" />
+    <img src="../assets/images/main/banner_shop.png" alt="" />
   </div>
   <section class="shop_section">
     <div class="shop_container">
-      <div class="wrap wrap_product_list">
+      <div class="wrap_product_list">
         <div class="product_list_group">
           <h3>所有商品</h3>
           <hr />
@@ -33,9 +33,9 @@
           >
             <div class="product_card_item">
               <div class="product_img_box">
-                <img
+                <img class="details_product_img"
                   :src="
-                    require(`../assets/images/shopping_prod_${item.id}.jpg`)
+                    require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)
                   "
                   alt="hello"
                 />
@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
-import MainFooter from '../components/MainFooter.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
   components: {
@@ -71,42 +71,42 @@ export default {
         // {} 包住的為 object
         {
           id: '1',
-          img: '../assets/images/shopping_prod_1.jpg',
+          img: '../assets/images/shop/shopping_prod_1.jpg',
           title: '營火叢多喝水瓶',
           price: 2680,
           qty: 1,
         },
         {
           id: '2',
-          img: '../assets/images/shopping_prod_2.jpg',
+          img: '../assets/images/shop/shopping_prod_2.jpg',
           title: '營火叢不怕風吹帽',
           price: 2680,
           qty: 1,
         },
         {
           id: '3',
-          img: '../assets/images/shopping_prod_3.jpg',
+          img: '../assets/images/shop/shopping_prod_3.jpg',
           title: '營火叢漁夫帽',
           price: 2680,
           qty: 1,
         },
         {
           id: '4',
-          img: '../assets/images/shopping_prod_4.jpg',
+          img: '../assets/images/shop/shopping_prod_4.jpg',
           title: '營火叢帽Ｔ',
           price: 2680,
           qty: 1,
         },
         {
           id: '5',
-          img: '../assets/images/shopping_prod_5.jpg',
+          img: '../assets/images/shop/shopping_prod_5.jpg',
           title: '營火叢金勾杯',
           price: 2680,
           qty: 1,
         },
         {
           id: '6',
-          img: '../assets/images/shopping_prod_6.jpg',
+          img: '../assets/images/shop/shopping_prod_6.jpg',
           title: '營火叢T-Shirt',
           price: 2680,
           qty: 1,

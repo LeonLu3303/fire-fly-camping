@@ -2,7 +2,7 @@
   <MainHeader />
   <div class="booking_pages">
     <div class="bk_banner_container">
-      <img src="../assets/images/banner_booking.png" alt="banner" />
+      <img src="@/assets/images/main/banner_booking.png" alt="banner" />
     </div>
     <div class="bk_process_container">
       <div class="bk_process_where" v-if="step == 1">
@@ -65,18 +65,18 @@
         </div>
         <div class="bk_process_button_container">
           <button class="bk_process_button">
-            <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+            <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
           </button>
           <button class="bk_process_button" @click="step = 2">
             下一步
-            <img src="../assets/booking_arrow_next.png" alt="" />
+            <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
           </button>
         </div>
       </div>
       <div class="bk_process_how_many" v-if="step == 2">
         <div class="bk_process_how_many_container">
           <div class="bk_icon_container">
-            <img src="../assets/booking_how_icon.png" alt="" />
+            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
           </div>
           <div class="bk_how_content_container">
             <div class="bk_how_content_txt">
@@ -112,11 +112,11 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 1">
-              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
             </button>
             <button class="bk_process_button" @click="step = 3">
               下一步
-              <img src="../assets/booking_arrow_next.png" alt="" />
+              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
             </button>
           </div>
         </div>
@@ -124,7 +124,7 @@
       <div class="bk_process_when" v-if="step == 3">
         <div class="bk_process_when_container">
           <div class="bk_icon_container">
-            <img src="../assets/booking_how_icon.png" alt="" />
+            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
           </div>
           <div class="bk_when_container">
             <div class="bk_when_content_container">
@@ -152,11 +152,11 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 2">
-              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
             </button>
             <button class="bk_process_button" @click="step = 4">
               下一步
-              <img src="../assets/booking_arrow_next.png" alt="" />
+              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
             </button>
           </div>
         </div>
@@ -164,7 +164,7 @@
       <div class="bk_process_more_option" v-if="step == 4">
         <div class="bk_process_more_container">
           <div class="bk_icon_container">
-            <img src="../assets/booking_how_icon.png" alt="" />
+            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
           </div>
           <div class="bk_more_container">
             <div class="bk_more_content_container">
@@ -211,11 +211,11 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 3">
-              <img src="../assets/booking_arrow_prev.png" alt="" />上一步
+              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
             </button>
             <button class="bk_process_button" @click="step = 5">
               下一步
-              <img src="../assets/booking_arrow_next.png" alt="" />
+              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
             </button>
           </div>
         </div>
@@ -466,19 +466,19 @@ export default {
 @import '../assets/scss/style.scss';
 @import '../assets/scss/booking.scss';
 .booking_snow::before {
-  background: url(../assets/images/home_jungle_all.png),
+  background: url(../assets/images/home/home_jungle_all.png),
     linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
   background-size: cover;
   background-position: center left;
 }
 .booking_j::before {
-  background: url(../assets/images/home_snow_all.png),
+  background: url(../assets/images/home/home_snow_all.png),
     linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
 }
 .booking_v::before {
-  background: url(../assets/images/home_canyon_all.png),
+  background: url(../assets/images/home/home_canyon_all.png),
     linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
@@ -490,7 +490,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background: url(../assets/images/home_jungle_all.png),
+  background: url(../assets/images/home/home_jungle_all.png),
     linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
   background-size: cover;
   background-position: center left;
@@ -502,7 +502,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background: url(../assets/images/home_snow_all.png),
+  background: url(../assets/images/home/home_snow_all.png),
     linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
@@ -514,7 +514,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background: url(../assets/images/home_canyon_all.png),
+  background: url(../assets/images/home/home_canyon_all.png),
     linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;

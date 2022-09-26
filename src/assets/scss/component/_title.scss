@@ -27,13 +27,13 @@
     padding: 0 10px
 }
 .title_main::before{
-    content: url(/src/assets/images/main_title_left.png);
+    content: url(/src/assets/images/main/main_title_left.png);
     width: 50px;
     height: 30px;
     background: center center;
 }
 .title_main::after{
-    content: url(/src/assets/images/main_title_right.png);
+    content: url(/src/assets/images/main/main_title_right.png);
     width: 50px;
     height: 30px;
     background: center center;

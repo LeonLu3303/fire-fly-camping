@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat',sans-serif;
-    background-image: url(/src/assets/images/home_jungle_all.png);
+    background-image: url(/src/assets/images/home/home_jungle_all.png);
     background-size: cover;
     background-position: bottom center;
 }
@@ -22,24 +22,15 @@
     color: rgba(0, 0, 0, 0.85);;
 }
 //文字
-p{    
+.overlay p{    
     margin: 20px 0 30px;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: .5px;
-
-}
-input{
-    margin: 0;
-}
-span{
-    font-size: 12px;
 }
 
-a{    
+.form-container a{    
     margin: 15px 0;
-    color: #333;
-    font-size: 14px;
     text-decoration: none;
 }
 .login_btn{
@@ -51,9 +42,8 @@ a{
     position: static;
 }
 
-.container{
-    width: 768px;
-    max-width: 100%;
+.wrap_login .container{
+    width: 70%;
     min-height: 480px;   
     position: relative;
     overflow: hidden;
@@ -81,7 +71,7 @@ a{
     margin: 0 5px;
     height: 40px;
     width: 40px;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -103,11 +93,12 @@ a{
     height: 35px;
     font-size: 15px;
     color: #333;
-    // border: none;
-    width: 80%;
+    border: none;
+    width: 70%;
     outline: none;
     background: none;
     float: left;
+    margin: 0;
 }
 #register_id_block{
     position: relative;
@@ -135,44 +126,23 @@ a{
 }
 
 .focus + span::before {
-    top: -5px;
+    top: -10px;
 }
 
 .focus + span::after {
     width: 100%;
 }
 
-button {
-    border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background: #ff4b2b;
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-    cursor: pointer;
-}   
 
-button:active {
+.ghost:active {
     transform: scale(.95);
 }
-
-button:focus {
-    outline: none;
+.ghost:hover{
+    cursor: pointer;
 }
 
-button.ghost {
-    background: transparent;
-    border-color: #fff;
-}
-button.ghost:hover{
-    background: #ffffff;
-    border-color: #28776C;
-    color: #28776C;
-}
+
+
 .form-container {
     position: absolute;
     top: 0;

@@ -2,7 +2,7 @@
     <MainHeader/>
     <!-- banner -->
     <div class="banner">
-        <img src="../assets/images/banner_report.png" alt="banner">
+        <img src="@/assets/images/main/banner_report.png" alt="banner">
     </div>
     <!-- 發布報告 -->
     <ReportPublish/>

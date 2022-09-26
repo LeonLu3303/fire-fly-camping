@@ -6,7 +6,7 @@
                 </div>
                 <div class="content_group">
                     <div v-for="item in itemArray" :class="{content_card: products_item==i}">
-                        <div class="card_photo"><img :src="require(`../assets/images/shopping_prod_${item.id}.jpg`)" alt="精選商品"></div>
+                        <div class="card_photo"><img :src="require(`@/assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="精選商品"></div>
                         <p class="products_name">{{item.name}}</p>
                         <p class="products_price">{{item.price}}</p>
                     </div>
@@ -25,31 +25,31 @@
                 itemArray:[
                     {
                         id:2,
-                        imgURL:'../assets/images/shopping_prod_2.jpg',
+                        imgURL:'@/assets/images/shop/shopping_prod_2.jpg',
                         name:'營火叢不怕風吹帽',
                         price:2680
                     },
                     {
                         id:1,
-                        imgURL:'../assets/images/shopping_prod_1.jpg',
+                        imgURL:'@/assets/images/shop/shopping_prod_1.jpg',
                         name:'營火叢多喝水瓶',
                         price:2680
                     },
                     {
                         id:3,
-                        imgURL:'../assets/images/shopping_prod_3.jpg',
+                        imgURL:'@/assets/images/shop/shopping_prod_3.jpg',
                         name:'營火叢漁夫帽',
                         price:2680
                     },
                     {
                         id:6,
-                        imgURL:'../assets/images/shopping_prod_6.jpg',
+                        imgURL:'@/assets/images/shop/shopping_prod_6.jpg',
                         name:'營火叢T-Shirt',
                         price:2680
                     },
                     {
                         id:5,
-                        imgURL:'../assets/images/shopping_prod_5.jpg',
+                        imgURL:'@/assets/images/shop/shopping_prod_5.jpg',
                         name:'營火叢金勾杯',
                         price:2680
                     },
