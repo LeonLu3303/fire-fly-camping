@@ -5,14 +5,14 @@
 }
 .nav_bar{
   width: 98%;
-  height: 90px;
+  height: 76px;
   margin-left: 1%;
   margin-left: 1%;
   display: flex;
   position: fixed;
   z-index: 444;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 .firefly_logo{
   width: 170px;
@@ -21,19 +21,144 @@
 .reservation_icon{
   width: 200px;
   height: 60px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 555;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
   background-color: #BC6C61;
 }
-.reservation_icon_text{
+.reservation_icon_photo{
+  width: 40px;
+  height: 40px;
+}
+.icon_text{
   padding-left: 10px;
   font-size: 20px;
   font-weight: 600;
   color: #FFFFFF;
 }
-.reservation_icon_photo{
-  width: 20%
+.nav_bar_r{
+  display: flex;
+}
+.hb_icon{
+  width: 60px;
+  height: 60px;
+  position: relative;
+  z-index: 555;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #168D80;
+}
+.list_photo{
+  width: 60px;
+  height: 60px;
 }
 
+.hb_icon .line::before{
+  content: '';
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate( -5px, -10px);
+  transition: .2s;
+}
+.hb_icon .line{
+  width: 25px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transition: .2s;
+}
+.hb_icon .line::after{
+  content: '';
+  width: 20px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate(5px, 10px);
+  transition: .2s;
+}
+
+.hb_icon:hover .line::before{
+  content: '';
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate( 0px, -10px);
+  transition: .2s;
+}
+.hb_icon:hover .line{
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transition: .2s;
+}
+.hb_icon:hover .line::after{
+  content: '';
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate(0px, 10px);
+  transition: .2s;
+}
+
+.nav_bar_ul{
+  width: 36%;
+  height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  // display: none;
+  position: absolute;
+  top: -100%;
+  right: -1%;
+  background: linear-gradient(-135deg,#4D8084, #1F4F4F);
+  clip-path: circle(15px at calc(100% - 30px) 30px);
+  transition: all 0.6s;
+}
+.nav_bar_li{
+  overflow: hidden;
+}
+.item_list{
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.item_list:hover{
+  padding-left: 20px;
+  background-color: #8DCCB9;
+  font-weight: 800;
+}
+.nav_bar_li:not(:last-child) .item_name{
+  border-bottom: 1px solid #ddd;
+}
+.links:hover .nav_bar_ul{
+  top: 0;
+  right: -1%;
+  clip-path: circle(100%);
+  transition: all 0.6s;
+}
+.item_name{
+  margin: auto 0;
+  padding-left: 10px;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}

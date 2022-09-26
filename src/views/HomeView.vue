@@ -1,5 +1,4 @@
 <template>
-
 <MainHeader/>
 <HomeReservation/>
 <HomeNews/>
@@ -7,7 +6,6 @@
 <HomeReport/>
 <HomeProducts/>
 <MainFooter/>
-
 </template>
 
 <script>
@@ -32,9 +30,6 @@ export default {
     MainFooter
   },
 }
-
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
