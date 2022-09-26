@@ -20,10 +20,6 @@ export default {
     ActivityInfo,
     MainFooter
     },
-  data() {
-    return {
-    }
-  },
       methods:{
         scrollToTop(){
           window.scrollTo(0,0)
