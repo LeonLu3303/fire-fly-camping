@@ -266,16 +266,6 @@
         }
       }
     }
-    .bk_process_how_many::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background-color: #fff;
-      z-index: -1;
-    }
     .bk_process_how_many::after {
       content: '';
       position: absolute;
@@ -542,6 +532,212 @@
             }
           }
         }
+      }
+    }
+    @include lg() {
+      width: 100%;
+    }
+    @include tb() {
+      width: 100%;
+    }
+    @include md() {
+      width: 100%;
+      .bk_process_where {
+        h2 {
+          font-size: 28px;
+        }
+        .bk_where_block_container {
+          padding: 40px 0;
+          flex-wrap: wrap;
+
+          .bk_where_card {
+            width: 100%;
+            height: 450px;
+            margin: 20px;
+            h3 {
+              margin-bottom: 20px;
+            }
+            p {
+              text-align: start;
+              color: #fff;
+              font-size: 14px;
+              font-weight: 600;
+            }
+            .hover_show {
+              opacity: 1;
+              font-size: 14px;
+              margin: 20px 0;
+              transition: all 0.3s ease-out;
+            }
+          }
+          .onPick {
+            border: 5px solid #bc6c61;
+            border-radius: 15px;
+            transform: scale(1.1);
+            transition: all 0.5s ease-out;
+          }
+          .bk_where_card:hover {
+            .hover_show {
+              opacity: 1;
+              transition: all 0.3s ease-out;
+            }
+          }
+          .bk_where_card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            // background-color: $color-main-yellow;
+            border-radius: 10px;
+            margin: -40px;
+            z-index: -1;
+            transition: all 0.3s ease-out;
+          }
+        }
+      }
+      .bk_process_how_many {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        .bk_process_how_many_container {
+          padding: 60px 0;
+          width: 80%;
+          margin: auto;
+          .bk_how_content_container {
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .bk_how_content_txt {
+              width: 100%;
+              h2 {
+                font-size: 28px;
+                font-weight: 800;
+              }
+              .bk_how_content_choose {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+                .bk_how_content_people {
+                  padding: 20px 0px;
+                  .ant-radio-group {
+                    width: 96px;
+                    border-radius: 10px;
+                  }
+                  .ant-radio-button-wrapper {
+                    text-align: center;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                    display: block;
+                    color: #f0ece7;
+                    background: #8dccb9;
+                    font-size: 20px;
+                    font-weight: 600;
+                  }
+                  .ant-radio-button-wrapper:hover {
+                    background-color: #4d8084;
+                  }
+                  .ant-radio-button-wrapper::before {
+                    opacity: 0;
+                  }
+                  .ant-radio-button-wrapper:first-child {
+                    border-radius: 10px 10px 0 0;
+                  }
+                  .ant-radio-button-wrapper:last-child {
+                    border-radius: 0 0 10px 10px;
+                  }
+                  .ant-radio-group-solid
+                    .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+                    background: #4d8084;
+                  }
+                }
+                .bk_how_content_campsite {
+                  padding: 20px 0px;
+                  .ant-radio-group {
+                    width: 96px;
+                    border-radius: 10px;
+                  }
+                  .ant-radio-button-wrapper {
+                    text-align: center;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                    display: block;
+                    color: #fff;
+                    background: #8dccb9;
+                    font-size: 20px;
+                    font-weight: 600;
+                  }
+                  .ant-radio-button-wrapper:hover {
+                    background-color: #4d8084;
+                  }
+                  .ant-radio-button-wrapper::before {
+                    opacity: 0;
+                  }
+                  .ant-radio-button-wrapper:first-child {
+                    border-radius: 10px 10px 0 0;
+                  }
+                  .ant-radio-button-wrapper:last-child {
+                    border-radius: 0 0 10px 10px;
+                  }
+                  .ant-radio-group-solid
+                    .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+                    background: #4d8084;
+                  }
+                }
+              }
+            }
+            .bk_how_content_img {
+              display: flex;
+              width: 100%;
+              height: 45vh;
+              justify-content: space-between;
+              flex-direction: column;
+              align-content: space-between;
+              .bk_how_content_img_two_block {
+                width: 100%;
+                height: 49%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .img_two_block {
+                  width: 49%;
+                  height: 100%;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+                }
+              }
+              .bk_how_content_img_one_block {
+                width: 100%;
+                height: 49%;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bk_process_how_many::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 75%;
+        background-color: #f0ece7;
+        z-index: -1;
       }
     }
   }
