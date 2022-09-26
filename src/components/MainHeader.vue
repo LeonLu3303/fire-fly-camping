@@ -76,8 +76,13 @@
                     path: '/Shopping',
                     name: '營火商城',
                 },
+                {
+                    id:'account',
+                    imgURL:'@/assets/images/main/main_icon_account.png',
+                    path: '/Login',
+                    name: '登入註冊',
+                },
             ]
-
         }
     },
   }

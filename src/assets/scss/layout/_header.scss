@@ -59,7 +59,6 @@
   width: 60px;
   height: 60px;
 }
-
 .hb_icon .line::before{
   content: '';
   width: 30px;
@@ -88,7 +87,6 @@
   transform: translate(5px, 10px);
   transition: .2s;
 }
-
 .hb_icon:hover .line::before{
   content: '';
   width: 30px;
@@ -117,13 +115,11 @@
   transform: translate(0px, 10px);
   transition: .2s;
 }
-
 .nav_bar_ul{
   width: 36%;
   height: 100vh;
   padding-top: 120px;
   padding-bottom: 120px;
-  // display: none;
   position: absolute;
   top: -100%;
   right: -1%;
@@ -161,4 +157,13 @@
   font-size: 24px;
   letter-spacing: 2px;
   color: #FFFFFF;
+}
+
+@media screen and (max-width:769px) {
+
+  .nav_bar_ul{
+    width: 102%;
+
+  }
+
 }
