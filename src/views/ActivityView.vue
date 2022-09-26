@@ -5,6 +5,10 @@
   </div>
   <ActivityTour/>
   <ActivityInfo/>
+  <!-- <transition appear @enter="enter">
+  <div class="box"></div>
+</transition> -->
+ 
   <MainFooter/>  
 </template>
 
@@ -13,6 +17,7 @@ import MainHeader from '@/components/MainHeader.vue'
 import ActivityTour from '@/components/ActivityTour.vue'
 import ActivityInfo from '@/components/ActivityInfo.vue'
 import MainFooter from '@/components/MainFooter.vue'
+import gsap from 'gsap'
 export default {
   components:{
     MainHeader,
@@ -23,14 +28,24 @@ export default {
       methods:{
         scrollToTop(){
           window.scrollTo(0,0)
-        }
+        },
+      //   enter(el){
+      //     gsap.to(el,{
+      //       duration:1,
+      //       x:100,
+      //       opacity:1,
+      //       repeat:-1
+      //     });
+      //   }
       },
       mounted(){
         //要用到mounted，不能用在created中，因為Dom元件還沒被掛載，讀不到window
         this.scrollToTop()
+
       }
     }
 </script>
 <style lang="scss">
 @import '@/assets/scss/style.scss';
+
 </style>
