@@ -284,7 +284,7 @@
         display: flex;
         flex-direction: column;
         width: 80%;
-        height: 100vh;
+        min-height: 100vh;
         padding: 60px 0;
         margin: 0 auto;
         .bk_when_container {
@@ -325,16 +325,6 @@
           }
         }
       }
-    }
-    .bk_process_when::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background-color: #fff;
-      z-index: -1;
     }
     .bk_process_when::after {
       content: '';
@@ -736,6 +726,76 @@
         right: 0;
         width: 100%;
         height: 75%;
+        background-color: #f0ece7;
+        z-index: -1;
+      }
+      .bk_process_when {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        .bk_process_when_container {
+          display: flex;
+          flex-direction: column;
+          width: 80%;
+          min-height: 100vh;
+          padding: 60px 0;
+          margin: 0 auto;
+          .bk_when_container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            .bk_when_content_container {
+              width: 100%;
+              padding: 40px 0;
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              h2 {
+                font-size: 28px;
+                font-weight: 800;
+                height: 600px;
+              }
+              .rangeDateShow {
+                padding: 20px 0;
+                p {
+                  color: #bc6c61;
+                  font-size: 22px;
+                  font-weight: 600;
+                }
+              }
+              p {
+                color: #2d5252;
+                font-size: 22px;
+                font-weight: 600;
+              }
+              .btn_confirm {
+                margin-top: 20px;
+              }
+            }
+            .bk_when_calendar_select_container {
+              padding: 60px;
+              position: absolute;
+              top: 25vh;
+              left: 50%;
+              transform: translateX(50%);
+              .bk_range_date_picker_controll {
+                position: relative;
+                .ant-picker {
+                  visibility: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bk_process_when::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 80%;
         background-color: #f0ece7;
         z-index: -1;
       }

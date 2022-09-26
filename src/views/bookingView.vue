@@ -379,7 +379,7 @@ export default {
         whichMeal: null,
         paymentTotal: null,
       },
-      step: 2,
+      step: 3,
       wherePick: null,
       getStart: dayjs().format('YYYY-MM-DD'),
       getEnd: dayjs().format('YYYY-MM-DD'),
