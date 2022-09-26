@@ -5,52 +5,40 @@
                 <h2>發佈報告</h2>
             </div>
             <div class="row_report_write">
-
+                <!-- 明信片 -->
                 <div class="col_postcard">
-                    <div class="postcard_release">
-                        <h3 class="postcard_title_area">{{enterTitle}}</h3>
-                        <p class="postcard_text_area">{{enterText}}</p>
-                    </div>
-                    <div class="postcard_member_data">
-                        <div class="postcard_member_pic">
-                            <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                    <div class="postcard_group">
+                        <div class="postcard_release">
+                            <h3 class="postcard_title_area">{{enterTitle}}</h3>
+                            <p class="postcard_text_area">{{enterText}}</p>
                         </div>
-                        <h4 class="postcard_member_name">{{memberName}}</h4>
-                        <div class="release_time">
-                            <p>{{releaseTime}}</p>
+                        <div class="postcard_member_data">
+                            <div class="postcard_member_pic">
+                                <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                            </div>
+                            <h4 class="postcard_member_name">{{memberName}}</h4>
+                            <div class="release_time">
+                                <p>{{releaseTime}}</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg_postcard">
-                        <!-- <img src="@/assets/images" alt=""> -->
+                    <div class="postcard_bg">
+                        <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
                     </div>
                 </div>
-                
-                <!-- <div class="col_postcard">
-                    <div class="postcard_release">
-                        <h3 class="postcard_title_area">{{enterTitle}}</h3>
-                        <p class="postcard_text_area">{{enterText}}</p>
-                    </div>
-                    <div class="postcard_member_data">
-                        <div class="postcard_member_pic">
-                            <img src="../assets/images/report_avatar_1.png" alt="avatar">
-                        </div>
-                        <h4 class="postcard_member_name">{{memberName}}</h4>
-                        <div class="release_time">
-                            <p>{{releaseTime}}</p>
-                        </div>
-                    </div>
-                </div> -->
 
+                <!-- 輸入欄 -->
                 <form class="col_write_text">
                     <input class="enter_title" id="enter_title" type="text" maxlength="15" v-model="enterTitle">
                     <textarea class="enter_text" id="enter_text" name="enter_text" type="text" maxlength="300" v-model="enterText"></textarea>
                     <div class="confirm_choose_contain">
                         <button class="btn_confirm" id="publish_report" href="#">發佈報告</button>
-                        <select class="btn_bg_choose" name="bg_select" id="bg_select">
-                            <option class="bg_choose" value="1">背景選擇</option>
-                            <option class="bg_choose" value="2">叢林歷險</option>
-                            <option class="bg_choose" value="3">冰雪奇緣</option>
-                            <option class="bg_choose" value="4">荒野峽谷</option>
+
+                        <select class="btn_bg_choose" v-model="selectBg">
+                            <option class="bg_choose" disabled value="1">選擇背景</option>
+                            <option class="bg_choose" value="1">叢林歷險</option>
+                            <option class="bg_choose" value="2">冰雪奇緣</option>
+                            <option class="bg_choose" value="3">荒野峽谷</option>
                         </select>
                     </div>
                 </form>
@@ -64,17 +52,37 @@ export default {
     name: "ReportPublish",
     data() {
         return {
+            activeTab:'snow',
             enterTitle: "請輸入標題(15字以內)",
             enterText: "請輸入內文(300字以內)",
+            memberPic: '@/assets/images/report/report_avatar_1.png',
             memberName: "會員名稱",
             releaseTime: "2022/09/22",
+            selectBg: '1',
+            bgPic: [
+                {
+                    val: '1',
+                    theme:'叢林歷險',
+                    bg: '@/assets/images/report/report_postcard_1.jpg'
+                },
+                {
+                    val: '2',
+                    theme:'冰雪奇緣',
+                    bg: '@/assets/images/report/report_postcard_2.jpg'
+                },
+                {
+                    val: '3',
+                    theme:'荒野峽谷',
+                    bg: '@/assets/images/report/report_postcard_3.jpg'
+                },
+            ]
         }
     }
 }
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../assets/scss/style.scss';
     
     .wrap_report_publish{
@@ -82,71 +90,76 @@ export default {
         background: $color-basic-White;
     }
     .report_publish_container{
-        margin: 0 10%;
+        width: 80%;
+        max-width: 1296px;
+        margin: 0 auto;
         @include lg(){
-            margin: 0 5%;
-        }
-        @include tb(){
-            margin: 0 5%;
+            width: 90%;
         }
         @include md(){
-            margin: 0 2%;
+            width: 95%;
         }
     }
     .row_report_write{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
-    .row_report_write .col_postcard{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 72%;
-        height: 540px;
-        // background : url(../assets/images/report_jungle_p.png), $color-main-yellow;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
+
+    // 明信片
+    .col_postcard{
+        position: relative;
+        width: 70%;
+        margin: 10px;
         @include lg(){
-            width: 80%;
-            height: 440px;
-            margin: 0 0 20px;
+            width: 70%;
         }
         @include tb(){
             width: 100%;
-            height: 440px;
         }
-        @include md(){
-            width: 100%;
-            height: 400px;
-        }
+    }
+    .postcard_group{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .postcard_bg{
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
+    }
+    .tab_active{
+        display: block;
     }
     .postcard_title_area{
         padding: 0 0 20px;
         color: $color-basic-gray3;
     }
     .postcard_release{
-        width: 60%;
+        width: 70%;
+        padding: 20px;
     }
     .postcard_member_data{
-        width: 18%;
+        width: 30%;
         text-align: center;
+        padding: 20px 40px;
+        border-left: 2px solid $color-basic-gray1;
     }
-    .postcard_member_data .postcard_member_name{
-        color: $color-basic-gray3;
-    }
+
+    // 輸入欄
     .col_write_text{
-        width: 24%;
-        // height: 100%;
+        width: 26%;
+        margin: 10px;
         @include lg(){
-            width: 80%;
+            width: 70%;
         }
         @include tb(){
-            width: 100%;
-        }
-        @include md(){
             width: 100%;
         }
     }
@@ -178,7 +191,7 @@ export default {
     .confirm_choose_contain{
         display: flex;
         justify-content: flex-end;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
     }
     .confirm_choose_contain .btn_confirm{
         margin-right: 20px;

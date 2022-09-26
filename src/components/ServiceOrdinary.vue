@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 .tent_slide_big_pic{
     position: relative;

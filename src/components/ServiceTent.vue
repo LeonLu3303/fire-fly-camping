@@ -43,7 +43,7 @@
             </div>
 
             <!-- 豪華型 -->
-            <div class="row_tent_introduce" v-if="activeTab === 'luxury'">
+            <div class="row_tent_introduce" v-else-if="activeTab === 'luxury'">
                 <div class="col_tent_swiper">
                     <ServiceLuxury/>
                 </div>
@@ -59,7 +59,7 @@
             </div>
 
             <!-- 主題型 -->
-            <div class="row_tent_introduce" v-if="activeTab === 'feature'">
+            <div class="row_tent_introduce" v-else>
                 <div class="col_tent_swiper">
                     <ServiceFeature/>
                 </div>
@@ -106,7 +106,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
 .wrap_service_tent{
