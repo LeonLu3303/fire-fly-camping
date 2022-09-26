@@ -13,51 +13,104 @@
                                 name="register_id" 
                                 id="register_id"
                                 :class="{focus: focus_index ===1}"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)">
-                        <span data-placeholder="帳號/信箱"></span>
+                                @focus="focus_index =1,focus_txtb(focus_index)">
+                        <label for="register_id">帳號</label>
                         <div id="check_id" class="btn_submit">
-                        檢查帳號
-                    </div>
+                            檢查帳號
+                        </div>
                     </div>
                     <div class="txtb">
                         <input  type="password" 
                                 name="register_psw" 
                                 id="register_psw"
-                                :class="{focus: focus_index ===1}"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)"
+                                :class="{focus: focus_index ===2}"
+                                @focus="focus_txtb(focus_index),focus_index =2"
                                 >
-                        <span data-placeholder="密碼"></span>
+                        <label for="register_psw">密碼</label>
                     </div>
                     <div class="txtb">
                         <input  type="password" 
                                 name="register_check_psw" 
                                 id="register_check_psw"
-                                :class="{focus: focus_index ===1}"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)"
+                                :class="{focus: focus_index ===3}"
+                                @focus="focus_index =3"
                                 >
-                        <span data-placeholder="確認密碼"></span>
+                        <label for="register_check_psw">確認密碼</label>
+                    </div>            
+                    <div class="txtb">
+                        <input  type="text" 
+                                name="register_mem_email" 
+                                id="register_mem_email"
+                                :class="{focus: focus_index ===4}"
+                                @focus="focus_index =4"
+                                >
+                        <label for="register_mem_email">信箱</label>
+                        <div id="check_email" class="btn_submit">
+                            檢查信箱
+                        </div>
+                    </div>            
+                    <div class="txtb">
+                        <input  type="text" 
+                                name="register_mem_name" 
+                                id="register_mem_name"
+                                :class="{focus: focus_index ===5}"
+                                @focus="focus_index =5"
+                                >
+                        <label for="register_mem_name">姓名</label>
                     </div>            
                     <div class="txtb">
                         <input  type="text" 
                                 name="register_nickname" 
                                 id="register_nickname"
-                                :class="{focus: focus_index ===1}"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)"
+                                :class="{focus: focus_index ===6}"
+                                @focus="focus_index =6"
                                 >
-                        <span data-placeholder="暱稱"></span>
-                    </div>            
+                        <label for="register_nickname">暱稱</label>
+                    </div>    
                     <div class="txtb">
                         <input  type="text" 
                                 name="register_phone" 
                                 id="register_phone"
-                                :class="{focus: focus_index ===1}"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)">
-                        <span data-placeholder="電話"></span>
+                                :class="{focus: focus_index ===7}"
+                                @focus="focus_index =7">
+                        <label for="register_phone">電話</label>
+                    </div>           
+                    <div class="txtb" id="city">
+                        <select name="register_city" id="register_city">
+                            <option value="">請選擇居住縣市</option>
+                            <option value="基隆市">基隆市</option>
+                            <option value="台北市">台北市</option>
+                            <option value="新北市">新北市</option>
+                            <option value="桃園市">桃園市</option>
+                            <option value="新竹縣">新竹縣</option>
+                            <option value="新竹市">新竹市</option>
+                            <option value="苗栗縣">苗栗縣</option>
+                            <option value="台中市">台中市</option>
+                            <option value="彰化縣">彰化縣</option>
+                            <option value="雲林縣">雲林縣</option>
+                            <option value="嘉義縣">嘉義縣</option>
+                            <option value="嘉義市">嘉義市</option>
+                            <option value="台南市">台南市</option>
+                            <option value="高雄市">高雄市</option>
+                            <option value="屏東縣">屏東縣</option>
+                            <option value="宜蘭縣">宜蘭縣</option>
+                            <option value="花蓮縣">花蓮縣</option>
+                            <option value="台東縣">台東縣</option>
+                            <option value="澎湖縣">澎湖縣</option>
+                            <option value="連江縣">連江縣</option>
+                            <option value="金門縣">金門縣</option>
+                        </select>
+                        <label for="register_city">居住縣市</label>
+                    </div>        
+                          
+                    <div class="txtb">
+                        <input  type="text" 
+                                name="register_addr" 
+                                id="register_addr"
+                                :class="{focus: focus_index ===8}"
+                                @focus="focus_index =8"
+                                >
+                        <label for="register_addr">地址</label>
                     </div>            
                     <div class="login_btn">
                         <router-link to ="/Member" class="btn_submit">
@@ -69,29 +122,23 @@
             <div class="form-container sign-in-container">
                 <form action="#">
                     <h2 class="title">登入</h2>
-                    <div class="txtb"
-                        :class="{focus: focus_index ===1}"
-                        @focus="focus_txtb(focus_index)"
-                        @blur="blur_txtb(focus_index)"
-                        >
-                        <input  type="email" 
+                    <div class="txtb">
+                        <input  type="text" 
                                 name="login_id" 
                                 id="login_id"
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)"
-                                :class="{focus: focus_index ===1}">
-                        <span data-placeholder="帳號/信箱"></span>
+                                @focus="focus_txtb(focus_index),focus_index =9"
+                                :class="{focus: focus_index === 9}">
+                        <label for="login_id">帳號</label>
                     </div>
                     <div class="txtb">
                         <input  type="password" 
                                 name="login_psw" 
                                 id="login_psw" 
-                                @focus="focus_txtb(focus_index)"
-                                @blur="blur_txtb(focus_index)"
-                                :class="{focus: focus_index ===1}">
-                        <span data-placeholder="密碼"></span>
+                                @focus="focus_index =10"
+                                :class="{focus: focus_index === 10}">
+                        <label for="login_psw">密碼</label>
                     </div>
-                    <a href="#">忘記密碼</a>
+                    <a href="#" id="forgot_psw">忘記密碼</a>
                     <div class="login_btn">
                         <router-link to ="/Member" class="btn_submit">
                             登入
@@ -105,7 +152,7 @@
                     <div class="overlay-panel overlay-left">
                         <h2 class="title">已經有帳號了？</h2>
                         <p>那還等什麼？馬上登入吧！</p>
-                        <button class="ghost btn_submit" 
+                        <button class="btn_login_register" 
                                 id="signIn" 
                                 @click="show_login(index)">
                             馬上登入
@@ -114,7 +161,7 @@
                     <div class="overlay-panel overlay-right">
                         <h2 class="title">沒有帳號？</h2>
                         <p>立即註冊加入我們，和我們一起體驗露營吧！</p>
-                        <button class="ghost btn_submit" 
+                        <button class="btn_login_register" 
                                 id="signUp"
                                 @click="show_register(index)">
                             立即註冊
@@ -139,13 +186,13 @@
                 return{
                 index:0,
                 focus_index:0,
-                focus_index:{
-                    input1: 0,
-                    input1: 0,
-                    input1: 0,
-                    input1: 0,
-                    input1: 0,
-                }
+                // focus_index:{
+                //     register_id_block: 0,
+                //     input1: 0,
+                //     input1: 0,
+                //     input1: 0,
+                //     input1: 0,
+                // }
                 }
             },
             methods:{
@@ -158,15 +205,16 @@
                     console.log(index);
                 },
                 focus_txtb(focus_index){
-                    this.focus_index += 1;
+                    // this.focus_index += 1;
                     console.log(focus_index);
                 },
-                blur_txtb(focus_index){
-                    this.focus_index -= 1;
-                    console.log(focus_index);
-                }
+                // blur_txtb(focus_index){
+                //     this.focus_index -= 1;
+                //     console.log(focus_index);
+                // }
             }
     }
+    
 </script>
 
 <style lang="scss" scoped>

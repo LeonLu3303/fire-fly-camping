@@ -4,24 +4,42 @@
             <h2 id="home_news">最新消息</h2>
         </div>
         <div class="news_container">
-            <div class="news_box" 
-                v-for="(news,index) in newsList"
-                :class="{
-                    'mid':currentPage === index,
-                    'left':currentPage === index-1,
-                    'right':currentPage === index+1,
-                }"
-                :key="news"
-                @click="selectPage(index)">
-                <div class="news_pic">
-                    <img :src="require(`@/assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
-                </div>
-                <div class="news_txt">
-                    <h3>{{news.title}}</h3>
-                    <p class="news_content">{{news.content}}</p>
-                    <p class="news_post_time">{{news.news_post_time}}</p>
+            <button @click="prevPage"> &lt; </button>
+            <div class="news_show_area">
+                <div class="news_box" 
+                    v-for="(news,slide) in newsList"
+                    :style="{
+                        left : `${(slide-currentPage)*600}px`
+                    }"
+                    :class="{
+                        'slideActive': (currentPage === slide),
+                        'slideShow': (currentPage -1 >= slide),
+                    }"
+                    @click="selectPage(slide)"
+                    :key="news"
+                    >
+                    <div class="news_pic">
+                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
+                    </div>
+                    <div class="news_txt">
+                        <h3>{{news.title}}</h3>
+                        <p class="news_content">{{news.content}}</p>
+                        <p class="news_post_time">{{news.news_post_time}}</p>
+                    </div>
                 </div>
             </div>
+            <button @click="nextPage"> > </button>
+        </div>
+        <div class="news_page_btn_container">
+            <button 
+            class="news_page_btn"
+            v-for="(news,slide) in newsList" 
+            :class="{
+                'activeBtnStyle': (currentPage === slide)
+            }"
+            @click="selectPage(slide)" 
+            :key="news"
+        ></button>
         </div>
         <div class="btn_spacing">
                 <router-link to ="/News" class="btn_page_link news_link">更多消息</router-link>
@@ -36,6 +54,8 @@
             return{//用陣列位置的方式紀錄資料
                 //reverse:"red bold"
                 currentPage:1,
+                clickRight: true,
+                clickLeft: false,
                 newsList:[
                     {
                         title:"慟！暴風雪來臨，冰雪奇緣區域關閉一週",
@@ -56,8 +76,27 @@
             }
         },  
         methods:{
+            prevPage(){
+                //當前頁面是第一頁，不能再往前
+                if(this.currentPage === 0) return
+                this.clickRight = false
+                this.clickLeft = true
+
+                //this.currentPage = this.currentPage - 1
+                this.currentPage -= 1
+            },
+            nextPage(){
+                //當前頁面是最後一頁，不能再往後
+                if(this.currentPage >= this.newsList.length-1) return
+                this.clickRight = true
+                this.clickLeft = false
+
+                //this.currentPage = this.currentPage + 1
+                this.currentPage += 1
+            },
             selectPage(val){
                 this.currentPage = val
+                console.log(currentPage)
             }
         }
     }
