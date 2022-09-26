@@ -1,14 +1,15 @@
 <template>
   <MainHeader></MainHeader>
     <div class="banner">
-        <img src="../assets/images/main/banner_shop.png" alt="banner">
+        <img src="@/assets/images/main/banner_shop.png" alt="banner">
     </div>
-    <div class="payment_container">
+    <section class="section_payment">
+      <div class="payment_container">
       <div class="payment_rows_2">
         <div class="wrap_delivery">
           <h3 class="para">配送資訊</h3>
           <h4 class="para">收件人資訊</h4>
-          <div class="delivery_info">
+          <form class="delivery_info">
             <div class="user_input_box">
               <label for="name"
                 >姓名
@@ -16,11 +17,11 @@
               </label>
               <label for=""
                 >電話
-                <input type="tel" placeholder="01-123456" />
+                <input type="tel" placeholder="01-123456" required/>
               </label>
               <label for=""
                 >E-mail
-                <input type="email" placeholder="123@xxx.com" />
+                <input type="email" placeholder="123@xxx.com" required/>
               </label>
             </div>
             <div class="user_input_box">
@@ -41,38 +42,38 @@
                 <input type="text" placeholder="桃園市中壢市復興市46號9樓" />
               </label>
             </div>
-          </div>
+          </form>
         </div>
 
         <div class="wrap_payment">
           <h3 class="para">付款資訊</h3>
           <h4 class="para">信用卡資訊</h4>
-          <div class="payment_info">
+          <form class="payment_info">
             <div class="user_input_box">
               <label
                 >持卡人姓名
-                <input type="text" placeholder="營火叢" />
+                <input type="text" placeholder="營火叢" required/>
               </label>
               <label
                 >信用卡號
-                <input type="text" placeholder="1111-1234-1234" />
+                <input type="text" placeholder="1111-1234-1234" required/>
               </label>
               <div class="credit_box">
                 <div class="credit_info">
                   <label
                     >到期日
-                    <input type="text" placeholder="08/29" />
+                    <input type="text" placeholder="08/29" required/>
                   </label>
                 </div>
                 <div class="credit_check_no">
                   <label
                     >檢核碼
-                    <input type="text" placeholder="888" />
+                    <input type="text" placeholder="888" required/>
                   </label>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
           <div class="btn_link_group">
             <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
             <router-link to="#" ><button class="btn_purchase">確認結帳</button></router-link>
@@ -100,6 +101,8 @@
         </div>
       </div>
     </div>
+    </section>
+    
 <MainFooter></MainFooter>
 </template>
 <script>
@@ -133,9 +136,11 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/scss/style.scss";
-
+.section_payment{
+  background-color: $color-main-yellow;
+}
 .payment_container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -168,8 +173,7 @@ export default {
   height: 100vh;
 }
 .cart_payment_container{
-  height: 85vh;
-  overflow: scroll;
+  height: 70vh;
 }
 .payment_col_1 {
   display: grid;
@@ -193,7 +197,7 @@ export default {
 
 .user_input_box {
   padding: 1rem;
-  width: 250px;
+  width: 280px;
 }
 
 .user_input_box .credit_box {
@@ -228,7 +232,6 @@ export default {
     }
   }
 }
-
 .btn_link_group {
   display: flex;
   justify-content: flex-end;
