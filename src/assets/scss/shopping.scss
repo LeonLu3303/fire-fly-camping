@@ -1,7 +1,17 @@
 // 桌機版本 --------------------
 
+// .shop_lightbox{
+//   background-color: #2f3e46;
+//   position: fixed;
+//   top: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   z-index: 100;
+//   opacity: 0.9;
+// }
 .shop_section{
   background-color: $color-main-yellow;
+  position: relative;
   .shop_container{
     width: 80%;
     margin-right: auto;
@@ -47,19 +57,21 @@
   margin: 1rem 0.5rem;
   border-radius: 10px;
   padding: 1rem;
-  overflow: hidden;
   background-color: #fff;
+  // 包圖片的盒子
   .product_img_box{
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    // 圖片
     .details_product_img{
-      width: 100%;
+      overflow: hidden;
+      &:hover{
+        transform: scale(1.1);
+        transition: all 0.5s linear;
+      }
     }
-    &:hover{
-      transform: scale(1.1);
-      transition: all 0.5s linear;
-    }
+    
   }
 }
 .product_content{
