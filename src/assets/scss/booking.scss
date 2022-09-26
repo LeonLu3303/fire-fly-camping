@@ -1,5 +1,5 @@
 .booking_pages {
-  width: 100vw;
+  width: 100%;
   .bk_banner_container {
     width: 100%;
     img {
@@ -23,7 +23,7 @@
       border: none;
       background-color: transparent;
       display: flex;
-      width: 130px;
+      width: 140px;
       height: 40px;
       font-size: 20px;
       font-weight: 800;
@@ -38,12 +38,15 @@
     }
   }
   .bk_process_container {
-    width: 100vw;
+    width: 100%;
     .bk_process_where {
       padding: 60px 0;
       position: relative;
       width: 100%;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       text-align: center;
       h2 {
         color: #2d5252;
@@ -120,34 +123,6 @@
           background-color: #00000020;
           margin: -40px;
           z-index: -1;
-        }
-      }
-      .bk_process_button_container {
-        padding: 60px 0;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        .bk_process_button {
-          border: none;
-          background-color: transparent;
-          display: flex;
-          width: 130px;
-          height: 40px;
-          font-size: 20px;
-          font-weight: 800;
-          color: #168d80;
-          line-height: 40px;
-          justify-content: space-between;
-          img {
-            display: block;
-            width: 40px;
-            height: 40px;
-          }
-        }
-        .where_prev {
-          opacity: 0;
-          pointer-events: none;
         }
       }
     }
@@ -260,7 +235,8 @@
           }
           .bk_how_content_img {
             display: flex;
-            width: 60%;
+            width: 55%;
+            height: 65vh;
             justify-content: space-between;
             .bk_how_content_img_two_block {
               width: 49%;
@@ -496,8 +472,9 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            border-radius: 10px;
             h4 {
-              color: #bc6c61;
+              color: $color-basic-White;
               font-style: 30px;
               font-weight: 600;
             }
@@ -508,17 +485,34 @@
               justify-content: center;
               align-items: center;
               p {
-                font-size: 50px;
-                color: #bc6c61;
+                color: $color-basic-White;
                 font-weight: 800;
                 line-height: 80px;
               }
+              .where {
+                font-size: 50px;
+              }
+              .how_many {
+                font-size: 50px;
+              }
+              .which_type {
+                font-size: 30px;
+              }
+              .act {
+                font-size: 30px;
+              }
+              .equ {
+                font-size: 30px;
+              }
+              .meal {
+                font-size: 30px;
+              }
               .bigMonth {
-                font-size: 50 !important;
+                font-size: 50px !important;
                 font-weight: 800 !important;
               }
               .bigDate {
-                font-size: 80px !important;
+                font-size: 100px !important;
                 font-weight: 800 !important;
               }
             }
