@@ -63,12 +63,15 @@
             </div>
           </div>
         </div>
-        <div class="bk_process_button_container">
+        <div class="bk_process_button_container" style="width: 80%">
           <button class="bk_process_button">
-            <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
+            <!-- <img
+              src="@/assets/images/booking/booking_arrow_prev.png"
+              alt=""
+            />上一步 -->
           </button>
           <button class="bk_process_button" @click="step = 2">
-            下一步
+            挑選房型
             <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
           </button>
         </div>
@@ -92,9 +95,6 @@
                   <ChooseCamp @update-result="updateTypeResult" />
                 </div>
               </div>
-              <div class="bk_how_content_confirm">
-                <a class="btn_confirm" href="#">確認房型</a>
-              </div>
             </div>
             <div class="bk_how_content_img">
               <div class="bk_how_content_img_two_block">
@@ -112,11 +112,17 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 1">
-              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
+              <img
+                src="@/assets/images/booking/booking_arrow_prev.png"
+                alt=""
+              />挑選地區
             </button>
             <button class="bk_process_button" @click="step = 3">
-              下一步
-              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
+              挑選日期
+              <img
+                src="@/assets/images/booking/booking_arrow_next.png"
+                alt=""
+              />
             </button>
           </div>
         </div>
@@ -142,7 +148,6 @@
                 </p>
               </div>
               <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
-              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_when_calendar_select_container">
               <div class="bk_range_date_picker_controll">
@@ -152,11 +157,17 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 2">
-              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
+              <img
+                src="@/assets/images/booking/booking_arrow_prev.png"
+                alt=""
+              />挑選日期
             </button>
             <button class="bk_process_button" @click="step = 4">
-              下一步
-              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
+              挑選活動
+              <img
+                src="@/assets/images/booking/booking_arrow_next.png"
+                alt=""
+              />
             </button>
           </div>
         </div>
@@ -201,7 +212,6 @@
                 上班上到厭世嗎？ <br />
                 和朋友一起創造美好的回憶吧！
               </p>
-              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_more_selector_container">
               <SelectWhichActivity @update-result="updateWhichResult1" />
@@ -211,11 +221,17 @@
           </div>
           <div class="bk_process_button_container">
             <button class="bk_process_button" @click="step = 3">
-              <img src="@/assets/images/booking/booking_arrow_prev.png" alt="" />上一步
+              <img
+                src="@/assets/images/booking/booking_arrow_prev.png"
+                alt=""
+              />挑選日期
             </button>
             <button class="bk_process_button" @click="step = 5">
-              下一步
-              <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
+              選項完成
+              <img
+                src="@/assets/images/booking/booking_arrow_next.png"
+                alt=""
+              />
             </button>
           </div>
         </div>
@@ -228,7 +244,7 @@
               <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>出發區域</h4>
               <div class="middle_content">
-                <p>{{ bookingBlock[wherePick - 1] }}</p>
+                <p class="where">{{ bookingBlock[wherePick - 1] }}</p>
               </div>
               <button @click="step = 1" class="btn_booking_min">修改</button>
             </div>
@@ -236,8 +252,8 @@
               <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>我的營帳</h4>
               <div class="middle_content">
-                <p>{{ howMany }}人 <br />營帳</p>
-                <p>{{ bookingCampType[campType - 1] }}</p>
+                <p class="how_many">{{ howMany }}人 <br />營帳</p>
+                <p class="which_type">{{ bookingCampType[campType - 1] }}</p>
               </div>
               <button @click="step = 2" class="btn_booking_min">修改</button>
             </div>
@@ -254,21 +270,21 @@
               <div :class="`bookConfirmImg_${wherePick}`"></div>
               <h4>我的方案</h4>
               <div class="middle_content">
-                <p>
+                <p class="act">
                   {{
                     bookingWhich[wherePick - 1].whichActivityShow[
                       whichActivity - 1
                     ]
                   }}
                 </p>
-                <p>
+                <p class="equ">
                   {{
                     bookingWhich[wherePick - 1].whichEquipmentShow[
                       whichEquipment - 1
                     ]
                   }}
                 </p>
-                <p>
+                <p class="meal">
                   {{ bookingWhich[wherePick - 1].whichMealShow[whichMeal - 1] }}
                 </p>
               </div>
@@ -276,9 +292,9 @@
             </div>
           </div>
           <div class="bk_confirm_payment_container">
-            <p>訂單總金額</p>
+            <p class="bk_payment_total_title">訂單總金額</p>
             <div class="bk_payment_show">
-              <p>＄{{ totalPay }}</p>
+              <p @change="totalPay">＄{{ totalPay }}</p>
               <button class="btn_confirm">結帳</button>
             </div>
           </div>
@@ -407,8 +423,6 @@ export default {
       this.whichMeal = e;
       console.log(e);
     },
-  },
-  computed: {
     totalPay() {
       let sum = 0;
       let basic = 6000;
@@ -494,6 +508,7 @@ export default {
     linear-gradient(to bottom, $color-aid-green1, $color-main-yellow);
   background-size: cover;
   background-position: center left;
+  border-radius: 10px;
 }
 .bookConfirmImg_2 {
   z-index: -1;
@@ -506,8 +521,10 @@ export default {
     linear-gradient(to bottom, $color-aid-blue1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
+  border-radius: 10px;
 }
 .bookConfirmImg_3 {
+  border-radius: 10px;
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -518,6 +535,5 @@ export default {
     linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
   background-size: cover;
   background-position: bottom right;
-  opacity: 0.6;
 }
 </style>

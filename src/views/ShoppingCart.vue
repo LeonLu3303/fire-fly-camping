@@ -3,26 +3,34 @@
 <div class="banner">
     <img src="../assets/images/main/banner_shop.png" alt="">
 </div>
-<div class="cart_container">
-        <h3 class="msg_empty_cart" v-if="cart.length === 0">疑~ 還沒有購買商品唷</h3>
-        <div class="cart_wrap" v-if="cart.length !== 0">
-                <table class="cart_info">
+<section class="cart_section">
+    <div class="cart_container">
+        <h3 class="msg_empty_cart" v-if="cart.length === 0">疑，還沒選商品嗎? 趕快去逛逛吧</h3>
+        <div class="details_link_path" v-if="cart.length === 0">
+                    <router-link to="/Shopping">
+                    <div class="back_shopping_page">
+                        <img class="back_shopping_img" src="../assets/images/booking/booking_arrow_prev.png" alt="">
+                        <h4>繼續購物</h4>
+                    </div>
+                    </router-link>
+                </div>
+        <div class="cart_info_wrap" v-if="cart.length !== 0">
+                <table class="cart_info_group">
                     <thead>
                         <tr>
-                            <th>圖片</th>
-                            <th>名稱</th>
-                            <th>單價</th>
-                            <th>數量</th>
-                            <th>小計</th>
-                            <th>刪除</th>
+                            <th class="cart_info_item">圖片</th>
+                            <th class="cart_info_item_name">名稱</th>
+                            <th class="cart_info_item">單價</th>
+                            <th class="cart_info_item">數量</th>
+                            <th class="cart_info_item">小計</th>
+                            <th class="cart_info_item">刪除</th>
                         </tr>
                     </thead>
                     <tbody v-for="(item, key) in cart" :key="'product' + item">
-                        <tr>
-                            <td><img class="cart_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
-                            <td>{{item.title}}</td>
-                            <td>${{item.price}}</td>
-                            <!-- <td>{{item.color}}</td> -->
+                        <tr class="wrap_cart_col">
+                            <td class="cart_col_item"><img class="cart_prod_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
+                            <td class="cart_col_item_font">{{item.title}}</td>
+                            <td class="cart_col_item_price">${{item.price}}</td>
                             <td>
                                 <div class="cart_btn_box">
                                     <button @click="reduce_order(key)">-</button>
@@ -32,9 +40,8 @@
                                     <button @click="add_order(key)">+</button>
                                 </div>
                             </td>
-                            <td>${{item.price * item.qty}}</td>
-                            <td><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""
-                                        width="30"></a>
+                            <td class="cart_col_item_font">${{item.price * item.qty}}</td>
+                            <td class="cart_col_item"><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""></a>
                             </td>
                         </tr>
                     </tbody>
@@ -46,6 +53,8 @@
                 </div>
         </div>
 </div>
+</section>
+
 <MainFooter></MainFooter>
 </template>
 <script>
@@ -106,14 +115,24 @@ export default {
             }
 
 }
-</script>
-<style lang="scss">
-@import "../assets/scss/style.scss";
 
-    .cart_container {
+</script>
+<style lang="scss" scoped>
+@import "../assets/scss/style.scss";
+    .cart_section{
+        background-color: $color-main-yellow;
+        .cart_container {
         width: 80%;
         margin: 0 10%;
         padding: 150px 0;
+        @include sm(){
+            width: 90%;
+            margin: 0 5%;
+        }
+        .msg_empty_cart{
+            text-align: center;
+        }
+    }
     }
 
     .cart_title {
@@ -127,24 +146,82 @@ export default {
         grid-template-columns: 1fr 1fr 1fr;
         border: 1px solid gray;
         button{
-            background-color: #fff;
+        background-color: #fff;
         border: 0;
         }
     }
-
-    .cart_wrap {
-        /* border-radius: 10px; */
+    .details_link_path{
+        display: flex;
+        justify-content: center;
+        p{
+            color: #000;
+        }
+        .back_shopping_page{
+            display: flex;
+            padding-top: 4rem;
+            h4{
+                font-size: 25px;
+                line-height: 30px;
+            }
+            .back_shopping_img{
+                width: 40px;
+                padding-right: 10px;
+            }
+        }
+    }
+    .cart_info_wrap {
         padding: 1rem;
         background-color: #fff;
-        overflow: scroll;
         display: grid;
-        max-height: 1000px;
+        max-height: 100vh;
         grid-template-rows: repeat(7, 1fr);
         text-align: center;
         border-radius: 10px;
         box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
+        @include sm(){
+            padding: 0.5rem;
+        }
     }
-
+    .cart_info_group{
+        th{
+        font-size: $title_h4;
+        padding: 1rem;
+    }
+        thead{
+        border-bottom: 1px solid gray;   
+    }   
+        .cart_info_item_name{
+            @include sm(){
+                padding: 10px 0;
+            }
+        }
+        .cart_info_item{
+            
+            // 手機版時將(小計,單價,數量,刪除)都隱藏
+            @include sm(){
+            display: none;
+        } 
+    }
+    }
+    .wrap_cart_col{
+        .cart_col_item_price{
+            @include sm(){
+            display: none;
+            }
+        }
+        .cart_col_item_font{
+            @include sm(){
+                width: 70px;
+                font-size: 15px;
+            }
+        }
+    }
+    .cart_col_item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
     .cart_table_btn {
         display: flex;
         justify-content: flex-end;
@@ -155,20 +232,19 @@ export default {
         }
 
     }
-    .cart_info {
-        th{
-        font-size: $title_h4;
-        padding: 1rem;
-    }
-    thead{
-        border-bottom: 1px solid gray;
-        
-    }
-    }
     .cart_trash_icon{
         width: 30px;
+        @include sm(){
+            width: 20px;
+        }
     }
-    .cart_image{
+    .cart_prod_image{
         width: 150px;
+        display: flex;
+        justify-content: center;
+        @include sm(){
+            width: 50px;
+        }
     }
+
 </style>

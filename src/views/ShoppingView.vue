@@ -10,19 +10,19 @@
           <h3>所有商品</h3>
           <hr />
           <ul class="product_list">
-            <li class="product_list_item">T恤</li>
-            <li class="product_list_item">帽T</li>
-            <li class="product_list_item">漁夫帽</li>
-            <li class="product_list_item">杯子</li>
-            <li class="product_list_item">水瓶</li>
+            <li class="product_list_item"><h4>T恤<span class="divide_line">|</span></h4></li>
+            <li class="product_list_item"><h4>帽T<span class="divide_line">|</span></h4></li>
+            <li class="product_list_item"><h4>漁夫帽<span class="divide_line">|</span></h4></li>
+            <li class="product_list_item"><h4>杯子<span class="divide_line">|</span></h4></li>
+            <li class="product_list_item"><h4>水瓶</h4></li>
           </ul>
         </div>
       </div>
 
-      <div class="wrap_product_info">
+      <div class="wrap_cards_product_info">
         <!-- 第二步 v-for 渲染這個清單 :key 在程式碼必須是唯一值 (類似身份證)-->
         <div
-          class="wrap_product"
+          class="wrap_cards_product"
           v-for="(item, index) in itemList"
           :key="'item' + index" 
         >
