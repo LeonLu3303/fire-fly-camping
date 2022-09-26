@@ -6,11 +6,11 @@
             </div>
             <div class="activity_group" :class="{reverse: index%2 === 0}" >
                 <div class="activity_item_group">
-                    <div class="activity_items">
+                    <div class="activity_items" >
                         <div class="activity_item_title">
-                            <h3>{{ item.titleFir }}</h3>
+                            <div @click="toggleShow">{{ item.titleFir }}</div>
                         </div> 
-                        <div class="activity_item_text">
+                        <div class="activity_item_text" v-show="item.show">
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
                         </div>
@@ -34,15 +34,15 @@
                 <img :src="item.imgShadow" alt="小島陰影" />
                 </div>
             </div>
-            <div class="activity_group_introduction" :class="{reverse: index%2 === 0}">
+            <div class="activity_group_introduction"  :class="{reverse: index%2 === 0}">
                 <div class="activity_carousel">
-                    <img :src="item.imgInfo" alt="叢林照片" />
+                    <img :src="item.imgInfo" alt="叢林照片"/>
                 </div>
                 <div class="activity_introduction_text" >
                     <h3>{{ item.name }}</h3>
                     <h4>{{item.infoSub}}</h4>
                     <p>{{ item.infoText }}</p>
-                    <div class="activity_introduction_text_pic" >
+                    <div class="activity_introduction_text_pic" :class="{reverse_pic: index%2 === 1}">
                         <img :src="item.imgAnimal" class="animal_img" >
                     </div>
                 </div>
@@ -53,7 +53,7 @@
 
 <script>
     export default {
-        name: "ActivityTourTest",
+        name: "ActivityTour",
         data(){
             return {
                 activitySection:[
@@ -69,7 +69,8 @@
                      imgUrl:require('@/assets/images/activity/activity_1.png'),
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_23.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_20.png')
+                     imgAnimal:require('@/assets/images/activity/activity_20.png'),
+                     show:true,
                     },
                     {name:'冰雪奇緣',
                      titleFir:'滑雪體驗',
@@ -82,7 +83,8 @@
                      imgUrl:require('@/assets/images/activity/activity_12.png'),
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_24.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_13.png')
+                     imgAnimal:require('@/assets/images/activity/activity_13.png'),
+                     show:false
                     },
                     {name:'荒野峽谷',
                      titleFir:'熱氣球遊覽大峽谷',
@@ -95,7 +97,8 @@
                      imgUrl:require('@/assets/images/activity/activity_18.png'),
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_25.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_19.png')
+                     imgAnimal:require('@/assets/images/activity/activity_19.png'),
+                     show:false
                     }
                 ],
                 bgColor:[
@@ -104,6 +107,10 @@
                     "activity_canyon"
                 ]
         }
+    },methods:{
+      toggleShow(){
+        this.item.show=!this.item.show
+      }
     }
 }
 </script>
@@ -201,16 +208,17 @@
         }
       }
     }
-    .animal_img{
-        width: 20%;
+    .activity_introduction_text_pic{
+        width: 120px;
         position: absolute;
-        left: -50px;
+        right: 92%;;
         bottom:-50px;
 
     }
-    .reversepic{
+    .reverse_pic{
         position: absolute;
-        right: 0px;  
+        right: -12%;  
+        bottom:-50px;
         
     }
         
