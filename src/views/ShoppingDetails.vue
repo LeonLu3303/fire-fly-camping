@@ -37,6 +37,8 @@
                     <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link>
                     <button class="btn_return" @click="addToOrder(realProduct)">加入購物車</button>
                 </div> 
+                <!-- 點擊購物車後的 lightbox 提醒文 -->
+                <shoppingDetailsBox v-show="addingBox" :itemSelected="realProduct.title"></shoppingDetailsBox>
             </div>
         </div>
     </div>
@@ -46,16 +48,19 @@
 <script>
 import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
+import ShoppingDetailsBox from '@/components/ShoppingDetailsBox.vue';
 
 export default {
     components:{
     MainHeader,
     MainFooter,
+    ShoppingDetailsBox,
     },
     data() {
         return {
             realProduct: {}, //當時的商品
             orderList: [], //存入購物車
+            addingBox: false //加入購物車後的燈箱提醒文
         };
     },
     methods: {
@@ -70,6 +75,8 @@ export default {
         }
         },
         addToOrder (realProduct) {
+        this.addingBox = true
+        setTimeout(() => this.addingBox = false, 3000)
         // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
         const indexProduct = this.orderList.findIndex((item) => item.title === realProduct.title)
         // 判斷商品是否已存在購物車
@@ -265,5 +272,13 @@ export default {
             padding-top: 1rem;
         }
     }
-    
+    .details_msg_box{
+        display: fixed;
+        background-color: lightseagreen;
+        width: 300px;
+        height: 200px;
+        top: 0;
+        left: 0;
+        
+    }
 </style>
