@@ -148,7 +148,6 @@
                 </p>
               </div>
               <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
-              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_when_calendar_select_container">
               <div class="bk_range_date_picker_controll">
@@ -213,7 +212,6 @@
                 上班上到厭世嗎？ <br />
                 和朋友一起創造美好的回憶吧！
               </p>
-              <button class="btn_confirm">提交</button>
             </div>
             <div class="bk_more_selector_container">
               <SelectWhichActivity @update-result="updateWhichResult1" />
@@ -294,7 +292,7 @@
             </div>
           </div>
           <div class="bk_confirm_payment_container">
-            <p>訂單總金額</p>
+            <p class="bk_payment_total_title">訂單總金額</p>
             <div class="bk_payment_show">
               <p @change="totalPay">＄{{ totalPay }}</p>
               <button class="btn_confirm">結帳</button>

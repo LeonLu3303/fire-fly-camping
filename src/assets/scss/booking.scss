@@ -394,16 +394,6 @@
         }
       }
     }
-    .bk_process_more_option::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background-color: #fff;
-      z-index: -1;
-    }
     .bk_process_more_option::after {
       content: '';
       position: absolute;
@@ -798,6 +788,175 @@
         height: 80%;
         background-color: #f0ece7;
         z-index: -1;
+      }
+      .bk_process_more_option {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        .bk_process_more_container {
+          width: 80%;
+          margin: auto;
+          padding: 60px 0;
+          .bk_more_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 0;
+            .bk_more_content_container {
+              width: 100%;
+              h2 {
+                font-size: 28px;
+                font-weight: 800;
+                height: 320px;
+              }
+              .rangeDateShow {
+                padding: 20px 0;
+                p {
+                  color: #bc6c61;
+                  font-size: 20px;
+                  font-weight: 600;
+                }
+              }
+              p {
+                color: #2d5252;
+                font-size: 20px;
+                font-weight: 600;
+              }
+              .btn_confirm {
+                margin-top: 40px;
+              }
+            }
+            .bk_more_selector_container {
+              width: 100%;
+              position: absolute;
+              bottom: 400px;
+
+              .ant-space {
+                .ant-space-item {
+                  padding: 20px 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bk_process_more_option::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 60%;
+        background-color: #f0ece7;
+        z-index: -1;
+      }
+      .bk_process_confirm {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        background-color: transparent;
+        .bk_process_confirm_container {
+          padding: 40px 0;
+          width: 80%;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          text-align: center;
+          h2 {
+            font-size: 28px;
+            font-weight: 800;
+          }
+          .bk_confirm_cards_container {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 0;
+            .bk_confirm_card_container {
+              margin: 20px 0;
+              width: 100%;
+              max-width: 300px;
+              height: 400px;
+              display: flex;
+              flex-direction: column;
+
+              h4 {
+                color: $color-basic-White;
+                font-style: 30px;
+                font-weight: 600;
+              }
+              .middle_content {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                p {
+                  color: $color-basic-White;
+                  font-weight: 800;
+                  line-height: 80px;
+                }
+                .where {
+                  font-size: 40px;
+                }
+                .how_many {
+                  font-size: 40px;
+                }
+                .which_type {
+                  font-size: 24px;
+                }
+                .act {
+                  font-size: 28px;
+                }
+                .equ {
+                  font-size: 26px;
+                }
+                .meal {
+                  font-size: 26px;
+                }
+                .bigMonth {
+                  font-size: 50px !important;
+                  font-weight: 800 !important;
+                }
+                .bigDate {
+                  font-size: 100px !important;
+                  font-weight: 800 !important;
+                }
+              }
+
+              .btn_booking_min {
+                width: 60%;
+              }
+            }
+          }
+          .bk_confirm_payment_container {
+            width: 100%;
+            background-color: #f0ece7;
+            padding: 40px;
+            margin-bottom: -40px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            .bk_payment_total_title {
+              display: flex;
+              align-items: center;
+              font-size: 20px;
+              font-weight: 600;
+              margin-bottom: 20px;
+            }
+            .bk_payment_show {
+              display: flex;
+              p {
+                font-size: 16px;
+                padding-right: 0px;
+              }
+            }
+          }
+        }
       }
     }
   }
