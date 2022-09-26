@@ -509,6 +509,7 @@ export default {
   background-size: cover;
   background-position: center left;
   border-radius: 10px;
+  filter: brightness(70%);
 }
 .bookConfirmImg_2 {
   z-index: -1;
@@ -522,6 +523,7 @@ export default {
   background-size: cover;
   background-position: bottom right;
   border-radius: 10px;
+  filter: brightness(70%);
 }
 .bookConfirmImg_3 {
   border-radius: 10px;
@@ -531,6 +533,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  filter: brightness(70%);
   background: url(../assets/images/home/home_canyon_all.png),
     linear-gradient(to bottom, $color-aid-orange1, $color-main-yellow);
   background-size: cover;
