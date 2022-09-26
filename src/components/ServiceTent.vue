@@ -8,19 +8,22 @@
             <!-- 營帳 button -->
             <ul class="row_tent_tabs_wrap">
                 <li class="tent_tab_group">
-                    <div class="tent_tab_title" @click="activeTab = 'ordinary'">
-                        <h3>經濟型</h3>
-                    </div>
+                    <button class="tent_tab_title" @click="activeTab = 'ordinary'"
+                    :class="{tab_active:activeTab === 'ordinary'}">
+                        經濟型
+                    </button>
                 </li>
                 <li class="tent_tab_group">
-                    <div class="tent_tab_title" @click="activeTab = 'luxury'">
-                        <h3>豪華型</h3>
-                    </div>
+                    <button class="tent_tab_title" @click="activeTab = 'luxury'"
+                    :class="{tab_active:activeTab === 'luxury'}">
+                        豪華型
+                    </button>
                 </li>
                 <li class="tent_tab_group">
-                    <div class="tent_tab_title" @click="activeTab = 'feature'">
-                        <h3>主題型</h3>
-                    </div>
+                    <button class="tent_tab_title" @click="activeTab = 'feature'"
+                    :class="{tab_active:activeTab === 'feature'}">
+                        主題型
+                    </button>
                 </li>
             </ul>
 
@@ -31,7 +34,7 @@
                     <ServiceOrdinary/>
                 </div>
                 <div class="col_tent_text">
-                    <h3>{{ordinaryTitle}} x 六人 x 四人 x 二人</h3>
+                    <h3>{{ordinaryTitle}} <span>六人 x 四人 x 二人</span> </h3>
                     <h4>設備資訊 : </h4>
                     <p>{{ordinaryEquipment}}</p>
                     <h4>營帳價格 : </h4>
@@ -46,7 +49,7 @@
                 </div>
                 <div class="col_tent_text">
                     <div class="tent_type_text">
-                        <h3>{{luxuryTitle}} x 六人 x 四人 x 二人</h3>
+                        <h3>{{luxuryTitle}} <span>六人 x 四人 x 二人</span> </h3>
                         <h4>設備資訊 : </h4>
                         <p>{{luxuryEquipment}}</p>
                         <h4>營帳價格 : </h4>
@@ -62,7 +65,7 @@
                 </div>
                 <div class="col_tent_text">
                     <div class="tent_type_text">
-                        <h3>{{featureTitle}} x 六人 x 四人 x 二人</h3>
+                        <h3>{{featureTitle}} <span>六人 x 四人 x 二人</span> </h3>
                         <h4>設備資訊 : </h4>
                         <p>{{featureEquipment}}</p>
                         <h4>營帳價格 : </h4>
@@ -131,26 +134,46 @@ export default {
 .row_tent_tabs_wrap{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
 }
 .tent_tab_group{
-    padding: 15px;
-}
-.tent_tab_title{
-    margin: 0 auto;
-    padding: 10px;
-    background: $color-basic-White;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
-    transform: scale(1,1);transition: all .5s ease-out;
-    cursor: pointer;
-
-    &:hover{
-        transform: scale(1.1);
+    border: 1px solid $color-str-green;
+    overflow: hidden;
+    background: $color-str-green;
+    &:nth-child(1){
+        border-radius: 5px 0 0 5px ;
+    }
+    &:nth-child(3){
+        border-radius: 0 5px 5px 0;
     }
 }
-.tent_tab_title h3{
+.tent_tab_title{
+    font-size: $title_h3;
+    font-weight: 700;
+    letter-spacing: 2px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 15px 50px;
     color: $color-str-green;
+    background: $color-basic-White;
+    border: none;
+    cursor: pointer;
+    @include lg(){
+        padding: 15px 50px;
+    }
+    @include tb(){
+        padding: 15px 30px;
+    }
+    @include tb(){
+        font-size: $title_h4;
+        padding: 15px 20px;
+    }
+}
+.tab_active{
+    background: $color-str-green;
+    color: $color-basic-White;
+
 }
 //營帳祥細介紹
 .row_tent_introduce{
@@ -187,6 +210,9 @@ export default {
     color: $color-str-green;
     padding: 0 0 20px;
     border-bottom: 1px solid $color-basic-gray1;
+    span{
+        font-size: $txt_p;
+    }
 }
 .col_tent_text h4:nth-child(2){
     color: $color-basic-gray2;
