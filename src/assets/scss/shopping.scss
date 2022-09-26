@@ -1,105 +1,54 @@
-@media screen and (max-width: 1024px) {
-    // 如果使用者之視窗寬度介於 768px ~ 979px，將會再載入這裡的 CSS。
-}
-
-@media screen and (max-width: 767px) {
-    // 如果使用者之視窗寬度 <= 768px，將會再載入這裡的 CSS。
-    
-.shopping_section{
-    background-color: $color-main-yellow;
-  }
-  
-  .shop_container {
-    padding: 150px 0px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    box-sizing: border-box;
-
-  }
-  .wrap_product_info{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .product_card_item{
-      width: 150px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #fff;
-      margin: 0.5rem;
-      box-sizing: border-box;
-    }
-    .product_img_box {
-      padding: 0.5rem;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-    .product_content {
-      padding: 1rem;
-      background-color: #fff;
-      flex-grow: 1;
-      h3{
-        font-size: 18px;
-      }
-      h4{
-        font-size: 16px;
-      }
-    }
-  }
-  
-  .product_list_group {
-    padding: 1rem;
-    .product_list {
-      list-style: none;
-      display: flex;
-      .product_list_item {
-        padding: 0.5rem;
-        font-size: 16px;
-        letter-spacing: 1px;
-      }
-    }
-  }
-}
-// 桌機版本
+// 桌機版本 --------------------
 
 .shop_section{
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 150px 0;
+  background-color: $color-main-yellow;
   .shop_container{
-    display: flex;
-  }
-  .wrap_product_list{
-    width: 20%;
-  }
-  .wrap_product_info{
     width: 80%;
-    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 150px 0;
+    box-sizing: border-box;
   }
 }
-
-.wrap_product_info{
+.wrap_cards_product_info{
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
+  justify-content: space-evenly;
   .product_content{
-    padding: 1rem;
     padding: 1rem;
   }
 }
-.wrap_product{
-  width: 350px;
+.wrap_cards_product{
+  width: 400px;
   overflow: hidden;
+  @include tb(){
+    width: 300px;
+  }
+}
+.product_list{
+  display: flex;
+  padding: 1rem 0;
+  @include md(){
+    h3{
+      font-size: 18px;
+    }
+    h4{
+      font-size: 16px;
+    }
+  }
+  .divide_line{
+    padding: 0 10px;
+    color: gray;
+    font-weight: 300;
+  }
 }
 .product_card_item{
   box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
   margin: 1rem 0.5rem;
   border-radius: 10px;
   padding: 1rem;
+  overflow: hidden;
+  background-color: #fff;
   .product_img_box{
     width: 100%;
     overflow: hidden;
@@ -112,5 +61,17 @@
       transition: all 0.5s linear;
     }
   }
-  
 }
+.product_content{
+  @include md(){
+    h3{
+      font-size: 18px;
+    }
+    h4{
+      font-size: 16px;
+    }
+  }
+}
+
+
+

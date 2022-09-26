@@ -1,7 +1,7 @@
 <template>
   <MainHeader></MainHeader>
     <div class="banner">
-        <img src="../assets/images/main/banner_shop.png" alt="banner">
+        <img src="@/assets/images/main/banner_shop.png" alt="banner">
     </div>
     <div class="payment_container">
       <div class="payment_rows_2">
@@ -168,8 +168,7 @@ export default {
   height: 100vh;
 }
 .cart_payment_container{
-  height: 85vh;
-  overflow: scroll;
+  height: 70vh;
 }
 .payment_col_1 {
   display: grid;
@@ -193,7 +192,7 @@ export default {
 
 .user_input_box {
   padding: 1rem;
-  width: 250px;
+  width: 280px;
 }
 
 .user_input_box .credit_box {
@@ -228,7 +227,6 @@ export default {
     }
   }
 }
-
 .btn_link_group {
   display: flex;
   justify-content: flex-end;

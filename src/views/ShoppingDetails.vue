@@ -111,7 +111,7 @@ export default {
     },
     };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/scss/style.scss";
 
 
@@ -124,7 +124,7 @@ export default {
         width: 100%;
         display: flex;
         justify-content: center;
-        // background-color: #fff;
+        background-color: #fff;
     }
     .details_qty_btn_box{
         display: flex;
@@ -151,6 +151,9 @@ export default {
     .details_img_box{
         width: clamp(200px, calc((100vw - 375px) / 5.325 + 200px), 400px);
         padding: 1rem;
+        @include sm(){
+            width: 100%;
+        }
         .details_product_img{
             box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
             border-radius: 10px;
@@ -159,6 +162,9 @@ export default {
     .details_item{
         display: flex;
         justify-content: center;
+        @include sm(){
+            flex-direction: column;
+        }
         .shopping_badge_img{
         position: relative;
         width: 130px;
@@ -167,6 +173,16 @@ export default {
         top: 0px;
         transform-style: preserve-3d;
         animation: spin 1s .8s linear;
+        @include md(){
+            width: 90px;
+            height: 90px;
+        } 
+        @include sm(){
+            width: 90px;
+            height: 90px;
+            top: 80px;
+            left: 0px;
+        }
     }
         @keyframes spin{
             from{transform: rotateY(-87deg)};
@@ -178,31 +194,79 @@ export default {
         padding: 4rem;
         box-sizing: border-box;
         align-items: center;
+        @include md(){
+            h3{
+                font-size: 20px;
+            }
+            h4{
+                font-size: 18px;
+            }
+        }
+        @include sm(){
+            padding: 2rem;
+            justify-content: center;
+            h3{
+                font-size: 20px;
+                text-align: center;
+            }
+            h4{
+                font-size: 18px;
+                text-align: center;
+            }
+        }
         p{
-            padding-right: 1rem;
+            font-size: 18px;
+            @include sm(){
+                padding: 0;
+                text-align: center;
+            }
         }
         }
+    .details_qty_btn_box{
+        @include md(){
+            margin: 1rem;
+        }
+        @include sm(){
+            padding: 0;
+            margin: 1rem;
+        }
+    }
     .details_link_path{
         display: flex;
         justify-content: center;
         p{
             color: #000;
         }
-    }
-    .back_shopping_page{
+        .back_shopping_page{
             display: flex;
             padding-top: 4rem;
+            h4{
+                font-size: 25px;
+                line-height: 30px;
+            }
             .back_shopping_img{
-                width: 35px;
+                width: 40px;
                 padding-right: 10px;
             }
         }
+    }
+    
     .order_btn_box button{
         margin: 0.5rem 0;
     }
     
     .btn_submit{
         line-height: 0;
+    }
+    .order_btn_box{
+        @include md(){
+            text-align: center;
+            padding-top: 1rem;
+        }
+        @include sm(){
+            text-align: center;
+            padding-top: 1rem;
+        }
     }
     
 </style>
