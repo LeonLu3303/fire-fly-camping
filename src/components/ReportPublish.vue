@@ -12,13 +12,16 @@
                             <h3 class="postcard_title_area">{{enterTitle}}</h3>
                             <p class="postcard_text_area">{{enterText}}</p>
                         </div>
+                        <!-- 頭像 會員 -->
                         <div class="postcard_member_data">
                             <div class="postcard_member_pic">
                                 <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
                             </div>
-                            <h4 class="postcard_member_name">{{memberName}}</h4>
-                            <div class="release_time">
-                                <p>{{releaseTime}}</p>
+                            <div class="postcard_name_time">
+                                <h4 class="postcard_member_name">{{memberName}}</h4>
+                                <div class="release_time">
+                                    <p>{{releaseTime}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +115,7 @@ export default {
         width: 70%;
         margin: 10px;
         @include lg(){
-            width: 70%;
+            width: 80%;
         }
         @include tb(){
             width: 100%;
@@ -122,17 +125,30 @@ export default {
         position: absolute;
         display: flex;
         justify-content: space-between;
+        // flex-wrap: wrap;
         padding: 20px;
         right: 0;
         left: 0;
         top: 0;
         bottom: 0;
         margin: auto;
+        @include md(){
+            flex-direction: column-reverse;
+        }
     }
     .postcard_bg{
         border-radius: 5px;
         overflow: hidden;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
+        overflow: hidden;
+        // object-fit: cover;
+        img{
+            height: 100%;
+            object-fit: cover;
+        }
+        @include md(){
+            height: 600px;
+        }
     }
     .tab_active{
         display: block;
@@ -141,26 +157,29 @@ export default {
         padding: 0 0 20px;
         color: $color-basic-gray3;
     }
+    //文字
     .postcard_release{
         width: 70%;
         padding: 20px;
+        @include md(){
+            width: 100%;
+            height: 80%;
+        }
     }
+    // 頭像會員
     .postcard_member_data{
         width: 30%;
         text-align: center;
-        padding: 20px 40px;
+        // padding: 20px 40px;
         border-left: 2px solid $color-basic-gray1;
-    }
-
-    // 輸入欄
-    .col_write_text{
-        width: 26%;
-        margin: 10px;
-        @include lg(){
-            width: 70%;
-        }
-        @include tb(){
+        @include md(){
             width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: flex-start;
+            margin: 0 auto;
+            border-left: none;
+            border-bottom: 2px solid $color-basic-gray1;
         }
     }
     .postcard_member_pic{
@@ -168,6 +187,26 @@ export default {
         border-radius: 100%;
         overflow: hidden;
         margin: 0 auto 10px;
+        @include md(){
+            width: 60px;
+        }
+    }
+    .postcard_name_time{
+        @include md(){
+            display: flex;
+        }
+    }
+
+    // 輸入欄
+    .col_write_text{
+        width: 26%;
+        margin: 10px;
+        @include lg(){
+            width: 80%;
+        }
+        @include tb(){
+            width: 100%;
+        }
     }
     .enter_title{
         width: 100%;
@@ -191,7 +230,6 @@ export default {
     .confirm_choose_contain{
         display: flex;
         justify-content: flex-end;
-        // flex-wrap: wrap;
     }
     .confirm_choose_contain .btn_confirm{
         margin-right: 20px;

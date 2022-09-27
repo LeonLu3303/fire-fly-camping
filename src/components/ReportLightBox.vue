@@ -1,43 +1,17 @@
 <template>
-    <div class="lightbox">
-        <div class="modal-mask" :style="modalStyle">
-            <div class="modal-container"  @click.self="toggleModal">
-                
-                <div class="modal-body">
-                    <header>
-                        <slot name="header">Default Header</slot>
-                    </header>
-                    <hr>
-                    <main>
-                        <slot>Default Body</slot>
-                    </main>
-                    <hr>
-                    <footer>
-                        <slot name="footer">Default Footer</slot>
-                    </footer>
+    <div class="lightbox" to="body">
+        <!-- <teleport to="body"> -->
+            <div class="modal-mask" :style="modalStyle">
+                <div class="modal-container" @click.self="toggleModal">
+                    <div class="modal-body">
+                        哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                    </div>
                 </div>
-
             </div>
+        <!-- </teleport> -->
 
-        </div>
         <button @click="isShow = true">Click Me</button>
     </div>
-
-    <!-- <div id="inform_lightbox">
-        <light-box>
-            <template v-slot:header>
-                <h2>檢舉達人</h2>
-            </template>
-
-            <template v-slot:footer>
-                <h2>什麼鬼</h2>
-            </template>
-
-            <div>
-                <a target="_blank" href="#">檢舉</a>
-            </div>
-        </light-box>
-    </div> -->
 </template>
 
 <script>
@@ -48,9 +22,9 @@ export default {
     }),
     computed: {
         modalStyle() {
-        return {
-            'display': this.isShow ? '' : 'none'
-        };
+            return {
+                'display': this.isShow ? '' : 'none'
+            };
         }
     },
     methods: {
@@ -60,54 +34,54 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
-        /* #app {
+/* #app {
+  position: relative;
+  display: block;
+  padding: 1rem;
+  font-size: 1rem;
+  height: 20rem;
+} */
+
+.lightbox {
     position: relative;
+    z-index: 100;
     display: block;
-    padding: 1rem;
-    font-size: 1rem;
-    height: 22rem;
-    } */
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
 
-    /* button {
-        font-size: 30px;
-    } */
-
-    .lightbox {
-        position: absolute;
-        /* display: block; */
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-
-    .modal-mask {
+.modal-mask {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     top: 0;
+    bottom: 0;
+    right: 0;
     left: 0;
+    margin: auto;
     width: 100%;
     height: 100%;
     display: table;
     background-color: rgba(0, 0, 0, .5);
     transition: opacity .3s ease;
-    }
+}
 
-    .modal-container {
+.modal-container {
     cursor: pointer;
     display: table-cell;
     vertical-align: middle;
+}
 
-    }
-
-    .modal-body {
+.modal-body {
     cursor: auto;
     display: block;
     width: 50%;
     margin: 0 auto;
     padding: 2rem;
     background-color: #fff;
-    }
+}
 </style>

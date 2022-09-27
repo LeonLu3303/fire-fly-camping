@@ -9,7 +9,7 @@
                 <div class="news_box" 
                     v-for="(news,slide) in newsList"
                     :style="{
-                        left : `${(slide-currentPage)*600}px`
+                        left : `${(slide-currentPage)*100}px`
                     }"
                     :class="{
                         'slideActive': (currentPage === slide),
