@@ -13,6 +13,12 @@
             >
                 <div class="news_box" 
                     v-for="(news,slide) in newsList"
+<<<<<<< HEAD
+=======
+                    :style="{
+                        left : `${(slide-currentPage)*100}px`
+                    }"
+>>>>>>> yishan
                     :class="{
                         'slideActive': (currentPage === slide),
                         'slideShow': (currentPage + newsList.length >= slide),

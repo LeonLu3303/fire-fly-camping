@@ -1,31 +1,36 @@
 <template>
-    <section v-for="(item,index) in activitySection" :key="item.name" class="activity_wrapper" :class="bgColor[index]">
+    <section v-for="(item,index) in activitySection" :key="item.id" class="activity_wrapper" :class="bgColor[index]">
         <div class="wrapper">
             <div class="title_main">
                 <h2>{{ item.name }}</h2>
             </div>
             <div class="activity_group" :class="{reverse: index%2 === 0}" >
-                <div class="activity_item_group">
-                    <div class="activity_items" >
+                <div class="activity_item_group" >
+                    <div class="activity_items">
                         <div class="activity_item_title">
-                            <div @click="toggleShow">{{ item.titleFir }}</div>
+                            <h3 class="test" @click="isShow(idx)">{{ item.titleFir }}</h3>
                         </div> 
-                        <div class="activity_item_text" v-show="item.show">
+                        <div class="activity_item_text" v-show="idx == true">
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
                         </div>
                     </div>
                     <div class="activity_items" >
                         <div class="activity_item_title">
-                            <h3>{{ item.titleSen }}</h3>
+                            <h3 class="test2" @click="isShow(idx)">{{ item.titleSen }}</h3>
                         </div> 
-                        <div class="activity_item_text">
+                        <div class="activity_item_text" v-show="idx==false">
                             <span>{{ item.sub  }}</span>
                             <p>{{ item.textSen }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="activity_picture">
+                <div class="activity_picture" >
+                  <div class="dot_positin" :class="dotPosition[index]">
+                    <img class="dot_first" :src="item.imgDotFir" alt="錨點">
+                    <img class="dot_second" :src="item.imgDotSec" alt="錨點">
+                </div>
+                  
                 <img
                     class="island"
                     :src="item.imgUrl"
@@ -49,6 +54,9 @@
             </div>
         </div>
     </section> 
+    <keep-alive>
+      <component :is='content'></component>
+    </keep-alive>
 </template>
 
 <script>
@@ -59,6 +67,7 @@
                 activitySection:[
                     
                     {name:'叢林歷險',
+                     id:1,
                      titleFir:'遊覽動物',
                      sub:'叢林歷險',
                      textFir:'當您從台北預訂半日遊時，遠離城市的喧囂，沉浸在美麗的自然風光中。早晨，您可以直接從酒店出發，搭乘舒適的空調客車。您的目的地是東北海岸國家風景區。參觀繁華的港口城市基隆，欣賞其曠陰佛像，繼續前往壯觀的野柳地質公園，以其獨特的岩層而聞名。',
@@ -70,9 +79,11 @@
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_23.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_20.png'),
-                     show:true,
+                     imgDotFir:require('@/assets/images/activity/activity_5.png'),
+                     imgDotSec:require('@/assets/images/activity/activity_6.png'),
                     },
                     {name:'冰雪奇緣',
+                     id:2,
                      titleFir:'滑雪體驗',
                      sub:'冰雪奇緣',
                      textFir:'台灣滑雪場大致可以分為三種，一是真的須穿雪衣雪褲全套體驗的零下雪場，二為滑雪訓練機，以及搭配 VR 畫面的滑雪模擬機。各滑雪學校除了設備種類不同之外，準備的備品也大不相同；但設備使用一定會伴隨教練，所以教練的互動也是很重要的一環。',
@@ -84,9 +95,11 @@
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_24.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_13.png'),
-                     show:false
+                     imgDotFir:require('@/assets/images/activity/activity_11.png'),
+                     imgDotSec:require('@/assets/images/activity/activity_10.png'),
                     },
                     {name:'荒野峽谷',
+                     id:3,
                      titleFir:'熱氣球遊覽大峽谷',
                      sub:'叢林歷險',
                      textFir:'看著來自各國的專業飛行員駕駛碩大的夢幻熱氣球，滿載觀眾們的興奮期盼漫天飄遠，徜徉在縱谷間的藍天綠山之中，是臺東夏季不可錯過的一大美景。臺灣國際熱氣球嘉年華，包含熱氣球自由飛行表演、熱氣球繫留體驗、熱氣球自由飛空中遊覽、光雕音樂會、熱氣球夏令營，除了現場體驗升空的感動，還有視覺及聽覺浪漫激盪的精采饗宴。',
@@ -98,20 +111,34 @@
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_25.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_19.png'),
-                     show:false
+                     imgDotFir:require('@/assets/images/activity/activity_16.png'),
+                     imgDotSec:require('@/assets/images/activity/activity_17.png'),
                     }
                 ],
                 bgColor:[
                     "activity_jungle",
                     "activity_ice",
                     "activity_canyon"
-                ]
+                ],
+                dotPosition:[
+                    "dot_jungle",
+                    "dot_ice",
+                    "dot_canyon"
+                ],
+                idx:0
         }
-    },methods:{
-      toggleShow(){
-        this.item.show=!this.item.show
+    },
+    methods:{
+      isShow(idx){
+        console.log(idx)
+        this.idx =!this.idx
+        
       }
-    }
+    },
+    mounted() {
+       
+    
+    },
 }
 </script>
 
@@ -170,11 +197,68 @@
         // animation-delay: .5s;
         animation-direction:alternate-reverse;
         animation-iteration-count: infinite;
+        }
+        @keyframes move {
+          0%   {transform: translateY(0px);}
+          100% {transform: translateY(50px);}
       }
-      @keyframes move {
-      0%   {transform: translateY(0px);}
-      100% {transform: translateY(50px);}
-    }
+      .dot_jungle{
+        .dot_first, .dot_second{
+        width: 50px;
+      }
+      .dot_first{
+        position: relative;
+        transform: translateX(-50%);
+        left: 33%;
+        bottom: -200px;
+        z-index: 2;
+      }
+      .dot_second{
+        position: relative;
+        transform: translateX(-50%);
+        left:77%;
+        bottom: -400px;
+        z-index: 2;
+      }
+      }
+      .dot_ice{
+        .dot_first, .dot_second{
+        width: 50px;
+        }
+        .dot_first{
+          position: relative;
+          transform: translateX(-50%);
+          left: 57%;
+          bottom: -170px;
+          z-index: 2;
+        }
+        .dot_second{
+          position: relative;
+          transform: translateX(-50%);
+          left: 77%;
+          bottom: -390px;
+          z-index: 2;
+        }
+      }
+      .dot_canyon{
+        .dot_first, .dot_second{
+        width: 50px;
+        }
+        .dot_first{
+          position: relative;
+          transform: translateX(-50%);
+          left: 25%;
+          bottom: -230px;
+          z-index: 2;
+        }
+        .dot_second{
+          position: relative;
+          transform: translateX(-50%);
+          left: 86%;
+          bottom: -180px;
+          z-index: 2;
+        }
+      }
     }
     .activity_items {
       background-color: #ffffff;
