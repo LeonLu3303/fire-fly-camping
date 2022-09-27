@@ -5,15 +5,17 @@
         </div>
         <div class="news_container">
             <button @click="prevPage"> &lt; </button>
-            <div class="news_show_area">
+            <div class="news_show_area"
+                 :style="{
+                        left : `${(slide-currentPage)*900}px`,
+                        width:`${newsList.length*900}px`
+                    }"
+            >
                 <div class="news_box" 
                     v-for="(news,slide) in newsList"
-                    :style="{
-                        left : `${(slide-currentPage)*600}px`
-                    }"
                     :class="{
                         'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage -1 >= slide),
+                        'slideShow': (currentPage + newsList.length >= slide),
                     }"
                     @click="selectPage(slide)"
                     :key="news"
@@ -53,9 +55,10 @@
         data(){
             return{//用陣列位置的方式紀錄資料
                 //reverse:"red bold"
-                currentPage:1,
+                currentPage:0,
                 clickRight: true,
                 clickLeft: false,
+                slide:0,
                 newsList:[
                     {
                         title:"慟！暴風雪來臨，冰雪奇緣區域關閉一週",
@@ -84,6 +87,7 @@
 
                 //this.currentPage = this.currentPage - 1
                 this.currentPage -= 1
+                console.log(currentPage)
             },
             nextPage(){
                 //當前頁面是最後一頁，不能再往後
@@ -93,6 +97,7 @@
 
                 //this.currentPage = this.currentPage + 1
                 this.currentPage += 1
+                console.log(currentPage)
             },
             selectPage(val){
                 this.currentPage = val
