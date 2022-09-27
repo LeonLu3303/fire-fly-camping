@@ -40,9 +40,9 @@
     margin: 15px auto;
     text-align: center;
     padding-bottom: 50px;
-}
-.login_btn .btn_submit{
-    position: static;
+    .btn_submit{
+        position: static;
+    }
 }
 // 檢查帳號按鈕
 #check_id,#check_email{
@@ -55,27 +55,39 @@
     right: 0;
     top: 40%;
     padding: 0;
-}
-#check_id:hover{
-    cursor: pointer;
+    &:hover{
+        cursor: pointer;
+    }
 }
 // 表格內容
 .txtb {    
     margin: 10px 0;
     position: relative;
     border-bottom: 2px solid #adadad;
-}
-.txtb input {
-    padding: 0 3px;
-    height: 35px;
-    font-size: 15px;
-    color: #333;
-    border: none;
-    width: 70%;
-    outline: none;
-    background: none;
-    float: left;
-    margin: 0;
+    input {
+        padding: 0 3px;
+        height: 35px;
+        font-size: 15px;
+        color: #333;
+        border: none;
+        width: 70%;
+        outline: none;
+        background: none;
+        float: left;
+        margin: 0;
+    }
+    label{
+        // content: attr(data-placeholder);
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: #adadad;
+        transform: translateY(-50%);
+        transition: .5s;
+        &:hover{
+            cursor:auto ;
+        }
+    }
 }
 #register_id_block{
     position: relative;
@@ -83,18 +95,6 @@
 #city{
     border-bottom:none;
     margin-bottom: 20px;
-}
-.txtb label {
-    // content: attr(data-placeholder);
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    transition: .5s;
-}
-.txtb label:hover{
-    cursor:auto ;
 }
 .focus label {
     top: -10px;
@@ -175,6 +175,9 @@
     text-align: center;
     transform: translateY(0);
     transition: transform .6s ease-in-out;
+    @include sm(){
+
+    }
 }
 .overlay-right {
     right: 0;
