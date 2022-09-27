@@ -94,7 +94,7 @@
         <div v-else-if="activeTab === 'booking'" class="mem_content">
           <div class="mem_content_group">
                 <div class="tabcontent_booking_search">
-                    <input type="text" class="mem_search"><input type="button" value="搜尋" class="btn_purchase">
+                    <input type="text" class="input_box input_spacing"><input type="button" value="搜尋" class="btn_purchase">
                 </div>
                 <div class="tabcontent_booking_info">
                     
@@ -240,5 +240,12 @@ export default {
     }
     .input_none:checked + img{
         border: 4px solid $color-str-red;
+    }
+    .tabcontent_booking_search{
+        text-align: end;
+        padding-right:25px ;
+        .input_spacing{
+            margin: 0 10px;
+        }
     }
 </style>
