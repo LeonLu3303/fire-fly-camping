@@ -15,23 +15,23 @@
                     </router-link>
                 </div>
         <div class="cart_info_wrap" v-if="cart.length !== 0">
-                <table class="cart_info_group">
+                <table class="cart_rwd_table">
                     <thead>
                         <tr>
-                            <th class="cart_info_item">圖片</th>
-                            <th class="cart_info_item_name">名稱</th>
-                            <th class="cart_info_item">單價</th>
-                            <th class="cart_info_item">數量</th>
-                            <th class="cart_info_item">小計</th>
-                            <th class="cart_info_item">刪除</th>
+                            <th>圖片</th>
+                            <th>名稱</th>
+                            <th>單價</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                            <th>刪除</th>
                         </tr>
                     </thead>
                     <tbody v-for="(item, key) in cart" :key="'product' + item">
-                        <tr class="wrap_cart_col">
-                            <td class="cart_col_item"><img class="cart_prod_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
-                            <td class="cart_col_item_font">{{item.title}}</td>
-                            <td class="cart_col_item_price">${{item.price}}</td>
-                            <td>
+                        <tr class="cart_rwd_table_tr">
+                            <td data-th="圖片" class="cart_col_item"><img class="cart_prod_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
+                            <td data-th="名稱">{{item.title}}</td>
+                            <td data-th="單價">${{item.price}}</td>
+                            <td data-th="數量">
                                 <div class="cart_btn_box">
                                     <button @click="reduce_order(key)">-</button>
                                     <div class="cart_qty_box">
@@ -40,12 +40,11 @@
                                     <button @click="add_order(key)">+</button>
                                 </div>
                             </td>
-                            <td class="cart_col_item_font">${{item.price * item.qty}}</td>
-                            <td class="cart_col_item"><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""></a>
+                            <td data-th="小計" class="cart_col_item_font">${{item.price * item.qty}}</td>
+                            <td data-th="刪除" class="cart_col_item"><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""></a>
                             </td>
                         </tr>
                     </tbody>
-
                 </table>
                 <div class="cart_table_btn">
                     <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
@@ -120,14 +119,16 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/style.scss";
     .cart_section{
+        box-sizing: border-box;
         background-color: $color-main-yellow;
         .cart_container {
         width: 80%;
-        margin: 0 10%;
+        margin-left: auto;
+        margin-right: auto;
         padding: 150px 0;
-        @include sm(){
-            width: 90%;
-            margin: 0 5%;
+        @include tb(){
+            width: 100%;
+            // margin: 0 5%;
         }
         .msg_empty_cart{
             text-align: center;
@@ -172,48 +173,59 @@ export default {
     .cart_info_wrap {
         padding: 1rem;
         background-color: #fff;
-        display: grid;
-        max-height: 100vh;
-        grid-template-rows: repeat(7, 1fr);
+        height: 100vh;
         text-align: center;
         border-radius: 10px;
         box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-        @include sm(){
+        @include tb(){
             padding: 0.5rem;
         }
     }
-    .cart_info_group{
+    .cart_rwd_table{
+        overflow: scroll;
+        height: 80%;
+        width: 100%;
+        @include tb(){
+            border-collapse:collapse;
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+        }
+        thead{
+        border-bottom: 1px solid gray;
+        @include tb(){
+        display: none;
+        }
+        }
         th{
         font-size: $title_h4;
         padding: 1rem;
-    }
-        thead{
-        border-bottom: 1px solid gray;   
-    }   
-        .cart_info_item_name{
-            @include sm(){
-                padding: 10px 0;
-            }
+        @include tb(){
+        display: none;
         }
-        .cart_info_item{
-            
-            // 手機版時將(小計,單價,數量,刪除)都隱藏
-            @include sm(){
-            display: none;
-        } 
-    }
-    }
-    .wrap_cart_col{
-        .cart_col_item_price{
-            @include sm(){
-            display: none;
-            }
         }
-        .cart_col_item_font{
-            @include sm(){
-                width: 70px;
-                font-size: 15px;
-            }
+        tbody{
+        @include tb(){
+        padding: 15px 0px;
+        display: flex;
+        flex-direction: column;
+        }
+        }
+        td{
+        padding: 1rem;
+        @include tb(){
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 0;
+        }   
+        }
+        td:before{
+        @include tb(){
+        content:attr(data-th);
+        width: 30%;
+        margin-right: 10px;
+        }
         }
     }
     .cart_col_item{
@@ -224,7 +236,7 @@ export default {
     }
     .cart_table_btn {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         height: 100px;
         .btn_purchase{
@@ -242,9 +254,6 @@ export default {
         width: 150px;
         display: flex;
         justify-content: center;
-        @include sm(){
-            width: 50px;
-        }
     }
 
 </style>

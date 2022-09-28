@@ -3,7 +3,6 @@
     <a-select
       v-model:value="value"
       :options="options"
-      @focus="focus"
       @change="handleChange"
     ></a-select>
   </a-space>
@@ -31,10 +30,6 @@ export default defineComponent({
         label: '養身素食通腸胃',
       },
     ]);
-
-    const focus = () => {
-      console.log('focus');
-    };
 
     const handleChange = (value) => {
       console.log(`selected ${value}`);

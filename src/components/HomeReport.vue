@@ -19,14 +19,14 @@
 <script>
     import ReportCard from '@/components/ReportCard.vue';
     
-    export default{
+    export default {
         components: {
             ReportCard,
         },
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
     @import '../assets/scss/style.scss';
 
     .wrap_home_report{

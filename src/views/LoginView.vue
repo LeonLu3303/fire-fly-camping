@@ -8,71 +8,74 @@
                 <form>
                     <h2 class="title">註冊</h2>           
                     
-                    <div class="txtb" id="register_id_block">
+                    <div class="txtb"
+                         id="register_id_block"
+                         :class="{focus:register_id_block ===1}"
+                         >
                         <input  type="email" 
                                 name="register_id" 
                                 id="register_id"
-                                :class="{focus: focus_index ===1}"
-                                @focus="focus_index =1,focus_txtb(focus_index)">
+                                @focus="register_id_block =1">
                         <label for="register_id">帳號</label>
                         <div id="check_id" class="btn_submit">
                             檢查帳號
                         </div>
                     </div>
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_psw ===2}"
+                         >
                         <input  type="password" 
                                 name="register_psw" 
                                 id="register_psw"
-                                :class="{focus: focus_index ===2}"
-                                @focus="focus_txtb(focus_index),focus_index =2"
+                                @focus="register_psw =2"
                                 >
                         <label for="register_psw">密碼</label>
                     </div>
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_check_psw ===3}">
                         <input  type="password" 
                                 name="register_check_psw" 
                                 id="register_check_psw"
-                                :class="{focus: focus_index ===3}"
-                                @focus="focus_index =3"
+                                @focus="register_check_psw =3"
                                 >
                         <label for="register_check_psw">確認密碼</label>
                     </div>            
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_mem_email ===4}">
                         <input  type="text" 
                                 name="register_mem_email" 
                                 id="register_mem_email"
-                                :class="{focus: focus_index ===4}"
-                                @focus="focus_index =4"
+                                @focus="register_mem_email =4"
                                 >
                         <label for="register_mem_email">信箱</label>
                         <div id="check_email" class="btn_submit">
                             檢查信箱
                         </div>
                     </div>            
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_mem_name ===5}">
                         <input  type="text" 
                                 name="register_mem_name" 
                                 id="register_mem_name"
-                                :class="{focus: focus_index ===5}"
-                                @focus="focus_index =5"
+                                @focus="register_mem_name =5"
                                 >
                         <label for="register_mem_name">姓名</label>
                     </div>            
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_nickname ===6}">
                         <input  type="text" 
                                 name="register_nickname" 
                                 id="register_nickname"
-                                :class="{focus: focus_index ===6}"
-                                @focus="focus_index =6"
+                                @focus="register_nickname =6"
                                 >
                         <label for="register_nickname">暱稱</label>
                     </div>    
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_phone ===7}">
                         <input  type="text" 
                                 name="register_phone" 
                                 id="register_phone"
-                                :class="{focus: focus_index ===7}"
-                                @focus="focus_index =7">
+                                @focus="register_phone =7">
                         <label for="register_phone">電話</label>
                     </div>           
                     <div class="txtb" id="city">
@@ -103,12 +106,12 @@
                         <label for="register_city">居住縣市</label>
                     </div>        
                           
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: register_addr ===8}">
                         <input  type="text" 
                                 name="register_addr" 
                                 id="register_addr"
-                                :class="{focus: focus_index ===8}"
-                                @focus="focus_index =8"
+                                @focus="register_addr =8"
                                 >
                         <label for="register_addr">地址</label>
                     </div>            
@@ -122,20 +125,22 @@
             <div class="form-container sign-in-container">
                 <form action="#">
                     <h2 class="title">登入</h2>
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: login_id === 9}">
                         <input  type="text" 
                                 name="login_id" 
                                 id="login_id"
-                                @focus="focus_txtb(focus_index),focus_index =9"
-                                :class="{focus: focus_index === 9}">
+                                @click="login_id =9"
+                                >
                         <label for="login_id">帳號</label>
                     </div>
-                    <div class="txtb">
+                    <div class="txtb"
+                         :class="{focus: login_psw === 10}">
                         <input  type="password" 
                                 name="login_psw" 
                                 id="login_psw" 
-                                @focus="focus_index =10"
-                                :class="{focus: focus_index === 10}">
+                                @focus="login_psw =10"
+                                >
                         <label for="login_psw">密碼</label>
                     </div>
                     <a href="#" id="forgot_psw">忘記密碼</a>
@@ -186,6 +191,16 @@
                 return{
                 index:0,
                 focus_index:0,
+                register_id_block:0,
+                register_psw:0,
+                register_check_psw:0,
+                register_mem_email:0,
+                register_mem_name:0,
+                register_nickname:0,
+                register_phone:0,
+                register_addr:0,
+                login_id:0,
+                login_psw:0,
                 // focus_index:{
                 //     register_id_block: 0,
                 //     input1: 0,

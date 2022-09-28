@@ -70,7 +70,7 @@
               alt=""
             />上一步 -->
           </button>
-          <button class="bk_process_button" @click="step = 2">
+          <button class="bk_process_button" @click="whereNext">
             挑選房型
             <img src="@/assets/images/booking/booking_arrow_next.png" alt="" />
           </button>
@@ -117,7 +117,7 @@
                 alt=""
               />挑選地區
             </button>
-            <button class="bk_process_button" @click="step = 3">
+            <button class="bk_process_button" @click="whichNext">
               挑選日期
               <img
                 src="@/assets/images/booking/booking_arrow_next.png"
@@ -162,7 +162,7 @@
                 alt=""
               />挑選日期
             </button>
-            <button class="bk_process_button" @click="step = 4">
+            <button class="bk_process_button" @click="whenNext">
               挑選活動
               <img
                 src="@/assets/images/booking/booking_arrow_next.png"
@@ -226,7 +226,7 @@
                 alt=""
               />挑選日期
             </button>
-            <button class="bk_process_button" @click="step = 5">
+            <button class="bk_process_button" @click="whichOptionNext">
               選項完成
               <img
                 src="@/assets/images/booking/booking_arrow_next.png"
@@ -294,8 +294,8 @@
           <div class="bk_confirm_payment_container">
             <p class="bk_payment_total_title">訂單總金額</p>
             <div class="bk_payment_show">
-              <p @change="totalPay">＄{{ totalPay }}</p>
-              <button class="btn_confirm">結帳</button>
+              <p>＄{{}}</p>
+              <button class="btn_confirm" @change="totalPay">結帳</button>
             </div>
           </div>
         </div>
@@ -379,21 +379,49 @@ export default {
       },
       step: 1,
       wherePick: null,
-      getStart: dayjs().format('YYYY-MM-DD'),
-      getEnd: dayjs().format('YYYY-MM-DD'),
+      getStart: null,
+      getEnd: null,
       // getDate:,
       howManyDays: null,
     };
   },
   methods: {
+    // 選完區域後下一步功能
+    whereNext() {
+      if (this.wherePick == null) {
+        alert('請選擇要去的地區');
+        return;
+      } else {
+        this.step = 2;
+      }
+    },
+    // 選完人數房型後下一步功能
+    whichNext() {
+      if (this.howMany == null) {
+        alert('請挑選人數');
+        return;
+      } else if (this.campType == null) {
+        alert('請挑選帳篷類型');
+        return;
+      } else {
+        this.step = 3;
+      }
+    },
     updateTypeResult(e) {
       this.campType = e;
       console.log(e);
     },
     updateHowResult(e) {
       this.howMany = e;
-
       console.log(e);
+    },
+    whenNext() {
+      if (this.getStart == null) {
+        alert('請挑選出發日期');
+        return;
+      } else {
+        this.step = 4;
+      }
     },
     updateWhenResult(e) {
       this.getStart = dayjs(e[0].$d).format('YYYY-MM-DD');
@@ -411,6 +439,20 @@ export default {
         this.howManyDays
       );
     },
+    whichOptionNext() {
+      if (this.whichActivity == null) {
+        alert('請挑選地區活動');
+        return;
+      } else if (this.whichEquipment == null) {
+        alert('請挑選露營裝備');
+        return;
+      } else if (this.whichMeal == null) {
+        alert('請挑選露營餐點');
+        return;
+      } else {
+        this.step = 5;
+      }
+    },
     updateWhichResult1(e) {
       this.whichActivity = e;
       console.log(e);
@@ -424,54 +466,55 @@ export default {
       console.log(e);
     },
     totalPay() {
-      let sum = 0;
-      let basic = 6000;
-      let howMany = this.bookingList.howMany;
-      let campType = this.bookingList.campType;
-      let days = this.howManyDays;
-      let whichActivity = this.bookingList.whichActivity;
-      let whichEquipment = this.bookingList.whichEquipment;
-      let whichMeal = this.bookingList.whichMeal;
+      console.log(this.bookingList);
+      // let sum = 0;
+      // let basic = 6000;
+      // let howMany = this.bookingList.howMany;
+      // let campType = this.bookingList.campType;
+      // let days = this.howManyDays;
+      // let whichActivity = this.bookingList.whichActivity;
+      // let whichEquipment = this.bookingList.whichEquipment;
+      // let whichMeal = this.bookingList.whichMeal;
 
-      switch (howMany) {
-        case '2':
-          sum = basic;
-          break;
-        case '4':
-          sum = basic + 2000;
-          break;
-        case '6':
-          sum = basic + 4000;
-          break;
-      }
+      // switch (howMany) {
+      //   case '2':
+      //     sum = basic;
+      //     break;
+      //   case '4':
+      //     sum = basic + 2000;
+      //     break;
+      //   case '6':
+      //     sum = basic + 4000;
+      //     break;
+      // }
 
-      switch (campType) {
-        case 'a':
-          sum = sum * 1;
-          break;
-        case 'b':
-          sum = sum * 1.6;
-          break;
-        case 'c':
-          sum = sum * 1.4;
-          break;
-      }
+      // switch (campType) {
+      //   case 'a':
+      //     sum = sum * 1;
+      //     break;
+      //   case 'b':
+      //     sum = sum * 1.6;
+      //     break;
+      //   case 'c':
+      //     sum = sum * 1.4;
+      //     break;
+      // }
 
-      sum = sum * days;
+      // sum = sum * days;
 
-      if (whichActivity != null) {
-        sum += 2000;
-      }
-      if (whichEquipment != null) {
-        sum += 2000;
-      }
-      if (whichMeal == '1' || whichMeal == '2') {
-        sum = sum + 1000 * days;
-      } else if (whichMeal == '3') {
-        sum = sum + 300 * days;
-      }
+      // if (whichActivity != null) {
+      //   sum += 2000;
+      // }
+      // if (whichEquipment != null) {
+      //   sum += 2000;
+      // }
+      // if (whichMeal == '1' || whichMeal == '2') {
+      //   sum = sum + 1000 * days;
+      // } else if (whichMeal == '3') {
+      //   sum = sum + 300 * days;
+      // }
 
-      return sum;
+      // return sum;
     },
   },
 };
