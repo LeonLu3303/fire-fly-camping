@@ -4,15 +4,17 @@
   overflow: hidden;
 }
 .nav_bar{
-  width: 98%;
+  width: 100%;
   height: 76px;
-  margin-left: 1%;
-  margin-left: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
   display: flex;
   position: fixed;
   z-index: 444;
   justify-content: space-between;
   align-items: center;
+  background:  #FFFFFF ;
+  box-shadow:0px 5px 5px rgb(0,0,0,5%);
 }
 .firefly_logo{
   width: 170px;
@@ -22,8 +24,6 @@
   width: 200px;
   height: 60px;
   margin-right: 10px;
-  position: relative;
-  z-index: 555;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +33,11 @@
 .reservation_icon_photo{
   width: 40px;
   height: 40px;
+}
+.login_icon, .shopping_cart_icon{
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
 }
 .icon_text{
   padding-left: 10px;
@@ -46,8 +51,6 @@
 .hb_icon{
   width: 60px;
   height: 60px;
-  position: relative;
-  z-index: 555;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -116,25 +119,26 @@
   transition: .2s;
 }
 .nav_bar_ul{
-  width: 36%;
+  width: 40%;
   height: 100vh;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   top: -100%;
-  right: -1%;
+  right: 0;
+  overflow: hidden;
   background: linear-gradient(-135deg,#4D8084, #1F4F4F);
   clip-path: circle(15px at calc(100% - 30px) 30px);
   transition: all 0.6s;
 }
 .nav_bar_li{
-  overflow: hidden;
+  width: 100%;
 }
 .item_list{
-  padding: 20px 10px;
+  padding: 14px 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
   transition: 0.5s;
 }
 .item_list:hover{
@@ -147,7 +151,7 @@
 }
 .links:hover .nav_bar_ul{
   top: 0;
-  right: -1%;
+  right: 0;
   clip-path: circle(100%);
   transition: all 0.6s;
 }
@@ -160,10 +164,32 @@
 }
 
 @media screen and (max-width:769px) {
-
+  
+  .firefly_logo{
+    width: 120px;
+    height: 50px;
+  }
+  .reservation_icon{
+    width: 160px;
+    height: 50px;
+  }
+  .reservation_icon_photo{
+    width: 30px;
+    height: 30px;
+  }
+  .icon_text{
+    font-size: 18px;
+  }
+  .login_icon{
+    width: 50px;
+    height: 50px;
+  }
+  .hb_icon{
+    width: 50px;
+    height: 50px;
+  }
   .nav_bar_ul{
-    width: 102%;
-
+    width: 100%;
   }
 
 }
