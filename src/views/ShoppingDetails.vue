@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+    <ShoppingIcon></ShoppingIcon>
 </section>
 <MainFooter></MainFooter>
 </template>
@@ -49,12 +50,14 @@
 import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import ShoppingDetailsBox from '@/components/ShoppingDetailsBox.vue';
+import ShoppingIcon from '@/components/ShoppingIcon.vue';
 
 export default {
     components:{
     MainHeader,
     MainFooter,
     ShoppingDetailsBox,
+    ShoppingIcon,
     },
     data() {
         return {
@@ -198,6 +201,10 @@ export default {
         padding: 4rem;
         box-sizing: border-box;
         align-items: center;
+        h3{
+        color: $color-str-green;
+        }
+        
         @include md(){
             h3{
                 font-size: 20px;

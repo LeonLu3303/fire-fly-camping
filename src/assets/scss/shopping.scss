@@ -1,14 +1,4 @@
-// 桌機版本 --------------------
 
-// .shop_lightbox{
-//   background-color: #2f3e46;
-//   position: fixed;
-//   top: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   z-index: 100;
-//   opacity: 0.9;
-// }
 .shop_section{
   background-color: $color-main-yellow;
   position: relative;
@@ -18,6 +8,26 @@
     margin-left: auto;
     padding: 150px 0;
     box-sizing: border-box;
+  }
+}
+.wrap_product_list{
+  padding: 0 4%;
+  .product_list{
+    display: flex;
+    padding: 1rem 0;
+    @include md(){
+      h3{
+        font-size: 16px;
+      }
+      h4{
+        font-size: 14px;
+      }
+    }
+    .divide_line{
+      padding: 0 10px;
+      color: gray;
+      font-weight: 300;
+    }
   }
 }
 .wrap_cards_product_info{
@@ -35,29 +45,19 @@
     width: 300px;
   }
 }
-.product_list{
-  display: flex;
-  padding: 1rem 0;
-  @include md(){
-    h3{
-      font-size: 18px;
-    }
-    h4{
-      font-size: 16px;
-    }
-  }
-  .divide_line{
-    padding: 0 10px;
-    color: gray;
-    font-weight: 300;
-  }
-}
+
 .product_card_item{
+  display: flex;
+  flex-direction: column;
   box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
   margin: 1rem 0.5rem;
+  overflow: hidden;
   border-radius: 10px;
+  height: 100%;
   padding: 1rem;
   background-color: #fff;
+  box-sizing: border-box;
+
   // 包圖片的盒子
   .product_img_box{
     width: 100%;
@@ -75,6 +75,11 @@
   }
 }
 .product_content{
+  flex-grow: 1;
+  h3{
+    color: $color-str-green;
+    padding: 0.5rem 0;
+  }
   @include md(){
     h3{
       font-size: 18px;
