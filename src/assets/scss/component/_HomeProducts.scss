@@ -1,21 +1,16 @@
 .featured_products{
     width: 100%;
-    height: 1150px;
-    background: url(/src/assets/images/home/home_canyon_all.png);
+    background: url(/src/assets/images/home/home_canyon_all.png) #F0ECE7;
     background-size: 100% 100%;
 }
 .products_cotainer{
     width: 80%;
-    margin: 0 auto;
-    margin-top: 150px;
-    margin-bottom: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    padding: 150px 0px;
 }
 .section_title{
     text-align: center;
+    margin-top: 150px;
     margin-bottom: 50px;
 }
 .content_group{
@@ -24,11 +19,10 @@
     justify-content: center;
     align-items: center;
 }
-
 .content_card{
-    margin: 15px;
-    padding: 20px;
-    width: 300px;
+    margin: 1%;
+    padding: 2%;
+    width: 30%;
     border-radius: 10px;
     background-color: rgb(255, 255, 255, 80%);
 }
@@ -37,7 +31,14 @@
     font-size: 20px;
     font-weight: 700;
 }
-
 .btn_page_link{
+    margin: 0 auto;
     margin-top: 50px;
+}
+
+@media screen and (max-width:769px) {
+    .content_card{
+        width: 45%;
+        border-radius: 10px;
+    }
 }

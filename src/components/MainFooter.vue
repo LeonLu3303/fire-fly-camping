@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="footer_cotainer">
-            <div class="row">
+            <div class="footer_row">
                 <div class="footer_info">
                     <div class="footer_info_attention">
                         <router-link to="">預訂須知</router-link>｜
