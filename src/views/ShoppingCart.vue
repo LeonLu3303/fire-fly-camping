@@ -37,7 +37,7 @@
                                     <div class="cart_qty_box">
                                         <p>{{item.qty}}</p>
                                     </div>
-                                    <button @click="add_order(key)">+</button>
+                                    <button @click="plus_order(key)">+</button>
                                 </div>
                             </td>
                             <td data-th="小計" class="cart_col_item_font">${{item.price * item.qty}}</td>
@@ -82,9 +82,11 @@ export default {
                     }
                     this.updateCart();
                 },
-                add_order(index) {
-                    this.cart[index]["qty"] += 1
-                    this.updateCart();
+                plus_order(index) {
+                    if(this.cart[index]["qty"] <= 9){
+                        this.cart[index]["qty"] += 1 
+                        this.updateCart();
+                    }
                 },
                 del_order(index) {
                     this.cart.splice(index, 1);
@@ -173,7 +175,8 @@ export default {
     .cart_info_wrap {
         padding: 1rem;
         background-color: #fff;
-        height: 100vh;
+        height: 100%;
+        box-sizing: border-box;
         text-align: center;
         border-radius: 10px;
         box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);

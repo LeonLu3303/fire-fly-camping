@@ -10,10 +10,20 @@
     right:0;
     bottom: 0;
     margin: 2rem;
+    transform-style: preserve-3d;
+    animation: spin 4s 5s infinite;
+    &:hover{
+        transform: scale(1.3);
+        transition: all .8s linear;
+    }
     @include sm(){
         width: 60px;
         margin: 1rem;
     }
 
+}
+@keyframes spin{
+    from{transform: rotate(-360deg)};
+    to{transform: rotate(0deg)};
 }
 </style>

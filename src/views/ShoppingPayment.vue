@@ -97,7 +97,6 @@
             </tbody>
           </table>
           </div>
-          
         </div>
       </div>
     </div>
@@ -146,11 +145,14 @@ export default {
   grid-template-columns: 2fr 1fr;
   margin-right: 10%;
   margin-left: 10%;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding: 150px 0;
+  @include tb(){
+    padding: 50px 0;
+    height: 100%;
+    display: block;
+  }
   input, select {
     border: 1px solid $color-aid-green2;
-    box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
     width: 100%;
     background-color: #fff;
     padding: 0.5rem 0.5rem;
@@ -171,6 +173,10 @@ export default {
   grid-template-rows: repeat(2, 1fr);
   padding: 0 3rem;
   height: 100vh;
+  @include tb(){
+    height: 100%;
+    padding: 0;
+  }
 }
 .cart_payment_container{
   height: 70vh;
@@ -182,6 +188,10 @@ export default {
   padding: 0 2rem;
   background-color: #f9f9f9;
   border-radius: 5px;
+  box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
+  @include tb(){
+    display: none;
+  }
   .wrap_cart{
     width: 100%;
     .amount{
@@ -193,11 +203,6 @@ export default {
       padding: 40px 0;
     }
   }
-}
-
-.user_input_box {
-  padding: 1rem;
-  width: 280px;
 }
 
 .user_input_box .credit_box {
@@ -214,28 +219,46 @@ export default {
 
 .delivery_info {
   display: flex;
+  @include tb(){
+    display: block;
+  }
 }
 
 .wrap_payment {
-  height: 50vh;
+  height: 30vh;
+  @include tb(){
+    margin: 50px 0;
+    height: 100%;
+  }
 }
-
+.user_input_box{
+    padding: 1rem;
+    width: 280px;
+    @include tb(){
+      width: 100%;
+      display: block;
+    }
+  }
 .table_tr_grid{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-  td{
     p{
       padding: 0 5px;
     }
   }
-}
 .btn_link_group {
   display: flex;
-  justify-content: flex-end;
-  padding-top: 60px;
+  justify-content: center;
+  padding: 40px 0;
+  @include tb(){
+    padding-top: 40px;
+  }
+  // @include md(){
+  //   padding-top: 40px;
+  // }
   .btn_purchase{
     margin-left: 1rem;
   }

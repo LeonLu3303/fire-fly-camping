@@ -63,7 +63,7 @@ export default {
         return {
             realProduct: {}, //當時的商品
             orderList: [], //存入購物車
-            addingBox: false //加入購物車後的燈箱提醒文
+            addingBox: false //加入購物車前燈箱隱藏 ->false 
         };
     },
     methods: {
@@ -77,9 +77,13 @@ export default {
             this.realProduct.qty += 1;
         }
         },
+        // addToOrder - 加入購物車
         addToOrder (realProduct) {
+        // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
         this.addingBox = true
+        // setTimeout 非同步執行，三秒後false = 隱藏
         setTimeout(() => this.addingBox = false, 3000)
+
         // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
         const indexProduct = this.orderList.findIndex((item) => item.title === realProduct.title)
         // 判斷商品是否已存在購物車
