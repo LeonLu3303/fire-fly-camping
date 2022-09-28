@@ -4,7 +4,6 @@
       ref="select"
       v-model:value="value"
       :options="options"
-      @focus="focus"
       @change="handleChange"
     ></a-select>
   </a-space>
@@ -28,11 +27,6 @@ export default defineComponent({
         label: '雪山滑雪',
       },
     ]);
-
-    const focus = () => {
-      console.log('focus');
-    };
-
     const handleChange = (value) => {
       console.log(`selected ${value}`);
     };
