@@ -8,7 +8,7 @@
     position: fixed;
     width: 80px;
     right:0;
-    bottom: 0;
+    bottom: 50px;
     margin: 2rem;
     transform-style: preserve-3d;
     animation: spin 4s 5s infinite;
