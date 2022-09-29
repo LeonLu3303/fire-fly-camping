@@ -12,7 +12,6 @@
               <h3 class="postcard_title_area">{{ enterTitle }}</h3>
               <p class="postcard_text_area">{{ enterText }}</p>
             </div>
-<<<<<<< HEAD
             <div class="row_report_write">
                 <!-- 明信片 -->
                 <div class="col_postcard">
@@ -37,20 +36,6 @@
                     <div class="postcard_bg">
                         <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
                     </div>
-=======
-            <!-- 頭像 會員 -->
-            <div class="postcard_member_data">
-              <div class="postcard_member_pic">
-                <img
-                  src="@/assets/images/report/report_avatar_1.png"
-                  alt="avatar"
-                />
-              </div>
-              <div class="postcard_name_time">
-                <h4 class="postcard_member_name">{{ memberName }}</h4>
-                <div class="release_time">
-                  <p>{{ releaseTime }}</p>
->>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
                 </div>
               </div>
             </div>
@@ -137,7 +122,6 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
-<<<<<<< HEAD
     // 明信片
     .col_postcard{
         position: relative;
@@ -238,28 +222,6 @@ export default {
     .postcard_member_name{
         margin-bottom: 5px;
     }
-=======
-.wrap_report_publish {
-  padding: 150px 0;
-  background: $color-basic-White;
-}
-.report_publish_container {
-  width: 80%;
-  max-width: 1296px;
-  margin: 0 auto;
-  @include lg() {
-    width: 90%;
-  }
-  @include md() {
-    width: 95%;
-  }
-}
-.row_report_write {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
->>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
 
 // 明信片
 .col_postcard {

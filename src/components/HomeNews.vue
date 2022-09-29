@@ -37,7 +37,6 @@
             <p class="news_post_time">{{ news.news_post_time }}</p>
           </div>
         </div>
-<<<<<<< HEAD
         <div class="news_container">
             <button @click="prevPage"> &lt; </button>
             <div class="news_show_area"
@@ -83,28 +82,6 @@
         </div>
     </section>
     
-=======
-      </div>
-      <button @click="nextPage">></button>
-    </div>
-    <div class="news_page_btn_container">
-      <button
-        class="news_page_btn"
-        v-for="(news, slide) in newsList"
-        :class="{
-          activeBtnStyle: currentPage === slide,
-        }"
-        @click="selectPage(slide)"
-        :key="news"
-      ></button>
-    </div>
-    <div class="btn_spacing">
-      <router-link to="/News" class="btn_page_link news_link"
-        >更多消息</router-link
-      >
-    </div>
-  </section>
->>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
 </template>
 
 <script>
