@@ -19,6 +19,18 @@
                     <p class="news_v_post_time">{{news.news_post_time}}</p>
                 </div>
             </div>
+            <div class="news_v_box md sm" 
+                v-for="(news,index) in newsList"
+                :key="news">
+                <div class="news_v_pic">
+                    <img :src="require(`@/assets/images/news/news_${index}.jpg`)" alt="最新消息照片">
+                </div>
+                <div class="news_v_txt">
+                    <h3>{{news.title}}</h3>
+                    <p class="news_v_content">{{news.content}}</p>
+                    <p class="news_v_post_time">{{news.news_post_time}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
