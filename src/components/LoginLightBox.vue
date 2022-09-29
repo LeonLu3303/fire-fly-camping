@@ -1,14 +1,16 @@
 <template>
-    <div class="report_lightbox">
+    <div class="login_lightbox">
         <teleport to="body">
             <div class="modal_mask" :style="modalStyle">
                 <div class="modal_container" @click.self="toggleModal">
                     <div class="modal_body">
-                        <p>檢舉原因</p>
-                        <form action="">
-                            <textarea class="inform_txt" type="text" maxlength="300" value="請輸入檢舉原因(限150字)"></textarea>
-                            <button class="btn_confirm">送出</button>
-                        </form>
+                        <h4>請先登入</h4>
+                        <div class="btn_light_box">
+                            <button class="btn_submit" @click.self="toggleModal">取消</button>
+                            <router-link class="login" to="/Login">
+                                <button class="btn_confirm">登入</button>
+                            </router-link>
+                        </div>
                         <span class="btn_closure">
                             <img src="@/assets/images/main/main_icon_closure.png" alt="closure" @click.self="toggleModal">
                         </span>
@@ -51,6 +53,9 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
+// .login_lightbox{
+//     position: relative;
+// }
 //檢舉灰背景
 .modal_mask {
     position: fixed;
@@ -76,35 +81,29 @@ export default {
     top: 50%;  
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: auto;
-    width: 400px;
     padding: 20px;
     border-radius: 5px;
     background-color: $color-main-yellow;
     text-align: center;
+    cursor: auto;
+    width: 360px;
     h4 {
         color: $color-basic-gray2;
         padding-bottom: 20px;
-    }
-    p {
-        font-size: $title_h4;
-        font-weight: 700;
-        letter-spacing: 1px;
-        line-height: 24px;
+        padding-top: 10px;
     }
     @include md(){
-            width: 300px;
+            width: 280px;
         }
 }
-.inform_txt{
-    width: 100%;
-    height: 200px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    padding: 10px 10px;
-    margin-bottom: 20px;
-    border: 1px solid $color-main-green;
-    resize: none;
+//取消 登入
+.btn_light_box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button{
+        margin: 5px 10px;
+    }
 }
 //叉叉
 .btn_closure{
@@ -118,6 +117,7 @@ export default {
 //檢舉icon
 .inform_icon{
     display: inline-block;
-    width: 26px;
+    width: 30px;
+    margin-right: 20px;
 }
 </style>

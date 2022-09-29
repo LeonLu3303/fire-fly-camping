@@ -4,11 +4,11 @@
     <div class="banner">
         <img src="@/assets/images/main/banner_report.png" alt="banner">
     </div>
+    <LoginLightBox/>
     <!-- 發布報告 -->
     <ReportPublish/>
     <!-- 報告討論 -->
     <ReportCard/>
-    <ReportLightBox/>
     <MainFooter/>
 </template>
 
@@ -18,6 +18,7 @@ import MainFooter from '../components/MainFooter.vue';
 import ReportPublish from '@/components/ReportPublish.vue';
 import ReportCard from '@/components/ReportCard.vue';
 import ReportLightBox from '@/components/ReportLightBox.vue';
+import LoginLightBox from '@/components/LoginLightBox.vue';
 
 export default {
     components: {
@@ -25,8 +26,17 @@ export default {
         MainFooter,
         ReportPublish,
         ReportCard,
-        ReportLightBox
+        ReportLightBox,
+        LoginLightBox,
     },
+    methods:{
+        scrollToTop(){
+        window.scrollTo(0,0)
+        },
+    },
+    mounted(){
+    this.scrollToTop()
+    }
 }
 </script>
 

@@ -80,7 +80,7 @@
 }
 
 //商城的返回按鈕 同submit 只是沒有line-height版本
-//取消訂單
+//取消訂單，白底綠字
 .btn_return{
     width: 140px;
     font-size: $txt_btn;
@@ -100,7 +100,7 @@
     border: 2px solid $color-str-hov-green;
 }
 
-// 商城的點擊購買 
+// 商城的點擊購買，綠底白字
 .btn_purchase{
     width: 140px;
     font-size: $txt_btn;
@@ -121,9 +121,9 @@
 }
 
 //储存、搜尋
-//綠字白底 hover深綠底
+//綠底白字 hover深綠底
 .btn_confirm{
-    width: 130px;
+    width: 140px;
     font-size: $txt_btn;
     font-weight: 700;
     letter-spacing: 1px;
