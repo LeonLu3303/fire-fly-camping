@@ -246,20 +246,34 @@
               .img_two_block {
                 width: 100%;
                 height: 49%;
-                img {
-                  width: 100%;
+                .ant-carousel {
                   height: 100%;
-                  object-fit: cover;
+                  .slick-slider {
+                    height: 100%;
+                    .slick-list {
+                      height: 100%;
+                      .slick-track {
+                        height: 100%;
+                      }
+                    }
+                  }
                 }
               }
             }
             .bk_how_content_img_one_block {
               width: 49%;
               height: 100%;
-              img {
-                width: 100%;
+              .ant-carousel {
                 height: 100%;
-                object-fit: cover;
+                .slick-slider {
+                  height: 100%;
+                  .slick-list {
+                    height: 100%;
+                    .slick-track {
+                      height: 100%;
+                    }
+                  }
+                }
               }
             }
           }

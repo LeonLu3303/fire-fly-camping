@@ -99,14 +99,14 @@
             <div class="bk_how_content_img">
               <div class="bk_how_content_img_two_block">
                 <div class="img_two_block top_container">
-                  <img src="https://picsum.photos/300/300/?random=10" />
+                  <BookingCarouselSmallOneVue />
                 </div>
                 <div class="img_two_block bottom_container">
-                  <img src="https://picsum.photos/300/300/?random=11" />
+                  <BookingCarouselSmallTwoVue />
                 </div>
               </div>
               <div class="bk_how_content_img_one_block">
-                <img src="https://picsum.photos/300/600/?random=12" />
+                <BookingCarouselBigVue />
               </div>
             </div>
           </div>
@@ -294,7 +294,7 @@
           <div class="bk_confirm_payment_container">
             <p class="bk_payment_total_title">訂單總金額</p>
             <div class="bk_payment_show">
-              <p @change="totalPay">＄{{ paymentTotal }}</p>
+              <p>＄{{ paymentTotal }}</p>
               <button class="btn_confirm">結帳</button>
             </div>
           </div>
@@ -316,6 +316,9 @@ import SelectWhichActivity from '@/components/SelectWhichActivity.vue';
 import SelectWhichEquipment from '@/components/SelectWhichEquipment.vue';
 import SelectWhichMeal from '@/components/SelectWhichMeal.vue';
 import MainFooter from '../components/MainFooter.vue';
+import BookingCarouselSmallOneVue from '@/components/BookingCarouselSmallOne.vue';
+import BookingCarouselSmallTwoVue from '@/components/BookingCarouselSmallTwo.vue';
+import BookingCarouselBigVue from '@/components/BookingCarouselBig.vue';
 
 export default {
   name: 'Booking',
@@ -329,6 +332,9 @@ export default {
     SelectWhichEquipment,
     SelectWhichMeal,
     MainFooter,
+    BookingCarouselSmallOneVue,
+    BookingCarouselSmallTwoVue,
+    BookingCarouselBigVue,
   },
   data() {
     return {
@@ -452,28 +458,16 @@ export default {
       } else {
         this.step = 5;
       }
-    },
-    updateWhichResult1(e) {
-      this.whichActivity = e;
-      console.log(e);
-    },
-    updateWhichResult2(e) {
-      this.whichEquipment = e;
-      console.log(e);
-    },
-    updateWhichResult3(e) {
-      this.whichMeal = e;
-      console.log(e);
-    },
-    totalPay() {
+      // 並計算預定金額
+
       let sum = 0;
       let basic = 6000;
-      let howMany = this.bookingList.howMany;
-      let campType = this.bookingList.campType;
+      let howMany = this.howMany;
+      let campType = this.campType;
       let days = this.howManyDays;
-      let whichActivity = this.bookingList.whichActivity;
-      let whichEquipment = this.bookingList.whichEquipment;
-      let whichMeal = this.bookingList.whichMeal;
+      let whichActivity = this.whichActivity;
+      let whichEquipment = this.whichEquipment;
+      let whichMeal = this.whichMeal;
 
       switch (howMany) {
         case '2':
@@ -512,9 +506,69 @@ export default {
       } else if (whichMeal == '3') {
         sum = sum + 300 * days;
       }
-
-      return (this.paymentTotal = sum);
+      this.paymentTotal = sum;
     },
+    updateWhichResult1(e) {
+      this.whichActivity = e;
+      console.log(e);
+    },
+    updateWhichResult2(e) {
+      this.whichEquipment = e;
+      console.log(e);
+    },
+    updateWhichResult3(e) {
+      this.whichMeal = e;
+      console.log(e);
+    },
+    // totalPay() {
+    //   let sum = 0;
+    //   let basic = 6000;
+    //   let howMany = this.howMany;
+    //   let campType = this.campType;
+    //   let days = this.howManyDays;
+    //   let whichActivity = this.whichActivity;
+    //   let whichEquipment = this.whichEquipment;
+    //   let whichMeal = this.whichMeal;
+
+    //   switch (howMany) {
+    //     case '2':
+    //       sum = basic;
+    //       break;
+    //     case '4':
+    //       sum = basic + 2000;
+    //       break;
+    //     case '6':
+    //       sum = basic + 4000;
+    //       break;
+    //   }
+
+    //   switch (campType) {
+    //     case 'a':
+    //       sum = sum * 1;
+    //       break;
+    //     case 'b':
+    //       sum = sum * 1.6;
+    //       break;
+    //     case 'c':
+    //       sum = sum * 1.4;
+    //       break;
+    //   }
+
+    //   sum = sum * days;
+
+    //   if (whichActivity != null) {
+    //     sum += 2000;
+    //   }
+    //   if (whichEquipment != null) {
+    //     sum += 2000;
+    //   }
+    //   if (whichMeal == '1' || whichMeal == '2') {
+    //     sum = sum + 1000 * days;
+    //   } else if (whichMeal == '3') {
+    //     sum = sum + 300 * days;
+    //   }
+    //   this.paymentTotal = sum;
+    // },
   },
 };
 </script>
