@@ -29,10 +29,10 @@
                         <p class="report_txt">{{item.reportTxt}}</p>
                     </div>
                     <div class="report_btn">
-                        <a class="inform_icon"><img src="@/assets/images/report/report_inform_1.png" alt="report"></a>
-                        <router-link to="/reportMessage" class="message_icon">
+                        <ReportLightBox/>
+                        <router-link class="message_icon" to="/reportMessage">
                             <img src="@/assets/images/report/report_msge_1.png" alt="report">
-                            <span class="message_count">{{item.messageCount}}</span>
+                            <p class="message_count">{{item.messageCount}}</p>
                         </router-link>
                     </div>
                 </div>
@@ -47,10 +47,13 @@
 
 <script>
 import ReportPaginate from '../components/ReportPaginate.vue';
+import ReportLightBox from '../components/ReportLightBox.vue';
+
 export default {
     name: "ReportCard",
     components: {
-        ReportPaginate
+        ReportPaginate,
+        ReportLightBox
     },
     data(){
         return {
@@ -174,12 +177,13 @@ export default {
 
 
 .wrap_card_report{
-    margin: auto;
     padding: 150px 0;
     background: $color-main-yellow;
 }
 .report_container{
-    margin: 0 10%;
+    width: 80%;
+    max-width: 1296px;
+    margin: 0 auto;
 }
 
 //最新 熱門 btn
@@ -257,28 +261,30 @@ export default {
     -webkit-box-orient: vertical;
     text-align: justify;
 }
+//檢舉 留言 button
 .report_btn{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    vertical-align:middle;
 }
-.inform_icon,
 .message_icon{
     display: inline-block;
-    width: 30px;
-    margin: 0 8px;
+    margin-left: 20px;
+    img{
+        width: 26px;
+        margin-right: 5px;
+    }
 }
 .message_icon{
     display: flex;
+    .message_count{
+        color: #939393;
+        font-size: 20px;
+        font-weight: 700;
+    }
 }
-.message_icon span{
-    padding-left: 5px;
-    color: #939393;
-    font-size: 20px;
-    font-weight: 700;
-    vertical-align: middle;
-}
-
+//分頁
 .pagination {
     list-style: none;
     padding: 0;

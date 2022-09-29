@@ -14,13 +14,13 @@
                         </div>
                         <!-- 頭像 會員 -->
                         <div class="postcard_member_data">
-                            <div class="postcard_member_pic">
-                                <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
-                            </div>
-                            <div class="postcard_name_time">
-                                <h4 class="postcard_member_name">{{memberName}}</h4>
-                                <div class="release_time">
-                                    <p>{{releaseTime}}</p>
+                            <div class="member_content">
+                                <div class="postcard_member_pic">
+                                    <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                                </div>
+                                <div class="postcard_name_time">
+                                    <h4 class="postcard_member_name">{{memberName}}</h4>
+                                    <p class="postcard_release_time">{{releaseTime}}</p>
                                 </div>
                             </div>
                         </div>
@@ -170,31 +170,44 @@ export default {
     .postcard_member_data{
         width: 30%;
         text-align: center;
-        // padding: 20px 40px;
         border-left: 2px solid $color-basic-gray1;
         @include md(){
             width: 100%;
             height: 20%;
-            display: flex;
-            justify-content: flex-start;
-            margin: 0 auto;
             border-left: none;
             border-bottom: 2px solid $color-basic-gray1;
         }
     }
+    .member_content{
+        margin: 0 40px;
+        @include md(){
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin: 0;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
     .postcard_member_pic{
         width: 80%;
-        border-radius: 100%;
+        border-radius: 50%;
         overflow: hidden;
         margin: 0 auto 10px;
         @include md(){
-            width: 60px;
+            width: 80px;
+            height: 80px;
+            margin: 0 20px 0 0;
         }
     }
+    //會員 時間
     .postcard_name_time{
         @include md(){
-            display: flex;
+            // display: flex;
         }
+    }
+    .postcard_member_name{
+        margin-bottom: 5px;
     }
 
     // 輸入欄
