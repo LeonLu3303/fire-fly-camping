@@ -1,26 +1,18 @@
 <template>
-  <section class="wrap_report_publish">
-    <div class="report_publish_container">
-      <div class="title_main">
-        <h2>發佈報告</h2>
-      </div>
-      <div class="row_report_write">
-        <!-- 明信片 -->
-        <div class="col_postcard">
-          <div class="postcard_group">
-            <div class="postcard_release">
-              <h3 class="postcard_title_area">{{ enterTitle }}</h3>
-              <p class="postcard_text_area">{{ enterText }}</p>
+    <section class="wrap_report_publish">
+        <div class="report_publish_container">
+            <div class="title_main">
+                <h2>發佈報告</h2>
             </div>
             <div class="row_report_write">
-                <!-- 明信片 -->
+                <!-- 明信片0929 -->
                 <div class="col_postcard">
                     <div class="postcard_group">
                         <div class="postcard_release">
                             <h3 class="postcard_title_area">{{enterTitle}}</h3>
                             <p class="postcard_text_area">{{enterText}}</p>
                         </div>
-                        <!-- 頭像 會員 -->
+                        <!-- 頭像 會員 0929-->
                         <div class="postcard_member_data">
                             <div class="member_content">
                                 <div class="postcard_member_pic">
@@ -37,278 +29,184 @@
                         <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
                     </div>
                 </div>
-              </div>
+
+                <!-- 輸入欄 0929-->
+                <form class="col_write_text">
+                    <input class="enter_title" type="text" maxlength="15" v-model="enterTitle"/>
+                    <textarea class="enter_text" name="enter_text" type="text" maxlength="300" v-model="enterText" ></textarea>
+                    <div class="confirm_choose_contain">
+                        <button class="btn_confirm" id="publish_report" href="#">發佈報告</button>
+                        <select class="btn_bg_choose" v-model="selectBg">
+                            <option class="bg_choose" disabled value="1">選擇背景</option>
+                            <option class="bg_choose" value="1">叢林歷險</option>
+                            <option class="bg_choose" value="2">冰雪奇緣</option>
+                            <option class="bg_choose" value="3">荒野峽谷</option>
+                        </select>
+                    </div>
+                </form>
             </div>
-          </div>
-          <div class="postcard_bg">
-            <img
-              :src="
-                require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)
-              "
-              alt="postcard"
-            />
-          </div>
         </div>
-
-        <!-- 輸入欄 -->
-        <form class="col_write_text">
-          <input
-            class="enter_title"
-            id="enter_title"
-            type="text"
-            maxlength="15"
-            v-model="enterTitle"
-          />
-          <textarea
-            class="enter_text"
-            id="enter_text"
-            name="enter_text"
-            type="text"
-            maxlength="300"
-            v-model="enterText"
-          ></textarea>
-          <div class="confirm_choose_contain">
-            <button class="btn_confirm" id="publish_report" href="#">
-              發佈報告
-            </button>
-
-            <select class="btn_bg_choose" v-model="selectBg">
-              <option class="bg_choose" disabled value="1">選擇背景</option>
-              <option class="bg_choose" value="1">叢林歷險</option>
-              <option class="bg_choose" value="2">冰雪奇緣</option>
-              <option class="bg_choose" value="3">荒野峽谷</option>
-            </select>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>
 export default {
-  name: 'ReportPublish',
-  data() {
-    return {
-      activeTab: 'snow',
-      enterTitle: '請輸入標題(15字以內)',
-      enterText: '請輸入內文(300字以內)',
-      memberPic: '@/assets/images/report/report_avatar_1.png',
-      memberName: '會員名稱',
-      releaseTime: '2022/09/22',
-      selectBg: '1',
-      bgPic: [
-        {
-          val: '1',
-          theme: '叢林歷險',
-          bg: '@/assets/images/report/report_postcard_1.jpg',
-        },
-        {
-          val: '2',
-          theme: '冰雪奇緣',
-          bg: '@/assets/images/report/report_postcard_2.jpg',
-        },
-        {
-          val: '3',
-          theme: '荒野峽谷',
-          bg: '@/assets/images/report/report_postcard_3.jpg',
-        },
-      ],
-    };
-  },
+    name: 'ReportPublish',
+    data() {
+        return {
+            activeTab: 'snow',
+            enterTitle: '請輸入標題(15字以內)',
+            enterText: '請輸入內文(300字以內)',
+            memberPic: '@/assets/images/report/report_avatar_1.png',
+            memberName: '會員名稱',
+            releaseTime: '2022/09/22',
+            selectBg: '1',
+            bgPic: [
+                {
+                val: '1',
+                theme: '叢林歷險',
+                bg: '@/assets/images/report/report_postcard_1.jpg',
+                },
+                {
+                val: '2',
+                theme: '冰雪奇緣',
+                bg: '@/assets/images/report/report_postcard_2.jpg',
+                },
+                {
+                val: '3',
+                theme: '荒野峽谷',
+                bg: '@/assets/images/report/report_postcard_3.jpg',
+                },
+            ],
+        };
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
-    // 明信片
-    .col_postcard{
-        position: relative;
-        width: 70%;
-        margin: 10px;
-        @include lg(){
-            width: 80%;
-        }
-        @include tb(){
-            width: 100%;
-        }
+// 明信片 section
+.wrap_report_publish{
+    padding: 150px 0;
+    background: $color-basic-White;
+}
+.report_publish_container{
+    width: 80%;
+    max-width: 1296px;
+    margin: 0 auto;
+    @include lg(){
+        width: 90%;
     }
-    .postcard_group{
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        // flex-wrap: wrap;
-        padding: 20px;
-        right: 0;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        @include md(){
-            flex-direction: column-reverse;
-        }
+    @include md(){
+        width: 95%;
     }
-    .postcard_bg{
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
-        overflow: hidden;
-        // object-fit: cover;
-        img{
-            height: 100%;
-            object-fit: cover;
-        }
-        @include md(){
-            height: 600px;
-        }
-    }
-    .tab_active{
-        display: block;
-    }
-    .postcard_title_area{
-        padding: 0 0 20px;
-        color: $color-basic-gray3;
-    }
-    //文字
-    .postcard_release{
-        width: 70%;
-        padding: 20px;
-        @include md(){
-            width: 100%;
-            height: 80%;
-        }
-    }
-    // 頭像會員
-    .postcard_member_data{
-        width: 30%;
-        text-align: center;
-        border-left: 2px solid $color-basic-gray1;
-        @include md(){
-            width: 100%;
-            height: 20%;
-            border-left: none;
-            border-bottom: 2px solid $color-basic-gray1;
-        }
-    }
-    .member_content{
-        margin: 0 40px;
-        @include md(){
-            width: 100%;
-            height: 100%;
-            display: flex;
-            margin: 0;
-            justify-content: flex-start;
-            align-items: center;
-        }
-    }
-    .postcard_member_pic{
-        width: 80%;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 10px;
-        @include md(){
-            width: 80px;
-            height: 80px;
-            margin: 0 20px 0 0;
-        }
-    }
-    //會員 時間
-    .postcard_name_time{
-        @include md(){
-            // display: flex;
-        }
-    }
-    .postcard_member_name{
-        margin-bottom: 5px;
-    }
+}
+.row_report_write{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 // 明信片
-.col_postcard {
-  position: relative;
-  width: 70%;
-  margin: 10px;
-  @include lg() {
-    width: 80%;
-  }
-  @include tb() {
-    width: 100%;
-  }
+.col_postcard{
+    position: relative;
+    width: 70%;
+    margin: 10px;
+    @include lg(){
+        width: 80%;
+    }
+    @include tb(){
+        width: 100%;
+    }
 }
-.postcard_group {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  // flex-wrap: wrap;
-  padding: 20px;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  @include md() {
-    flex-direction: column-reverse;
-  }
+.postcard_group{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    // flex-wrap: wrap;
+    padding: 20px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include md(){
+        flex-direction: column-reverse;
+    }
 }
-.postcard_bg {
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  // object-fit: cover;
-  img {
-    height: 100%;
-    object-fit: cover;
-  }
-  @include md() {
-    height: 600px;
-  }
+.postcard_bg{
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
+    overflow: hidden;
+    // object-fit: cover;
+    img{
+        height: 100%;
+        object-fit: cover;
+    }
+    @include md(){
+        height: 600px;
+    }
 }
-.tab_active {
-  display: block;
+.tab_active{
+    display: block;
 }
-.postcard_title_area {
-  padding: 0 0 20px;
-  color: $color-basic-gray3;
+.postcard_title_area{
+    padding: 0 0 20px;
+    color: $color-basic-gray3;
 }
 //文字
-.postcard_release {
-  width: 70%;
-  padding: 20px;
-  @include md() {
-    width: 100%;
-    height: 80%;
-  }
+.postcard_release{
+    width: 70%;
+    padding: 20px;
+    @include md(){
+        width: 100%;
+        height: 80%;
+    }
 }
 // 頭像會員
-.postcard_member_data {
-  width: 30%;
-  text-align: center;
-  // padding: 20px 40px;
-  border-left: 2px solid $color-basic-gray1;
-  @include md() {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: flex-start;
-    margin: 0 auto;
-    border-left: none;
-    border-bottom: 2px solid $color-basic-gray1;
-  }
+.postcard_member_data{
+    width: 30%;
+    text-align: center;
+    border-left: 2px solid $color-basic-gray1;
+    @include md(){
+        width: 100%;
+        height: 20%;
+        border-left: none;
+        border-bottom: 2px solid $color-basic-gray1;
+    }
 }
-.postcard_member_pic {
-  width: 80%;
-  border-radius: 100%;
-  overflow: hidden;
-  margin: 0 auto 10px;
-  @include md() {
-    width: 60px;
-  }
+.member_content{
+    margin: 0 40px;
+    @include md(){
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin: 0;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
-.postcard_name_time {
-  @include md() {
-    display: flex;
-  }
+.postcard_member_pic{
+    width: 80%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px;
+    @include md(){
+        width: 80px;
+        height: 80px;
+        margin: 0 20px 0 0;
+    }
+}
+//會員 時間
+.postcard_name_time{
+    @include md(){
+        // display: flex;
+    }
+}
+.postcard_member_name{
+    margin-bottom: 5px;
 }
 
 // 輸入欄
