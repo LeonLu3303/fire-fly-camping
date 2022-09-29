@@ -2,7 +2,7 @@
     <section class="reservation_camp">
         <div class="reservation_cotainer">
             <div class="search_zone">
-                <h2 class="search_zone_title">你要去哪裡露營呢？</h2>
+                <h2 class="search_zone_title">{{sectionTitle}}</h2>
                 <div class="search_zone_option">
                     <div class="option_theme">
                         <select>
@@ -26,13 +26,23 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn_search">搜尋</button>
+                <button class="btn_search">{{btnTitle}}</button>
             </div>
         </div>
     </section>
 </template>
 
-<script></script>
+<script>
+    export default {
+        data() {
+            return {
+                sectionTitle: '你要去哪裡露營呢？',
+                btnTitle: '搜尋',
+                
+            }
+        },
+    }
+</script>
 
 <style lang="scss">
     @import '../assets/scss/component/_HomeReservation.scss';

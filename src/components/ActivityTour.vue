@@ -14,6 +14,17 @@
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
                         </div>
+                         <!-- <ActivityTourTxtFirst/> -->
+  
+                        <!-- <div class="activity_item_title">
+                            <h3 @click.prevent="current = 'ActivityTourTxtFirst'">{{ item.titleFir }}</h3>
+                        </div>  -->
+                        <!-- <div class="activity_item_text" v-show="idx == true">
+                            <span>{{ item.sub }}</span>
+                            <p>{{ item.textFir }}</p>
+                        </div> -->
+                        <!-- <ActivityTourTxtFirst/> -->
+                        <component :is='current'> </component>
                     </div>
                     <div class="activity_items" >
                         <div class="activity_item_title">
@@ -27,15 +38,23 @@
                 </div>
                 <div class="activity_picture" >
                   <div class="dot_positin" :class="dotPosition[index]">
-                    <img class="dot_first" :src="item.imgDotFir" alt="錨點">
-                    <img class="dot_second" :src="item.imgDotSec" alt="錨點">
+                    <div class="dot_positin_first" @click="dotFristOpe" >
+                      <!-- <img class="dot_first" :src="item.imgDotFirL" alt="錨點"> -->
+                      <img class="dot_first" :src="item.imgDotFir" alt="錨點"> 
+                    </div>
+                    <div class="dot_positin_second" @click="dotSecondOpen" >
+                      <!-- <img class="dot_second" :src="item.imgDotSecL" alt="錨點"> -->
+                      <img class="dot_second" :src="item.imgDotSec" alt="錨點">
+                    </div>
                 </div>
-                  
-                <img
+                <transition appear @enter="enter">
+                  <img
                     class="island"
                     :src="item.imgUrl"
                     alt="小島"
                 />
+                </transition>  
+                
                 <img :src="item.imgShadow" alt="小島陰影" />
                 </div>
             </div>
@@ -60,19 +79,23 @@
 </template>
 
 <script>
+  import ActivityTourTxtFirst from '@/components/ActivityTourTxtFirst.vue'
+  import gsap from 'gsap'
     export default {
-        name: "ActivityTour",
+      components:{
+        ActivityTourTxtFirst
+        },
         data(){
             return {
+                current:"",
                 activitySection:[
-                    
                     {name:'叢林歷險',
                      id:1,
                      titleFir:'遊覽動物',
                      sub:'叢林歷險',
-                     textFir:'當您從台北預訂半日遊時，遠離城市的喧囂，沉浸在美麗的自然風光中。早晨，您可以直接從酒店出發，搭乘舒適的空調客車。您的目的地是東北海岸國家風景區。參觀繁華的港口城市基隆，欣賞其曠陰佛像，繼續前往壯觀的野柳地質公園，以其獨特的岩層而聞名。',
+                     textFir:'當您從台北預訂半日遊時，遠離城市的喧囂，沉浸在美麗的自然風光中。早晨，您可以直接從酒店出發參觀繁華的港口城市基隆，欣賞其曠陰佛像，繼續前往壯觀的野柳地質公園，以其獨特的岩層而聞名。',
                      titleSen:'寶藏探險',
-                     textSen:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。然而，在叢林探險時也會遭遇各種問題，除了身邊的夥伴可能會帶著照片偷跑，還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
+                     textSen:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
                      infoSub:'感受叢林的大自然氣氛',
                      infoText:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。然而，在叢林探險時也會遭遇各種問題，除了身邊的夥伴可能會帶著照片偷跑，還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
                      imgUrl:require('@/assets/images/activity/activity_1.png'),
@@ -80,7 +103,9 @@
                      imgInfo:require('@/assets/images/activity/activity_23.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_20.png'),
                      imgDotFir:require('@/assets/images/activity/activity_5.png'),
+                     imgDotFirL:require('@/assets/images/activity/activity_27.png'),
                      imgDotSec:require('@/assets/images/activity/activity_6.png'),
+                     imgDotSecL:require('@/assets/images/activity/activity_26.png')
                     },
                     {name:'冰雪奇緣',
                      id:2,
@@ -96,7 +121,9 @@
                      imgInfo:require('@/assets/images/activity/activity_24.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_13.png'),
                      imgDotFir:require('@/assets/images/activity/activity_11.png'),
+                     imgDotFirL:require('@/assets/images/activity/activity_28.png'),
                      imgDotSec:require('@/assets/images/activity/activity_10.png'),
+                     imgDotSecL:require('@/assets/images/activity/activity_29.png'),
                     },
                     {name:'荒野峽谷',
                      id:3,
@@ -111,8 +138,10 @@
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_25.jpg'),
                      imgAnimal:require('@/assets/images/activity/activity_19.png'),
+                     imgDotFirL:require('@/assets/images/activity/activity_30.png'),
                      imgDotFir:require('@/assets/images/activity/activity_16.png'),
                      imgDotSec:require('@/assets/images/activity/activity_17.png'),
+                     imgDotSecL:require('@/assets/images/activity/activity_31.png'),
                     }
                 ],
                 bgColor:[
@@ -125,24 +154,48 @@
                     "dot_ice",
                     "dot_canyon"
                 ],
-                idx:0
+                idx:0,
+                dotFirst:true,
+                dotSecond:false,
         }
     },
     methods:{
       isShow(idx){
         console.log(idx)
         this.idx =!this.idx
-        
-      }
-    },
+      },
+      dotFristOpen(){
+        if(this.dotFirst == true){
+          return
+        }else{
+          this.dotSecond = true
+          this.dotFirst = false
+        }
+      },
+      // dotSecondOpen(){
+      // }
+    // goOpen(){
+    //   const dotImg = document.querySelector('.dot_first')
+    //   console.log(dotImg)
+    // },
+
+          },
+  
     mounted() {
-       
-    
-    },
+      const island =document.getElementsByClassName("island");
+      gsap.to(island,{
+        duration:5,
+        y:-30,
+        opacity:1,
+        repeat:-1,
+        ease: "power1.inOut",
+        yoyo:true
+      });
+    }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '@/assets/scss/style.scss';
     .activity_wrapper {
       width: 100%;
@@ -192,16 +245,7 @@
         position: relative;
         top: 60px;
         z-index: 1;
-        animation-name: move;
-        animation-duration: 2s;
-        // animation-delay: .5s;
-        animation-direction:alternate-reverse;
-        animation-iteration-count: infinite;
-        }
-        @keyframes move {
-          0%   {transform: translateY(0px);}
-          100% {transform: translateY(50px);}
-      }
+       }
       .dot_jungle{
         .dot_first, .dot_second{
         width: 50px;

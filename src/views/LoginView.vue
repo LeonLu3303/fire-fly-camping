@@ -8,7 +8,7 @@
                 <form>
                     <h2 class="title">註冊</h2>           
                     
-                    <div class="txtb" 
+                    <div class="txtb"
                          id="register_id_block"
                          :class="{focus:register_id_block ===1}"
                          >

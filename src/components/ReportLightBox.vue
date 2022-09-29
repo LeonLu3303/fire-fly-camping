@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="report_lightbox">
         <teleport to="body">
             <div class="modal_mask" :style="modalStyle">
@@ -21,10 +22,24 @@
         <img src="@/assets/images/report/report_icon_caution.png" alt="caution">
     </a>
     <!-- <button @click="isShow = true">Click Me</button> -->
+=======
+  <div class="lightbox" to="body">
+    <!-- <teleport to="body"> -->
+    <div class="modal-mask" :style="modalStyle">
+      <div class="modal-container" @click.self="toggleModal">
+        <div class="modal-body">哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+      </div>
+    </div>
+    <!-- </teleport> -->
+
+    <button @click="isShow = true">Click Me</button>
+  </div>
+>>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
     name: "ReportLightBox",
     data: () => ({
         isShow: false
@@ -46,11 +61,32 @@ export default {
     }
 }
 
+=======
+  name: 'ReportLightBox',
+  data: () => ({
+    isShow: false,
+  }),
+  computed: {
+    modalStyle() {
+      return {
+        display: this.isShow ? '' : 'none',
+      };
+    },
+  },
+  methods: {
+    toggleModal() {
+      console.log('click');
+      this.isShow = !this.isShow;
+    },
+  },
+};
+>>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
+<<<<<<< HEAD
 //檢舉灰背景
 .modal_mask {
     position: fixed;
@@ -119,5 +155,44 @@ export default {
 .inform_icon{
     display: inline-block;
     width: 26px;
+=======
+.lightbox {
+  position: relative;
+  z-index: 100;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-mask {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: table;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.modal-container {
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-body {
+  cursor: auto;
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+>>>>>>> e2e1c63cfc9a9aa909ce71ac6367552ff5db6172
 }
 </style>

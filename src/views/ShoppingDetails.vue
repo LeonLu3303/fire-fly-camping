@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="details_content">
-                <h3>{{realProduct.title}}</h3>
-                <p>單價：${{realProduct.price}}</p>
+                <h3 class="d_content_spc_tb">{{realProduct.title}}</h3>
+                <p class="d_content_spc_tb">單價：${{realProduct.price}}</p>
                 <div class="details_qty_btn_box">
                     <button @click="reduce_order(realProduct.qty)">
                         <img class="cart_img" src="@/assets/images/shop/shopping_minus.png" alt="">
@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+    <ShoppingIcon></ShoppingIcon>
 </section>
 <MainFooter></MainFooter>
 </template>
@@ -49,18 +50,20 @@
 import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import ShoppingDetailsBox from '@/components/ShoppingDetailsBox.vue';
+import ShoppingIcon from '@/components/ShoppingIcon.vue';
 
 export default {
     components:{
     MainHeader,
     MainFooter,
     ShoppingDetailsBox,
+    ShoppingIcon,
     },
     data() {
         return {
             realProduct: {}, //當時的商品
             orderList: [], //存入購物車
-            addingBox: false //加入購物車後的燈箱提醒文
+            addingBox: false //加入購物車前燈箱隱藏 ->false 
         };
     },
     methods: {
@@ -74,9 +77,13 @@ export default {
             this.realProduct.qty += 1;
         }
         },
+        // addToOrder - 加入購物車
         addToOrder (realProduct) {
+        // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
         this.addingBox = true
+        // setTimeout 非同步執行，三秒後false = 隱藏
         setTimeout(() => this.addingBox = false, 3000)
+
         // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
         const indexProduct = this.orderList.findIndex((item) => item.title === realProduct.title)
         // 判斷商品是否已存在購物車
@@ -131,6 +138,7 @@ export default {
     }
     
     .details_qty_btn_box{
+        margin: 1rem 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -140,7 +148,6 @@ export default {
         .cart_img{
             width: 1rem;
         }
-        
         button{
             border: 0;
             background-color: transparent;
@@ -153,11 +160,9 @@ export default {
         }
     }
     .details_img_box{
-        width: clamp(200px, calc((100vw - 375px) / 5.325 + 200px), 400px);
-        padding: 1rem;
-        @include sm(){
-            width: 100%;
-        }
+        width: 100%;
+        // padding: 1rem;
+
         .details_product_img{
             box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
             border-radius: 10px;
@@ -166,26 +171,20 @@ export default {
     .details_item{
         display: flex;
         justify-content: center;
-        @include sm(){
-            flex-direction: column;
-        }
+        @include tb(){
+        flex-direction: column; 
+        }  
         .shopping_badge_img{
         position: relative;
-        width: 130px;
-        height: 130px;
-        left: 80px;
-        top: 0px;
+        width: 120px;
+        height: 120px;
+        left: 60px;
+        top: -30px;
         transform-style: preserve-3d;
         animation: spin 1s .8s linear;
-        @include md(){
-            width: 90px;
-            height: 90px;
-        } 
-        @include sm(){
-            width: 90px;
-            height: 90px;
-            top: 80px;
-            left: 0px;
+        @include tb(){
+            top: 60px;
+            left: -40px;
         }
     }
         @keyframes spin{
@@ -196,18 +195,20 @@ export default {
     .details_content{
         display: grid;
         padding: 4rem;
+        width: 100%;
         box-sizing: border-box;
         align-items: center;
-        @include md(){
-            h3{
-                font-size: 20px;
-            }
-            h4{
-                font-size: 18px;
-            }
+        h3{
+        color: $color-str-green;
         }
-        @include sm(){
-            padding: 2rem;
+        .d_content_spc_tb{
+            padding: 0.5rem 0;
+        @include tb(){
+            text-align: center;
+        }
+        }
+        @include tb(){
+            // padding: 1rem;
             justify-content: center;
             h3{
                 font-size: 20px;
@@ -222,17 +223,13 @@ export default {
             font-size: 18px;
             @include sm(){
                 padding: 0;
-                text-align: center;
+                // text-align: center;
             }
         }
         }
     .details_qty_btn_box{
-        @include md(){
-            margin: 1rem;
-        }
-        @include sm(){
-            padding: 0;
-            margin: 1rem;
+        @include tb(){
+            margin: 1rem auto;
         }
     }
     .details_link_path{
@@ -263,13 +260,9 @@ export default {
         line-height: 0;
     }
     .order_btn_box{
-        @include md(){
+        padding-top: 1rem;
+        @include tb(){
             text-align: center;
-            padding-top: 1rem;
-        }
-        @include sm(){
-            text-align: center;
-            padding-top: 1rem;
         }
     }
     .details_msg_box{

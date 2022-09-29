@@ -2,7 +2,6 @@
   <a-space>
     <a-select
       v-model:value="value"
-      @focus="focus"
       :options="options"
       @change="handleChange"
     ></a-select>
@@ -31,10 +30,6 @@ export default defineComponent({
         label: '投影機',
       },
     ]);
-
-    const focus = () => {
-      console.log('focus');
-    };
 
     const handleChange = (value) => {
       console.log(`selected ${value}`);

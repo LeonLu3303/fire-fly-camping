@@ -7,22 +7,26 @@
         <div class="activityIsland_items"
                   v-for="(item, idx) in activityIsland" :key="item.id"
                   :class="{reverse: idx%2 === 0}" >
+                <transition appear @enter="enter">
+                  <div class="island_picture">
+                      <img :src="require(`@/assets/images/activity/activity_${item.id}.png`)" alt="小島照片">
+                  </div>
+                </transition>
                 <div class="island_text">
                     <h3>{{item.islandTitle}}</h3>
                     <h4>{{item.islandSub}}</h4>
                     <p>{{item.islandText}}</p>
                 </div>
-                <div class="island_picture">
-                    <img :src="require(`@/assets/images/activity/activity_${item.id}.png`)" alt="小島照片">
-                </div>
         </div>
-        <div class="btn_spacing">
+        
+    </div>
+    <div class="btn_more">
             <router-link to ="/Activity" class="btn_page_link">了解更多</router-link>
         </div>
-    </div>
   </section>
 </template>
 <script>
+import gsap from 'gsap'
 export default {
   name: "HomeActivityIsland",
   data(){
@@ -51,40 +55,77 @@ export default {
                     }              
                 ]
     }
+  },methods:{
+       enter(el){
+           gsap.to(el,{
+             duration:5,
+             y:-30,
+             opacity:1,
+             repeat:-1,
+             ease: "power1.inOut",
+             yoyo:true
+           });
+         }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/scss/style.scss";
 .wrap_activityIsland{
-    width: 100%;
-    height: 100%;
     background:url(@/assets/images/home/home_snow_all.png) $color-main-yellow ;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
     padding-top: 150px;
-    padding-bottom: 450px;
+    padding-bottom: 400px;
+    @include md(){
+      background-size:150%;
+      padding-bottom: 250px;
+    }
 }
 .activityIsland_group{
     width: 80%;
-    margin: auto;
-    .btn_spacing{
+    max-width: 1296px;
+    margin:0 auto;
+    padding-bottom: 50px;
+    @include tb(){
+        width: 90%;
+    }
+    @include md(){
+        width: 95%;
+    }
+}
+.btn_more{
         display: flex;
         justify-content: center;
     }
-}
 .activityIsland_items{
   display: flex;
   flex-wrap: wrap;
-  padding:50px;
+  padding:30px 0;
   align-items: center;
-  .island_picture{
+  @include md(){
+        width: 95%;
+        margin: 0 auto;
+    }
+  
+  }
+  .activityIsland_items .island_picture{
     width: 40%;
     position: relative;
-    left: -50px;
+    left: 50px;
     z-index: 1;
+    @include tb(){
+      width: 50%;
+      left: 25px;
+    }
+    @include md(){
+      width: 100%;
+        margin: 0 auto;
+        left: 0;
+        bottom: -50px;
+    }
   }
   .island_text{
     width: 60%;
@@ -94,25 +135,45 @@ export default {
     position: relative;
     z-index: 0;
     h4{
-      padding:10px ;
+      padding:10px 0;
     }
     p{
-      padding:10px;
+      padding:10px 0;
       text-align: justify;
       text-indent:2em;
       line-height: 2em;
     }
-  }
-}
-.reverse{
-  flex-direction: row-reverse;
-    .island_picture{
-        position: relative;
-        left: 50px;
-        z-index: 1;
+    @include tb(){
+      width: 50%;
+      padding:30px;
+      position: relative;
+      z-index: 0;
+    }
+    @include md(){
+      width: 100%;
+      padding:30px;
+      padding-top:55px ;
     }
   }
-  .btn_spacing{
-    padding: 50px 0;
+
+.reverse{
+   flex-direction: row-reverse;
+   .island_picture{
+    position: relative;
+    left: -30px;
+    z-index: 1;
+    @include tb(){
+      width: 50%;
+      left: -20px;
+    }
+    @include md(){
+      width: 100%;
+      margin: 0 auto;
+      left: 0;
+      bottom: -50px;
+    }
+   }
   }
+
+
 </style>

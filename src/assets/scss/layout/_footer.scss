@@ -8,7 +8,7 @@ footer{
     padding-top: 70px;
     padding-bottom: 20px;
 }
-.row{
+.footer_row{
     display: flex;
     justify-content: space-between;
 }
@@ -84,4 +84,16 @@ a{
 }
 .statement a{
     display: inline;
+}
+@media screen and (max-width:769px) {
+
+    .footer_row{
+        flex-direction: column;
+    }
+    .media_photo{
+        display: block;
+    }
+    .footer_about_cotainer{
+        margin-top: 80px;
+    }
 }

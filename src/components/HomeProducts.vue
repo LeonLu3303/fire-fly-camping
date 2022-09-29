@@ -8,7 +8,7 @@
                     <div v-for="item in itemArray" :class="{content_card: products_item==i}">
                         <div class="card_photo"><img :src="require(`@/assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="精選商品"></div>
                         <p class="products_name">{{item.name}}</p>
-                        <p class="products_price">{{item.price}}</p>
+                        <p class="products_price">＄{{item.price}}</p>
                     </div>
                 </div>
                 <router-link to="/Shopping" class="btn_page_link">了解更多</router-link>
