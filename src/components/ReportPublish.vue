@@ -156,6 +156,10 @@ export default {
     padding: 0 0 20px;
     color: $color-basic-gray3;
 }
+.postcard_text_area{
+    color: $color-basic-gray2;
+    text-align: justify;
+}
 //文字
 .postcard_release{
     width: 70%;
@@ -199,61 +203,59 @@ export default {
         margin: 0 20px 0 0;
     }
 }
-//會員 時間
-.postcard_name_time{
-    @include md(){
-        // display: flex;
-    }
-}
+//會員名字 時間 0929
 .postcard_member_name{
     margin-bottom: 5px;
+}
+.postcard_release_time{
+    color: $color-basic-gray2;
 }
 
 // 輸入欄
 .col_write_text {
-  width: 26%;
-  margin: 10px;
-  @include lg() {
-    width: 80%;
-  }
-  @include tb() {
-    width: 100%;
-  }
+    width: 26%;
+    margin: 10px;
+    @include lg() {
+        width: 80%;
+    }
+    @include tb() {
+        width: 100%;
+    }
 }
 .enter_title {
-  width: 100%;
-  height: 50px;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-bottom: 20px;
-  border: 1px solid $color-main-green;
+    width: 100%;
+    height: 50px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border: 1px solid $color-main-green;
 }
 .enter_text {
-  width: 100%;
-  height: 70%;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  padding: 10px 10px;
-  margin-bottom: 20px;
-  border: 1px solid $color-main-green;
-  resize: none;
+    width: 100%;
+    height: 70%;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    border: 1px solid $color-main-green;
+    resize: none;
 }
 .confirm_choose_contain {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 .confirm_choose_contain .btn_confirm {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 .btn_bg_choose {
-  font-size: $txt_btn;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  padding: 5px 10px;
-  border: 2px solid $color-str-green;
-  color: $color-str-green;
-  background: $color-basic-White;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid $color-str-green;
+    color: $color-str-green;
+    background: $color-basic-White;
 }
 </style>

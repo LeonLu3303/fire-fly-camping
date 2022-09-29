@@ -11,16 +11,14 @@
                 <h2>報告留言</h2>
             </div>
             <!-- 返回報告 -->
-            <div class="Report_link_path">
-                <router-link to="/Report">
-                    <div class="back_Report_page">
-                        <img class="back_Report_icon" src="@/assets/images/booking/booking_arrow_prev.png" alt="">
-                        <span>返回報告</span>
-                    </div>
-                </router-link>
-            </div>
+            <router-link class="Report_link_path" to="/Report">
+                <div class="back_Report_page">
+                    <img class="back_Report_icon" src="@/assets/images/booking/booking_arrow_prev.png" alt="">
+                    <span>返回報告</span>
+                </div>
+            </router-link>
             <!-- 明信片留言 -->
-            <!-- <ReportDiscuss/> -->
+            <ReportDiscuss/>
 
             <!-- 會員個人留言欄 -->
             <div class="message_member_container">
@@ -151,7 +149,7 @@ export default {
 .message_member_container{
     width: 70%;
     padding: 20px;
-    margin: 0 auto 50px;
+    margin: 0 auto 20px;
     border-radius: 10px;
     background: $color-main-yellow;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
@@ -210,6 +208,8 @@ text-align: end;
 }
 .other_message_content .other_write{
     margin-bottom: 20px;
+    color: $color-basic-gray1;
+    text-align: justify;
 }
 .message_time_inform{
     display: flex;
@@ -221,6 +221,5 @@ text-align: end;
 }
 .message_inform_icon{
     width: 28px;
-
 }
 </style>
