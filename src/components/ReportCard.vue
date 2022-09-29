@@ -6,12 +6,27 @@
             </div>
             <!-- 最新熱門btn -->
             <div class="report_new_hot">
-                <select class="new_hot_choose">
+                <form class="new_hot_choose">
+                    <button class="btn_report_new" 
+                        @click="activeTab = 'new'" 
+                        :class="{tab_active:activeTab === 'new'}"
+                        >最新報告
+                    </button>
+
+                    <button 
+                        class="btn_report_new" 
+                        @click="activeTab = 'hot'" 
+                        :class="{tab_active:activeTab === 'hot'}"
+                        >熱門報告
+                    </button>
+                </form>
+                <!-- <select class="new_hot_choose">
                     <option class="btn_report_new" value="1">最新報告</option>
                     <option class="btn_report_new" value="2">熱門報告</option>
-                </select>
+                </select> -->
             </div>
             <!-- 報告卡片 -->
+            <!-- v-show="setPaginate($index)" -->
             <div class="row_card_report">
                 <div class="col_card_report" v-for="item in cardReport" :key="item.id">
                     <div class="report_user">
@@ -37,6 +52,26 @@
                     </div>
                 </div>
             </div>
+            <!-- 分頁 -->
+            <!-- <ReportPaginate/> -->
+            <!-- <div id="pagination">
+                <button class="btn-default" v-for="page_index in paginate_total" @click.prevent="updateCurrent(page_index + 1)">
+                    {{ page_index + 1 }}
+                </button>
+            </div> -->
+            <!-- <div class="pagination">
+                <button @click="prevPage"> ＜ </button>
+                <button 
+                    v-for="(page) in paginate_total" 
+                    :class="{
+                        'activeBtnStyle': (currentPage === page)
+                    }"
+                    @click="selectPage(page)" 
+                >
+                    {{page}}
+                </button>
+                <button @click="nextPage"> ＞ </button>
+            </div> -->
         </div>
     </section>
 </template>
@@ -44,21 +79,32 @@
 <script>
 import ReportPaginate from '../components/ReportPaginate.vue';
 import ReportLightBox from '../components/ReportLightBox.vue';
+// import defineComponent from 'vue';
 
 export default {
     name: "ReportCard",
     components: {
         ReportPaginate,
-        ReportLightBox
+        ReportLightBox,
+        // defineComponent,
     },
+    // created() {
+    //     this.paginate_total = this.heroes.length/this.paginate;
+    // },
     data(){
         return {
+            activeTab:'new',
+            // current: 1,
+            // paginate: 5,
+            // paginate_total: 0,
+            // search_filter: '',
+            // status_filter: '',
             cardReport: [
                 {
                     id:1,
                     userPic: '',
                     userName: "是一三",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/10/01",
                     reportTitle: "露營景色好美，難怪這麼多人愛露營",
                     reportTxt: "整個露營我覺得是一次很棒的體驗，不管是風景還是氛圍都完全讓人放鬆，感覺像來到世外桃源一樣，也難怪越來越多人喜歡從事露營這個活動！比較麻煩的是要開山路一個多小時左右才會抵達，但肯定是值得的！早上的太陽搭配營區根本是拍照聖地吧～快攜手一起去體驗露營的美好吧！也能享受大自然的風光，短暫逃離都市的喧囂，完全是一個很特別很值得的旅程！",
                     messageCount: 10,
@@ -67,7 +113,7 @@ export default {
                     id:2,
                     userPic: '',
                     userName: "TK律師",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/09/29",
                     reportTitle: "請教神人裝備",
                     reportTxt: "小弟今年想去冰雪奇緣做露營，第一次到雪地活動遊玩，該帶甚麼裝備比較好?",
                     messageCount: 5,
@@ -94,7 +140,7 @@ export default {
                     id:5,
                     userPic: '',
                     userName: "蕭董",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/09/30",
                     reportTitle: "夏天露營不會熱昏，又好玩",
                     reportTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
                     messageCount: 3,
@@ -103,7 +149,7 @@ export default {
                     id:6,
                     userPic: '',
                     userName: "柏霖老師",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/10/04",
                     reportTitle: "太重沒辦法搭熱氣球...",
                     reportTxt: "一直想到荒野峽谷體驗熱氣球活動，結果因為太胖不能搭，有什麼好方法可以減重的嗎，聽說穴道按摩好像蠻有用的",
                     messageCount: 7,
@@ -121,7 +167,7 @@ export default {
                     id:5,
                     userPic: '',
                     userName: "女神",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/09/11",
                     reportTitle: "要烤肉的時候",
                     reportTxt: "各位哥哥們，我是新手，在烤肉時會使用烤肉爐？還是焚火台加烤肉配件？該不該買起火師？請問有推薦哪幾款烤肉爐/焚火台(有烤肉配件)/起火師/防火毯/防熱手套？",
                     messageCount: 5,
@@ -130,7 +176,7 @@ export default {
                     id:4,
                     userPic: '@/assets/images/report/report_avatar_3.png',
                     userName: "男神",
-                    releaseTime: "2022/08/29",
+                    releaseTime: "2022/08/22",
                     reportTitle: "營火叢哪個地區比較好玩嗎",
                     reportTxt: "想找個時間去營火叢游玩，比較想去住他們的特色帳篷，有什麼要注意和推薦的嗎?",
                     messageCount: 20,
@@ -156,6 +202,44 @@ export default {
             ],
         }
     },
+    // methods: {
+    //     setPaginate: function (i) {
+    //         if (this.current == 1) {
+    //             return i < this.paginate;
+    //         }
+    //         else {
+    //             return (i >= (this.paginate * (this.current - 1)) && i < (this.current * this.paginate));
+    //         }
+    //     },
+    //     setStatus: function (status) {
+    //         this.status_filter = status;
+    //         this.$nextTick(function () {
+    //             this.updatePaginate();
+    //         });
+    //     },
+    //     updateCurrent: function (i) {
+    //         this.current = i;
+    //     },
+    //     updatePaginate: function () {
+    //         this.current = 1;
+    //         this.paginate_total = Math.ceil(document.querySelectorAll('').length/this.paginate);
+    //     },
+        // prevPage(){
+        //     //當前頁面是第一頁，不能再往前
+        //     if(this.currentPage === 1) return
+        //     //this.currentPage = this.currentPage - 1
+        //     this.currentPage -= 1
+        // },
+        // nextPage(){
+        //     //當前頁面是最後一頁，不能再往後
+        //     if(this.currentPage >= this.paginations) return
+        //     //this.currentPage = this.currentPage + 1
+        //     this.currentPage += 1
+        // },
+        // selectPage(val){
+        //     this.currentPage = val
+        // }
+    // }
 }
 </script>
 
@@ -179,17 +263,28 @@ export default {
     justify-content: flex-end;
     padding: 0 30px 30px;
 }
-.new_hot_choose {
+.btn_report_new {
     font-size: $txt_btn;
     font-weight: 700;
     letter-spacing: 1px;
     border-radius: 5px;
     padding: 8px 10px;
+    margin-left: 15px;
     border: 2px solid $color-str-green;
     color: $color-str-green;
     background: $color-basic-White;
+    cursor: pointer;
+    &:hover{
+        background: $color-str-hov-green;
+        color: $color-basic-White;
+        border: 2px solid $color-str-hov-green;
+    }
 }
-
+.btn_active{
+    background: $color-str-green;
+    color: $color-basic-White;
+    border: 2px solid $color-str-green;
+}
 //卡片
 .row_card_report {
     display: flex;
@@ -268,26 +363,4 @@ export default {
         font-weight: 500;
     }
 }
-//分頁
-// .pagination {
-//     list-style: none;
-//     padding: 0;
-//     margin: 0;
-//     display: flex;
-//     li {
-//         margin: 10px;
-//         border: 1px solid black;
-//         width: 30px;
-//         text-align: center;
-//         a {
-//         display: block;
-//         width: 100%;
-//         height: 100%;
-//         }
-//         &.active {
-//         background-color: black;
-//         color: white;
-//         }
-//     }
-// }
 </style>

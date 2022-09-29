@@ -8,22 +8,22 @@
             <!-- 營帳 button -->
             <ul class="row_tent_tabs_wrap">
                 <li class="tent_tab_group">
-                    <button class="tent_tab_title" @click="activeTab = 'ordinary'"
+                    <div class="tent_tab_title" @click="activeTab = 'ordinary'"
                     :class="{tab_active:activeTab === 'ordinary'}">
                         經濟型
-                    </button>
+                    </div>
                 </li>
                 <li class="tent_tab_group">
-                    <button class="tent_tab_title" @click="activeTab = 'luxury'"
+                    <div class="tent_tab_title" @click="activeTab = 'luxury'"
                     :class="{tab_active:activeTab === 'luxury'}">
                         豪華型
-                    </button>
+                    </div>
                 </li>
                 <li class="tent_tab_group">
-                    <button class="tent_tab_title" @click="activeTab = 'feature'"
+                    <div class="tent_tab_title" @click="activeTab = 'feature'"
                     :class="{tab_active:activeTab === 'feature'}">
                         主題型
-                    </button>
+                    </div>
                 </li>
             </ul>
 
@@ -173,8 +173,8 @@ export default {
 .tab_active{
     background: $color-str-green;
     color: $color-basic-White;
-
 }
+
 //營帳祥細介紹
 .row_tent_introduce{
     display: flex;

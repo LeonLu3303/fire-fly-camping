@@ -1,14 +1,33 @@
 <template>
-  <a-pagination v-model:current="current" :total="50" show-less-items />
+    <a-pagination
+        show-size-changer
+        :default-current="6"
+        :total="500"
+        @change="onPageChange"
+        @showSizeChange="onShowSizeChange"
+    />
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
-export default defineComponent({
-  setup() {
-    return {
-      current: ref(1),
-    };
-  },
-});
+import defineComponent from 'vue';
+
+export default {
+    components: {
+        defineComponent,
+    },
+    data() {
+        return {
+            pageSize: 6,
+            current: 1,
+        }
+    },
+    methods: {
+        onPageChange (page) {
+        console.log(page)
+        },
+        onShowSizeChange (current, pageSize) {
+        console.log(current, pageSize);
+        }
+    }
+}
 </script>
