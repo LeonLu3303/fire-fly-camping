@@ -8,7 +8,10 @@
   <!-- <transition appear @enter="enter">
   <div class="box"></div>
 </transition> -->
- 
+  <div class="carousel_jungle">
+    <ActivityCarousel/>
+  </div>
+  
   <MainFooter/>  
 </template>
 
@@ -18,12 +21,14 @@ import ActivityTour from '@/components/ActivityTour.vue'
 import ActivityInfo from '@/components/ActivityInfo.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import gsap from 'gsap'
+import ActivityCarousel from '@/components/ActivityCarousel.vue'
 export default {
   components:{
     MainHeader,
     ActivityTour,
     ActivityInfo,
     MainFooter,
+    ActivityCarousel,
 },
       methods:{
         scrollToTop(){
@@ -47,5 +52,21 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/scss/style.scss';
+
+.carousel_jungle{
+  height: 300px;
+  .ant-carousel {
+                  height: 100%;
+                  .slick-slider {
+                    height: 100%;
+                    .slick-list {
+                      height: 100%;
+                      .slick-track {
+                        height: 100%;
+                      }
+                    }
+                  }
+                }
+}
 
 </style>

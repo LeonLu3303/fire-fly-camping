@@ -60,7 +60,8 @@
             </div>
             <div class="activity_group_introduction"  :class="{reverse: index%2 === 0}">
                 <div class="activity_carousel">
-                    <img :src="item.imgInfo" alt="叢林照片"/>
+                  <!-- activity_block 要和子元素 props 內的變數名稱相同 -->
+                    <ActivityCarousel :activity_block="item.name"/> 
                 </div>
                 <div class="activity_introduction_text" >
                     <h3>{{ item.name }}</h3>
@@ -81,9 +82,11 @@
 <script>
   import ActivityTourTxtFirst from '@/components/ActivityTourTxtFirst.vue'
   import gsap from 'gsap'
+import ActivityCarousel from './ActivityCarousel.vue'
     export default {
       components:{
-        ActivityTourTxtFirst
+        ActivityTourTxtFirst,
+            ActivityCarousel
         },
         data(){
             return {
@@ -319,6 +322,18 @@
       justify-content: center;
       .activity_carousel {
         width: 45%;
+        .ant-carousel {
+                  height: 100%;
+                  .slick-slider {
+                    height: 100%;
+                    .slick-list {
+                      height: 100%;
+                      .slick-track {
+                        height: 100%;
+                      }
+                    }
+                  }
+                }
       }
       .activity_introduction_text {
         width: 45%;
