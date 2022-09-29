@@ -37,35 +37,9 @@
             <p class="news_post_time">{{ news.news_post_time }}</p>
           </div>
         </div>
-        <div class="news_container">
-            <button @click="prevPage"> &lt; </button>
-            <div class="news_show_area"
-                 :style="{
-                        left : `${(slide-currentPage)*900}px`,
-                        width:`${newsList.length*900}px`
-                    }"
-            >
-                <div class="news_box" 
-                    v-for="(news,slide) in newsList"
-                    :class="{
-                        'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage + newsList.length >= slide),
-                    }"
-                    @click="selectPage(slide)"
-                    :key="news"
-                    >
-                    <div class="news_pic">
-                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
-                    </div>
-                    <div class="news_txt">
-                        <h3>{{news.title}}</h3>
-                        <p class="news_content">{{news.content}}</p>
-                        <p class="news_post_time">{{news.news_post_time}}</p>
-                    </div>
-                </div>
-            </div>
-            <button @click="nextPage"> > </button>
-        </div>
+        <button @click="nextPage"> > </button>
+      </div>
+    </div>
         <div class="news_page_btn_container">
             <button 
             class="news_page_btn"
