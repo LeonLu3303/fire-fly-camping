@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="report_content">
-                        <h3 class="report_title">{{item.reportTitle}}</h3>
+                        <h4 class="report_title">{{item.reportTitle}}</h4>
                         <p class="report_txt">{{item.reportTxt}}</p>
                     </div>
                     <div class="report_btn">
@@ -56,111 +56,102 @@ export default {
             cardReport: [
                 {
                     id:1,
-                    userPic: '@/assets/images/report/report_avatar_1.png',
-                    userName: "1313",
+                    userPic: '',
+                    userName: "是一三",
                     releaseTime: "2022/08/29",
-                    reportTitle: "露營景色還是好美，難怪這麼多人愛露營",
-                    reportTxt: "第一次露營最大的心得感想就是好忙，一到營區把東西從車子拿出來擺定位、接著準備午餐、吃午餐、洗碗整理、休息、小孩放電、準備晚餐食材、煮晚餐、吃晚餐、洗碗整理、洗澡、準備睡覺，起床後準備早餐、吃早餐、洗碗整理、準備午餐、吃午餐、洗碗整理、收裝備、塞裝備、然後離開，一整個好忙好忙，時間一下子就過去了，回家還要繼續曬帳，跟想像中會無聊、時間多到可以放空的露營怎麼不太一樣，但是營區的景色還是好美，難怪這麼多人愛露營。",
+                    reportTitle: "露營景色好美，難怪這麼多人愛露營",
+                    reportTxt: "整個露營我覺得是一次很棒的體驗，不管是風景還是氛圍都完全讓人放鬆，感覺像來到世外桃源一樣，也難怪越來越多人喜歡從事露營這個活動！比較麻煩的是要開山路一個多小時左右才會抵達，但肯定是值得的！早上的太陽搭配營區根本是拍照聖地吧～快攜手一起去體驗露營的美好吧！也能享受大自然的風光，短暫逃離都市的喧囂，完全是一個很特別很值得的旅程！",
                     messageCount: 10,
                 },
                 {
                     id:2,
-                    userPic: '@/assets/images/report/report_avatar_2.png',
+                    userPic: '',
                     userName: "TK律師",
                     releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "啊~看錯惹，是你媽媽經過啦:P",
+                    reportTitle: "請教神人裝備",
+                    reportTxt: "小弟今年想去冰雪奇緣做露營，第一次到雪地活動遊玩，該帶甚麼裝備比較好?",
                     messageCount: 5,
                 },
                 {
                     id:3,
                     userPic: '@/assets/images/report/report_avatar_3.png',
-                    userName: "小羽",
+                    userName: "小羽老師",
                     releaseTime: "2022/08/29",
-                    reportTitle: "完蛋了心得",
-                    reportTxt: "我完蛋了QQ 我的動畫完蛋了",
+                    reportTitle: "傍晚的蚊子都怎麼解決？防蚊片有效嗎?",
+                    reportTxt: "我一直都是在身上噴防蚊液，但沒噴到的地方都會被偷襲，像是屁股，隔著褲子也要咬我，4點生火的時候都相安無事，到56點的時候開始多很多，一直到10點要收拾的時候蚊子才會少一點。有人有推薦嗎?",
                     messageCount: 20,
                 },
                 {
                     id:4,
-                    userPic: '@/assets/images/report/report_avatar_4.png',
+                    userPic: '',
                     userName: "Esther",
                     releaseTime: "2022/08/29",
-                    reportTitle: "活動體驗超棒的",
-                    reportTxt: "不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
+                    reportTitle: "露營時的菜單有什麼，大家來說說吧",
+                    reportTxt: "喜愛露營的朋友，想必每次露營都有一定要端出來的拿手好菜吧，歡迎大家分享自己的拿手菜，我個人一定會準備:奶油、櫛瓜、杏包菇、牛排、鮭魚，牛排和鮭魚基本上只要簡單煎一煎就很好吃了，奶油還可以拿來炒杏包菇，大家快來分享自己的露營菜單吧!",
                     messageCount: 15,
                 },
                 {
                     id:5,
-                    userPic: '@/assets/images/report/report_avatar_5.png',
+                    userPic: '',
                     userName: "蕭董",
                     releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
+                    reportTitle: "夏天露營不會熱昏，又好玩",
+                    reportTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
                     messageCount: 3,
                 },
                 {
                     id:6,
-                    userPic: '@/assets/images/report/report_avatar_6.png',
+                    userPic: '',
                     userName: "柏霖老師",
                     releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
+                    reportTitle: "太重沒辦法搭熱氣球...",
+                    reportTxt: "一直想到荒野峽谷體驗熱氣球活動，結果因為太胖不能搭，有什麼好方法可以減重的嗎，聽說穴道按摩好像蠻有用的",
                     messageCount: 7,
                 },
                 {
-                    id:6,
-                    userPic: '@/assets/images/report/report_avatar_1.png',
-                    userName: "1313",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "露營景色還是好美，難怪這麼多人愛露營",
-                    reportTxt: "第一次露營最大的心得感想就是好忙，一到營區把東西從車子拿出來擺定位、接著準備午餐、吃午餐、洗碗整理、休息、小孩放電、準備晚餐食材、煮晚餐、吃晚餐、洗碗整理、洗澡、準備睡覺，起床後準備早餐、吃早餐、洗碗整理、準備午餐、吃午餐、洗碗整理、收裝備、塞裝備、然後離開，一整個好忙好忙，時間一下子就過去了，回家還要繼續曬帳，跟想像中會無聊、時間多到可以放空的露營怎麼不太一樣，但是營區的景色還是好美，難怪這麼多人愛露營。",
-                    messageCount: 3,
-                },
-                {
-                    id:4,
-                    userPic: '@/assets/images/report/report_avatar_2.png',
-                    userName: "TK律師",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "啊~看錯惹，是你媽媽經過啦:P",
-                    messageCount: 3,
-                },
-                {
-                    id:2,
-                    userPic: '@/assets/images/report/report_avatar_3.png',
-                    userName: "小羽",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "完蛋了心得",
-                    reportTxt: "我完蛋了QQ 我的動畫完蛋了",
-                    messageCount: 3,
-                },
-                {
                     id:1,
-                    userPic: '@/assets/images/report/report_avatar_4.png',
-                    userName: "Esther",
+                    userPic: '',
+                    userName: "玻璃心",
                     releaseTime: "2022/08/29",
-                    reportTitle: "活動體驗超棒的",
-                    reportTxt: "不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
-                    messageCount: 3,
+                    reportTitle: "營火叢太爛了吧",
+                    reportTxt: "只是想問一下路怎麼走，服務人員竟然過三秒才回我，服務態度太差了吧，詛咒你們全家都得香港腳。",
+                    messageCount: 7,
                 },
                 {
                     id:5,
-                    userPic: '@/assets/images/report/report_avatar_5.png',
-                    userName: "蕭董",
+                    userPic: '',
+                    userName: "女神",
                     releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
-                    messageCount: 3,
+                    reportTitle: "要烤肉的時候",
+                    reportTxt: "各位哥哥們，我是新手，在烤肉時會使用烤肉爐？還是焚火台加烤肉配件？該不該買起火師？請問有推薦哪幾款烤肉爐/焚火台(有烤肉配件)/起火師/防火毯/防熱手套？",
+                    messageCount: 5,
                 },
                 {
                     id:4,
-                    userPic: '@/assets/images/report/report_avatar_6.png',
-                    userName: "柏霖老師",
+                    userPic: '@/assets/images/report/report_avatar_3.png',
+                    userName: "男神",
                     releaseTime: "2022/08/29",
-                    reportTitle: "我剛剛好像看到恐龍",
-                    reportTxt: "啊~看錯惹，是你媽媽經過啦:P，不得不說營火叢是露營的最佳選擇。活動體驗真的讚，設備齊全，場地優質!CP值超高!!",
-                    messageCount: 5,
+                    reportTitle: "營火叢哪個地區比較好玩嗎",
+                    reportTxt: "想找個時間去營火叢游玩，比較想去住他們的特色帳篷，有什麼要注意和推薦的嗎?",
+                    messageCount: 20,
+                },
+                {
+                    id:3,
+                    userPic: '',
+                    userName: "不可以色色",
+                    releaseTime: "2022/08/29",
+                    reportTitle: "不可以亂丟垃圾",
+                    reportTxt: "美麗的大自然需要你我的愛護，請留下美麗的記憶，帶走隨身的垃圾，台灣的美麗讓我慢慢地來讓你看到.",
+                    messageCount: 15,
+                },
+                {
+                    id:2,
+                    userPic: '',
+                    userName: "黃金開口笑",
+                    releaseTime: "2022/08/29",
+                    reportTitle: "夏天露營不會熱昏，又好玩",
+                    reportTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
+                    messageCount: 3,
                 },
             ],
         }
@@ -203,7 +194,7 @@ export default {
 .row_card_report {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    margin: 0 auto;
     padding: 0 0 60px;
 }
 .col_card_report {
@@ -265,41 +256,38 @@ export default {
     vertical-align:middle;
 }
 .message_icon{
-    display: inline-block;
+    display: flex;
     margin-left: 20px;
     img{
-        width: 26px;
+        width: 30px;
         margin-right: 5px;
     }
-}
-.message_icon{
-    display: flex;
     .message_count{
-        color: #939393;
+        color: $color-basic-gray1;
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 500;
     }
 }
 //分頁
-.pagination {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    li {
-        margin: 10px;
-        border: 1px solid black;
-        width: 30px;
-        text-align: center;
-        a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        }
-        &.active {
-        background-color: black;
-        color: white;
-        }
-    }
-}
+// .pagination {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+//     display: flex;
+//     li {
+//         margin: 10px;
+//         border: 1px solid black;
+//         width: 30px;
+//         text-align: center;
+//         a {
+//         display: block;
+//         width: 100%;
+//         height: 100%;
+//         }
+//         &.active {
+//         background-color: black;
+//         color: white;
+//         }
+//     }
+// }
 </style>
