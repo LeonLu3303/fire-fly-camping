@@ -1,32 +1,15 @@
 <template>
-  <section class="wrap_card_report">
-    <div class="report_container">
-      <div class="title_main">
-        <h2>報告討論</h2>
-      </div>
-      <!-- 最新熱門btn -->
-      <div class="report_new_hot">
-        <select class="new_hot_choose">
-          <option class="btn_report_new" value="1">最新報告</option>
-          <option class="btn_report_new" value="2">熱門報告</option>
-        </select>
-      </div>
-      <!-- 報告卡片 -->
-      <div class="row_card_report">
-        <div class="col_card_report" v-for="item in cardReport" :key="item.id">
-          <div class="report_user">
-            <div class="user_pic">
-              <!-- 因為assets裡面的會被瀏覽器再編譯，所以需要require -->
-              <img
-                :src="
-                  require(`@/assets/images/report/report_avatar_${item.id}.png`)
-                "
-                alt="avatar"
-              />
+    <section class="wrap_card_report">
+        <div class="report_container">
+            <div class="title_main">
+                <h2>報告討論</h2>
             </div>
-            <div class="user_data">
-              <h4 class="user_name">{{ item.userName }}</h4>
-              <p class="release_time">{{ item.releaseTime }}</p>
+            <!-- 最新熱門btn -->
+            <div class="report_new_hot">
+                <select class="new_hot_choose">
+                    <option class="btn_report_new" value="1">最新報告</option>
+                    <option class="btn_report_new" value="2">熱門報告</option>
+                </select>
             </div>
             <!-- 報告卡片 -->
             <div class="row_card_report">
@@ -54,17 +37,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 頁碼 -->
-            <ReportPaginate/>
-
         </div>
-      </div>
-
-      <!-- 頁碼 -->
-      <ReportPaginate />
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>
@@ -210,78 +184,78 @@ export default {
 
 //最新 熱門 btn
 .report_new_hot {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 30px 30px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 30px 30px;
 }
 .new_hot_choose {
-  font-size: $txt_btn;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  padding: 8px 10px;
-  border: 2px solid $color-str-green;
-  color: $color-str-green;
-  background: $color-basic-White;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 8px 10px;
+    border: 2px solid $color-str-green;
+    color: $color-str-green;
+    background: $color-basic-White;
 }
 
 //卡片
 .row_card_report {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 0 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 0 60px;
 }
 .col_card_report {
-  display: flex;
-  flex-direction: column;
-  width: 31%;
-  height: 480px;
-  margin: 10px;
-  padding: 30px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  @include lg() {
-    width: 45%;
-  }
-  @include md() {
-    width: 100%;
-  }
+    display: flex;
+    flex-direction: column;
+    width: 31%;
+    height: 480px;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    @include lg() {
+        width: 45%;
+    }
+    @include md() {
+        width: 100%;
+    }
 }
 .report_user {
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #8a8a8a;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #8a8a8a;
 }
 .user_pic {
-  width: 80px;
-  border-radius: 50px;
-  overflow: hidden;
-  margin-right: 20px;
+    width: 80px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-right: 20px;
 }
 .report_content {
-  flex-grow: 1;
-  padding: 20px 0;
+    flex-grow: 1;
+    padding: 20px 0;
 }
 .report_title {
-  margin-bottom: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  text-align: justify;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-align: justify;
 }
 .report_txt {
-  color: $color-basic-gray2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  text-align: justify;
+    color: $color-basic-gray2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    text-align: justify;
 }
 //檢舉 留言 button
 .report_btn{
@@ -308,24 +282,24 @@ export default {
 }
 //分頁
 .pagination {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  li {
-    margin: 10px;
-    border: 1px solid black;
-    width: 30px;
-    text-align: center;
-    a {
-      display: block;
-      width: 100%;
-      height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    li {
+        margin: 10px;
+        border: 1px solid black;
+        width: 30px;
+        text-align: center;
+        a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        }
+        &.active {
+        background-color: black;
+        color: white;
+        }
     }
-    &.active {
-      background-color: black;
-      color: white;
-    }
-  }
 }
 </style>

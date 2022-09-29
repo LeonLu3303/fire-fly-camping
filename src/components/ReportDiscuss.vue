@@ -74,26 +74,26 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
-.wrap_report_publish{
-    padding: 150px 0;
-    background: $color-basic-White;
-}
-.report_publish_container{
-    width: 80%;
-    max-width: 1296px;
-    margin: 0 auto;
-    @include lg(){
-        width: 90%;
-    }
-    @include md(){
-        width: 95%;
-    }
-}
-.row_report_write{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+// .wrap_report_publish{
+//     padding: 150px 0;
+//     background: $color-basic-White;
+// }
+// .report_publish_container{
+//     width: 80%;
+//     max-width: 1296px;
+//     margin: 0 auto;
+//     @include lg(){
+//         width: 90%;
+//     }
+//     @include md(){
+//         width: 95%;
+//     }
+// }
+// .row_report_write{
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+// }
 
 // 明信片
 .col_postcard{

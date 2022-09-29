@@ -294,8 +294,8 @@
           <div class="bk_confirm_payment_container">
             <p class="bk_payment_total_title">訂單總金額</p>
             <div class="bk_payment_show">
-              <p>＄{{}}</p>
-              <button class="btn_confirm" @change="totalPay">結帳</button>
+              <p @change="totalPay">＄{{ paymentTotal }}</p>
+              <button class="btn_confirm">結帳</button>
             </div>
           </div>
         </div>
@@ -466,55 +466,54 @@ export default {
       console.log(e);
     },
     totalPay() {
-      console.log(this.bookingList);
-      // let sum = 0;
-      // let basic = 6000;
-      // let howMany = this.bookingList.howMany;
-      // let campType = this.bookingList.campType;
-      // let days = this.howManyDays;
-      // let whichActivity = this.bookingList.whichActivity;
-      // let whichEquipment = this.bookingList.whichEquipment;
-      // let whichMeal = this.bookingList.whichMeal;
+      let sum = 0;
+      let basic = 6000;
+      let howMany = this.bookingList.howMany;
+      let campType = this.bookingList.campType;
+      let days = this.howManyDays;
+      let whichActivity = this.bookingList.whichActivity;
+      let whichEquipment = this.bookingList.whichEquipment;
+      let whichMeal = this.bookingList.whichMeal;
 
-      // switch (howMany) {
-      //   case '2':
-      //     sum = basic;
-      //     break;
-      //   case '4':
-      //     sum = basic + 2000;
-      //     break;
-      //   case '6':
-      //     sum = basic + 4000;
-      //     break;
-      // }
+      switch (howMany) {
+        case '2':
+          sum = basic;
+          break;
+        case '4':
+          sum = basic + 2000;
+          break;
+        case '6':
+          sum = basic + 4000;
+          break;
+      }
 
-      // switch (campType) {
-      //   case 'a':
-      //     sum = sum * 1;
-      //     break;
-      //   case 'b':
-      //     sum = sum * 1.6;
-      //     break;
-      //   case 'c':
-      //     sum = sum * 1.4;
-      //     break;
-      // }
+      switch (campType) {
+        case 'a':
+          sum = sum * 1;
+          break;
+        case 'b':
+          sum = sum * 1.6;
+          break;
+        case 'c':
+          sum = sum * 1.4;
+          break;
+      }
 
-      // sum = sum * days;
+      sum = sum * days;
 
-      // if (whichActivity != null) {
-      //   sum += 2000;
-      // }
-      // if (whichEquipment != null) {
-      //   sum += 2000;
-      // }
-      // if (whichMeal == '1' || whichMeal == '2') {
-      //   sum = sum + 1000 * days;
-      // } else if (whichMeal == '3') {
-      //   sum = sum + 300 * days;
-      // }
+      if (whichActivity != null) {
+        sum += 2000;
+      }
+      if (whichEquipment != null) {
+        sum += 2000;
+      }
+      if (whichMeal == '1' || whichMeal == '2') {
+        sum = sum + 1000 * days;
+      } else if (whichMeal == '3') {
+        sum = sum + 300 * days;
+      }
 
-      // return sum;
+      return (this.paymentTotal = sum);
     },
   },
 };
