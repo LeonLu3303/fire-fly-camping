@@ -23,8 +23,8 @@ export default {
     MainHeader,
     ActivityTour,
     ActivityInfo,
-    MainFooter
-    },
+    MainFooter,
+},
       methods:{
         scrollToTop(){
           window.scrollTo(0,0)

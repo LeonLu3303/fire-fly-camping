@@ -173,7 +173,7 @@
     }
 </script>
 
-<style  lang="scss">
+<style  lang="scss" scoped>
 @import '@/assets/scss/style.scss';
 .activity_wrapper {
   width: 100%;
