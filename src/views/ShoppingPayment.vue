@@ -5,6 +5,25 @@
     </div>
     <section class="section_payment">
       <div class="payment_container">
+      <div class="rwd_payment_col_1">
+        <div class="wrap_cart">
+          <div class="rwd_amount">
+            <h3 class="rwd_amount_title">結帳金額</h3>
+            <h3 class="rwd_amount_title">${{itemTotal}}</h3>
+          </div>
+          
+          <div class="cart_payment_container">
+            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
+            <tbody >
+              <tr class="table_tr_grid" >
+                <td class="payment_item_image"><img :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" /></td>
+                <td><p>{{item.title}}</p><p>數量:{{item.qty}}</p><p>單價:${{item.price}}</p><p>小計:${{item.qty * item.price}}</p></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
       <div class="payment_rows_2">
         <div class="wrap_delivery">
           <h3 class="para">配送資訊</h3>
@@ -178,8 +197,28 @@ export default {
     padding: 0;
   }
 }
-.cart_payment_container{
-  height: 70vh;
+
+.rwd_payment_col_1{
+  display: none;
+  @include tb(){
+    display: block;
+    height: 100%;
+    background-color: #f9f9f9;
+    box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
+    padding: 0 1rem;
+    border-radius: 5px;
+  }
+  .cart_payment_container{
+    height: 100%;
+  }
+  .rwd_amount{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    .rwd_amount_title{
+    font-size: 20px;  
+    }
+  }
 }
 .payment_col_1 {
   display: grid;
