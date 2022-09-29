@@ -18,8 +18,19 @@
     padding-top: 50px;
     overflow: hidden;
     border-radius: 20px;
+    @include tb(){
+        width: 600px;
+        height: 450px;
+    }
+    @include md(){
+        width: 300px;
+        height: 250px;
+        border-radius: 10px;
+    }
     @include sm(){
-        width: 350px;
+        width: 300px;
+        height: 250px;
+        border-radius: 10px;
     }
 }
 .news_show_area{
@@ -32,10 +43,73 @@
     margin: auto;
     transition: left 1s;
     // padding-left: 200px;
-
+    @include tb(){
+        display: none;
+    }
+    @include md(){
+        display: none;
+    }
+    @include sm(){
+        display: none;
+    }
 }
+.news_show_area.tb{
+    display: none;
+    @include tb(){
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50px;
+        margin: auto;
+        transition: left 1s;
+    }
+    @include md(){
+        display: none;
+    }
+    @include sm(){
+        display: none;
+    }
+}
+.news_show_area.md{
+    display: none;
+    @include tb(){
+        display: none;
+    }
+    @include md(){
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50px;
+        margin: auto;
+        transition: left 1s;
+    }
+    @include sm(){
+        display: none;
+    }
+}
+.news_show_area.sm{
+    display: none;
+    @include tb(){
+        display: none;
+    }
+    @include md(){
+        display: none;
+    }
+    @include sm(){
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 50px;
+        margin: auto;
+        transition: left 1s;
+    }
+}
+
 .news_box{
-    min-width: 900px;
+    width: 900px;
     height: 600px;
     display:flex;
     // background-color: #f3f6fd;
@@ -44,15 +118,24 @@
     margin-bottom: 10px;
     // position: relative;
     overflow: hidden;
+    @include tb(){
+        width: 600px;
+        height: 400px;
+    }
+    @include md(){
+        width: 300px;
+        height: 200px;
+    }
     @include sm(){
-        min-width: 350px;
+        width: 300px;
+        height: 200px;
     }
 }
 .news_box:hover{
     cursor: pointer;
 }
 .news_pic{
-    width: 100%;
+    width: 900px;
     // height: 100%;
     // overflow: hidden;
     z-index: -0;
@@ -65,24 +148,39 @@
         background-image: linear-gradient(transparent,rgb(0, 0, 0));
         position: absolute;
         z-index: 2;
+        @include tb(){
+            width: 600px;
+        }
+        @include md(){
+            background-image: linear-gradient(rgb(0, 0, 0),transparent);
+            border-radius: 10px;
+            width: 300px;
+        }
+        @include sm(){
+            background-image: linear-gradient(rgb(0, 0, 0),transparent);
+            width: 300px;
+            border-radius: 10px;
+        }
     }
     img{
         width: 900px;
         border-radius: 20px;
         // display: block;
+        @include tb(){
+            width: 600px;
+            height: 400px;
+        }
+        @include md(){
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+        }
         @include sm(){
-            width: 350px;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
         }
     }
-}
-.news_txt{
-    display: block;
-}
-.news_txt p{
-    padding: 8px;
-}
-.news_txt h3{
-    color: transparent;
 }
 .news_txt{
     width: 100%;
@@ -94,9 +192,43 @@
     word-break: break-all;
     color: #ffffff;
     z-index: 3;
-}
-.news_txt h3{
-    color: #ffffff;
+    @include md{
+        justify-content: start;
+        overflow: hidden;
+    }
+    @include sm{
+        justify-content: start;
+    }
+    h3{
+        padding: 8px;
+        color: #ffffff;
+        @include md{
+            font-size: 14px;
+            line-height: 20px;
+            padding: 4px;
+        }
+        @include sm{
+            font-size: 14px;
+            line-height: 20px;
+            padding: 4px;
+        }
+
+    }
+    p{  
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 8px;
+        @include md{
+            font-size: 12px;
+            line-height: 20px;
+            padding: 4px;
+        }
+        @include sm{
+            font-size: 12px;
+            line-height: 20px;
+            padding: 4px;
+        }
+    }
 }
 .btn_page_link.news_link{
     margin: auto;
@@ -104,25 +236,6 @@
 .btn_spacing{
     padding-bottom: 150px;
 }
-
-// .mid{
-//     width: 50%;
-//     height: 400px;
-//     position: absolute;
-//     left:0;
-//     right:0;
-//     z-index: 2;
-//     transition: 1s;
-// }
-// .mid .news_pic{
-//     opacity: 1;
-// }
-// .left{
-//     transition: 1s;
-// }
-// .right{
-//     transition: 1s;
-// }
 .slideActive{
     opacity: 1;
     z-index: 1;

@@ -5,10 +5,89 @@
     </div>
         <div class="news_container">
             <button @click="prevPage"> &lt; </button>
+            <!-- lg -->
             <div class="news_show_area"
                  :style="{
                         left : `${(slide-currentPage)*900}px`,
                         width:`${newsList.length*900}px`
+                    }"
+            >
+                <div class="news_box" 
+                    v-for="(news,slide) in newsList"
+                    :class="{
+                        'slideActive': (currentPage === slide),
+                        'slideShow': (currentPage + newsList.length >= slide),
+                    }"
+                    @click="selectPage(slide)"
+                    :key="news"
+                    >
+                    <div class="news_pic">
+                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
+                    </div>
+                    <div class="news_txt">
+                        <h3>{{news.title}}</h3>
+                        <p class="news_content">{{news.content}}</p>
+                        <p class="news_post_time">{{news.news_post_time}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- tb -->
+            <div class="news_show_area tb"
+                 :style="{
+                        left : `${(slide-currentPage)*600}px`,
+                        width:`${newsList.length*600}px`
+                    }"
+            >
+                <div class="news_box" 
+                    v-for="(news,slide) in newsList"
+                    :class="{
+                        'slideActive': (currentPage === slide),
+                        'slideShow': (currentPage + newsList.length >= slide),
+                    }"
+                    @click="selectPage(slide)"
+                    :key="news"
+                    >
+                    <div class="news_pic">
+                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
+                    </div>
+                    <div class="news_txt">
+                        <h3>{{news.title}}</h3>
+                        <p class="news_content">{{news.content}}</p>
+                        <p class="news_post_time">{{news.news_post_time}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- md -->
+            <div class="news_show_area md"
+                 :style="{
+                        left : `${(slide-currentPage)*300}px`,
+                        width:`${newsList.length*300}px`
+                    }"
+            >
+                <div class="news_box" 
+                    v-for="(news,slide) in newsList"
+                    :class="{
+                        'slideActive': (currentPage === slide),
+                        'slideShow': (currentPage + newsList.length >= slide),
+                    }"
+                    @click="selectPage(slide)"
+                    :key="news"
+                    >
+                    <div class="news_pic">
+                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
+                    </div>
+                    <div class="news_txt">
+                        <h3>{{news.title}}</h3>
+                        <p class="news_content">{{news.content}}</p>
+                        <p class="news_post_time">{{news.news_post_time}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- sm -->
+            <div class="news_show_area sm"
+                 :style="{
+                        left : `${(slide-currentPage)*300}px`,
+                        width:`${newsList.length*300}px`
                     }"
             >
                 <div class="news_box" 
