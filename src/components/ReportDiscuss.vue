@@ -131,14 +131,6 @@ export default {
         flex-direction: column-reverse;
     }
 }
-.postcard_title_area{
-    padding: 0 0 20px;
-    color: $color-basic-gray3;
-}
-.postcard_text_area{
-    color: $color-basic-gray2;
-    text-align: justify;
-}
 
 //檢舉 留言 button
 .report_btn{
@@ -151,7 +143,7 @@ export default {
     display: flex;
     margin-left: 20px;
     img{
-        width: 30px;
+        width: 26px;
         margin-right: 5px;
     }
     .message_count{
@@ -177,10 +169,21 @@ export default {
 .postcard_release{
     width: 70%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     @include md(){
         width: 100%;
         height: 80%;
     }
+}
+.postcard_title_area{
+    padding: 0 0 20px;
+    color: $color-basic-gray3;
+}
+.postcard_text_area{
+    color: $color-basic-gray2;
+    text-align: justify;
+    flex-grow: 1;
 }
 // 頭像會員
 .postcard_member_data{
