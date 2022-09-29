@@ -1,62 +1,53 @@
 <template>
   <section class="wrap_News">
     <div class="title_main">
-      <h2 id="home_news">最新消息</h2>
+        <h2 id="home_news">最新消息</h2>
     </div>
-    <div class="news_container">
-      <button @click="prevPage">&lt;</button>
-      <div
-        class="news_show_area"
-        :style="{
-          left: `${(slide - currentPage) * 900}px`,
-          width: `${newsList.length * 900}px`,
-        }"
-      >
-        <div
-          class="news_box"
-          v-for="(news, slide) in newsList"
-          :style="{
-            left: `${(slide - currentPage) * 100}px`,
-          }"
-          :class="{
-            slideActive: currentPage === slide,
-            slideShow: currentPage + newsList.length >= slide,
-          }"
-          @click="selectPage(slide)"
-          :key="news"
-        >
-          <div class="news_pic">
-            <img
-              :src="require(`@/assets/images/news/news_${slide}.jpg`)"
-              alt="最新消息照片"
-            />
-          </div>
-          <div class="news_txt">
-            <h3>{{ news.title }}</h3>
-            <p class="news_content">{{ news.content }}</p>
-            <p class="news_post_time">{{ news.news_post_time }}</p>
-          </div>
+        <div class="news_container">
+            <button @click="prevPage"> &lt; </button>
+            <div class="news_show_area"
+                 :style="{
+                        left : `${(slide-currentPage)*900}px`,
+                        width:`${newsList.length*900}px`
+                    }"
+            >
+                <div class="news_box" 
+                    v-for="(news,slide) in newsList"
+                    :class="{
+                        'slideActive': (currentPage === slide),
+                        'slideShow': (currentPage + newsList.length >= slide),
+                    }"
+                    @click="selectPage(slide)"
+                    :key="news"
+                    >
+                    <div class="news_pic">
+                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
+                    </div>
+                    <div class="news_txt">
+                        <h3>{{news.title}}</h3>
+                        <p class="news_content">{{news.content}}</p>
+                        <p class="news_post_time">{{news.news_post_time}}</p>
+                    </div>
+                </div>
+            </div>
+            <button @click="nextPage"> > </button>
         </div>
-      </div>
-      <button @click="nextPage">></button>
-    </div>
-    <div class="news_page_btn_container">
-      <button
-        class="news_page_btn"
-        v-for="(news, slide) in newsList"
-        :class="{
-          activeBtnStyle: currentPage === slide,
-        }"
-        @click="selectPage(slide)"
-        :key="news"
-      ></button>
-    </div>
-    <div class="btn_spacing">
-      <router-link to="/News" class="btn_page_link news_link"
-        >更多消息</router-link
-      >
-    </div>
-  </section>
+        <div class="news_page_btn_container">
+            <button 
+            class="news_page_btn"
+            v-for="(news,slide) in newsList" 
+            :class="{
+                'activeBtnStyle': (currentPage === slide)
+            }"
+            @click="selectPage(slide)" 
+            :key="news"
+        ></button>
+        </div>
+        <div class="btn_spacing">
+                <router-link to ="/News" class="btn_page_link news_link">更多消息</router-link>
+        </div>
+    </section>
+    
 </template>
 
 <script>
