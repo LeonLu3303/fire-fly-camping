@@ -28,9 +28,9 @@
                     </div>
                     <div class="activity_items" >
                         <div class="activity_item_title">
-                            <h3 class="test2" @click="isShow(idx)">{{ item.titleSen }}</h3>
+                            <h3 class="test" @click="isShow(idx)">{{ item.titleSen }}</h3>
                         </div> 
-                        <div class="activity_item_text" v-show="idx==false">
+                        <div class="activity_item_text" v-show="idx == false">
                             <span>{{ item.sub  }}</span>
                             <p>{{ item.textSen }}</p>
                         </div>
@@ -346,8 +346,10 @@
     .reverse_pic{
         position: absolute;
         right: -12%;  
-        bottom:-50px;
-        
+        bottom:-50px;  
+    }
+    .test{
+      cursor: pointer;
     }
         
     

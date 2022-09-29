@@ -10,7 +10,6 @@
 <style lang="scss" scoped>
 .ant-carousel :deep(.slick-slide) {
   text-align: center;
-  height: 100% !important;
   line-height: 160px;
   background: #364d79;
   overflow: hidden;
