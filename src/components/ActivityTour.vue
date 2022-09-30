@@ -36,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 小島圖片區 -->
                 <div class="activity_picture" >
                   <div class="dot_positin" :class="dotPosition[index]">
                     <div class="dot_positin_first" @click="dotFristOpe" >
@@ -53,11 +54,15 @@
                     :src="item.imgUrl"
                     alt="小島"
                 />
-                </transition>  
+                </transition> 
+                <transition appear @enter="enter">
+                  <img :src="item.imgShadow" class="shadow" alt="小島陰影" />
+                </transition>
+                  
                 
-                <img :src="item.imgShadow" alt="小島陰影" />
                 </div>
             </div>
+            <!-- 地區介紹 -->
             <div class="activity_group_introduction"  :class="{reverse: index%2 === 0}">
                 <div class="activity_carousel">
                   <!-- activity_block 要和子元素 props 內的變數名稱相同 -->
@@ -157,7 +162,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
                     "dot_ice",
                     "dot_canyon"
                 ],
-                idx:0,
+                idx:true,
                 dotFirst:true,
                 dotSecond:false,
         }
@@ -167,6 +172,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
         console.log(idx)
         this.idx =!this.idx
       },
+
       dotFristOpen(){
         if(this.dotFirst == true){
           return
@@ -181,7 +187,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
     //   const dotImg = document.querySelector('.dot_first')
     //   console.log(dotImg)
     // },
-
+    
           },
   
     mounted() {
@@ -189,11 +195,21 @@ import ActivityCarousel from './ActivityCarousel.vue'
       gsap.to(island,{
         duration:5,
         y:-30,
-        opacity:1,
         repeat:-1,
         ease: "power1.inOut",
         yoyo:true
       });
+      const shadow =document.getElementsByClassName("shadow");
+      gsap.to(shadow,{
+        duration:7,
+        scale:.9,
+        repeat:-1,
+        ease: "power1.inOut",
+        yoyo:true
+      });
+
+      
+
     }
 }
 </script>
