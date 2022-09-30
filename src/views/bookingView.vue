@@ -134,11 +134,8 @@
           </div>
           <div class="bk_when_container">
             <div class="bk_when_content_container">
-              <h2>
-                你要什麼時候
-                <br />
-                出發？
-              </h2>
+              <h2>你要什麼時候 出發？</h2>
+              <DatePicker @update-result="updateWhenResult" />
               <div class="rangeDateShow">
                 <p>
                   開始日期 <span>{{ getStart }}</span>
@@ -148,11 +145,6 @@
                 </p>
               </div>
               <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
-            </div>
-            <div class="bk_when_calendar_select_container">
-              <div class="bk_range_date_picker_controll">
-                <DatePicker @update-result="updateWhenResult" />
-              </div>
             </div>
           </div>
           <div class="bk_process_button_container">

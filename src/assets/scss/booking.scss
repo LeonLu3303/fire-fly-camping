@@ -303,13 +303,15 @@
         margin: 0 auto;
         .bk_when_container {
           display: flex;
+          justify-content: center;
           flex-grow: 1;
           .bk_when_content_container {
-            width: 30%;
+            width: 100%;
             padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            align-items: center;
             h2 {
               font-size: 48;
               font-weight: 800;
@@ -320,6 +322,7 @@
                 color: #bc6c61;
                 font-size: 22px;
                 font-weight: 600;
+                padding: 20px 0;
               }
             }
             p {
@@ -328,24 +331,16 @@
               font-weight: 600;
             }
           }
-          .bk_when_calendar_select_container {
-            padding: 60px;
-            .bk_range_date_picker_controll {
-              position: relative;
-              .ant-picker {
-                visibility: hidden;
-              }
-            }
-          }
         }
       }
     }
+
     .bk_process_when::after {
       content: '';
       position: absolute;
       top: 0;
-      right: 0;
-      width: 50%;
+      left: 50%;
+      width: 60%;
       height: 100%;
       background-color: #f0ece7;
       z-index: -1;
@@ -772,19 +767,6 @@
               }
               .btn_confirm {
                 margin-top: 20px;
-              }
-            }
-            .bk_when_calendar_select_container {
-              padding: 60px;
-              position: absolute;
-              top: 25vh;
-              left: 50%;
-              transform: translateX(50%);
-              .bk_range_date_picker_controll {
-                position: relative;
-                .ant-picker {
-                  visibility: hidden;
-                }
               }
             }
           }

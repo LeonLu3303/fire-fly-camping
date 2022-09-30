@@ -59,40 +59,40 @@ gsap.registerPlugin(ScrollTrigger);
 
             gsap.to(jungle_1, {
                 y: -650,
+                ease:"Bounce.easeIn",
                 scrollTrigger: {
                     trigger: 'home_parallex',
                     scrub: true,
                     // markers: true,
                     // start: 'top botton-=20%',
-                    ease:"Bounce.easeIn",
                     // end: 'top-=20% center ',
                 }
             })
 
             gsap.to(jungle_2 , {
                 y: -250,
+                ease:"Bounce.easeIn",
                 scrollTrigger: {
                     trigger: "home-mountains",
                     scrub: true,
-                    ease:"Bounce.easeIn",
                     // markers: true,
                 }
             })
             gsap.to(jungle_3, {
                 y: 400,
+                ease:"Bounce.easeIn",
                 scrollTrigger: {
                     trigger: "home-mountains",
                     scrub: true,
-                    ease:"Bounce.easeIn",
                     // markers: true,
                 }
             })
             gsap.to(jungle_4, {
                 y: 950,
+                ease:"Bounce.easeIn",
                 scrollTrigger: {
                     trigger: "home-mountains",
                     scrub: true,
-                    ease:"Bounce.easeIn",
                     // markers: true,
                 }
             })
