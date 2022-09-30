@@ -79,10 +79,7 @@ export default {
     background-position: bottom center;
     padding-top: 150px;
     padding-bottom: 400px;
-    @include md(){
-      background-size:150%;
-      padding-bottom: 250px;
-    }
+
 }
 .activityIsland_group{
     width: 80%;

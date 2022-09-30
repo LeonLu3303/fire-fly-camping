@@ -57,10 +57,16 @@ export default {
 .member_wrapper{
     width: 100%;
     padding: 150px 0;
+    background-color:$color-main-yellow ;
 }
 .member_group{
     width: 80%;
     margin: auto;
+    @include md(){
+      width: 95%;
+      margin: 0 auto;
+
+    }
 }
 .member_tabs{
     color: #168D80;
@@ -75,6 +81,10 @@ export default {
     margin-bottom: 30px ;
     font-size: $title_h3;
     font-weight: 600;
+    @include md(){
+        padding: 8px;
+        font-size: 20px;
+    } 
     &:nth-child(1){
         border-radius: 5px 0 0 5px ;
     }
@@ -86,7 +96,11 @@ export default {
         color:$color-str-green;
         display: inline-block;
         padding: 20px 30px;
-    }    
+        @include md(){
+        padding: 8px;
+        font-size: 20px;
+    } 
+    }   
 }
 .mem_content_group{
     padding: 70px 0;

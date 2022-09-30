@@ -8,39 +8,49 @@
                 <div class="activity_item_group" >
                     <div class="activity_items">
                         <div class="activity_item_title">
-                            <h3 class="test" @click="isShow(idx)">{{ item.titleFir }}</h3>
+                        <!-- (第一個)點按標題 -->
+                            <h3 class="click_title" @click="openCollapse[index] = 0">
+                              {{ item.titleFir }}
+                            </h3>
                         </div> 
-                        <div :id="`${item.id}`" class="activity_item_text" v-show="idx == true">
+                        <!-- 秀出內容 -->
+                        <div class="activity_item_text" 
+                             v-show="openCollapse[index] == 0"
+                             >
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
                         </div>
-                        
-                        <!-- <Activityttest :activity_block="item.name"/> -->
-                        <!-- <div class="activity_item_title">
-                            <h3 @click.prevent="current = 'Activityttest'">{{ item.titleFir }}</h3>
-                        </div>  -->
-                        <!-- <component :is='current'> </component> -->
                     </div>
                     <div class="activity_items" >
                         <div class="activity_item_title">
-                            <h3 class="test" @click="isShow(idx)">{{ item.titleSen }}</h3>
+                          <!-- (第二個)點按標題 -->
+                            <h3 class="click_title" @click="openCollapse[index] = 1">{{ item.titleSen }}</h3>
                         </div> 
-                        <div class="activity_item_text" v-show="idx == false">
+                        <!-- 秀出內容 -->
+                        <transition name="fade-down" mode="out-in">
+                        <div class="activity_item_text" 
+                             v-show="openCollapse[index] == 1">
                             <span>{{ item.sub  }}</span>
                             <p>{{ item.textSen }}</p>
                         </div>
+                        </transition>
                     </div>
                 </div>
                 <!-- 小島圖片區 -->
                 <div class="activity_picture" >
                   <div class="dot_positin" :class="dotPosition[index]">
-                    <div class="dot_positin_first" @click="dotFristOpen" >
-                      <img class="dot_first" :src="item.imgDotFirL" alt="錨點">
-                      <img class="dot_first" :src="item.imgDotFir" alt="錨點"> 
+                    <!-- 點按錨點要打開文字內容跟換圖片 -->
+                    <div class="dot_positin_first" @click="dotHander(index, 1)" >
+                      <transition name="fade" mode="out-in">
+                        <img v-if="openCollapse[index] == 1" class="dot_first" :src="item.imgDotFirL" alt="錨點">
+                        <img v-else class="dot_first" :src="item.imgDotFir" alt="錨點"> 
+                      </transition>
                     </div>
-                    <div class="dot_positin_second" @click="dotSecondOpen" >
-                      <!-- <img class="dot_second" :src="item.imgDotSecL" alt="錨點"> -->
-                      <img class="dot_second" :src="item.imgDotSec" alt="錨點">
+                    <div class="dot_positin_second" @click="dotHander(index, 0)" >
+                      <transition name="fade" mode="out-in">
+                        <img v-if="openCollapse[index] == 0" class="dot_second" :src="item.imgDotSecL" alt="錨點">
+                        <img v-else class="dot_second" :src="item.imgDotSec" alt="錨點">
+                      </transition>
                     </div>
                   </div>
                   <img class="island" :src="item.imgUrl" alt="小島"/>
@@ -70,15 +80,11 @@
 </template>
 
 <script>
-import ActivityTourTxtFirst from '@/components/ActivityTourTxtFirst.vue'
 import {gsap} from 'gsap'
 import ActivityCarousel from './ActivityCarousel.vue'
-import Activityttest from './Activityttest.vue'
     export default {
       components:{
-        ActivityTourTxtFirst,
         ActivityCarousel,
-        Activityttest
         },
         data(){
             return {
@@ -149,36 +155,20 @@ import Activityttest from './Activityttest.vue'
                     "dot_ice",
                     "dot_canyon"
                 ],
-                idx:true,
-                dotFirst:true,
-                dotSecond:false,
+                openCollapse: [0, 0 ,0],
         }
     },
     methods:{
-      isShow(idx){
-        console.log(idx)
-        this.idx =!this.idx
+      // isShow(idx){
+      //   console.log(idx)
+      //   this.idx =!this.idx
+      // },
+      dotHander(index, num) {
+        this.openCollapse[index] = num;
       },
 
-      dotFristOpen(){
-        if(this.dotFirst == true){
-          return
-        }else{
-          this.dotSecond = true
-          this.dotFirst = false
-        }
-      },
-      // dotSecondOpen(){
-      // }
-    goOpen(){
-      
-      console.log(dotImg)
     },
-    
-          },
-  
     mounted() {
-
       const island = document.querySelectorAll(".island");
       gsap.to(island,{
         duration:5,
@@ -373,11 +363,15 @@ import Activityttest from './Activityttest.vue'
         right: -12%;  
         bottom:-50px;  
     }
-    .test{
+    .click_title{
       cursor: pointer;
     }
-        
-    
-
+     .fade-down-enter-active, .fade-down-leave-active {
+       transition: all .5s;
+     }
+     .fade-down-enter-from, .fade-down-leave-to {
+       opacity: 0;
+       transform: translateY(-50px);
+     }
     </style>
     

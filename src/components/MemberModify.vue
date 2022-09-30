@@ -5,28 +5,65 @@
             <div class="tabcontent_text_group">
                 <div class="tabcontent_txt_group">
                     <ul class="tabcontent_txt">
-                        <li><label for="" class="tab_label"><p>會員姓名</p></label></li>                    
-                        <li><label for="" class="tab_label"><p>暱稱</p></label></li>
-                        <li><label for="" class="tab_label"><p>E-mail</p></label></li>
-                        <li><label for="" class="tab_label"><p>電話</p></label>  </li> 
+                        <li>
+                            <label for="mem_name" class="tab_label">
+                                <p>會員姓名</p>
+                            </label>
+                        </li>                    
+                        <li>
+                            <label for="mem_nick_name" class="tab_label">
+                                <p>暱稱</p>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="mem_email" class="tab_label">
+                                <p>E-mail</p>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="mem_tel" class="tab_label">
+                                <p>電話</p>
+                            </label>
+                        </li> 
                     </ul>
                     <ul class="tabcontent_txt">
-                        <li><input class="input_box" type="text" placeholder="營火叢" /></li>
-                        <li><input class="input_box" type="text" placeholder="小營" /></li>
-                        <li><input class="input_box" type="email" placeholder="123@xxx.com" /></li>
-                        <li><input class="input_box" type="tel" placeholder="01-123456" /></li>
+                        <li>
+                            <input id="mem_name" class="input_box" type="text" placeholder="營火叢" />
+                        </li>
+                        <li>
+                            <input id="mem_nick_name" class="input_box" type="text" placeholder="小營" />
+                        </li>
+                        <li>
+                            <input id="mem_email" class="input_box" type="email" placeholder="123@xxx.com" />
+                        </li>
+                        <li>
+                            <input id="mem_tel" class="input_box" type="tel" placeholder="01-123456" />
+                        </li>
                     </ul>
                 </div>
                 <div class="tabcontent_txt_group">
                     <ul class="tabcontent_txt">
-                        <li><label class="tab_label" for=""><p>縣市</p></label></li>
-                        <li><label class="tab_label" for=""><p>鄉鎮市區</p></label></li>
-                        <li><label class="tab_label" for=""><p>詳細地址</p></label></li>
+                        <li>
+                            <label class="tab_label" for="">
+                            <p>縣市</p></label>
+                        </li>
+                        <li>
+                            <label class="tab_label" for=""><p>鄉鎮市區</p></label>
+                        </li>
+                        <li>
+                            <label class="tab_label" for=""><p>詳細地址</p></label>
+                        </li>
                     </ul>
                     <ul class="tabcontent_txt">
-                        <li><select  class="menu_choose" ><option value="">桃園市</option></select></li>
-                        <li><select class="menu_choose" ><option value="">中壢市</option></select></li>
-                        <li><input  class="input_box" type="text" placeholder="桃園市中壢市46號9樓" /></li>
+                        <li>
+                            <select  class="menu_choose" ><option value="">桃園市</option></select>
+                        </li>
+                        <li>
+                            <select class="menu_choose" ><option value="">中壢市</option></select>
+                        </li>
+                        <li>
+                            <input  class="input_box" type="text" placeholder="桃園市中壢市46號9樓" />
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -79,8 +116,6 @@
         name: "MemberModify",
         data(){
             return {
-                
-                
             }
         }
     }
