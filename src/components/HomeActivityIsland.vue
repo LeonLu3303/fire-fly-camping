@@ -22,11 +22,20 @@
     </div>
     <div class="btn_more">
             <router-link to ="/Activity" class="btn_page_link">了解更多</router-link>
-        </div>
+    </div>
+    <div class="home_snow_parallex">
+      <img class="snow_bg_img s_1" src="../assets/images/home/home_snow_600_1.png" alt="">
+      <img class="snow_bg_img s_2" src="../assets/images/home/home_snow_600_2.png" alt="">
+      <img class="snow_bg_img s_3" src="../assets/images/home/home_snow_600_3.png" alt="">
+      <img class="snow_bg_img s_4" src="../assets/images/home/home_snow_600_4.png" alt="">
+    </div>
   </section>
 </template>
 <script>
-import gsap from 'gsap'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   name: "HomeActivityIsland",
   data(){
@@ -66,25 +75,117 @@ export default {
              yoyo:true
            });
          }
-  }
+  },
+  mounted(){
+            const snow_1 = document.querySelector('.home_snow_parallex img');
+            const snow_2 = document.querySelector('.s_2');
+            const snow_3 = document.querySelector('.s_3');
+            const snow_4 = document.querySelector('.s_4');
+
+            gsap.to(snow_1, {
+                y: -200,
+                ease:"Power3.easeIn",
+                scrollTrigger: {
+                    trigger: '.btn_more',
+                    scrub: true,
+                    // markers: true,
+                    // start: 'top bottom+=80%',
+                    end: 'top+=5% top ',
+                }
+            })
+
+            gsap.to(snow_2 , {
+                y: -250,
+                ease:"Power3.easeIn",
+                scrollTrigger: {
+                    trigger: ".btn_more",
+                    scrub: true,
+                    // markers: true,
+                }
+            })
+            gsap.to(snow_3, {
+                y: -200,
+                ease:"Power3.easeIn",
+                scrollTrigger: {
+                    trigger: ".btn_more",
+                    scrub: true,
+                    // markers: true,
+                }
+            })
+            gsap.to(snow_4, {
+                y: -150,
+                ease:"Power3.easeIn",
+                scrollTrigger: {
+                    trigger: ".btn_more",
+                    scrub: true,
+                    // markers: true,
+                }
+            })
+        }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/style.scss";
 .wrap_activityIsland{
-    background:url(@/assets/images/home/home_snow_all.png) $color-main-yellow ;
+    position: relative;
+    background: $color-main-yellow ;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
     padding-top: 150px;
-    padding-bottom: 400px;
-    @include md(){
-      background-size:150%;
-      padding-bottom: 250px;
+    // padding-bottom: 400px;
+    // @include md(){
+    //   background-size:150%;
+    //   padding-bottom: 250px;
+    // }
+}
+// 首頁下面 snow 的滾動視差動畫
+.home_snow_parallex{
+    position: absolute;
+    z-index: 2;
+    height: 100vh;
+    width: 100%;
+    bottom: -40vh;
+    left: 0;
+    .snow_bg_img{
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+        object-position: center;
     }
 }
+.home_snow_parallex img:nth-child(1){
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+    left: 0;
+    z-index: 11;
+}
+.home_snow_parallex img:nth-child(2){
+    width: 100%;
+    // height: 100%;
+    bottom: 0%;
+    left: 0;
+    z-index: 10;
+}
+.home_snow_parallex img:nth-child(3){
+    width: 100%;
+    // height: 100%;
+    bottom: 0%;
+    left: 0;
+    z-index: 9;
+}
+.home_snow_parallex img:nth-child(4){
+    width: 100%;
+    // height: 100%;
+    bottom: 0%;
+    left: 0;
+    z-index: 8;
+}
 .activityIsland_group{
+    z-index: 3;
+    position: relative;
     width: 80%;
     max-width: 1296px;
     margin:0 auto;
@@ -97,8 +198,11 @@ export default {
     }
 }
 .btn_more{
+        position: relative;
         display: flex;
         justify-content: center;
+        z-index: 3;
+        padding-bottom: 400px;
     }
 .activityIsland_items{
   display: flex;

@@ -117,6 +117,8 @@ export default {
 .wrap_home_report{
     padding: 150px 0;
     background: $color-aid-blue2;
+    position: relative;
+    z-index: 3;
 }
 .report_home_container{
     width: 80%;
