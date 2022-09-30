@@ -1,6 +1,6 @@
 <template>
   <a-space direction="vertical" :size="12">
-    <a-range-picker v-model:value="value1" :ranges="ranges" :open="true" />
+    <a-range-picker v-model:value="value1" :ranges="ranges" />
   </a-space>
 </template>
 <script>
