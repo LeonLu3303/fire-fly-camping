@@ -1,7 +1,7 @@
 .wrap_login{
     // margin: -20px 0 50px;
     padding-bottom: 150px;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     letter-spacing: .5px;
 }
 //忘記密碼
-#forgot_psw{    
+.forgot_psw{    
     margin: 15px 0;
     text-decoration: none;
     color: #333;
@@ -92,9 +92,28 @@
 #register_id_block{
     position: relative;
 }
+// 居住縣市
 #city{
     border-bottom:none;
     margin-bottom: 20px;
+}
+#register_city{
+    float: right;
+}
+#register_city_title_label{
+    display: block;
+    @include tb(){
+        display: none;
+    }
+}
+.register_city_title{
+    display: none;
+    color: #adadad;
+    // margin-bottom: 5px;
+    text-align: left;
+    @include tb(){
+        display: block;
+    }
 }
 .focus label {
     top: -10px;
@@ -188,6 +207,12 @@
     transform: translateY(-20%);
 }
 //控制登入/註冊畫面顯示
+.container{
+    @include md(){
+        display: none;
+    }
+}
+
 .container.right_panel_active .sign-in-container {
     // transform: translateY(100%);
     display: none;
@@ -209,4 +234,92 @@
 }
 .container.right_panel_active .overlay-right {
     transform: translateY(20%);
+}
+
+// 手機版
+
+.container_sm{
+    display: none;
+    @include md(){
+        width: 80%;
+        margin: auto;
+        padding-top:150px ;
+        display: block;
+    }
+    
+}
+.tabs{
+    display: flex;
+}
+
+.tab{
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+    &:hover{
+        cursor: pointer;
+    }
+}
+#login_tab{
+    background-color: #f5f2e9;
+}
+#register_tab{
+    background-color: #168d80;
+    color: #fff;
+}
+.content{
+    // display: none;
+    padding: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 0 10px 10px 10px;
+    form{
+        width: 70%;
+        input{
+            width: 100%;
+        }
+    }
+    .txtb_sm{
+        margin-bottom: 50px;
+        .input_title{
+            margin-bottom: 5px;
+        }
+        .register_city_title{
+            color: #fff;
+        }
+        #register_city_sm{
+            color: #333;
+        }
+    }
+    #register_id_block_sm,#register_email_block_sm{
+        position: relative;
+    }
+    #check_id_sm,#check_email_sm{
+        font-size: 16px;
+        padding: 5px;
+        margin: 5px 0 0 0;
+        width: 100px;
+        position: absolute;
+        right: 0;
+    }
+    
+}
+.content.login{
+    background-color: #f5f2e9;
+    
+}
+.content.register{
+    // display: none;
+    background-color: #168d80;
+    color: #fff;
+    input{
+        border: none;
+    }
+    .btn_submit{
+        margin: 0px auto 50px auto;
+    }
 }

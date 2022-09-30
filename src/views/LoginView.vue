@@ -1,6 +1,7 @@
 <template>
     <MainHeader/>
     <section class="wrap_login">
+        <!-- 正常版 -->
         <div class="container" 
              id="login-box"
              :class="{right_panel_active:index === 1}">
@@ -79,6 +80,9 @@
                         <label for="register_phone">電話</label>
                     </div>           
                     <div class="txtb" id="city">
+                        <div class="register_city_title">
+                            居住縣市
+                        </div>
                         <select name="register_city" id="register_city">
                             <option value="">請選擇居住縣市</option>
                             <option value="基隆市">基隆市</option>
@@ -103,7 +107,7 @@
                             <option value="連江縣">連江縣</option>
                             <option value="金門縣">金門縣</option>
                         </select>
-                        <label for="register_city">居住縣市</label>
+                        <label for="register_city" id="register_city_title_label">居住縣市</label>
                     </div>        
                           
                     <div class="txtb"
@@ -143,7 +147,7 @@
                                 >
                         <label for="login_psw">密碼</label>
                     </div>
-                    <a href="#" id="forgot_psw">忘記密碼</a>
+                    <a href="#" class="forgot_psw">忘記密碼</a>
                     <div class="login_btn">
                         <router-link to ="/Member" class="btn_submit">
                             登入
@@ -173,6 +177,157 @@
                         </button>
                     </div>
                 </div>  
+            </div>
+        </div>
+        <!-- 手機版 -->
+        <div class="container_sm">
+            <div class="tabs">
+                <div class="tab"
+                    @click="activeTab = 'login'"
+                    id="login_tab">
+                    登入
+                </div>
+                <div class="tab"
+                    @click="activeTab = 'register'"
+                    id="register_tab">
+                    註冊
+                </div>
+            </div>
+            <div class="content login"
+                 v-if="activeTab === 'login'">
+                <form action="#">
+                    <div class="txtb_sm">
+                        <div class="input_title">帳號</div>
+                        <input  type="text" 
+                                name="login_id_sm" 
+                                id="login_id_sm"
+                                >
+                        
+                    </div>
+                    <div class="txtb_sm">
+                        <div class="input_title">密碼</div>
+                        <input  type="password" 
+                                name="login_psw_sm" 
+                                id="login_psw_sm" 
+                                >
+                    </div>
+                    <a href="#" class="forgot_psw">忘記密碼</a>
+                    <div class="login_btn">
+                        <router-link to ="/Member" class="btn_submit">
+                            登入
+                        </router-link>
+                    </div>
+                </form>
+            </div>
+            <div class="content register"
+                 v-if="activeTab === 'register'">
+                <form>    
+                    <div class="txtb_sm"
+                         id="register_id_block_sm"
+                         >
+                         <div class="input_title">
+                            帳號
+                        </div>
+                        <input  type="email" 
+                                name="register_id_sm" 
+                                id="register_id_sm">
+                        
+                        <div id="check_id_sm" class="btn_submit">
+                            檢查帳號
+                        </div>
+                    </div>
+                    <div class="txtb_sm">
+                        <div class="input_title">密碼</div>
+                        <input  type="password" 
+                                name="register_psw_sm" 
+                                id="register_psw_sm"
+                                >
+                        
+                    </div>
+                    <div class="txtb_sm">
+                        <div class="input_title">確認密碼</div>
+                        <input  type="password" 
+                                name="register_check_psw_sm" 
+                                id="register_check_psw_sm"
+                                >
+                        
+                    </div>            
+                    <div class="txtb_sm" id="register_email_block_sm">
+                        <div class="input_title">信箱</div>
+                        <input  type="text" 
+                                name="register_mem_email_sm" 
+                                id="register_mem_email_sm">
+                        
+                        <div id="check_email_sm" class="btn_submit">
+                            檢查信箱
+                        </div>
+                    </div>            
+                    <div class="txtb_sm">
+                        <div class="input_title">姓名</div>
+                        <input  type="text" 
+                                name="register_mem_name_sm" 
+                                id="register_mem_name_sm"
+                                >
+                        
+                    </div>            
+                    <div class="txtb_sm">
+                        <div class="input_title">暱稱</div>
+                        <input  type="text" 
+                                name="register_nickname_sm" 
+                                id="register_nickname_sm"
+                                >
+                        
+                    </div>    
+                    <div class="txtb_sm">
+                        <div class="input_title">電話</div>
+                        <input  type="text" 
+                                name="register_phone_sm" 
+                                id="register_phone_sm">
+                        
+                    </div>           
+                    <div class="txtb_sm" id="city_sm">
+                        <div class="register_city_title">
+                            居住縣市
+                        </div>
+                        <select name="register_city_sm" id="register_city_sm">
+                            <option value="">請選擇居住縣市</option>
+                            <option value="基隆市">基隆市</option>
+                            <option value="台北市">台北市</option>
+                            <option value="新北市">新北市</option>
+                            <option value="桃園市">桃園市</option>
+                            <option value="新竹縣">新竹縣</option>
+                            <option value="新竹市">新竹市</option>
+                            <option value="苗栗縣">苗栗縣</option>
+                            <option value="台中市">台中市</option>
+                            <option value="彰化縣">彰化縣</option>
+                            <option value="雲林縣">雲林縣</option>
+                            <option value="嘉義縣">嘉義縣</option>
+                            <option value="嘉義市">嘉義市</option>
+                            <option value="台南市">台南市</option>
+                            <option value="高雄市">高雄市</option>
+                            <option value="屏東縣">屏東縣</option>
+                            <option value="宜蘭縣">宜蘭縣</option>
+                            <option value="花蓮縣">花蓮縣</option>
+                            <option value="台東縣">台東縣</option>
+                            <option value="澎湖縣">澎湖縣</option>
+                            <option value="連江縣">連江縣</option>
+                            <option value="金門縣">金門縣</option>
+                        </select>
+                    </div>        
+                          
+                    <div class="txtb_sm">
+                        <div class="input_title">地址</div>
+                        <input  type="text" 
+                                name="register_addr_sm" 
+                                id="register_addr_sm">
+                        
+                    </div>            
+                    <div class="login_btn_sm">
+                        <router-link to ="/Member" class="btn_submit">
+                            註冊
+                        </router-link>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -208,6 +363,7 @@
                 //     input1: 0,
                 //     input1: 0,
                 // }
+                activeTab:'login'
                 }
             },
             methods:{
