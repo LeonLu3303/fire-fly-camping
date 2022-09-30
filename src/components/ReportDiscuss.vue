@@ -12,7 +12,7 @@
                     <div class="report_btn">
                         <ReportLightBox/>
                         <div class="message_icon">
-                            <img src="@/assets/images/report/report_msge_1.png" alt="report">
+                            <img src="@/assets/images/report/report_msg_1.png" alt="report">
                             <p class="message_count">{{messageCount}}</p>
                         </div>
                     </div>
