@@ -9,12 +9,7 @@
 </template>
 
 <script>
-import defineComponent from 'vue';
-
 export default {
-    components: {
-        defineComponent,
-    },
     data() {
         return {
             pageSize: 6,
