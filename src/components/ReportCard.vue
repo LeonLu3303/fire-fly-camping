@@ -7,14 +7,14 @@
             <!-- 最新熱門btn -->
             <div class="report_new_hot">
                 <form class="new_hot_choose">
-                    <button class="btn_report_new" 
-                        @click="activeBtn = 'new'" 
-                        :class="{btn_active:activeBtn === 'new'}"
+                    <button class="btn_report_new" type="button"
+                        @click="activeBtn = 'timeDate'" 
+                        :class="{btn_active:activeBtn === 'timeDate'}"
                         >最新報告
                     </button>
-                    <button class="btn_report_new" 
-                        @click="activeBtn = 'hot'" 
-                        :class="{btn_active:activeBtn === 'hot'}"
+                    <button class="btn_report_new" type="button"
+                        @click="activeBtn = 'hotData'" 
+                        :class="{btn_active:activeBtn === 'hotData'}"
                         >熱門報告
                     </button>
                 </form>
@@ -22,7 +22,7 @@
             <!-- 報告卡片 -->
             <div id="cardReports">
                 <div class="row_card_report">
-                    <div class="col_card_report" v-for="item in cardReports" :key="item.id">
+                    <div class="col_card_report" v-for="item in filterData" :key="item.id">
                         <div class="report_mem">
                             <div class="mem_pic">
                                 <!-- <img :src="require(`${item.memPic}`)" alt="avatar"> -->
@@ -48,17 +48,17 @@
                 </div>
                 <!-- 分頁 -->
                 <div class="btnContainer">
-                    <button @click="prevPage"> ＜ </button>
+                    <button @click="prevPage" type="button"> ＜ </button>
                     <button 
-                        v-for="(page) in paginateTotal" 
-                        :class="{
-                            'activeBtnStyle': (currentPage === page)
-                        }"
-                        @click="selectPage(page)" :key="page.index"
+                        v-for="page in paginateTotal" 
+                        :key="page"
+                        :class="{'activeBtnStyle': (current === page)}"
+                        @click="current = page"  
+                        type="button"
                     >
-                        {{page + 1}}
+                        {{page}}
                     </button>
-                    <button @click="nextPage"> ＞ </button>
+                    <button @click="nextPage" type="button"> ＞ </button>
                 </div>
             </div>
         </div>
@@ -66,33 +66,42 @@
 </template>
 
 <script>
-import ReportPaginate from '../components/ReportPaginate.vue';
 import ReportLightBox from '../components/ReportLightBox.vue';
-// import defineComponent from 'vue';
 
 export default {
     name: "ReportCard",
     el: '#cardReports',
     components: {
-        ReportPaginate,
         ReportLightBox,
-        // defineComponent,
     },
     computed: {
-        created() {
-            //頁碼總數 = 卡片長度 除以 一頁可顯示的數量
-            this.paginateTotal = this.cardReports.length/this.paginate;
+        paginateTotal() {
+            //卡片長度 除以 一頁可顯示的數量，會有小數點所以要用Math無條件進位
+            return Math.ceil(this.cardReports.length / this.paginate)
         },
+        filterData() {
+            //一頁有幾筆數目，透過slice做計算
+            //array.slice((page_number - 1) * page_size, page_number * page_size);
+            let arr = this.activeBtn == 'timeDate' ? this.timeDate : this.hotData;
+            return arr.slice((this.current - 1) * this.paginate , this.current * this.paginate);
+        },
+        hotData() {
+            return [...this.cardReports].sort( function(a,b) {
+                return b.msgCount - a.msgCount;
+            });
+        },
+        timeDate() {
+            return [...this.cardReports].sort( function(a,b) {
+                return Date.parse(b.reaTime) - Date.parse(a.reaTime);
+                //其轉換成秒數
+            });
+        }
     },
     data(){
         return {
-            activeBtn:'new',
-            
+            activeBtn:'timeDate',
             current: 1,
-            paginate: 6,
-            paginateTotal: 0,
-            // search_filter: '',
-            // status_filter: '',
+            paginate: 9,
             cardReports: [
                 {
                     id:1,
@@ -197,42 +206,18 @@ export default {
         }
     },
     methods: {
-        setPaginate(i) {
-            if (this.current == 1) {
-                return i < this.paginate;
-            }
-            else {
-                return (i >= (this.paginate * (this.current - 1)) && i < (this.current * this.paginate));
-            }
-        },
-        setStatus(status) {
-            this.status_filter = status;
-            this.$nextTick(function () {
-                this.updatePaginate();
-            });
-        },
-        updateCurrent(i) {
-            this.current = i;
-        },
-        updatePaginate() {
-            this.current = 1;
-            this.paginate_total = 
-            Math.ceil(document.querySelector('.col_card_report').length/this.paginate);
-        },
         prevPage(){
             //當前頁面是第一頁，不能再往前
-            if(this.currentPage === 1) return
-            //this.currentPage = this.currentPage - 1
-            this.currentPage -= 1
+            if(this.current === 1) return
+            this.current -= 1
         },
         nextPage(){
             //當前頁面是最後一頁，不能再往後
-            if(this.currentPage >= this.paginations) return
-            //this.currentPage = this.currentPage + 1
-            this.currentPage += 1
+            if(this.current >= this.paginateTotal) return
+            this.current += 1
         },
         selectPage(val){
-            this.currentPage = val
+            this.current = val
         }
     }
 }
@@ -242,9 +227,27 @@ export default {
 @import '../assets/scss/style.scss';
 
 // 分頁 按紐
-.activeBtnStyle{
-    background-color: #999;
-    color: #fff;
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    button{
+        cursor: pointer;
+        border: none;
+        width: 35px;
+        height: 35px;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 50%;
+        color: $color-basic-White;
+        background: $color-aid-green1;
+        text-align: center;
+        font-weight: 700px;
+    }
+    .activeBtnStyle{
+        background: $color-str-green;
+        color: $color-basic-White;
+        border: none;
+    }
 }
 
 .wrap_card_report{
