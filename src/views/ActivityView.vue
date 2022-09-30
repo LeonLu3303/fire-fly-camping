@@ -5,9 +5,6 @@
   </div>
   <ActivityTour/>
   <ActivityInfo/>
-  <!-- <transition appear @enter="enter">
-  <div class="box"></div>
-</transition> -->
   <div class="carousel_jungle">
     <ActivityCarousel/>
   </div>
@@ -27,21 +24,13 @@ export default {
     MainHeader,
     ActivityTour,
     ActivityInfo,
-    MainFooter,
     ActivityCarousel,
+    MainFooter,
 },
       methods:{
         scrollToTop(){
           window.scrollTo(0,0)
         },
-      //   enter(el){
-      //     gsap.to(el,{
-      //       duration:1,
-      //       x:100,
-      //       opacity:1,
-      //       repeat:-1
-      //     });
-      //   }
       },
       mounted(){
         //要用到mounted，不能用在created中，因為Dom元件還沒被掛載，讀不到window
