@@ -12,7 +12,7 @@
                     </ul>
                     <ul class="tabcontent_txt">
                         <li><input class="input_box" type="text" placeholder="營火叢" /></li>
-                        <li><input class="input_box" type="text" placeholder="123@xxx.com" /></li>
+                        <li><input class="input_box" type="text" placeholder="小營" /></li>
                         <li><input class="input_box" type="email" placeholder="123@xxx.com" /></li>
                         <li><input class="input_box" type="tel" placeholder="01-123456" /></li>
                     </ul>
@@ -80,6 +80,7 @@
         data(){
             return {
                 
+                
             }
         }
     }
@@ -128,7 +129,7 @@
     }
 }
 .tabcontent_txt{
-    color: $color-str-green;
+    color:$color-basic-gray3;
 }
 .tab_label{
     p{
