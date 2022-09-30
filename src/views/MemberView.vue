@@ -12,7 +12,7 @@
         <button class="member_tabs mem_button" @click="activeTab = 'product'"
                 :class="{mem_btn_active:activeTab === 'product'}">商品訂單查詢</button>
         <button class="member_tabs mem_button" @click="activeTab = 'signout'">
-            <router-link to ="/HomeView.vue" class="mem_signout">登出</router-link>
+            <router-link to ="/HomeView" class="mem_signout">登出</router-link>
         </button>
         <!-- 會員資料修改專區 -->
         <div v-if="activeTab === 'memdata'" class="mem_content">
@@ -24,13 +24,7 @@
         </div>
         <!-- 商品訂單查詢 -->
         <div v-else class="mem_content">
-          <div class="mem_content_group">
-                <div class="tabcontent_txt">
-                    <h3>789</h3>
-                    <h4>123</h4>
-                    <p>123</p>
-                </div>
-            </div>
+            <MemberProductOrder/>          
         </div>     
       </div> 
     </section>
@@ -41,11 +35,13 @@ import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import MemberModify from '@/components/MemberModify.vue'
 import MemberCampsiteOrder from '@/components/MemberCampsiteOrder.vue'
+import MemberProductOrder from '@/components/MemberProductOrder.vue'
 export default {
     components:{
         MainHeader,
         MemberModify,
         MemberCampsiteOrder,
+        MemberProductOrder,
         MainFooter
     },
     data(){

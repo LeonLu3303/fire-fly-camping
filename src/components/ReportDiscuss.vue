@@ -4,18 +4,21 @@
         <div class="col_postcard">
             <div class="postcard_group">
                 <div class="postcard_release">
+
                     <h3 class="postcard_title_area">{{enterTitle}}</h3>
                     <p class="postcard_text_area">{{enterText}}</p>
 
+                    <!-- 檢舉 留言 button -->
                     <div class="report_btn">
                         <ReportLightBox/>
                         <div class="message_icon">
-                            <img src="@/assets/images/report/report_msge_1.png" alt="report">
-                            <p class="message_count">{{item.messageCount}}</p>
+                            <img src="@/assets/images/report/report_msg_1.png" alt="report">
+                            <p class="message_count">{{messageCount}}</p>
                         </div>
                     </div>
 
                 </div>
+
                 <!-- 頭像 會員 -->
                 <div class="postcard_member_data">
                     <div class="member_content">
@@ -29,6 +32,8 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 明信片背景 -->
             <div class="postcard_bg">
                 <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
             </div>
@@ -37,16 +42,21 @@
 </template>
 
 <script>
+import ReportLightBox from '../components/ReportLightBox.vue';
+
 export default {
-    name: "ReportPublish",
+    name: "ReportDiscuss",
+    components: {
+        ReportLightBox,
+    },
     data() {
         return {
-            activeTab:'snow',
             enterTitle: "請輸入標題(15字以內)",
             enterText: "請輸入內文(300字以內)",
             memberPic: '@/assets/images/report/report_avatar_1.png',
             memberName: "會員名稱",
             releaseTime: "2022/09/22",
+            messageCount: 7,
             selectBg: '1',
             bgPic: [
                 {
@@ -89,17 +99,17 @@ export default {
 //         width: 95%;
 //     }
 // }
-// .row_report_write{
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-// }
+.row_report_write{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 // 明信片
 .col_postcard{
     position: relative;
     width: 70%;
-    margin: 10px;
+    margin-bottom: 20px;
     @include lg(){
         width: 80%;
     }
@@ -111,7 +121,6 @@ export default {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    // flex-wrap: wrap;
     padding: 20px;
     right: 0;
     left: 0;
@@ -131,14 +140,12 @@ export default {
     vertical-align:middle;
 }
 .message_icon{
-    display: inline-block;
+    display: flex;
+    margin-left: 20px;
     img{
-        width: 30px;
+        width: 26px;
         margin-right: 5px;
     }
-}
-.message_icon{
-    display: flex;
     .message_count{
         color: #939393;
         font-size: 20px;
@@ -150,7 +157,6 @@ export default {
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     overflow: hidden;
-    // object-fit: cover;
     img{
         height: 100%;
         object-fit: cover;
@@ -159,21 +165,25 @@ export default {
         height: 600px;
     }
 }
-.tab_active{
-    display: block;
+//文字
+.postcard_release{
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    @include md(){
+        width: 100%;
+        height: 80%;
+    }
 }
 .postcard_title_area{
     padding: 0 0 20px;
     color: $color-basic-gray3;
 }
-//文字
-.postcard_release{
-    width: 70%;
-    padding: 20px;
-    @include md(){
-        width: 100%;
-        height: 80%;
-    }
+.postcard_text_area{
+    color: $color-basic-gray2;
+    text-align: justify;
+    flex-grow: 1;
 }
 // 頭像會員
 .postcard_member_data{
@@ -209,8 +219,11 @@ export default {
         margin: 0 20px 0 0;
     }
 }
-//會員 時間
+//會員名字 時間 0929
 .postcard_member_name{
     margin-bottom: 5px;
+}
+.postcard_release_time{
+    color: $color-basic-gray2;
 }
 </style>

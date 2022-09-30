@@ -33,7 +33,7 @@ export default {
         modalStyle() {
             return {
                 'display': this.isShow ? '' : 'none'
-                //燈箱隱藏
+                //燈箱不隱藏 : 隱藏
             };
         }
     },

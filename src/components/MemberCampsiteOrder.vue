@@ -7,75 +7,53 @@
             <ul class="booking_order_title">
                 <li>預定編號</li>
                 <li>日期</li>
-                <li>總金額</li>
                 <li>預定狀態</li>
-                <li></li>
+                <li>&emsp;</li>
             </ul>
-        <div class="tabcontent_booking_info_tab">
-            <input type="radio" id="booking1" name="orders" class="booing_input">
-            <label class="info_tab" for="booking1">
+        <div class="tabcontent_booking_info_tab" v-for="item in orders" :key="item.id">
+            <input type="radio" name="orders" class="booing_input" :id="`${item.id}`">
+            <label class="info_tab" :for="`${item.id}`" >
                 <ul class="booking_order_info">
-                    <li>{{title}}</li>
-                    <li>{{date}}</li>
-                    <li>{{sum}}</li>
-                    <li>{{state}}</li>
+                    <li>{{item.no}}</li>
+                    <li><span>{{item.checkinDate}}</span>至{{item.checkoutDate}}<span></span></li>
+                    <li>{{item.state}}</li>
                 </ul>
             </label>
             <div class="info_tab_content">
                 <h4>營地預定訂單明細</h4>
-                <ul>
-                    <li>下訂日期</li>
-                    <li>預定地區</li>
-                    <li>個別營帳編號</li>
-                    <li>預訂帳篷類型</li>
-                    <li>預訂餐點類型</li>
-                    <li>預定裝備類型</li>
-                    <li>預訂活動類型</li>
-                </ul>
-                <ul>
-                    <li>{{orderdate}}</li>
-                    <li>{{area}}</li>
-                    <li>{{tentNo}}</li>
-                    <li>{{tentStyle}}</li>
-                    <li>{{food}}</li>
-                    <li>{{equip}}</li>
-                    <li>{{activity}}</li>
-                </ul>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-        <div class="tabcontent_booking_info_tab">
-            <input type="radio" id="booking2" name="orders" class="booing_input">
-            <label class="info_tab" for="booking2">
-                <ul class="booking_order_info">
-                    <li>{{title2}}</li>
-                    <li>{{date2}}</li>
-                    <li>{{sum2}}</li>
-                    <li>{{state2}}</li>
-                </ul>
-            </label>
-            <div class="info_tab_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, asperiores eligendi. Repellendus doloribus voluptatem, incidunt voluptatibus, corrupti veniam, tenetur nemo tempore facere quasi magnam ipsam quaerat quae repudiandae aliquam enim!
-            </div>
-        </div>
-        <div class="tabcontent_booking_info_tab">
-            <input type="radio" id="booking3" name="orders" class="booing_input">
-            <label class="info_tab" for="booking3">
-                <ul class="booking_order_info">
-                    <li>{{title3}}</li>
-                    <li>{{date3}}</li>
-                    <li>{{sum3}}</li>
-                    <li>{{state2}}</li>
-                </ul>
-            </label>
-            <div class="info_tab_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, asperiores eligendi. Repellendus doloribus voluptatem, incidunt voluptatibus, corrupti veniam, tenetur nemo tempore facere quasi magnam ipsam quaerat quae repudiandae aliquam enim!
-            </div>
+                <div class="info_tab_contents">
+                    <ul class="info_tab_contents_title">
+                        <li>下訂日期</li>
+                        <li>預定地區</li>
+                        <li>個別營帳編號</li>
+                        <li>預訂帳篷類型</li>
+                        <li>預訂餐點類型</li>
+                        <li>預定裝備類型</li>
+                        <li>預訂活動類型</li>
+                        <li>訂單總金額</li>
+                    </ul>
+                    <ul>
+                        <li>{{item.orderdate}}</li>
+                        <li>{{item.area}}</li>
+                        <li>{{item.tentNo}}</li>
+                        <li>{{item.tentStyle}}</li>
+                        <li>{{item.food}}</li>
+                        <li>{{item.equip}}</li>
+                        <li>{{item.activity}}</li>
+                        <li>&emsp;</li>
+                    </ul>
+                    <ul class="price">
+                        <li><span>{{item.tentprice}}</span>元</li>
+                        <li><span>{{item.foodprice}}</span>元</li>
+                        <li><span>{{item.equipprice}}</span>元</li>
+                        <li><span>{{item.activityprice}}</span>元</li>
+                        <li>$<span>{{item.sum}}</span>元</li>
+                    </ul>
+                </div>
+                <div class="cancel_order">
+                    <button type="botton" class="btn_submit btn_cancel">取消訂單</button>
+                </div>
+             </div>
         </div>
         </div>
     </div>
@@ -86,17 +64,66 @@
         name: "MemberCampsiteOrder",
         data(){
             return {
-                title:'19203462889269',
-                title2:'19203462889270',
-                title3:'19203462889245',
-                date:'2022-10-07至2022-10-10',
-                date2:'2022-05-07至2022-05-13',
-                date3:'2022-01-03至2022-01-06',
-                sum:'$24000',
-                sum2:'$43000',
-                sum3:'$20000',
-                state:'未付款',
-                state2:'已付款',
+                orders: [
+                    {
+                      id:'booking1',
+                      no: '3462889269',
+                      checkinDate: '2022-10-07',
+                      checkoutDate:'2022-10-10',
+                      sum:'24000',
+                      state:'未付款',
+                      orderdate: '2022-09-28',
+                      area: '冰雪奇緣',
+                      tentNo:'501',
+                      tentStyle:'豪華6人帳篷',
+                      food:'奢華海陸套餐',
+                      equip:'卡拉ok',
+                      activity:'冰上釣魚',
+                      tentprice:'5600',
+                      foodprice:'3000',
+                      equipprice:'3000',
+                      activityprice:'5000'
+
+                    },
+                    {
+                      id:'booking2',
+                      no: '3462889270',
+                      checkinDate: '2022-05-07',
+                      checkoutDate:'2022-05-13',
+                      sum:'14000',
+                      state:'已付款',
+                      orderdate: '2022-05-01',
+                      area: '冰雪奇緣',
+                      tentNo:'402',
+                      tentStyle:'豪華6人帳篷',
+                      food:'未填寫',
+                      equip:'卡拉ok',
+                      activity:'冰上釣魚',
+                      tentprice:'5600',
+                      foodprice:'0',
+                      equipprice:'3000',
+                      activityprice:'5000'
+                    },
+                    {
+                      id:'booking3',
+                      no: '3462889245',
+                      checkinDate: '2022-01-03',
+                      checkoutDate:'2022-01-06',
+                      sum:'14500',
+                      state:'已完成',
+                      orderdate: '2022-01-01',
+                      area: '荒野峽谷',
+                      tentNo:'402',
+                      tentStyle:'豪華6人帳篷',
+                      food:'未填寫',
+                      equip:'未填寫',
+                      activity:'熱氣球',
+                      tentprice:'5600',
+                      foodprice:'0',
+                      equipprice:'0',
+                      activityprice:'5000'
+                    }              
+                ], 
             }
         }
     }
@@ -117,20 +144,17 @@
     background-color:$color-main-yellow ;
     border-bottom: 2px solid $color-str-hov-green;
     li:nth-child(1){
-        width: 25%;
+        width: 30%;
     }
     li:nth-child(2){
-        width: 35%;
+        width: 30%;
     }
     li:nth-child(3){
-        width: 20%;
+        width: 30%;
     }
     li:nth-child(4){
-        width: 15%;
+        width: 10%;
     }
-    li:nth-child(5){
-        width: 5%;
-    }   
 }
 .tabcontent_booking_search{
     text-align: end;
@@ -149,11 +173,14 @@
     .info_tab_content{
         border-bottom: 1px solid $color-str-hov-green;
         padding: 10px 0;
+        h4{
+            color:$color-str-hov-green ;
+        }
     }
 }
 .tabcontent_booking_info_tab{
     width: 100%;
-    color: rgb(130, 55, 55);
+    color: $color-basic-gray3;
     overflow: hidden;
     .info_tab{
         background-color: #ffffff;
@@ -173,25 +200,23 @@
             }
         }
         li:nth-child(1){
-        width: 25%;
+            width: 30%;
         }
         li:nth-child(2){
-            width: 35%;
+            width: 30%;
         }
         li:nth-child(3){
-            width: 20%;
+            width: 30%;
         }
         li:nth-child(4){
-            width: 15%;
+            width: 10%;
         }
-        li:nth-child(5){
-            width: 5%;
-        }    
     }
     .info_tab_content {
+        margin: auto;
         max-height: 0;
-        padding: 0 1em;
-        color: $color-main-green;
+        padding: 0 16px;
+        color: $color-basic-gray3;
         background: white;
         transition: all .35s;
     }
@@ -213,5 +238,38 @@
 }
 .booing_input{
     display: none;
+}
+.info_tab_contents{
+    display: flex;
+    text-align: left;
+    align-items: flex-end;
+    width: 80%;
+    margin: auto;
+    ul{
+        padding: 45px 0;
+    }
+    ul li{
+        padding: 6px 15px;
+    }
+    .info_tab_contents_title{
+        font-weight: 700;
+    }
+    .price{
+        text-align: right;
+    }
+}
+.cancel_order{
+    width: 80%;
+    margin: auto;
+    text-align: right;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    .btn_cancel{
+        width: 100px;
+        font-size: 16px;
+        border-radius: 30px;
+        border: 2px solid $color-str-green;
+        padding: 10px 0;
+    }
 }
 </style>

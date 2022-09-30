@@ -10,21 +10,16 @@
                         <div class="activity_item_title">
                             <h3 class="test" @click="isShow(idx)">{{ item.titleFir }}</h3>
                         </div> 
-                        <div class="activity_item_text" v-show="idx == true">
+                        <div :id="`${item.id}`" class="activity_item_text" v-show="idx == true">
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
                         </div>
-                         <!-- <ActivityTourTxtFirst/> -->
-  
+                        
+                        <!-- <Activityttest :activity_block="item.name"/> -->
                         <!-- <div class="activity_item_title">
-                            <h3 @click.prevent="current = 'ActivityTourTxtFirst'">{{ item.titleFir }}</h3>
+                            <h3 @click.prevent="current = 'Activityttest'">{{ item.titleFir }}</h3>
                         </div>  -->
-                        <!-- <div class="activity_item_text" v-show="idx == true">
-                            <span>{{ item.sub }}</span>
-                            <p>{{ item.textFir }}</p>
-                        </div> -->
-                        <!-- <ActivityTourTxtFirst/> -->
-                        <component :is='current'> </component>
+                        <!-- <component :is='current'> </component> -->
                     </div>
                     <div class="activity_items" >
                         <div class="activity_item_title">
@@ -36,31 +31,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- 小島圖片區 -->
                 <div class="activity_picture" >
                   <div class="dot_positin" :class="dotPosition[index]">
-                    <div class="dot_positin_first" @click="dotFristOpe" >
-                      <!-- <img class="dot_first" :src="item.imgDotFirL" alt="錨點"> -->
+                    <div class="dot_positin_first" @click="dotFristOpen" >
+                      <img class="dot_first" :src="item.imgDotFirL" alt="錨點">
                       <img class="dot_first" :src="item.imgDotFir" alt="錨點"> 
                     </div>
                     <div class="dot_positin_second" @click="dotSecondOpen" >
                       <!-- <img class="dot_second" :src="item.imgDotSecL" alt="錨點"> -->
                       <img class="dot_second" :src="item.imgDotSec" alt="錨點">
                     </div>
-                </div>
-                <transition appear @enter="enter">
-                  <img
-                    class="island"
-                    :src="item.imgUrl"
-                    alt="小島"
-                />
-                </transition>  
-                
-                <img :src="item.imgShadow" alt="小島陰影" />
+                  </div>
+                  <img class="island" :src="item.imgUrl" alt="小島"/>
+                  <img :src="item.imgShadow" class="shadow" alt="小島陰影"/>
                 </div>
             </div>
+            <!-- 地區介紹 -->
             <div class="activity_group_introduction"  :class="{reverse: index%2 === 0}">
                 <div class="activity_carousel">
-                    <img :src="item.imgInfo" alt="叢林照片"/>
+                  <!-- activity_block 要和子元素 props 內的變數名稱相同 -->
+                    <ActivityCarousel :activity_block="item.name"/> 
                 </div>
                 <div class="activity_introduction_text" >
                     <h3>{{ item.name }}</h3>
@@ -79,18 +70,22 @@
 </template>
 
 <script>
-  import ActivityTourTxtFirst from '@/components/ActivityTourTxtFirst.vue'
-  import gsap from 'gsap'
+import ActivityTourTxtFirst from '@/components/ActivityTourTxtFirst.vue'
+import {gsap} from 'gsap'
+import ActivityCarousel from './ActivityCarousel.vue'
+import Activityttest from './Activityttest.vue'
     export default {
       components:{
-        ActivityTourTxtFirst
+        ActivityTourTxtFirst,
+        ActivityCarousel,
+        Activityttest
         },
         data(){
             return {
                 current:"",
                 activitySection:[
                     {name:'叢林歷險',
-                     id:1,
+                     id:"jungle",
                      titleFir:'遊覽動物',
                      sub:'叢林歷險',
                      textFir:'當您從台北預訂半日遊時，遠離城市的喧囂，沉浸在美麗的自然風光中。早晨，您可以直接從酒店出發參觀繁華的港口城市基隆，欣賞其曠陰佛像，繼續前往壯觀的野柳地質公園，以其獨特的岩層而聞名。',
@@ -108,7 +103,7 @@
                      imgDotSecL:require('@/assets/images/activity/activity_26.png')
                     },
                     {name:'冰雪奇緣',
-                     id:2,
+                     id:"snow",
                      titleFir:'滑雪體驗',
                      sub:'冰雪奇緣',
                      textFir:'台灣滑雪場大致可以分為三種，一是真的須穿雪衣雪褲全套體驗的零下雪場，二為滑雪訓練機，以及搭配 VR 畫面的滑雪模擬機。各滑雪學校除了設備種類不同之外，準備的備品也大不相同；但設備使用一定會伴隨教練，所以教練的互動也是很重要的一環。',
@@ -126,7 +121,7 @@
                      imgDotSecL:require('@/assets/images/activity/activity_29.png'),
                     },
                     {name:'荒野峽谷',
-                     id:3,
+                     id:"canyon",
                      titleFir:'熱氣球遊覽大峽谷',
                      sub:'叢林歷險',
                      textFir:'看著來自各國的專業飛行員駕駛碩大的夢幻熱氣球，滿載觀眾們的興奮期盼漫天飄遠，徜徉在縱谷間的藍天綠山之中，是臺東夏季不可錯過的一大美景。臺灣國際熱氣球嘉年華，包含熱氣球自由飛行表演、熱氣球繫留體驗、熱氣球自由飛空中遊覽、光雕音樂會、熱氣球夏令營，除了現場體驗升空的感動，還有視覺及聽覺浪漫激盪的精采饗宴。',
@@ -154,7 +149,7 @@
                     "dot_ice",
                     "dot_canyon"
                 ],
-                idx:0,
+                idx:true,
                 dotFirst:true,
                 dotSecond:false,
         }
@@ -164,6 +159,7 @@
         console.log(idx)
         this.idx =!this.idx
       },
+
       dotFristOpen(){
         if(this.dotFirst == true){
           return
@@ -174,23 +170,35 @@
       },
       // dotSecondOpen(){
       // }
-    // goOpen(){
-    //   const dotImg = document.querySelector('.dot_first')
-    //   console.log(dotImg)
-    // },
-
+    goOpen(){
+      
+      console.log(dotImg)
+    },
+    
           },
   
     mounted() {
-      const island =document.getElementsByClassName("island");
+
+      const island = document.querySelectorAll(".island");
       gsap.to(island,{
         duration:5,
         y:-30,
-        opacity:1,
         repeat:-1,
         ease: "power1.inOut",
         yoyo:true
+      })
+
+      const shadow = document.querySelectorAll(".shadow");
+      gsap.to(shadow,{
+        autoAlpha:.3,
+        duration:5,
+        scale:.5,
+        ease: "power1.inOut",
+        repeat:-1,
+        yoyo:true
       });
+
+      
     }
 }
 </script>
@@ -241,10 +249,15 @@
     }
     .activity_picture {
       width: 55%;
+      
       .island {
         position: relative;
         top: 60px;
         z-index: 1;
+       }
+       .shadow{
+        width: 50%;
+        margin: auto;
        }
       .dot_jungle{
         .dot_first, .dot_second{
@@ -319,6 +332,18 @@
       justify-content: center;
       .activity_carousel {
         width: 45%;
+        .ant-carousel {
+                  height: 100%;
+                  .slick-slider {
+                    height: 100%;
+                    .slick-list {
+                      height: 100%;
+                      .slick-track {
+                        height: 100%;
+                      }
+                    }
+                  }
+                }
       }
       .activity_introduction_text {
         width: 45%;

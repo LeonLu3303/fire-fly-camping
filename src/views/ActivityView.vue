@@ -5,10 +5,10 @@
   </div>
   <ActivityTour/>
   <ActivityInfo/>
-  <!-- <transition appear @enter="enter">
-  <div class="box"></div>
-</transition> -->
- 
+  <div class="carousel_jungle">
+    <ActivityCarousel/>
+  </div>
+  
   <MainFooter/>  
 </template>
 
@@ -18,25 +18,19 @@ import ActivityTour from '@/components/ActivityTour.vue'
 import ActivityInfo from '@/components/ActivityInfo.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import gsap from 'gsap'
+import ActivityCarousel from '@/components/ActivityCarousel.vue'
 export default {
   components:{
     MainHeader,
     ActivityTour,
     ActivityInfo,
+    ActivityCarousel,
     MainFooter,
 },
       methods:{
         scrollToTop(){
           window.scrollTo(0,0)
         },
-      //   enter(el){
-      //     gsap.to(el,{
-      //       duration:1,
-      //       x:100,
-      //       opacity:1,
-      //       repeat:-1
-      //     });
-      //   }
       },
       mounted(){
         //要用到mounted，不能用在created中，因為Dom元件還沒被掛載，讀不到window
@@ -47,5 +41,21 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/scss/style.scss';
+
+.carousel_jungle{
+  height: 300px;
+  .ant-carousel {
+                  height: 100%;
+                  .slick-slider {
+                    height: 100%;
+                    .slick-list {
+                      height: 100%;
+                      .slick-track {
+                        height: 100%;
+                      }
+                    }
+                  }
+                }
+}
 
 </style>
