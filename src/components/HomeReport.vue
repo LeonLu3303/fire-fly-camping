@@ -24,7 +24,7 @@
                     <div class="report_btn">
                         <ReportLightBox/>
                         <router-link class="message_icon" to="/reportMessage">
-                            <img src="@/assets/images/report/report_msge_1.png" alt="report">
+                            <img src="@/assets/images/report/report_msg_1.png" alt="report">
                             <p class="message_count">{{item.messageCount}}</p>
                         </router-link>
                     </div>
