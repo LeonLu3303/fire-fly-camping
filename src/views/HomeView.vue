@@ -24,9 +24,9 @@ import MainFooter from '@/components/MainFooter.vue'
 export default {
   setup() {
     // same as beforeRouteLeave option with no access to `this`
-    onBeforeRouteLeave((to, from) => {
-      document.getElementById('loading-bar').classList.add('aaa');
-    })
+    // onBeforeRouteLeave((to, from) => {
+    //   document.getElementById('loading-bar').classList.add('aaa');
+    // })
   },
   components:{
     MainHeader,
