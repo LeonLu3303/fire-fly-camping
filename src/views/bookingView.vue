@@ -78,9 +78,6 @@
       </div>
       <div class="bk_process_how_many" v-if="step == 2">
         <div class="bk_process_how_many_container">
-          <div class="bk_icon_container">
-            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
-          </div>
           <div class="bk_how_content_container">
             <div class="bk_how_content_txt">
               <h2>
@@ -129,9 +126,6 @@
       </div>
       <div class="bk_process_when" v-if="step == 3">
         <div class="bk_process_when_container">
-          <div class="bk_icon_container">
-            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
-          </div>
           <div class="bk_when_container">
             <div class="bk_when_content_container">
               <h2>你要什麼時候 出發？</h2>
@@ -144,7 +138,9 @@
                   結束日期 <span>{{ getEnd }}</span>
                 </p>
               </div>
-              <p>你選定的日期現在很熱門，要盡快預訂哦！</p>
+              <p class="bk_when_content_last">
+                你選定的日期現在很熱門，要盡快預訂哦！
+              </p>
             </div>
           </div>
           <div class="bk_process_button_container">
@@ -166,9 +162,6 @@
       </div>
       <div class="bk_process_more_option" v-if="step == 4">
         <div class="bk_process_more_container">
-          <div class="bk_icon_container">
-            <img src="@/assets/images/booking/booking_how_icon.png" alt="" />
-          </div>
           <div class="bk_more_container">
             <div class="bk_more_content_container">
               <h2>
