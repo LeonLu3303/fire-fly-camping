@@ -151,21 +151,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-@import "@/assets/scss/style.scss";
-.wrap_activityIsland{
-    position: relative;
-    background: $color-main-yellow ;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    padding-top: 150px;
-    // padding-bottom: 400px;
-    // @include md(){
-    //   background-size:150%;
-    //   padding-bottom: 250px;
-    // }
-=======
 @import '@/assets/scss/style.scss';
 .wrap_activityIsland {
   position: relative;
@@ -179,7 +164,6 @@ export default {
   //   background-size:150%;
   //   padding-bottom: 250px;
   // }
->>>>>>> 02101306b9b9105af9ad8dce44a9587fc0c3dfad
 }
 // 首頁下面 snow 的滾動視差動畫
 .home_snow_parallex {
@@ -191,24 +175,7 @@ export default {
   left: 0;
   .snow_bg_img {
     position: absolute;
-<<<<<<< HEAD
-    z-index: 2;
-    height: 100vh;
-    width: 100%;
-    bottom: -40vh;
-    left: 0;
-    .snow_bg_img{
-        position: absolute;
-        object-fit: cover;
-        height: 100%;
-        object-position: center;
-    }
-}
-.home_snow_parallex img:nth-child(1){
-    width: 100%;
-=======
     object-fit: cover;
->>>>>>> 02101306b9b9105af9ad8dce44a9587fc0c3dfad
     height: 100%;
     object-position: center;
   }
