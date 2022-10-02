@@ -134,31 +134,8 @@ export default {
     background-repeat: no-repeat;
     background-position: bottom center;
     padding-top: 150px;
-<<<<<<< HEAD
     padding-bottom: 400px;
 
-=======
-    // padding-bottom: 400px;
-    // @include md(){
-    //   background-size:150%;
-    //   padding-bottom: 250px;
-    // }
-}
-// 首頁下面 snow 的滾動視差動畫
-.home_snow_parallex{
-    position: absolute;
-    z-index: 2;
-    height: 100vh;
-    width: 100%;
-    bottom: -40vh;
-    left: 0;
-    .snow_bg_img{
-        position: absolute;
-        object-fit: cover;
-        height: 100%;
-        object-position: center;
-    }
->>>>>>> 7e375d451d4c80c705e7a2da3440ac6c7ca414f6
 }
 .home_snow_parallex img:nth-child(1){
     width: 100%;
