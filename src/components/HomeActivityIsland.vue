@@ -151,21 +151,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-@import "@/assets/scss/style.scss";
-.wrap_activityIsland{
-    position: relative;
-    background: $color-main-yellow ;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    padding-top: 150px;
-    padding-bottom: 400px;
-
-}
-.home_snow_parallex img:nth-child(1){
-    width: 100%;
-=======
 @import '@/assets/scss/style.scss';
 .wrap_activityIsland {
   position: relative;
@@ -191,7 +176,6 @@ export default {
   .snow_bg_img {
     position: absolute;
     object-fit: cover;
->>>>>>> 1b9f26f62c6b5be05f7a0e9d8f6e2fd78f5102e7
     height: 100%;
     object-position: center;
   }
