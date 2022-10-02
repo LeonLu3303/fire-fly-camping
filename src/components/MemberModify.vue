@@ -158,6 +158,9 @@
     .tabcontent_img li{
         width: 100px;
         margin:15px ;
+        @include tb(){
+            margin:5px ;
+        } 
     }
     h4{
         color: $color-main-green;

@@ -5,6 +5,26 @@
                 <h2>{{ item.name }}</h2>
             </div>
             <div class="activity_group" :class="{reverse: index%2 === 0}" >
+                <!-- 小島圖片區 -->
+                <div class="activity_picture">
+                  <div class="dot_positin" :class="dotPosition[index]">
+                    <!-- 點按錨點要打開文字內容跟換圖片 -->
+                    <div class="dot_positin_first" @click="dotHander(index, 1)" >
+                      <transition name="fade" mode="out-in">
+                        <img v-if="openCollapse[index] == 1" class="dot_first" :src="item.imgDotFirL" alt="錨點">
+                        <img v-else class="dot_first" :src="item.imgDotFir" alt="錨點"> 
+                      </transition>
+                    </div>
+                    <div class="dot_positin_second" @click="dotHander(index, 0)" >
+                      <transition name="fade" mode="out-in">
+                        <img v-if="openCollapse[index] == 0" class="dot_second" :src="item.imgDotSecL" alt="錨點">
+                        <img v-else class="dot_second" :src="item.imgDotSec" alt="錨點">
+                      </transition>
+                    </div>
+                  </div>
+                  <img class="island" :src="item.imgUrl" alt="小島"/>
+                  <img :src="item.imgShadow" class="shadow" alt="小島陰影"/>
+                </div>
                 <div class="activity_item_group" >
                     <div class="activity_items">
                         <div class="activity_item_title">
@@ -36,26 +56,6 @@
                         </transition>
                     </div>
                 </div>
-                <!-- 小島圖片區 -->
-                <div class="activity_picture" >
-                  <div class="dot_positin" :class="dotPosition[index]">
-                    <!-- 點按錨點要打開文字內容跟換圖片 -->
-                    <div class="dot_positin_first" @click="dotHander(index, 1)" >
-                      <transition name="fade" mode="out-in">
-                        <img v-if="openCollapse[index] == 1" class="dot_first" :src="item.imgDotFirL" alt="錨點">
-                        <img v-else class="dot_first" :src="item.imgDotFir" alt="錨點"> 
-                      </transition>
-                    </div>
-                    <div class="dot_positin_second" @click="dotHander(index, 0)" >
-                      <transition name="fade" mode="out-in">
-                        <img v-if="openCollapse[index] == 0" class="dot_second" :src="item.imgDotSecL" alt="錨點">
-                        <img v-else class="dot_second" :src="item.imgDotSec" alt="錨點">
-                      </transition>
-                    </div>
-                  </div>
-                  <img class="island" :src="item.imgUrl" alt="小島"/>
-                  <img :src="item.imgShadow" class="shadow" alt="小島陰影"/>
-                </div>
             </div>
             <!-- 地區介紹 -->
             <div class="activity_group_introduction"  :class="{reverse: index%2 === 0}">
@@ -74,9 +74,6 @@
             </div>
         </div>
     </section> 
-    <keep-alive>
-      <component :is='content'></component>
-    </keep-alive>
 </template>
 
 <script>
@@ -134,7 +131,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
                      titleSen:'攀岩體驗',
                      textSen:'運動攀登意指先鋒攀登保護支點都已經事先用錨栓打好的路線，該些錨栓在路線上的距離配置均勻，不會讓攀登者的墜落距離過長。錨栓通常都是路線開發者從路線上方垂降下來時打進岩壁的。天然岩場用錨栓架設的路線，以及人工岩場中可供先鋒的路線，都是屬於運動攀登路線。',
                      infoSub:'感受峽谷的大自然氣氛',
-                     infoText:'臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形、湍急的河水，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇！',
+                     infoText:'臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇！',
                      imgUrl:require('@/assets/images/activity/activity_18.png'),
                      imgShadow:require('@/assets/images/activity/activity_2.png'),
                      imgInfo:require('@/assets/images/activity/activity_25.jpg'),
@@ -186,192 +183,349 @@ import ActivityCarousel from './ActivityCarousel.vue'
         ease: "power1.inOut",
         repeat:-1,
         yoyo:true
-      });
-
-      
+      }); 
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import '@/assets/scss/style.scss';
-    .activity_wrapper {
-      width: 100%;
-      padding: 150px 0;
+@import '@/assets/scss/style.scss';
+.activity_wrapper {
+  width: 100%;
+  padding: 150px 0;
+}
+.wrapper {
+    width: 80%;
+    margin: auto;
+    @include lg(){
+      width: 95%;
     }
-    .wrapper {
-        width: 80%;
+    @include tb(){
+      width: 95%;
+    }
+    @include md(){
+      width: 95%;
+    }
+}
+//主題標題
+.title_main{
+  padding-bottom:80px ;
+}
+//漸層背景色
+.activity_jungle {
+  background: linear-gradient(to bottom, $color-main-yellow,$color-aid-green1);
+}
+.activity_ice {
+  background: linear-gradient(to bottom, $color-main-yellow, $color-aid-blue1);
+}
+.activity_canyon {
+  background: linear-gradient(to bottom, $color-main-yellow, $color-aid-orange1);
+}
+//反轉
+.reverse{
+    flex-direction: row-reverse;
+}
+.activity_group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  @include lg(){
+    margin-bottom: 50px;
+  }
+  @include tb(){
+    margin-bottom: 0px;
+  }
+  @include md(){
+    margin-bottom: 0px;
+  }
+}
+.activity_item_group {
+  width: 35%;
+  @include tb(){
+    width: 90%;
+  }
+  @include md(){
+    width: 95%;
+  }
+}
+.activity_item_text{
+  span{
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px 0;
+  }
+  p{
+    padding: 15px 0;
+    text-indent:2em;
+    text-align: justify;
+    line-height: 2em;
+  }
+}
+//圖片區
+.activity_picture {
+  width: 55%;
+  position: relative;
+  @include tb(){
+    width: 100%;
+  }
+  @include md(){
+    width: 100%;
+  }
+  .island {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    @include tb(){
+        width: 90%;
+        position: relative;
+        left: 0;
+        right: 0;
         margin: auto;
-    }
-    .activity_jungle {
-      background: linear-gradient(to bottom, $color-main-yellow,$color-aid-green1);
-    }
-    .activity_ice {
-      background: linear-gradient(to bottom, $color-main-yellow, $color-aid-blue1);
-    }
-    .activity_canyon {
-      background: linear-gradient(to bottom, $color-main-yellow, $color-aid-orange1);
-    }
-    .reverse{
-        flex-direction: row-reverse;
-    }
-    .activity_group {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      padding-bottom: 50px;
-    }
-    .activity_item_group {
-      width: 35%;
-    }
-    .activity_item_text{
-      span{
-        font-weight: 600;
-        display: inline-block;
-        padding: 10px 0;
+        padding-bottom: 50px;
       }
-      p{
-        padding: 15px 0;
-        text-indent:2em;
-        text-align: justify;
-        line-height: 2em;
+      @include md(){
+        width: 100%;
       }
     }
-    .activity_picture {
-      width: 55%;
-      
-      .island {
-        position: relative;
-        top: 60px;
-        z-index: 1;
-       }
-       .shadow{
-        width: 50%;
+  .shadow{
+    width: 50%;
+    margin: auto;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 420px;
+    z-index: 1;
+    @include tb(){
+        position: absolute;
+        width: 70%;
+        top: 63%;
         margin: auto;
-       }
-      .dot_jungle{
-        .dot_first, .dot_second{
-        width: 50px;
       }
-      .dot_first{
-        position: relative;
-        transform: translateX(-50%);
-        left: 33%;
-        bottom: -200px;
-        z-index: 2;
-      }
-      .dot_second{
-        position: relative;
-        transform: translateX(-50%);
-        left:77%;
-        bottom: -400px;
-        z-index: 2;
-      }
-      }
-      .dot_ice{
-        .dot_first, .dot_second{
-        width: 50px;
-        }
-        .dot_first{
-          position: relative;
-          transform: translateX(-50%);
-          left: 57%;
-          bottom: -170px;
-          z-index: 2;
-        }
-        .dot_second{
-          position: relative;
-          transform: translateX(-50%);
-          left: 77%;
-          bottom: -390px;
-          z-index: 2;
-        }
-      }
-      .dot_canyon{
-        .dot_first, .dot_second{
-        width: 50px;
-        }
-        .dot_first{
-          position: relative;
-          transform: translateX(-50%);
-          left: 25%;
-          bottom: -230px;
-          z-index: 2;
-        }
-        .dot_second{
-          position: relative;
-          transform: translateX(-50%);
-          left: 86%;
-          bottom: -180px;
-          z-index: 2;
-        }
+    @include md(){
+        width: 70%;
+        top: 60%;
       }
     }
-    .activity_items {
-      background-color: #ffffff;
-      margin-bottom: 20px;
-      box-sizing: border-box;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 1px 1px #44726B;
+//叢林小島錨點定位
+  .dot_jungle{
+    .dot_first, .dot_second{
+      width: 50px;
     }
-    .activity_group_introduction {
-      display: flex;
-      flex-wrap: wrap;
-      padding-bottom: 50px;
-      justify-content: center;
-      .activity_carousel {
-        width: 45%;
-        .ant-carousel {
+    .dot_first{
+      position: absolute;
+      left: 30%;
+      top: -30px;
+      z-index: 3;
+      @include lg(){
+        top: -25px;
+      }
+      @include tb(){
+        top: -26px;
+      }
+      @include md(){
+        width: 35px;
+        left: 26%;
+        top: -15px;
+      }
+    }    
+    .dot_second{
+      position: absolute;
+      left:70%;
+      top:250px;
+      z-index: 3;
+      @include lg(){
+        top:190px;
+      }
+      @include tb(){
+        top:220px;
+      }
+      @include md(){
+        width: 35px;
+        left: 65%;
+        top:110px;
+      }
+    }          
+  }  
+//雪地錨點定位
+  .dot_ice{
+    .dot_first, .dot_second{
+        width: 50px;
+      }
+    .dot_first{
+      position: absolute;
+      left: 55%;
+      top: -60px;
+      z-index:3;
+      @include lg(){
+        left: 52%;
+        top: -45px;
+      }
+      @include tb(){
+        left: 50%;
+        top: -50px;
+      }
+      @include md(){
+        width: 35px;
+        left: 55%;
+        top: -35px;
+      }
+    }
+    .dot_second{
+      position: absolute;
+      left: 73%;
+      bottom:190px;
+      z-index: 3;
+      @include lg(){
+        left: 73%;
+        top:190px;
+      }
+      @include tb(){
+        left: 70%;
+        top:230px;
+      }
+      @include md(){
+        width: 35px;
+        left: 70%;
+        top:100px;
+      }
+    }
+  }
+  //峽谷定位錨點
+  .dot_canyon{
+    .dot_first, .dot_second{
+      width: 50px;
+    }
+    .dot_first{
+      position: absolute;
+      left: 25%;
+      top: 0px;
+      z-index: 3;
+      @include lg(){
+        top: -10px;
+      }
+      @include md(){
+        width: 35px;
+        top: -25px;
+      }
+    }
+    .dot_second{
+      position: absolute;
+      right: 10%;
+      top: 40px;
+      z-index:3;
+      @include lg(){
+        right: 8%;
+        top:20px;
+      }
+      @include tb(){
+        right: 14%;
+        top: 35px;
+      }
+      @include md(){
+        width: 35px;
+        right: 8%;
+        top: 5px;
+      }
+    }
+  }
+}
+.activity_items {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px 1px #44726B;
+  @include md(){
+    padding: 20px;
+  }
+}
+.activity_group_introduction {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  justify-content: center;
+  @include lg(){
+    width: 95%;
+    margin:0 auto;
+    }
+  .activity_carousel {
+    width: 45%;
+    @include lg(){
+      width: 50%;
+    }
+    @include tb(){
+      width: 90%;
+    }
+    @include md(){
+      width: 95%;
+    }
+    .ant-carousel {
+              height: 100%;
+              .slick-slider {
+                height: 100%;
+                .slick-list {
                   height: 100%;
-                  .slick-slider {
+                  .slick-track {
                     height: 100%;
-                    .slick-list {
-                      height: 100%;
-                      .slick-track {
-                        height: 100%;
-                      }
-                    }
                   }
                 }
-      }
-      .activity_introduction_text {
-        width: 45%;
-        background-color: #ffffff;
-        position: relative;
-        padding: 35px;
-        h4{
-          padding:10px 0;
-          color:$color-basic-gray2 ;
-        }
-        p{
-          text-align: justify;
-          text-indent:2em;
-          line-height: 2em;
-        }
-      }
+              }
+            }
     }
-    .activity_introduction_text_pic{
-        width: 120px;
-        position: absolute;
-        right: 92%;;
-        bottom:-50px;
-
+  .activity_introduction_text {
+    width: 45%;
+    background-color: #ffffff;
+    position: relative;
+    padding: 35px;
+    @include lg(){
+      width: 50%;
+      padding: 15px;
     }
-    .reverse_pic{
-        position: absolute;
-        right: -12%;  
-        bottom:-50px;  
+    @include tb(){
+      width: 90%;
     }
-    .click_title{
-      cursor: pointer;
+    @include md(){
+      width: 95%;
+      padding: 25px;
     }
-     .fade-down-enter-active, .fade-down-leave-active {
-       transition: all .5s;
-     }
-     .fade-down-enter-from, .fade-down-leave-to {
-       opacity: 0;
-       transform: translateY(-50px);
-     }
+    h4{
+      padding:10px 0;
+      color:$color-basic-gray2 ;
+    }
+    p{
+      text-align: justify;
+      text-indent:2em;
+      line-height: 2em;
+    }
+  }
+}
+.activity_introduction_text_pic{
+  width: 120px;
+  position: absolute;
+  right: 92%;;
+  bottom:-50px;
+  @include lg(){
+    display: none;
+  }
+}
+.reverse_pic{
+  position: absolute;
+  right: -12%;  
+  bottom:-50px;  
+}
+.click_title{
+cursor: pointer;
+}
+.fade-down-enter-active, .fade-down-leave-active {
+  transition: all .5s;
+}
+.fade-down-enter-from, .fade-down-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+}
     </style>
     

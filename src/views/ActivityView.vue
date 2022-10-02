@@ -5,9 +5,9 @@
   </div>
   <ActivityTour/>
   <ActivityInfo/>
-  <div class="carousel_jungle">
+  <!-- <div class="carousel_jungle">
     <ActivityCarousel/>
-  </div>
+  </div> -->
   
   <MainFooter/>  
 </template>
@@ -17,7 +17,7 @@ import MainHeader from '@/components/MainHeader.vue'
 import ActivityTour from '@/components/ActivityTour.vue'
 import ActivityInfo from '@/components/ActivityInfo.vue'
 import MainFooter from '@/components/MainFooter.vue'
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import ActivityCarousel from '@/components/ActivityCarousel.vue'
 export default {
   components:{

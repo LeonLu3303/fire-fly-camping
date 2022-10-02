@@ -113,13 +113,13 @@
     background-color:$color-main-yellow ;
     border-bottom: 2px solid $color-str-hov-green;
     li:nth-child(1){
-        width: 30%;
+        width: 32%;
     }
     li:nth-child(2){
-        width: 30%;
+        width: 32%;
     }
     li:nth-child(3){
-        width: 30%;
+        width: 26%;
     }
     li:nth-child(4){
         width: 10%;
@@ -129,9 +129,18 @@
     text-align: end;
     width: 95%;
     margin-bottom: 30px;
+    @include md(){
+        width: 90%;
+        } 
     .input_spacing{
         margin: 0 10px;
     }
+    .btn_purchase{
+        @include md(){
+        width: 80px;
+        padding: 5px 0;
+        }   
+    } 
 }
 .tabcontent_product_info{
     width: 90%;
@@ -166,13 +175,23 @@
             }
         }
         li:nth-child(1){
-            width: 30%;
+            width: 32%;
+            @include md(){
+                font-size: 14px;
+            }
         }
         li:nth-child(2){
-            width: 30%;
+            width: 32%;
+            @include md(){
+                font-size: 14px;
+                padding: 0 5px;
+            } 
         }
         li:nth-child(3){
-            width: 30%;
+            width: 26%;
+            @include md(){
+                font-size: 14px;
+            }
         }
         li:nth-child(4){
             width: 10%;
@@ -211,9 +230,12 @@
     width: 80%;
     margin: auto;
     padding: 40px 0;
+    @include md(){
+        width: 100%;
+        font-size: 15px;
+        }  
     ul{
         display: flex;
-        
         padding: 10px 0;
         li:nth-child(1){
             width: 50%;
@@ -234,9 +256,9 @@
     .delivery_location{
         text-align: left;
         padding: 10px 0;
-    }
-
-    
-        
+        @include md(){
+        font-size: 15px;
+        } 
+    }        
 }
 </style>

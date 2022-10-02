@@ -5,21 +5,14 @@
         <h2>{{ activityTitle }}</h2>
       </div>
       <div class="activity_tabs">
-        <button
-          class="activity_tabs tab_jungle tab_title"
-          @click="activeTab = 'jungle'">
-          {{ jungleTitle }}
-        </button>
-        <button
-          class="activity_tabs tab_snow tab_title"
-          @click="activeTab = 'snow'">
-          {{ iceTitle }}
-        </button>
-        <button
-          class="activity_tabs tab_canyon tab_title"
-          @click="activeTab = 'canyon'">
-          {{ canyonTitle }}
-        </button>
+        <ul class="activity_tabs_all">
+          <li class="activity_tabs tab_jungle tab_title"
+              @click="activeTab = 'jungle'">{{ jungleTitle }}</li>
+          <li class="activity_tabs tab_snow tab_title"
+              @click="activeTab = 'snow'">{{ iceTitle }}</li>
+          <li class="activity_tabs tab_canyon tab_title"
+              @click="activeTab = 'canyon'">{{ canyonTitle }}</li>
+        </ul>
         <div v-if="activeTab === 'jungle'" class="tabcontent" id="jungletab">
             <div class="tabcontent_group"
                   v-for="(item, idx) in cardJungle" :key="item.id"
@@ -32,12 +25,12 @@
                     <h4>{{item.jungleSub}}</h4>
                     <p>{{item.jungleText}}</p>
                 </div>
-                <div class="tabcontent_notice">
-                    <p><span>開放時間:</span>{{item.openTime}}</p>
-                    <p><span>體驗價格:</span>{{item.price}}</p>
-                    <p><span>適合族群:</span>{{item.people}}</p>
-                    <p><span>注意事項:</span>{{item.notice}}</p>
-                </div>
+                <ul class="tabcontent_notice">
+                    <li><span>開放時間:</span>{{item.openTime}}</li>
+                    <li><span>體驗價格:</span>{{item.price}}</li>
+                    <li><span>適合族群:</span>{{item.people}}</li>
+                    <li><span>注意事項:</span><p>{{item.notice}}</p></li>
+                </ul>
             </div>
         </div>
             
@@ -53,12 +46,12 @@
                     <h4>{{item.snowSub}}</h4>
                     <p>{{item.snowText}}</p>
                 </div>
-                <div class="tabcontent_notice">
-                    <p><span>開放時間:</span>{{item.openTime}}</p>
-                    <p><span>體驗價格:</span>{{item.price}}</p>
-                    <p><span>適合族群:</span>{{item.people}}</p>
-                    <p><span>注意事項:</span>{{item.notice}}</p>
-                </div>
+                <ul class="tabcontent_notice">
+                    <li><span>開放時間:</span>{{item.openTime}}</li>
+                    <li><span>體驗價格:</span>{{item.price}}</li>
+                    <li><span>適合族群:</span>{{item.people}}</li>
+                    <li><span>注意事項:</span><p>{{item.notice}}</p></li>
+                </ul>
             </div>
         </div>
         <div v-else class="tabcontent" id="canyontab">
@@ -73,12 +66,12 @@
                     <h4>{{item.canyonSub}}</h4>
                     <p>{{item.canyonText}}</p>
                 </div>
-                <div class="tabcontent_notice">
-                    <p><span>開放時間:</span>{{item.openTime}}</p>
-                    <p><span>體驗價格:</span>{{item.price}}</p>
-                    <p><span>適合族群:</span>{{item.people}}</p>
-                    <p><span>注意事項:</span>{{item.notice}}</p>
-                </div>
+                <ul class="tabcontent_notice">
+                    <li><span>開放時間:</span>{{item.openTime}}</li>
+                    <li><span>體驗價格:</span>{{item.price}}</li>
+                    <li><span>適合族群:</span>{{item.people}}</li>
+                    <li><span>注意事項:</span><p>{{item.notice}}</p></li>
+                </ul>
             </div>
         </div>
       </div>
@@ -185,6 +178,12 @@
 .wrapper {
   width: 80%;
   margin:auto;
+  @include md(){
+    width: 95%;
+  } 
+}
+.activity_tabs_all{
+  display: flex;
 }
 .tab_jungle {
   background-color:#abe8d6;
@@ -192,12 +191,18 @@
   padding: 20px 30px;
   cursor: pointer;
   border-radius:10px 0 0 0;
+  @include md(){
+    padding: 20px 15px;
+  } 
 }
 .tab_snow {
   background-color: #abcbe9;
   border: none;
   padding: 20px 30px;
   cursor: pointer;
+  @include md(){
+    padding: 20px 15px;
+  } 
 }
 .tab_canyon {
   background-color:#e1bb9e;
@@ -205,6 +210,9 @@
   padding: 20px 30px;
   cursor: pointer;
   border-radius:0 10px 0 0;
+  @include md(){
+    padding: 20px 15px;
+  } 
 }
 .tab_title {
   color: #537979;
@@ -225,6 +233,9 @@
   background-position: bottom center;
   background-size: contain;
   border-radius:0 10px 10px 10px;
+  @include md(){
+    border-radius:0 0 10px 10px;
+  } 
 }
 #snowtab {
   background: url(@/assets/images/activity/activity_snow_p.png),
@@ -233,33 +244,91 @@
   background-position: bottom center;
   background-size: contain;
   border-radius:0 10px 10px 10px;
+  @include md(){
+    border-radius:0 0 10px 10px;
+  }
 }
 #canyontab {
   background: url(@/assets/images/activity/activity_canyon_p.png),
     linear-gradient(to bottom, #e1bb9e, $color-main-yellow);
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  border-radius:0 10px 10px 10px;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    border-radius:0 10px 10px 10px;
+    @include md(){
+      border-radius:0 0 10px 10px;
+  }
 }
 .tabcontent_group{
   display: flex;
   flex-wrap: wrap;
-  padding:120px 50px;
+  padding:80px 50px;
+  @include lg(){
+    padding:50px 35px;
+  } 
+  @include tb(){
+    width: 100%;
+    padding:50px 30px;
+  } 
+  @include md(){
+    padding:30px 20px;
+  } 
   .tabcontent_picture{
     width: 50%;
+    @include lg(){
+      width: 85%;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    @include tb(){
+      width: 100%;
+    } 
+    @include md(){
+      width: 100%;
+    } 
   }
   .tabcontent_text{
     width: 50%;
     padding: 0 20px;
-    h4{
-      padding:10px 0;
+    @include lg(){
+      width: 85%;
+      margin: auto;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    @include tb(){
+      width: 100%;
+      padding: 0px;
+      padding-top:20px ;
+    } 
+    @include md(){
+      width: 100%;
+      padding: 0px;
+      padding-top:20px ;
+    } 
+    h3{
       color:$color-basic-gray3 ;
+      @include md(){
+        font-size: 22px;
+      } 
+    }
+    h4{
+      margin-bottom: 20px;
+      color:$color-basic-gray1 ;
+      @include md(){
+        font-size: 18px;
+        padding:0;
+        padding-bottom: 15px;
+      } 
     }
     p{
       text-align: justify;
+      color:$color-basic-gray2 ;
       text-indent:2em;
       line-height: 2em;
+      @include md(){
+        line-height: 28px;
+      } 
     }
   }
   .tabcontent_notice{
@@ -267,8 +336,22 @@
     background-color: rgba($color: #ffff, $alpha: .6);
     padding: 20px;
     margin-top: 50px;
-    p{
-      padding:5px;
+    @include lg(){
+      width: 85%;
+      margin: auto;
+    }
+    @include tb(){
+      width: 100%;
+    }
+    @include md(){
+      width: 100%;
+    }
+    li{
+      padding:8px;
+      p{
+        text-align: justify;
+        padding-top:10px ;
+      }
     }
     span{
       font-weight: 600;

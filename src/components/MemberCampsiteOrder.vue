@@ -144,13 +144,13 @@
     background-color:$color-main-yellow ;
     border-bottom: 2px solid $color-str-hov-green;
     li:nth-child(1){
-        width: 30%;
+        width: 32%;
     }
     li:nth-child(2){
-        width: 30%;
+        width: 32%;
     }
     li:nth-child(3){
-        width: 30%;
+        width: 26%;
     }
     li:nth-child(4){
         width: 10%;
@@ -160,8 +160,17 @@
     text-align: end;
     width: 95%;
     margin-bottom: 30px;
+    @include md(){
+        width: 90%;
+        } 
     .input_spacing{
         margin: 0 10px;
+    }
+    .btn_purchase{
+        @include md(){
+        width: 80px;
+        padding: 5px 0;
+        }   
     }
 }
 .tabcontent_booking_info{
@@ -169,7 +178,7 @@
     margin: auto;
     border-radius: 3px;
     overflow: hidden;
-    border: 2px solid $color-str-hov-green;
+    border: 2px solid $color-str-hov-green; 
     .info_tab_content{
         border-bottom: 1px solid $color-str-hov-green;
         padding: 10px 0;
@@ -200,13 +209,23 @@
             }
         }
         li:nth-child(1){
-            width: 30%;
+            width: 32%;
+            @include md(){
+                font-size: 14px;
+            }
         }
         li:nth-child(2){
-            width: 30%;
+            width: 32%;
+            @include md(){
+                font-size: 14px;
+                padding: 0 5px;
+            } 
         }
         li:nth-child(3){
-            width: 30%;
+            width: 26%;
+            @include md(){
+                font-size: 14px;
+            }
         }
         li:nth-child(4){
             width: 10%;
@@ -245,11 +264,18 @@
     align-items: flex-end;
     width: 80%;
     margin: auto;
+    @include md(){
+        width: 100%;
+        font-size: 15px;
+        }  
     ul{
         padding: 45px 0;
     }
     ul li{
         padding: 6px 15px;
+        @include md(){
+            padding: 5px 5px;
+        }  
     }
     .info_tab_contents_title{
         font-weight: 700;
@@ -264,12 +290,20 @@
     text-align: right;
     padding: 0 15px;
     margin-bottom: 20px;
+    @include md(){
+        width: 0%;   
+    }
     .btn_cancel{
         width: 100px;
         font-size: 16px;
         border-radius: 30px;
         border: 2px solid $color-str-green;
         padding: 10px 0;
+        @include md(){
+            width: 80px;
+            padding: 5px 0;
+            font-size: 14px;
+        }
     }
 }
 </style>
