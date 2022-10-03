@@ -3,125 +3,34 @@
     <div class="title_main">
         <h2 id="home_news">最新消息</h2>
     </div>
-        <div class="news_container">
-            <button @click="prevPage"> &lt; </button>
-            <!-- lg -->
-            <div class="news_show_area"
-                 :style="{
-                        left : `${(slide-currentPage)*900}px`,
-                        width:`${newsList.length*900}px`
-                    }"
-            >
-                <div class="news_box" 
-                    v-for="(news,slide) in newsList"
-                    :class="{
-                        'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage + newsList.length >= slide),
-                    }"
-                    @click="selectPage(slide)"
-                    :key="news"
-                    >
-                    <div class="news_pic">
-                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
-                    </div>
-                    <div class="news_txt">
-                        <h3>{{news.title}}</h3>
-                        <p class="news_content">{{news.content}}</p>
-                        <p class="news_post_time">{{news.news_post_time}}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- tb -->
-            <div class="news_show_area tb"
-                 :style="{
-                        left : `${(slide-currentPage)*600}px`,
-                        width:`${newsList.length*600}px`
-                    }"
-            >
-                <div class="news_box" 
-                    v-for="(news,slide) in newsList"
-                    :class="{
-                        'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage + newsList.length >= slide),
-                    }"
-                    @click="selectPage(slide)"
-                    :key="news"
-                    >
-                    <div class="news_pic">
-                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
-                    </div>
-                    <div class="news_txt">
-                        <h3>{{news.title}}</h3>
-                        <p class="news_content">{{news.content}}</p>
-                        <p class="news_post_time">{{news.news_post_time}}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- md -->
-            <div class="news_show_area md"
-                 :style="{
-                        left : `${(slide-currentPage)*300}px`,
-                        width:`${newsList.length*300}px`
-                    }"
-            >
-                <div class="news_box" 
-                    v-for="(news,slide) in newsList"
-                    :class="{
-                        'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage + newsList.length >= slide),
-                    }"
-                    @click="selectPage(slide)"
-                    :key="news"
-                    >
-                    <div class="news_pic">
-                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
-                    </div>
-                    <div class="news_txt">
-                        <h3>{{news.title}}</h3>
-                        <p class="news_content">{{news.content}}</p>
-                        <p class="news_post_time">{{news.news_post_time}}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- sm -->
-            <div class="news_show_area sm"
-                 :style="{
-                        left : `${(slide-currentPage)*300}px`,
-                        width:`${newsList.length*300}px`
-                    }"
-            >
-                <div class="news_box" 
-                    v-for="(news,slide) in newsList"
-                    :class="{
-                        'slideActive': (currentPage === slide),
-                        'slideShow': (currentPage + newsList.length >= slide),
-                    }"
-                    @click="selectPage(slide)"
-                    :key="news"
-                    >
-                    <div class="news_pic">
-                        <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片">
-                    </div>
-                    <div class="news_txt">
-                        <h3>{{news.title}}</h3>
-                        <p class="news_content">{{news.content}}</p>
-                        <p class="news_post_time">{{news.news_post_time}}</p>
-                    </div>
-                </div>
-            </div>
-            <button @click="nextPage"> > </button>
+    <swiper
+      :effect="'coverflow'"
+      :grabCursor="true"
+      :centeredSlides="true"
+      :slidesPerView="'auto'"
+      :coverflowEffect="{
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      }"
+      :pagination="true"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="(news,slide) in newsList">
+        <div class="news_pic">
+          <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片" />
         </div>
-        <div class="news_page_btn_container">
-            <button 
-            class="news_page_btn"
-            v-for="(news,slide) in newsList" 
-            :class="{
-                'activeBtnStyle': (currentPage === slide)
-            }"
-            @click="selectPage(slide)" 
-            :key="news"
-        ></button>
+        <div class="news_txt">
+            <h3>{{news.title}}</h3>
+            <p class="news_content">{{news.content}}</p>
+            <p class="news_post_time">{{news.news_post_time}}</p>
         </div>
+     </swiper-slide>
+      </swiper>
+
         <div class="btn_spacing">
                 <router-link to ="/News" class="btn_page_link news_link">更多消息</router-link>
         </div>
@@ -130,7 +39,24 @@
 </template>
 
 <script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { EffectCoverflow, Pagination } from "swiper";
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [EffectCoverflow, Pagination],
+    };
+  },
   data() {
     return {
       //用陣列位置的方式紀錄資料
