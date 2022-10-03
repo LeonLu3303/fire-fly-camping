@@ -8,6 +8,7 @@
     </div>
 </template>
 <script>
+    import {gsap} from 'gsap'
 export default {
     mounted() {
         const scroll = document.querySelector('.ball_drop')

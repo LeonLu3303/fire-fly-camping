@@ -8,7 +8,9 @@
   <!-- <div class="carousel_jungle">
     <ActivityCarousel/>
   </div> -->
-  
+  <div class="box">
+      <ScrollDrop/> 
+    </div>
   <MainFooter/>  
 </template>
 
@@ -19,12 +21,14 @@ import ActivityInfo from '@/components/ActivityInfo.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import {gsap} from 'gsap'
 import ActivityCarousel from '@/components/ActivityCarousel.vue'
+import ScrollDrop from '@/components/ScrollDrop.vue'
 export default {
   components:{
     MainHeader,
     ActivityTour,
     ActivityInfo,
     ActivityCarousel,
+    ScrollDrop,
     MainFooter,
 },
       methods:{
@@ -56,6 +60,11 @@ export default {
                     }
                   }
                 }
+}
+.box{
+  position: fixed;
+  bottom:0;
+  left: 0;
 }
 
 </style>
