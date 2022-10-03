@@ -15,6 +15,10 @@
         modifier: 1,
         slideShadows: true,
       }"
+      :autoplay="{
+      delay: 4000,
+      disableOnInteraction: false,
+      }"
       :pagination="true"
       :modules="modules"
       class="mySwiper"
@@ -41,7 +45,7 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCoverflow, Pagination } from "swiper";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 
@@ -54,7 +58,7 @@ export default {
   },
   setup() {
     return {
-      modules: [EffectCoverflow, Pagination],
+      modules: [Autoplay,EffectCoverflow, Pagination],
     };
   },
   data() {
