@@ -62,10 +62,11 @@ export default {
 .member_group{
     width: 80%;
     margin: auto;
+    @include tb(){
+      width: 90%;
+    }
     @include md(){
       width: 95%;
-      margin: 0 auto;
-
     }
 }
 .member_tabs{
@@ -82,8 +83,8 @@ export default {
     font-size: $title_h3;
     font-weight: 600;
     @include md(){
-        padding: 8px;
-        font-size: 20px;
+        padding:10px 5px;
+        font-size: 16px;
     } 
     &:nth-child(1){
         border-radius: 5px 0 0 5px ;
@@ -97,9 +98,9 @@ export default {
         display: inline-block;
         padding: 20px 30px;
         @include md(){
-        padding: 8px;
-        font-size: 20px;
-    } 
+        padding:10px 5px;
+        font-size: 16px;
+        } 
     }   
 }
 .mem_content_group{

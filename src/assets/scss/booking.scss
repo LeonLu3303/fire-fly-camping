@@ -387,6 +387,14 @@
                 padding: 60px 0;
                 .ant-select {
                   display: block;
+                  .ant-select-selector {
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 2px solid $color-aid-green1;
+                    font-size: 22px;
+                    font-weight: 600;
+                    color: $color-str-hov-green;
+                  }
                 }
               }
             }
