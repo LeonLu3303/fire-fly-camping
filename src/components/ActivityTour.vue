@@ -73,12 +73,13 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>   
 </template>
 
 <script>
 import {gsap} from 'gsap'
 import ActivityCarousel from './ActivityCarousel.vue'
+
     export default {
       components:{
         ActivityCarousel,
@@ -527,5 +528,6 @@ cursor: pointer;
   opacity: 0;
   transform: translateY(-50px);
 }
+
     </style>
     
