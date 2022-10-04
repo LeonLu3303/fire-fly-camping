@@ -215,10 +215,10 @@ export default {
 .col_write_text {
     width: 26%;
     margin: 10px;
-    @include lg() {
+    @include tb() {
         width: 80%;
     }
-    @include tb() {
+    @include sm() {
         width: 100%;
     }
 }
