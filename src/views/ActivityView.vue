@@ -65,6 +65,11 @@ export default {
   position: fixed;
   bottom:0;
   left: 0;
+ 
+  @include tb(){
+    display: none;
+  }
+
 }
 
 </style>
