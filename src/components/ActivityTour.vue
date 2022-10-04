@@ -377,7 +377,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
     .dot_second{
       position: absolute;
       left: 73%;
-      bottom:190px;
+      top:220px;
       z-index: 3;
       @include lg(){
         left: 73%;
