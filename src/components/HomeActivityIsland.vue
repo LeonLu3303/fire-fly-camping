@@ -184,12 +184,12 @@ export default {
   }
 }
 .home_snow_parallex .snow_bg_img {
-    position: absolute;
-    object-fit: contain;
-    @include lg() {
-      object-fit: cover;
-      object-position: center;
-    }
+  position: absolute;
+  object-fit: contain;
+  @include lg() {
+    object-fit: cover;
+    object-position: center;
+  }
 }
 .home_snow_parallex img:nth-child(1) {
   height: 100%;

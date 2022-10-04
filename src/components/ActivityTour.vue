@@ -39,6 +39,7 @@
                              >
                             <span>{{ item.sub }}</span>
                             <p>{{ item.textFir }}</p>
+                            <p @click="FetchAPIFunc">aaaaa</p>
                         </div>
                     </div>
                     <div class="activity_items" >
@@ -154,6 +155,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
                     "dot_canyon"
                 ],
                 openCollapse: [0, 0 ,0],
+                userAllData:null,
         }
     },
     methods:{
@@ -164,6 +166,20 @@ import ActivityCarousel from './ActivityCarousel.vue'
       dotHander(index, num) {
         this.openCollapse[index] = num;
       },
+   
+    FetchAPIFunc(){
+      fetch('http://localhost/phpLab_CGD102/back_end/test.php').then((response) => {
+        this.fetchError = (response.status !== 200)
+        //json(): 返回 Promise，resolves 是 JSON 物件
+        return response.json()
+      }).then(responseText => {
+        const useData = responseText
+        this.userAllData = useData
+        console.log(this.userAllData);
+      }).catch((err) => {
+        this.userAllData = true
+      })
+    },
 
     },
     mounted() {
