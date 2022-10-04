@@ -8,8 +8,7 @@
     </div>
 </template>
 <script>
-    import {gsap} from 'gsap'
-    
+import {gsap} from 'gsap'  
 export default {
     mounted() {
         const scroll = document.querySelector('.ball_drop')
@@ -27,7 +26,8 @@ export default {
     
 }
 </script>
-<style land="scss" scoped>
+<style lang="scss" scoped>
+@import '@/assets/scss/style.scss';  
     .scroll_container{
         width: 100px;
         padding: 1rem;
