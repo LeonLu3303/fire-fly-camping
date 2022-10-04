@@ -11,7 +11,7 @@
                 <h2 class="search_zone_title">{{sectionTitle}}</h2>
                 <div class="search_zone_option">
                     <div class="option_theme">
-                        <select>
+                        <select class="menu_choose">
                         <option>主題區域</option>
                         <option>叢林歷險</option>
                         <option>冰雪奇緣</option>
@@ -19,16 +19,28 @@
                         </select>
                     </div>
                     <div class="option_tent">
-                        <select>
-                        <option>幾人營帳</option>
-                        <option>二人營帳</option>
-                        <option>四人營帳</option>
-                        <option>六人營帳</option>
+                        <select class="menu_choose">
+                            <option>幾人營帳</option>
+                            <option>二人營帳</option>
+                            <option>四人營帳</option>
+                            <option>六人營帳</option>
                         </select>
                     </div>
                     <div class="option_month">
-                        <select>
-                        <option>你要露營的月份是？</option>
+                        <select class="menu_choose">
+                            <option>你要露營的月份是？</option>
+                            <option value="1">1月</option>
+                            <option value="2">2月</option>
+                            <option value="3">3月</option>
+                            <option value="4">4月</option>
+                            <option value="5">5月</option>
+                            <option value="6">6月</option>
+                            <option value="7">7月</option>
+                            <option value="8">8月</option>
+                            <option value="9">9月</option>
+                            <option value="10">10月</option>
+                            <option value="11">11月</option>
+                            <option value="12">12月</option>
                         </select>
                     </div>
                 </div>

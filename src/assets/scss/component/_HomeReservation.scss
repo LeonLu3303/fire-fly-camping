@@ -79,21 +79,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    .menu_choose{
+        width: 250px;
+    }
 }
-.option_theme select, 
-.option_tent select, 
-.option_month select{
-    width: 260px;
-    height: 70px;
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #555555;
-    box-shadow: 0 0 10px rgba(97, 97, 97,10%);
-    background-color: rgba(255, 255, 255, 80%);
-}
+
+// .option_theme select, 
+// .option_tent select, 
+// .option_month select{
+//     width: 260px;
+//     height: 70px;
+//     border: none;
+//     border-radius: 10px;
+//     font-size: 20px;
+//     font-weight: 700;
+//     letter-spacing: 2px;
+//     color: #555555;
+//     box-shadow: 0 0 10px rgba(97, 97, 97,10%);
+//     background-color: rgba(255, 255, 255, 80%);
+// }
 .btn_search{
     width: 200px;
     height: 70px;    
