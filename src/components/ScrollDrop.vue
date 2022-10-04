@@ -14,11 +14,10 @@ export default {
         const scroll = document.querySelector('.ball_drop')
 
     gsap.to( scroll, {
-        autoAlpha: 0,
+        autoAlpha: 1,
         y: 120,
-        // rotation: 90,
         ease: "power4",
-        duration: 4,
+        duration: 3,
         stagger: 0.2,
         repeatdelay: 0.3,
         repeat: -1

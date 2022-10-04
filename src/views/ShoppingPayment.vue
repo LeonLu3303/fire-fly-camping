@@ -191,7 +191,7 @@ export default {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   padding: 0 3rem;
-  height: 100vh;
+  // height: 100vh;
   @include tb(){
     height: 100%;
     padding: 0;
@@ -222,7 +222,7 @@ export default {
 }
 .payment_col_1 {
   display: grid;
-  height: 100vh;
+  // height: 100vh;
   grid-template-columns: 1fr;
   padding: 0 2rem;
   background-color: #f9f9f9;
@@ -264,7 +264,7 @@ export default {
 }
 
 .wrap_payment {
-  height: 30vh;
+  // height: 30vh;
   @include tb(){
     margin: 50px 0;
     height: 100%;

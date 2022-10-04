@@ -67,54 +67,58 @@ export default {
     MainFooter,
     },
     data() {
-                return {
-                    itemSelect: {},
-                    products: [],
-                    cart: []
-                }
-            },
-            methods: {
-                reduce_order(index) {
-                    if (this.cart[index]["qty"] === 1) {
-                        return;
-                    } else {
-                        this.cart[index]["qty"] -= 1
-                    }
-                    this.updateCart();
-                },
-                plus_order(index) {
-                    if(this.cart[index]["qty"] <= 9){
-                        this.cart[index]["qty"] += 1 
-                        this.updateCart();
-                    }
-                },
-                del_order(index) {
-                    this.cart.splice(index, 1);
-                    this.updateCart();
-
-                },
-                updateCart() {
-                    localStorage.setItem('cart', JSON.stringify(this.cart));
-                },
-                getCart(){
-                    const tempCart = localStorage.getItem('cart')
-                    if (!tempCart || tempCart === 'undefined') return
-                    this.cart = JSON.parse(tempCart)
-                },
-
-            },
-            created() {
-                // check current cart from localStorage
-                const cartStr = localStorage.getItem('cart');
-                console.log(cartStr)
-                if (cartStr) {
-                    this.products = JSON.parse(cartStr)
-                    console.log(JSON.parse(cartStr))
-                }
-                this.getCart()
-                console.log(this.cart)
+        return {
+            itemSelect: {},
+            products: [],
+            cart: []
+        }
+    },
+    methods: {
+        reduce_order(index) {
+            if (this.cart[index]["qty"] === 1) {
+                return;
+            } else {
+                this.cart[index]["qty"] -= 1
             }
+            this.updateCart();
+        },
+        plus_order(index) {
+            if(this.cart[index]["qty"] <= 9){
+                this.cart[index]["qty"] += 1 
+                this.updateCart();
+            }
+        },
+        del_order(index) {
+            this.cart.splice(index, 1);
+            this.updateCart();
 
+        },
+        updateCart() {
+            localStorage.setItem('cart', JSON.stringify(this.cart));
+        },
+        getCart(){
+            const tempCart = localStorage.getItem('cart')
+            if (!tempCart || tempCart === 'undefined') return
+            this.cart = JSON.parse(tempCart)
+        },
+        scrollToTop(){
+            window.scrollTo(0,0)
+        },
+    },
+    created() {
+        // check current cart from localStorage
+        const cartStr = localStorage.getItem('cart');
+        console.log(cartStr)
+        if (cartStr) {
+            this.products = JSON.parse(cartStr)
+            console.log(JSON.parse(cartStr))
+        }
+        this.getCart()
+        console.log(this.cart)
+    },
+    mounted(){
+        this.scrollToTop()
+    }
 }
 
 </script>
