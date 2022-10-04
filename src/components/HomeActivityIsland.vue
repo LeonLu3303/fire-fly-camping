@@ -108,7 +108,7 @@ export default {
     const snow_4 = document.querySelector('.s_4');
 
     gsap.to(snow_1, {
-      y: -200,
+      y: -60,
       ease: 'Power3.easeIn',
       scrollTrigger: {
         trigger: '.btn_more',
@@ -120,7 +120,7 @@ export default {
     });
 
     gsap.to(snow_2, {
-      y: -250,
+      y: 40,
       ease: 'Power3.easeIn',
       scrollTrigger: {
         trigger: '.btn_more',
@@ -129,7 +129,7 @@ export default {
       },
     });
     gsap.to(snow_3, {
-      y: -200,
+      y: 130,
       ease: 'Power3.easeIn',
       scrollTrigger: {
         trigger: '.btn_more',
@@ -138,7 +138,7 @@ export default {
       },
     });
     gsap.to(snow_4, {
-      y: -150,
+      y: 220,
       ease: 'Power3.easeIn',
       scrollTrigger: {
         trigger: '.btn_more',
@@ -159,57 +159,87 @@ export default {
   background-repeat: no-repeat;
   background-position: bottom center;
   padding-top: 150px;
-  padding-bottom: 400px;
-  // @include md(){
-  //   background-size:150%;
-  //   padding-bottom: 250px;
-  // }
+  padding-bottom: 350px;
+  @include lg() {
+    padding-bottom: 200px;
+  }
+  @include md(){
+    padding-bottom: 150px;
+  }
+  @include sm(){
+    padding-bottom: 180px;
+  }
 }
 // 首頁下面 snow 的滾動視差動畫
 .home_snow_parallex {
   position: absolute;
   z-index: 2;
-  height: 100vh;
-  width: 100%;
-  bottom: -40vh;
-  left: 0;
-  .snow_bg_img {
-    position: absolute;
-    object-fit: cover;
-    height: 100%;
-    object-position: center;
-  }
-}
-.home_snow_parallex img:nth-child(1) {
   width: 100%;
   height: 100%;
-  bottom: 0%;
-  left: 0;
+  bottom: -45%;
+  object-position: 50% 50%;
+  overflow: hidden;
+  @include sm() {
+    bottom: -50%;
+  }
+}
+.home_snow_parallex .snow_bg_img {
+    position: absolute;
+    object-fit: contain;
+    @include lg() {
+      object-fit: cover;
+      object-position: center;
+    }
+}
+.home_snow_parallex img:nth-child(1) {
+  height: 100%;
   z-index: 11;
+  bottom: 1%;
 }
 .home_snow_parallex img:nth-child(2) {
-  width: 100%;
-  // height: 100%;
-  bottom: 0%;
-  left: 0;
+  height: 100%;
   z-index: 10;
+  bottom: 3%;
+  @include lg() {
+    bottom: 1%;
+  }
+  @include md() {
+    bottom: -3%;
+  }
+  @include sm() {
+    bottom: 20%;
+  }
 }
 .home_snow_parallex img:nth-child(3) {
-  width: 100%;
-  // height: 100%;
-  bottom: 0%;
-  left: 0;
+  height: 100%;
   z-index: 9;
+  bottom: 4%;
+  @include lg() {
+    bottom: 2%;
+  }
+  @include md() {
+    bottom: -4%;
+  }
+  @include sm() {
+    bottom: 20%;
+  }
 }
 .home_snow_parallex img:nth-child(4) {
-  width: 100%;
-  // height: 100%;
-  bottom: 0%;
-  left: 0;
+  height: 100%;
   z-index: 8;
+  bottom: 5%;
+  @include lg() {
+    bottom: 1%;
+  }
+  @include md() {
+    bottom: -7%;
+  }
+  @include sm() {
+    bottom: 50%;
+  }
 }
 .activityIsland_group {
-  z-index: 3;
+  z-index: 20;
   position: relative;
   width: 80%;
   max-width: 1296px;
@@ -226,8 +256,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
-  z-index: 3;
-  padding-bottom: 400px;
+  z-index: 20;
 }
 .activityIsland_items {
   display: flex;
