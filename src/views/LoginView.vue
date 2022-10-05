@@ -6,7 +6,7 @@
              id="login-box"
              :class="{right_panel_active:index === 1}">
             <div class="form-container sign-up-container">
-                <form>
+                <form action="">
                     <h2 class="title">註冊</h2>           
                     
                     <div class="txtb"
@@ -16,6 +16,8 @@
                         <input  type="email" 
                                 name="register_id" 
                                 id="register_id"
+                                v-model="id"
+                                maxlength="20"
                                 @focus="register_id_block =1">
                         <label for="register_id">帳號</label>
                         <div id="check_id" class="btn_submit">
@@ -28,6 +30,8 @@
                         <input  type="password" 
                                 name="register_psw" 
                                 id="register_psw"
+                                v-model="psw"
+                                maxlength="20"
                                 @focus="register_psw =2"
                                 >
                         <label for="register_psw">密碼</label>
@@ -37,6 +41,8 @@
                         <input  type="password" 
                                 name="register_check_psw" 
                                 id="register_check_psw"
+                                v-model="checkpsw"
+                                maxlength="20"
                                 @focus="register_check_psw =3"
                                 >
                         <label for="register_check_psw">確認密碼</label>
@@ -46,6 +52,8 @@
                         <input  type="text" 
                                 name="register_mem_email" 
                                 id="register_mem_email"
+                                v-model="email"
+                                maxlength="100"
                                 @focus="register_mem_email =4"
                                 >
                         <label for="register_mem_email">信箱</label>
@@ -58,6 +66,8 @@
                         <input  type="text" 
                                 name="register_mem_name" 
                                 id="register_mem_name"
+                                v-model="name"
+                                maxlength="100"
                                 @focus="register_mem_name =5"
                                 >
                         <label for="register_mem_name">姓名</label>
@@ -67,6 +77,8 @@
                         <input  type="text" 
                                 name="register_nickname" 
                                 id="register_nickname"
+                                v-model="nick_name"
+                                maxlength="20"
                                 @focus="register_nickname =6"
                                 >
                         <label for="register_nickname">暱稱</label>
@@ -76,6 +88,8 @@
                         <input  type="text" 
                                 name="register_phone" 
                                 id="register_phone"
+                                v-model="phone"
+                                maxlength="30"
                                 @focus="register_phone =7">
                         <label for="register_phone">電話</label>
                     </div>           
@@ -83,7 +97,7 @@
                         <div class="register_city_title">
                             居住縣市
                         </div>
-                        <select name="register_city" id="register_city">
+                        <select name="register_city" id="register_city" v-model="city">
                             <option value="">請選擇居住縣市</option>
                             <option value="基隆市">基隆市</option>
                             <option value="台北市">台北市</option>
@@ -115,14 +129,14 @@
                         <input  type="text" 
                                 name="register_addr" 
                                 id="register_addr"
+                                v-model="addr"
+                                maxlength="300"
                                 @focus="register_addr =8"
                                 >
                         <label for="register_addr">地址</label>
                     </div>            
-                    <div class="login_btn">
-                        <router-link to ="/Member" class="btn_submit">
+                    <div class="login_btn btn_submit" @click="doRegister">
                             註冊
-                        </router-link>
                     </div>
                 </form>
             </div>
@@ -213,7 +227,10 @@
                     </div>
                     <a href="#" class="forgot_psw">忘記密碼</a>
                     <div class="login_btn">
-                        <router-link to ="/Member" class="btn_submit">
+                        <router-link 
+                            to ="/Member" 
+                            class="btn_submit" 
+                            @click="check_login()">
                             登入
                         </router-link>
                     </div>
@@ -230,7 +247,9 @@
                         </div>
                         <input  type="email" 
                                 name="register_id_sm" 
-                                id="register_id_sm">
+                                id="register_id_sm"
+                                v-model="id"
+                                maxlength="20">
                         
                         <div id="check_id_sm" class="btn_submit">
                             檢查帳號
@@ -241,6 +260,8 @@
                         <input  type="password" 
                                 name="register_psw_sm" 
                                 id="register_psw_sm"
+                                v-model="psw"
+                                maxlength="20"
                                 >
                         
                     </div>
@@ -249,6 +270,8 @@
                         <input  type="password" 
                                 name="register_check_psw_sm" 
                                 id="register_check_psw_sm"
+                                v-model="checkpsw"
+                                maxlength="20"
                                 >
                         
                     </div>            
@@ -256,7 +279,10 @@
                         <div class="input_title">信箱</div>
                         <input  type="text" 
                                 name="register_mem_email_sm" 
-                                id="register_mem_email_sm">
+                                id="register_mem_email_sm"
+                                v-model="email"
+                                maxlength="100"
+                                >
                         
                         <div id="check_email_sm" class="btn_submit">
                             檢查信箱
@@ -267,6 +293,8 @@
                         <input  type="text" 
                                 name="register_mem_name_sm" 
                                 id="register_mem_name_sm"
+                                v-model="name"
+                                maxlength="100"
                                 >
                         
                     </div>            
@@ -275,6 +303,8 @@
                         <input  type="text" 
                                 name="register_nickname_sm" 
                                 id="register_nickname_sm"
+                                v-model="nick_name"
+                                maxlength="20"
                                 >
                         
                     </div>    
@@ -282,14 +312,17 @@
                         <div class="input_title">電話</div>
                         <input  type="text" 
                                 name="register_phone_sm" 
-                                id="register_phone_sm">
+                                id="register_phone_sm"
+                                v-model="phone"
+                                maxlength="30"
+                                >
                         
                     </div>           
                     <div class="txtb_sm" id="city_sm">
                         <div class="register_city_title">
                             居住縣市
                         </div>
-                        <select name="register_city_sm" id="register_city_sm">
+                        <select name="register_city_sm" id="register_city_sm" v-model="city">
                             <option value="">請選擇居住縣市</option>
                             <option value="基隆市">基隆市</option>
                             <option value="台北市">台北市</option>
@@ -319,13 +352,12 @@
                         <div class="input_title">地址</div>
                         <input  type="text" 
                                 name="register_addr_sm" 
-                                id="register_addr_sm">
-                        
+                                id="register_addr_sm"
+                                v-model="addr"
+                                maxlength="300">
                     </div>            
-                    <div class="login_btn_sm">
-                        <router-link to ="/Member" class="btn_submit">
+                    <div class="login_btn_sm btn_submit" @click="doRegister">
                             註冊
-                        </router-link>
                     </div>
                 </form>
             </div>
@@ -356,34 +388,109 @@
                 register_addr:0,
                 login_id:0,
                 login_psw:0,
-                // focus_index:{
-                //     register_id_block: 0,
-                //     input1: 0,
-                //     input1: 0,
-                //     input1: 0,
-                //     input1: 0,
-                // }
+                id:'',
+                psw:'',
+                checkpsw:'',
+                email:'',
+                name:'',
+                nick_name:'',
+                phone:'',
+                addr:'',
+                city:'',
+                mem_data:[],
                 activeTab:'login'
                 }
+        },
+        methods:{
+            show_login(index){
+                this.index -= 1;
+                console.log(index);
             },
-            methods:{
-                show_login(index){
-                    this.index -= 1;
-                    console.log(index);
-                },
-                show_register(index){
-                    this.index += 1;
-                    console.log(index);
-                },
-                focus_txtb(focus_index){
-                    // this.focus_index += 1;
-                    console.log(focus_index);
-                },
-                // blur_txtb(focus_index){
-                //     this.focus_index -= 1;
-                //     console.log(focus_index);
+            show_register(index){
+                this.index += 1;
+                console.log(index);
+            },
+            focus_txtb(focus_index){
+                // this.focus_index += 1;
+                console.log(focus_index);
+            },
+            // blur_txtb(focus_index){
+            //     this.focus_index -= 1;
+            //     console.log(focus_index);
+            // }
+            doRegister(){
+                if (this.checkpsw != this.psw) {
+                    alert("密碼與確認密碼不相同");
+                    return;
+                }else if(this.id=='' || this.psw=='' || this.checkpsw=='' || this.email=='' || this.name=='' || this.nick_name=='' || this.phone=='' || this.addr=='' || this.city==''){
+                    alert("有欄位沒有填到喔！");
+                    return;
+                }
+                // else if(this.emailflag){
+                else{
+                    /*
+                    fetch("http://localhost:8080/phpLab/firefly_camping_php/register.php",{
+                        body:JSON.stringify({mem_id:this.id,mem_psw:this.psw,mem_name:this.name,mem_nick_name:this.nick_name,mem_email:this.email,mem_city:this.city,mem_addr:this.addr,mem_phone:this.phone}),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        method:'POST',
+                    })
+                    .then((res)=>{
+                        console.log(res.text())
+                        return;
+                    })
+                    .then((res)=>{
+                        console.log("res",res);
+                    })
+                    .catch((error)=>{
+                        console.log(`Error:${error}`)
+                    })
+                    */
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        if(xhr.status == 200){
+                            console.log(xhr.responseText)
+                            if(xhr.responseText == "註冊成功"){
+                                alert("註冊成功,請重新登入");
+                                window.location.replace("/Login");
+                            }else if(xhr.responseText == "此帳號已存在"){
+                                alert("此帳號已存在");
+                            }
+                        }
+                    }
+                    xhr.open("post","http://localhost:8080/phpLab/firefly_camping/public/phps/register.php",true);
+                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+                    let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}&mem_name=${this.name}&mem_email=${this.email}&mem_nick_name=${this.nick_name}&mem_city=${this.city}&mem_addr=${this.addr}&mem_phone=${this.phone}`;
+                    console.log(mem_deta);
+                    xhr.send(mem_deta);
+                
+                }
+                // else{
+                //     alert("註冊失敗 有欄位錯誤")
                 // }
+            },
+
+            checkContentByReg(reg, content, tip, classname) {
+                if (reg.test(content)) {
+                    this[tip] = "V"
+                    this[classname] = "success"
+                    return true
+                } else {
+                    this[tip] = "請檢查格式"
+                    this[classname] = "error"
+                    return false
+                }
             }
+            },
+        watch: {
+            // email: function (content) {
+            //     var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            //     this.emailflag = this.checkContentByReg(reg, content, "emailtip", "emailclass")
+            // }
+        }
     }
     
 </script>
