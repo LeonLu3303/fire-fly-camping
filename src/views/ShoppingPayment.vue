@@ -110,7 +110,9 @@
             <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.product_name">
             <tbody >
               <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)" alt="" /></td>
+                <td class="payment_item_image"><img class="details_product_img"
+                :src="require(`../assets/images/shop/shopping_prod_${item.product_pic}`)"
+                alt="hello"/></td>
                 <td><p>{{item.product_name}}</p><p>數量:{{item.product_qty}}</p><p>單價:${{item.product_price}}</p><p>小計:${{item.product_qty * item.product_price}}</p></td>
               </tr>
             </tbody>

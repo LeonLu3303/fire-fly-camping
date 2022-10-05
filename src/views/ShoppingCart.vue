@@ -29,7 +29,9 @@
                     <tbody v-for="(item, key) in cart" :key="'product' + item">
                         <tr class="cart_rwd_table_tr">
                             <td data-th="圖片" class="cart_col_item">
-                                <img class="cart_prod_image" :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)" alt="商品圖片"></td>
+                                <img class="cart_prod_image"
+                :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)"
+                alt="hello"/></td>
                             <td data-th="名稱">{{item.product_name}}</td>
                             <td data-th="單價">${{item.product_price}}</td>
                             <td data-th="數量">
@@ -101,7 +103,6 @@ export default {
             const tempCart = localStorage.getItem('cart')
             if (!tempCart || tempCart === 'undefined') return
             this.cart = JSON.parse(tempCart)
-            console.log(this.cart)
         },
         scrollToTop(){
             window.scrollTo(0,0)
