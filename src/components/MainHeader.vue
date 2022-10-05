@@ -22,12 +22,12 @@
                     </div>
                 </router-link>
                 <div class="links">
-                    <a class="hb_icon">
+                    <a class="hb_icon" @click="isShow = 'openClose'">
                         <div class="line"></div>
                     </a>
-                    <ul class="nav_bar_ul">
+                    <ul class="nav_bar_ul" :class="{nav_tab:isShow === 'openClose'}">
                         <li class="nav_close">
-                            <img src="@/assets/images/main/main_icon_closure.png" alt="">
+                            <img @click.self="toggleModal" src="@/assets/images/main/main_icon_closure.png" alt="nva_closure">
                         </li>
                         <li class="nav_bar_li">
                             <router-link v-for="item in routes" :key="item.path" :to="item.path" :class="{item_list: itemList==i}">
@@ -48,53 +48,59 @@
 import{routes} from '@/router/index.js'
 
 export default {
-data() {
-    return {
-        pageTitle: '營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇',
-        navTitle: '營火叢導覽列',
-        logoURL: '@/assets/images/main/main_logo_row.png',
-        iconName: '營區預訂',
-        routes:[
-            {
-                id:'map',
-                imgURL:'@/assets/images/main/main_icon_map.png',
-                path: '/Activity',
-                name: '營區導覽',
-            },
-            {
-                id:'service',
-                imgURL:'@/assets/images/main/main_icon_service.png',
-                path: '/Service',
-                name: '營區服務',
-            },
-            {
-                id:'feedback',
-                imgURL:'@/assets/images/main/main_icon_feedback.png',
-                path: '/Report',
-                name: '營火報告',
-            },
-            {
-                id:'news',
-                imgURL:'@/assets/images/main/main_icon_news.png',
-                path: '/News',
-                name: '最新消息',
-            },
-            {
-                id:'store',
-                imgURL:'@/assets/images/main/main_icon_store.png',
-                path: '/Shopping',
-                name: '營火商城',
-            },
-            {
-                id:'account',
-                imgURL:'@/assets/images/main/main_icon_account.png',
-                path: '/Login',
-                name: '登入註冊',
-            },
-        ],
-        // itemList: "",
+    data() {
+        return {
+            isShow: '',
+            pageTitle: '營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇',
+            navTitle: '營火叢導覽列',
+            logoURL: '@/assets/images/main/main_logo_row.png',
+            iconName: '營區預訂',
+            routes:[
+                {
+                    id:'map',
+                    imgURL:'@/assets/images/main/main_icon_map.png',
+                    path: '/Activity',
+                    name: '營區導覽',
+                },
+                {
+                    id:'service',
+                    imgURL:'@/assets/images/main/main_icon_service.png',
+                    path: '/Service',
+                    name: '營區服務',
+                },
+                {
+                    id:'feedback',
+                    imgURL:'@/assets/images/main/main_icon_feedback.png',
+                    path: '/Report',
+                    name: '營火報告',
+                },
+                {
+                    id:'news',
+                    imgURL:'@/assets/images/main/main_icon_news.png',
+                    path: '/News',
+                    name: '最新消息',
+                },
+                {
+                    id:'store',
+                    imgURL:'@/assets/images/main/main_icon_store.png',
+                    path: '/Shopping',
+                    name: '營火商城',
+                },
+                {
+                    id:'account',
+                    imgURL:'@/assets/images/main/main_icon_account.png',
+                    path: '/Login',
+                    name: '登入註冊',
+                },
+            ],
+        }
+    },
+    methods: {
+        toggleModal() { 
+            console.log('click')
+            this.isShow = !this.isShow;
+        }
     }
-},
 }
 </script>
 

@@ -142,7 +142,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  background-color: #168D80;
+  background-color: $color-str-green;
+  &:hover{
+    background-color: $color-str-hov-green;
+  }
   @include md() {
     width: 50px;
     height: 50px;
@@ -210,14 +213,18 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: absolute;
   top: -100%;
   right: 0;
   overflow: hidden;
   background: linear-gradient(-135deg,#4D8084, #1F4F4F);
   clip-path: circle(15px at calc(100% - 30px) 30px);
+  opacity: 0;
   transition: all 0.6s;
+  @include tb() {
+    width: 40%;
+	}
   @include md() {
     width: 70%;
 	}
@@ -225,9 +232,26 @@
 		width: 80%;
 	}
 }
+.nav_tab{
+  top: 0;
+  right: 0;
+  clip-path: circle(100%);
+  opacity: 1;
+  transition: all 0.6s;
+}
 .nav_close{
-  width: 20%;
-  float: right;
+  width: 60px;
+  height: 60px;
+  margin: 5% 0 10% 80%;
+  cursor: pointer;
+  @include tb() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
 }
 .nav_bar_li{
   width: 100%;
@@ -245,12 +269,6 @@
 }
 .nav_bar_li:not(:last-child) .item_name{
   border-bottom: 1px solid #ddd;
-}
-.links:hover .nav_bar_ul{
-  top: 0;
-  right: 0;
-  clip-path: circle(100%);
-  transition: all 0.6s;
 }
 .item_name{
   margin: auto 0;
