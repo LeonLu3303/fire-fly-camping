@@ -9,7 +9,7 @@
             <img class="shopping_badge_img" src="@/assets/images/shop/shopping_badge.png" alt="">
             <div class="details_img_box">
                 <img class="details_product_img"
-                :src="require(`../assets/images/shop/shopping_prod_${realProduct.id}.jpg`)"
+                :src="require(`../assets/images/shop/shopping_prod_${realProduct.product_pic}`)"
                 alt="hello"/>
                 <div class="details_link_path">
                     <router-link to="/Shopping">
@@ -21,24 +21,24 @@
                 </div>
             </div>
             <div class="details_content">
-                <h3 class="d_content_spc_tb">{{realProduct.title}}</h3>
-                <p class="d_content_spc_tb">單價：${{realProduct.price}}</p>
+                <h3 class="d_content_spc_tb">{{realProduct.product_name}}</h3>
+                <p class="d_content_spc_tb">單價：${{realProduct.product_price}}</p>
                 <div class="details_qty_btn_box">
-                    <button @click="reduce_order(realProduct.qty)">
+                    <button @click="reduce_order(realProduct.product_qty)">
                         <img class="cart_img" src="@/assets/images/shop/shopping_minus.png" alt="">
                     </button>
-                    <p class="details_qty">{{realProduct.qty}}</p>
-                    <button @click="plus_order(realProduct.qty)">
+                    <p class="details_qty">{{realProduct.product_qty}}</p>
+                    <button @click="plus_order(realProduct.product_qty)">
                         <img class="cart_img" src="@/assets/images/shop/shopping_plus.png" alt="">
                     </button>
                 </div>
-                <h4>合計：${{realProduct.price * realProduct.qty}}</h4>
+                <h4>合計：${{realProduct.product_price * realProduct.product_qty}}</h4>
                 <div class="order_btn_box">
                     <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link>
                     <button class="btn_return" @click="addToOrder(realProduct)">加入購物車</button>
                 </div> 
                 <!-- 點擊購物車後的 lightbox 提醒文 -->
-                <shoppingDetailsBox v-show="addingBox" :itemSelected="realProduct.title"></shoppingDetailsBox>
+                <shoppingDetailsBox v-show="addingBox" :itemSelected="realProduct.product_name"></shoppingDetailsBox>
             </div>
         </div>
     </div>
@@ -67,14 +67,14 @@ export default {
         };
     },
     methods: {
-        reduce_order(qty) {
-        if (qty !== 1) {
-            this.realProduct.qty -= 1;
+        reduce_order(product_qty) {
+        if (product_qty !== 1) {
+            this.realProduct.product_qty -= 1;
         }
         },
-        plus_order(qty) {
-        if (qty <= 9) {
-            this.realProduct.qty += 1;
+        plus_order(product_qty) {
+        if (product_qty <= 9) {
+            this.realProduct.product_qty += 1;
         }
         },
         // addToOrder - 加入購物車
@@ -85,7 +85,7 @@ export default {
         setTimeout(() => this.addingBox = false, 3000)
 
         // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
-        const indexProduct = this.orderList.findIndex((item) => item.title === realProduct.title)
+        const indexProduct = this.orderList.findIndex((item) => item.product_name === realProduct.product_name)
         // 判斷商品是否已存在購物車
         if (indexProduct === -1) {
             // 如未存在於購物車，即 push 進去 orderList
@@ -96,7 +96,7 @@ export default {
         else {
             // 如在購物車中，透過 indexProudct 知道是第幾個索引
             // 對 索引中商品 qty 進行 + 動作
-            this.orderList[indexProduct].qty += realProduct.qty
+            this.orderList[indexProduct].product_qty += realProduct.product_qty
             this.setStorage(this.orderList)
         }
         },
@@ -111,6 +111,7 @@ export default {
             // JSON.parse - 將之前 JSON.stringify 轉換成字串的轉換回 javaScript 格式
             if (!tempProduct || tempProduct === 'undefined') return
             this.realProduct = JSON.parse(tempProduct)
+            this.realProduct.product_qty = 1;
         },
         // cart - 抓取購物車的商品
         getCart() {
@@ -147,6 +148,7 @@ export default {
         width: 8rem;
         .cart_img{
             width: 1rem;
+            cursor: pointer;
         }
         button{
             border: 0;

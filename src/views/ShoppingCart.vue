@@ -28,20 +28,21 @@
                     </thead>
                     <tbody v-for="(item, key) in cart" :key="'product' + item">
                         <tr class="cart_rwd_table_tr">
-                            <td data-th="圖片" class="cart_col_item"><img class="cart_prod_image" :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" ></td>
-                            <td data-th="名稱">{{item.title}}</td>
-                            <td data-th="單價">${{item.price}}</td>
+                            <td data-th="圖片" class="cart_col_item">
+                                <img class="cart_prod_image" :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)" alt="商品圖片"></td>
+                            <td data-th="名稱">{{item.product_name}}</td>
+                            <td data-th="單價">${{item.product_price}}</td>
                             <td data-th="數量">
                                 <div class="cart_btn_box">
                                     <button @click="reduce_order(key)">-</button>
                                     <div class="cart_qty_box">
-                                        <p>{{item.qty}}</p>
+                                        <p>{{item.product_qty}}</p>
                                     </div>
                                     <button @click="plus_order(key)">+</button>
                                 </div>
                             </td>
-                            <td data-th="小計" class="cart_col_item_font">${{item.price * item.qty}}</td>
-                            <td data-th="刪除" class="cart_col_item"><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="../assets/images/shop/shopping-trash-can.png" alt=""></a>
+                            <td data-th="小計" class="cart_col_item_font">${{item.product_price * item.product_qty}}</td>
+                            <td data-th="刪除" class="cart_col_item"><a href="#" @click="del_order(key)"><img class="cart_trash_icon" src="@/assets/images/shop/shopping-trash-can.png" alt=""></a>
                             </td>
                         </tr>
                     </tbody>
@@ -75,16 +76,16 @@ export default {
     },
     methods: {
         reduce_order(index) {
-            if (this.cart[index]["qty"] === 1) {
+            if (this.cart[index]["product_qty"] === 1) {
                 return;
             } else {
-                this.cart[index]["qty"] -= 1
+                this.cart[index]["product_qty"] -= 1
             }
             this.updateCart();
         },
         plus_order(index) {
-            if(this.cart[index]["qty"] <= 9){
-                this.cart[index]["qty"] += 1 
+            if(this.cart[index]["product_qty"] <= 9){
+                this.cart[index]["product_qty"] += 1 
                 this.updateCart();
             }
         },
@@ -100,6 +101,7 @@ export default {
             const tempCart = localStorage.getItem('cart')
             if (!tempCart || tempCart === 'undefined') return
             this.cart = JSON.parse(tempCart)
+            console.log(this.cart)
         },
         scrollToTop(){
             window.scrollTo(0,0)
@@ -108,13 +110,10 @@ export default {
     created() {
         // check current cart from localStorage
         const cartStr = localStorage.getItem('cart');
-        console.log(cartStr)
         if (cartStr) {
             this.products = JSON.parse(cartStr)
-            console.log(JSON.parse(cartStr))
         }
         this.getCart()
-        console.log(this.cart)
     },
     mounted(){
         this.scrollToTop()
