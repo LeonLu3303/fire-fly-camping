@@ -79,7 +79,7 @@ export default {
         return {
             activeBtn:'timeDate',
             current: 1,
-            paginate: 9,
+            paginate: 6,
             cardReports: [
                 {
                     id:1,
@@ -273,6 +273,12 @@ export default {
     width: 80%;
     max-width: 1296px;
     margin: 0 auto;
+    @include lg(){
+        width: 90%;
+    }
+    @include md(){
+        width: 95%;
+    }
 }
 
 //最新 熱門 btn
@@ -306,6 +312,7 @@ export default {
 //卡片
 .row_card_report {
     display: flex;
+    // justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 0 0 60px;

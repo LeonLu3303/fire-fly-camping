@@ -31,13 +31,17 @@
     color: $color-str-green;
 }
 .content_card{
-    margin: 10px;
-    padding: 10px;
-    width: 30%;
+    margin: 20px;
+    padding: 15px;
+    width: 28%;
     border-radius: 5px;
     background-color: rgb(255, 255, 255, 80%);
-    @include md(){
+    @include tb(){
+        margin: 10px;
         width: 40%;
+    }
+    @include md(){
+        width: 100%;
     }
     @include sm(){
         width: 100%;

@@ -38,13 +38,11 @@
 </template>
 
 <script>
-import ReportPaginate from '../components/ReportPaginate.vue';
 import ReportLightBox from '../components/ReportLightBox.vue';
 
 export default {
     name: "ReportCard",
     components: {
-        ReportPaginate,
         ReportLightBox
     },
     data(){
