@@ -460,7 +460,7 @@
                             }
                         }
                     }
-                    xhr.open("post","http://localhost:8080/phpLab/firefly_camping/public/phps/register.php",true);
+                    xhr.open("post","http://localhost/phpLab/firefly_camping_php/register.php",true);
                     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
                     let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}&mem_name=${this.name}&mem_email=${this.email}&mem_nick_name=${this.nick_name}&mem_city=${this.city}&mem_addr=${this.addr}&mem_phone=${this.phone}`;
