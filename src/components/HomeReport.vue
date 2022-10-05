@@ -38,13 +38,11 @@
 </template>
 
 <script>
-import ReportPaginate from '../components/ReportPaginate.vue';
 import ReportLightBox from '../components/ReportLightBox.vue';
 
 export default {
     name: "ReportCard",
     components: {
-        ReportPaginate,
         ReportLightBox
     },
     data(){
@@ -115,6 +113,7 @@ export default {
 
 
 .wrap_home_report{
+    padding-top: 50px;
     padding-bottom: 150px;
     background: $color-aid-blue2;
     position: relative;

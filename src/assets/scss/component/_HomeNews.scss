@@ -99,8 +99,8 @@
     margin: auto;
 }
 .btn_spacing{
-    padding-top: 100px;
-    padding-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 .slideActive{
     opacity: 1;
@@ -111,11 +111,13 @@
 }
 // 下半部按鈕
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
-    margin-top: 100px;
+    margin-top: 50px;
     // margin-bottom: 100px;
     // padding-bottom: 100px;
     display: flex;
     justify-content: center;
+    position: relative;
+
 }
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
     width: 10px;

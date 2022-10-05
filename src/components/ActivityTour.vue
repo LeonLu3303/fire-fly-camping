@@ -10,7 +10,7 @@
                   <div class="dot_positin" :class="dotPosition[index]">
                     <!-- 點按錨點要打開文字內容跟換圖片 -->
                     <div class="dot_positin_first" @click="dotHander(index, 1)" >
-                      <transition name="fade" mode="out-in">
+                      <transition name="fade" mode="out-in" class="test">
                         <img v-if="openCollapse[index] == 1" class="dot_first" :src="item.imgDotFirL" alt="錨點">
                         <img v-else class="dot_first" :src="item.imgDotFir" alt="錨點"> 
                       </transition>
@@ -64,7 +64,7 @@
                     <ActivityCarousel :activity_block="item.name"/> 
                 </div>
                 <div class="activity_introduction_text" >
-                    <h3>{{ item.name }}</h3>
+                    <!-- <h3>{{ userAllData[`${index}`][`${1}`]}}</h3>  -->
                     <h4>{{item.infoSub}}</h4>
                     <p>{{ item.infoText }}</p>
                     <div class="activity_introduction_text_pic" :class="{reverse_pic: index%2 === 1}">
@@ -77,115 +77,139 @@
 </template>
 
 <script>
+import { init } from 'events';
 import {gsap} from 'gsap'
 import ActivityCarousel from './ActivityCarousel.vue'
 
-    export default {
-      components:{
-        ActivityCarousel,
-        },
-        data(){
-            return {
-                current:"",
-                activitySection:[
-                    {name:'叢林歷險',
-                     id:"jungle",
-                     titleFir:'遊覽動物',
-                     sub:'叢林歷險',
-                     textFir:'當您從台北預訂半日遊時，遠離城市的喧囂，沉浸在美麗的自然風光中。早晨，您可以直接從酒店出發參觀繁華的港口城市基隆，欣賞其曠陰佛像，繼續前往壯觀的野柳地質公園，以其獨特的岩層而聞名。',
-                     titleSen:'寶藏探險',
-                     textSen:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
-                     infoSub:'感受叢林的大自然氣氛',
-                     infoText:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。然而，在叢林探險時也會遭遇各種問題，除了身邊的夥伴可能會帶著照片偷跑，還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
-                     imgUrl:require('@/assets/images/activity/activity_1.png'),
-                     imgShadow:require('@/assets/images/activity/activity_2.png'),
-                     imgInfo:require('@/assets/images/activity/activity_23.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_20.png'),
-                     imgDotFir:require('@/assets/images/activity/activity_5.png'),
-                     imgDotFirL:require('@/assets/images/activity/activity_27.png'),
-                     imgDotSec:require('@/assets/images/activity/activity_6.png'),
-                     imgDotSecL:require('@/assets/images/activity/activity_26.png')
-                    },
-                    {name:'冰雪奇緣',
-                     id:"snow",
-                     titleFir:'滑雪體驗',
-                     sub:'冰雪奇緣',
-                     textFir:'台灣滑雪場大致可以分為三種，一是真的須穿雪衣雪褲全套體驗的零下雪場，二為滑雪訓練機，以及搭配 VR 畫面的滑雪模擬機。各滑雪學校除了設備種類不同之外，準備的備品也大不相同；但設備使用一定會伴隨教練，所以教練的互動也是很重要的一環。',
-                     titleSen:'冰上釣魚',
-                     textSen:'冬天除了玩冰魚節慶典，韓國擁有許多優質的滑雪場，不但設備完整，也依不同滑雪程度的人設計了陂度不同的滑道，可挑戰不同層級，一展您的滑雪長才，讓您嘗試前所未有的滑雪樂，或在雪地裡和三五好友打雪仗，享受在雪地裡自由玩樂的感覺，這絕對是在台灣體驗不到的哦。',
-                     infoSub:'感受雪地的大自然氣氛',
-                     infoText:'冬天除了一般的滑雪玩法之外，還有另一種滿足大人雪上駕馭樂趣的冬季限定活動—北海道冰上釣魚！每年到了一、二月份，就是在日本釣魚的最佳季節，在札幌冬天結凍的河川，開一個圓圓的洞，垂下釣繩，就可釣冰下的西太公魚，而且不用準備任何釣魚用具之外，還會有日本冰釣達人指導您，就算是釣魚新手也沒不用怕！',
-                     imgUrl:require('@/assets/images/activity/activity_12.png'),
-                     imgShadow:require('@/assets/images/activity/activity_2.png'),
-                     imgInfo:require('@/assets/images/activity/activity_24.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_13.png'),
-                     imgDotFir:require('@/assets/images/activity/activity_11.png'),
-                     imgDotFirL:require('@/assets/images/activity/activity_28.png'),
-                     imgDotSec:require('@/assets/images/activity/activity_10.png'),
-                     imgDotSecL:require('@/assets/images/activity/activity_29.png'),
-                    },
-                    {name:'荒野峽谷',
-                     id:"canyon",
-                     titleFir:'熱氣球遊覽大峽谷',
-                     sub:'叢林歷險',
-                     textFir:'看著來自各國的專業飛行員駕駛碩大的夢幻熱氣球，滿載觀眾們的興奮期盼漫天飄遠，徜徉在縱谷間的藍天綠山之中，是臺東夏季不可錯過的一大美景。臺灣國際熱氣球嘉年華，包含熱氣球自由飛行表演、熱氣球繫留體驗、熱氣球自由飛空中遊覽、光雕音樂會、熱氣球夏令營，除了現場體驗升空的感動，還有視覺及聽覺浪漫激盪的精采饗宴。',
-                     titleSen:'攀岩體驗',
-                     textSen:'運動攀登意指先鋒攀登保護支點都已經事先用錨栓打好的路線，該些錨栓在路線上的距離配置均勻，不會讓攀登者的墜落距離過長。錨栓通常都是路線開發者從路線上方垂降下來時打進岩壁的。天然岩場用錨栓架設的路線，以及人工岩場中可供先鋒的路線，都是屬於運動攀登路線。',
-                     infoSub:'感受峽谷的大自然氣氛',
-                     infoText:'臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇！',
-                     imgUrl:require('@/assets/images/activity/activity_18.png'),
-                     imgShadow:require('@/assets/images/activity/activity_2.png'),
-                     imgInfo:require('@/assets/images/activity/activity_25.jpg'),
-                     imgAnimal:require('@/assets/images/activity/activity_19.png'),
-                     imgDotFirL:require('@/assets/images/activity/activity_30.png'),
-                     imgDotFir:require('@/assets/images/activity/activity_16.png'),
-                     imgDotSec:require('@/assets/images/activity/activity_17.png'),
-                     imgDotSecL:require('@/assets/images/activity/activity_31.png'),
-                    }
-                ],
-                bgColor:[
-                    "activity_jungle",
-                    "activity_ice",
-                    "activity_canyon"
-                ],
-                dotPosition:[
-                    "dot_jungle",
-                    "dot_ice",
-                    "dot_canyon"
-                ],
-                openCollapse: [0, 0 ,0],
-        }
+export default {
+  components:{
+    ActivityCarousel,
     },
-    methods:{
-      // isShow(idx){
-      //   console.log(idx)
-      //   this.idx =!this.idx
-      // },
-      dotHander(index, num) {
-        this.openCollapse[index] = num;
-      },
-
+  // props: {
+  //   XMLHttpError: Boolean,
+  //   userAllData: Array
+  // },
+  data(){
+    return {
+      activitySection:[
+          {name:'叢林歷險',
+            id:"jungle",
+            titleFir:'遊覽動物',
+            sub:'叢林歷險',
+            textFir:'當您在叢林歷險露營時，遊覽動物活動是您最佳的選擇之一，可以遠離城市的喧囂，沉浸在美麗的自然風光中，還有各種不同的動物治癒人心，但請勿隨意觸摸動物。',
+            titleSen:'寶藏探險',
+            textSen:'寶藏探險是考驗玩家取捨的策略遊戲，會有島上的尋寶地圖，在叢林尋覓寶藏，其中會有小遊戲關卡供玩家破關，每破一個關卡就可以得到一個提示！',
+            infoSub:'感受叢林的大自然氣氛',
+            infoText:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。然而，在叢林探險時也會遭遇各種問題，除了身邊的夥伴可能會帶著照片偷跑，還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
+            imgUrl:require('@/assets/images/activity/activity_1.png'),
+            imgShadow:require('@/assets/images/activity/activity_2.png'),
+            imgInfo:require('@/assets/images/activity/activity_23.jpg'),
+            imgAnimal:require('@/assets/images/activity/activity_20.png'),
+            imgDotFir:require('@/assets/images/activity/activity_5.png'),
+            imgDotFirL:require('@/assets/images/activity/activity_27.png'),
+            imgDotSec:require('@/assets/images/activity/activity_6.png'),
+            imgDotSecL:require('@/assets/images/activity/activity_26.png')
+          },
+          {name:'冰雪奇緣',
+            id:"snow",
+            titleFir:'滑雪體驗',
+            sub:'冰雪奇緣',
+            textFir:'一年四季都可以享受到滑雪活動，場內設備非常安全，滑雪體驗一定會伴隨教練，所以教練的互動也是很重要的一環，進階課程將會藉著人工冰攀場來練習基礎的冰攀技巧，以因應實際演練中許多複雜混合的地形。',
+            titleSen:'冰上釣魚',
+            textSen:'冬天除了玩冰魚節慶典，還有冰上釣魚活動，露營期間您可在厚達40公分以上的冰層找個好位置，將釣竿放進冰釣窟窿，享受冰上垂釣的樂趣！當山川魚上鉤後，您還可以在現場的燒烤區、活動區品嚐山川魚鮮美的滋味，除了冰上釣魚體驗，現場也能玩雪盆、雪橇！',
+            infoSub:'美麗的雪景，使人的心靈變得一樣美麗純潔',
+            infoText:'冰雪奇緣地區為一年四季都為雪季，讓您無需等待到冬天也可以滑雪，並欣賞雪山美景，除了一般雪地活動之外，也可來場雪地健行，享受近距離仔細觀察大自然的樂趣，有膨鬆柔軟的粉雪綿延不絕，且能在導遊允許的範圍內自由玩耍，在飄落新雪的雪地上蹦蹦跳跳、或跟同伴打打雪仗、或用雪橇從小小的雪丘上飛速俯衝而下等，能享受多彩多姿的玩雪樂趣。',
+            imgUrl:require('@/assets/images/activity/activity_12.png'),
+            imgShadow:require('@/assets/images/activity/activity_2.png'),
+            imgInfo:require('@/assets/images/activity/activity_24.jpg'),
+            imgAnimal:require('@/assets/images/activity/activity_13.png'),
+            imgDotFir:require('@/assets/images/activity/activity_11.png'),
+            imgDotFirL:require('@/assets/images/activity/activity_28.png'),
+            imgDotSec:require('@/assets/images/activity/activity_10.png'),
+            imgDotSecL:require('@/assets/images/activity/activity_29.png'),
+          },
+          {name:'荒野峽谷',
+            id:"canyon",
+            titleFir:'熱氣球遊覽大峽谷',
+            sub:'荒野峽谷',
+            textFir:'看著來自各國的專業飛行員駕駛碩大的夢幻熱氣球，滿載觀眾們的興奮期盼漫天飄遠，徜徉在縱谷間的大峽谷之中，是這裡不可錯過的一大美景。熱氣球自由飛空中遊覽，除了現場體驗升空的感動，還有視覺及聽覺浪漫激盪的精采饗宴。',
+            titleSen:'攀岩體驗',
+            textSen:'峽谷運動攀登將先鋒攀登保護支點都已經事先用錨栓打好的路線，該些錨栓在路線上的距離配置均勻，不會讓攀登者的墜落距離過長。錨栓通常都是路線開發者從路線上方垂降下來時打進岩壁的。天然岩場用錨栓架設的路線，以及人工岩場中可供先鋒的路線，都是屬於運動攀登路線。',
+            infoSub:'感受峽谷的大自然氣氛',
+            infoText:'臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇！',
+            imgUrl:require('@/assets/images/activity/activity_18.png'),
+            imgShadow:require('@/assets/images/activity/activity_2.png'),
+            imgInfo:require('@/assets/images/activity/activity_25.jpg'),
+            imgAnimal:require('@/assets/images/activity/activity_19.png'),
+            imgDotFirL:require('@/assets/images/activity/activity_30.png'),
+            imgDotFir:require('@/assets/images/activity/activity_16.png'),
+            imgDotSec:require('@/assets/images/activity/activity_17.png'),
+            imgDotSecL:require('@/assets/images/activity/activity_31.png'),
+          }
+      ],
+      bgColor:[
+          "activity_jungle",
+          "activity_ice",
+          "activity_canyon"
+      ],
+      dotPosition:[
+          "dot_jungle",
+          "dot_ice",
+          "dot_canyon"
+      ],
+      openCollapse: [0, 0 ,0],
+      userAllData:[],
+      fetchError: false,
+  }
+},
+  methods:{
+    // isShow(idx){
+    //   console.log(idx)
+    //   this.idx =!this.idx
+    // },
+    dotHander(index, num) {
+      this.openCollapse[index] = num;
     },
-    mounted() {
-      const island = document.querySelectorAll(".island");
-      gsap.to(island,{
-        duration:5,
-        y:-30,
-        repeat:-1,
-        ease: "power1.inOut",
-        yoyo:true
-      })
+  
+    FetchAPIFunc(){
+      fetch('http://localhost/CGD102G1/back_end/test.php').then((response) => {
+        this.fetchError = (response.status !== 200)
+        //json(): 返回 Promise，resolves 是 JSON 物件
+        return response.json()
+      }).then(responseText => {
+        console.log("------",responseText)
+        const useData = responseText
 
-      const shadow = document.querySelectorAll(".shadow");
-      gsap.to(shadow,{
-        autoAlpha:.3,
-        duration:5,
-        scale:.5,
-        ease: "power1.inOut",
-        repeat:-1,
-        yoyo:true
-      }); 
-    }
+        this.userAllData = useData
+        console.log(this.userAllData);
+      }).catch((err) => {
+        this.userAllData = true
+      });
+    },
+  },
+  created(){
+    this.FetchAPIFunc()
+  },
+  mounted() {
+    const island = document.querySelectorAll(".island");
+    gsap.to(island,{
+      duration:5,
+      y:-30,
+      repeat:-1,
+      ease: "power1.inOut",
+      yoyo:true
+    })
+
+    const shadow = document.querySelectorAll(".shadow");
+    gsap.to(shadow,{
+      autoAlpha:.3,
+      duration:5,
+      scale:.5,
+      ease: "power1.inOut",
+      repeat:-1,
+      yoyo:true
+    }); 
+  }
 }
 </script>
 
@@ -232,6 +256,9 @@ import ActivityCarousel from './ActivityCarousel.vue'
   flex-wrap: wrap;
   padding-bottom: 50px;
   margin-bottom: 100px;
+  @include xl(){
+    min-height: 600px;
+  }
   @include lg(){
     margin-bottom: 50px;
   }
@@ -299,6 +326,9 @@ import ActivityCarousel from './ActivityCarousel.vue'
     right: 0;
     top: 420px;
     z-index: 1;
+    @include xl(){
+      top: 500px;
+      }
     @include tb(){
         position: absolute;
         width: 70%;
@@ -377,7 +407,7 @@ import ActivityCarousel from './ActivityCarousel.vue'
     .dot_second{
       position: absolute;
       left: 73%;
-      bottom:190px;
+      top:220px;
       z-index: 3;
       @include lg(){
         left: 73%;
@@ -522,12 +552,11 @@ import ActivityCarousel from './ActivityCarousel.vue'
 cursor: pointer;
 }
 .fade-down-enter-active, .fade-down-leave-active {
-  transition: all .5s;
+  transition: all .3s;
 }
 .fade-down-enter-from, .fade-down-leave-to {
   opacity: 0;
   transform: translateY(-50px);
 }
-
-    </style>
+</style>
     

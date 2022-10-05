@@ -1,6 +1,6 @@
 //首頁連結，綠底白字 hover深綠底白字
 .btn_page_link{
-    width: 200px;
+    width: 190px;
     font-size: $title_h4;
     font-weight: 700;
     letter-spacing: 2px;
@@ -9,8 +9,14 @@
     border-radius: 30px;
     color: $color-basic-White;
     background-color: $color-str-green;
-    padding: 20px 0;
+    padding: 18px 0;
     cursor: pointer;
+    @include tb() {
+        font-size: $txt_btn;
+		width: 150px;
+        padding: 15px 0;
+	}
+    
 }
 .btn_page_link:hover{
     color: $color-basic-White;

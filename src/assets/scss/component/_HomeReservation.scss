@@ -9,6 +9,17 @@
     background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
+    @include md(){
+        background: url(/src/assets/images/home/home_jungle_all.png),
+        linear-gradient(to bottom, #abcbe9, $color-main-yellow);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        padding-bottom: 150px;
+    }
 }
 .reservation_cotainer{
     position: relative;
@@ -17,6 +28,7 @@
     margin-left: 10%;
     margin-right: 10%;
 }
+
 // 首頁 banner 的滾動視差動畫
 .home_parallex{
     position: absolute;
@@ -25,6 +37,12 @@
     width: 100%;
     top: 0;
     left: 0;
+    @include tb(){
+        height: 100vh;
+    }
+    @include md(){
+        display: none;
+    }
     
     .jungle_bg_img{
         position: absolute;
@@ -34,11 +52,14 @@
 
 }
 .home_parallex img:nth-child(1){
-    width: 100%;
+    // width: 100%;
     // height: 100%;
-    bottom: -90%;
+    bottom: -80%;
     left: 0;
     z-index: 11;
+    @include tb(){
+        bottom: -40%;
+    }
 }
 .home_parallex img:nth-child(2){
     width: 100%;
@@ -46,23 +67,32 @@
     bottom: -47%;
     left: 0;
     z-index: 8;
+    @include tb(){
+        bottom: -28%;
+    }
 }
 .home_parallex img:nth-child(3){
     width: 100%;
     height: 100%;
-    bottom: -40%;
+    bottom: -47%;
     left: 0;
     z-index: 7;
+    @include tb(){
+        bottom: -20%;
+    }
 }
 .home_parallex img:nth-child(4){
     width: 100%;
     height: 100%;
-    bottom: -42%;
+    bottom: -47%;
     left: 0;
     z-index: 6;
+    @include tb(){
+        bottom: -10%;
+    }
 }
 .search_zone{
-    width: 800px;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -76,16 +106,25 @@
 .search_zone_option{
     width: 100%;
     padding: 60px 0;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.theme_tent_group{
+    display: flex;
+    // width: 30%;
+}
+// .option_month{
+//     width: 60%;
+// }
 .option_theme select, 
 .option_tent select, 
 .option_month select{
-    width: 260px;
-    height: 70px;
+    // width: 260px;
+    // height: 70px;
     border: none;
+    padding: 20px;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 700;
@@ -95,50 +134,66 @@
     background-color: rgba(255, 255, 255, 80%);
 }
 .btn_search{
-    width: 200px;
-    height: 70px;    
+    width: 190px;
+    height: 56px;    
     margin: 0 auto;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 2px;
-    color: #FFFFFF;
-    background-color: #BC6C61;
-    border: transparent;
+    color: $color-basic-White;
+    background-color: $color-str-red;
+    border: none;
     border-radius: 50px;
+    cursor: pointer;
+	&:hover{
+		background: $color-str-hov-red;
+	}
+    @include md() {
+		width: 150px;
+		height: 50px;
+        font-size: 16px;
+	}
+	@include sm() {
+		width: 100px;
+		height: 40px;
+	}
 }
 
-@media screen and (max-width:769px) {
-    .reservation_cotainer{
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-    .search_zone{
-        width: 100%;
-    }
-    .search_zone_title{
-        font-size: 36px;
-        color: #1F4F4F;
-    }
-    .search_zone_option{
-        width: 100%;
-        padding: 30px 0;
-    }
-    .option_theme select, 
-    .option_tent select{
-        width: 240px;
-        height: 60px;
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-    .option_month select{
-        width: 480px;
-        height: 60px;
-        padding: 4px 0;
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
+// @media screen and (max-width:769px) {
+//     .reservation_cotainer{
+//         width: 90%;
+//         margin-left: 5%;
+//         margin-right: 5%;
+//     }
+//     .search_zone{
+//         width: 100%;
+//     }
+//     .search_zone_title{
+//         font-size: 36px;
+//         color: $color-aid-green3;
+//         @include md(){
+//             font-size: 32px;
+//         }
+//     }
+//     .search_zone_option{
+//         width: 100%;
+//         padding: 30px 0;
+//     }
+//     .option_theme select, 
+//     .option_tent select{
+//         width: 240px;
+//         height: 60px;
+//         font-size: 16px;
+//         font-weight: 700;
+//         letter-spacing: 1px;
+//     }
+//     .option_month select{
+//         width: 480px;
+//         height: 60px;
+//         padding: 4px 0;
+//         font-size: 16px;
+//         font-weight: 700;
+//         letter-spacing: 1px;
+//     }
 
-}
+// }

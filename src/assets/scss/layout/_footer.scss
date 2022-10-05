@@ -1,19 +1,33 @@
-footer{
+.footer_about{
     background-color: #4D8084;
 }
 .footer_cotainer{
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    max-width: 1296px;
+    margin: 0 auto;
     padding-top: 70px;
     padding-bottom: 20px;
+    @include md() {
+		width: 90%;
+	}
+    @include sm() {
+		width: 95%;
+	}
 }
 .footer_row{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .footer_info{
-    margin: auto 0;
+    width: 50%;
+    padding: 10px;
+    @include tb() {
+		width: 100%;
+	}
+    @include md() {
+		width: 100%;
+	}
 }
 .footer_info_attention, .footer_info_navigation, .footer_info_social_media, .media_photo{
     display: flex;
@@ -22,36 +36,64 @@ footer{
     padding-bottom: 50px;
     font-size: 20px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: $color-basic-White;
 }
 .footer_info_navigation{
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: $color-basic-White;
+    @include tb() {
+		font-size: 16px;
+	}
+    @include md() {
+		font-size: 16px;
+	}
+    @include sm() {
+		font-size: 14px;
+	}
 }
-a{
-    color: #FFFFFF;
+.footer_info_navigation a{
+    color: $color-basic-White;
+    &:hover{
+        color: $color-basic-White;
+    }
 }
 .footer_info_social_media{
     padding-top: 20px;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 .media_photo{
     width: 40px;
-    height: 40px;
+    margin: 0 10px;
+    @include tb() {
+		width: 30px;
+	}
 }
 .media_title{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: $color-basic-White;
+    @include tb() {
+		font-size: 16px;
+	}
+    @include md() {
+		font-size: 14px;
+	}
 }
 .footer_about_cotainer{
-    margin: auto 0;
-    padding: 30px 30px;
-    background-color: #FFFFFF;
+    width: 45%;
+    margin: 10px;
+    padding: 20px;
+    background-color: $color-basic-White;
     border-radius: 10px;
+    @include tb() {
+		width: 100%;
+	}
+    @include md() {
+		width: 100%;
+	}
 }
 .about_title{
     text-align: center;
@@ -71,29 +113,17 @@ a{
 }
 
 .copyright{
-    padding-top: 80px;
+    padding-top: 50px;
     padding-bottom: 10px;
     text-align: center;
-    color: #FFFFFF;
+    color: $color-basic-White;
 }
 .statement{
     padding-top: 10px;
     font-size: 12px;
-    color: #FFFFFF;
+    color: $color-basic-White;
     text-align: left;
 }
 .statement a{
     display: inline;
-}
-@media screen and (max-width:769px) {
-
-    .footer_row{
-        flex-direction: column;
-    }
-    .media_photo{
-        display: block;
-    }
-    .footer_about_cotainer{
-        margin-top: 80px;
-    }
 }

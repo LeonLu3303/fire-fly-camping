@@ -1,13 +1,8 @@
 <template>
-    <footer>
+    <footer class="footer_about">
         <div class="footer_cotainer">
             <div class="footer_row">
                 <div class="footer_info">
-                    <div class="footer_info_attention">
-                        <router-link to="">預訂須知</router-link>｜
-                        <router-link to="">使用者條款</router-link>｜
-                        <router-link to="">隱私權政策</router-link>
-                    </div>
                     <div class="footer_info_navigation">
                         <router-link to="/booking">營區預訂</router-link>｜
                         <router-link to="/Activity">營區導覽</router-link>｜
