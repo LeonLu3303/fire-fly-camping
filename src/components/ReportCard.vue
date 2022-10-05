@@ -37,6 +37,7 @@
                             <h4 class="report_title">{{item.portTitle}}</h4>
                             <p class="report_txt">{{item.portTxt}}</p>
                         </div>
+                        <p @click="FetchAPICard">test</p>
                         <div class="report_btn">
                             <ReportLightBox/>
                             <router-link class="message_icon" to="/reportMessage">
@@ -73,29 +74,6 @@ export default {
     el: '#cardReports',
     components: {
         ReportLightBox,
-    },
-    computed: {
-        paginateTotal() {
-            //卡片長度 除以 一頁可顯示的數量，會有小數點所以要用Math無條件進位
-            return Math.ceil(this.cardReports.length / this.paginate)
-        },
-        filterData() {
-            //一頁有幾筆數目，透過slice做計算
-            //array.slice((page_number - 1) * page_size, page_number * page_size);
-            let arr = this.activeBtn == 'timeDate' ? this.timeDate : this.hotData;
-            return arr.slice((this.current - 1) * this.paginate , this.current * this.paginate);
-        },
-        hotData() {
-            return [...this.cardReports].sort( function(a,b) {
-                return b.msgCount - a.msgCount;
-            });
-        },
-        timeDate() {
-            return [...this.cardReports].sort( function(a,b) {
-                return Date.parse(b.reaTime) - Date.parse(a.reaTime);
-                //其轉換成秒數
-            });
-        }
     },
     data(){
         return {
@@ -203,6 +181,30 @@ export default {
                     msgCount: 3,
                 },
             ],
+            cardTest:null,
+        }
+    },
+    computed: {
+        paginateTotal() {
+            //卡片長度 除以 一頁可顯示的數量，會有小數點所以要用Math無條件進位
+            return Math.ceil(this.cardReports.length / this.paginate)
+        },
+        filterData() {
+            //一頁有幾筆數目，透過slice做計算
+            //array.slice((page_number - 1) * page_size, page_number * page_size);
+            let arr = this.activeBtn == 'timeDate' ? this.timeDate : this.hotData;
+            return arr.slice((this.current - 1) * this.paginate , this.current * this.paginate);
+        },
+        hotData() {
+            return [...this.cardReports].sort( function(a,b) {
+                return b.msgCount - a.msgCount;
+            });
+        },
+        timeDate() {
+            return [...this.cardReports].sort( function(a,b) {
+                return Date.parse(b.reaTime) - Date.parse(a.reaTime);
+                //其轉換成秒數
+            });
         }
     },
     methods: {
@@ -218,7 +220,20 @@ export default {
         },
         selectPage(val){
             this.current = val
-        }
+        },
+        FetchAPICard(){
+            fetch('http://localhost/phpLab_CGD102/back_end/discuss.php').then((response) => {
+                this.fetchError = (response.status !== 200)
+                //json(): 返回 Promise，resolves 是 JSON 物件
+                return response.json()
+            }).then(responseText => {
+                const useData = responseText
+                this.userAllData = useData
+                console.log(this.userAllData);
+            }).catch((err) => {
+                this.userAllData = true
+            })
+        },
     }
 }
 </script>

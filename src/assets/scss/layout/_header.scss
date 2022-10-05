@@ -1,122 +1,209 @@
+//seo 隱藏文字
 .sr_only{
   width: 1px;
+	height: 100%;
   position: absolute;
   overflow: hidden;
 }
+//導覽列
 .nav_bar{
-  width: 100%;
-  height: 76px;
-  padding-left: 1%;
-  padding-right: 1%;
+	width: 100%;
   display: flex;
-  position: fixed;
-  z-index: 444;
   justify-content: space-between;
   align-items: center;
-  background:  #FFFFFF ;
-  box-shadow:0px 5px 5px rgb(0,0,0,5%);
+  padding: 10px 20px;
+  position: fixed;
+  z-index: 50;
+	@include md() {
+		padding: 10px 10px;
+	}
+	@include sm() {
+		padding: 10px 6px;
+	}
 }
+//logo
 .firefly_logo{
-  width: 170px;
-  height: 60px;
+  width: 190px;
+	padding: 8px 16px;
+	border-radius: 50px;
+	background:  rgba($color: $color-main-yellow, $alpha: .4);
+	box-shadow: 0px 0px 10px 0px rgba($color: $color-main-yellow, $alpha: .4);
+	transition: .5s;
+	&:hover{
+		background:  rgba($color: $color-main-yellow, $alpha: .6);
+		box-shadow: 0px 0px 10px 3px rgba($color: $color-main-yellow, $alpha: .6);
+	}
+	@include md() {
+		width: 80px;
+		height: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		@include sm() {
+			width: 60px;
+			height: 60px;
+	}
 }
+.firefly_logo img{
+	width: 80%;
+	margin: auto;
+	@include md() {
+		width: 100%;
+	}
+}
+.firefly_logo .logo_lg{
+	display: block;
+	@include md() {
+		display: none;
+	}
+		@include sm() {
+		display: none;
+	}
+}
+.firefly_logo .logo_sm{
+	display: none;
+	@include md() {
+		display: block;
+		margin: auto;
+	}
+		@include sm() {
+		display: block;
+		margin: auto;
+	}
+}
+//預定button
 .reservation_icon{
-  width: 200px;
-  height: 60px;
+  width: 190px;
+  height: 56px;
   margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  background-color: #BC6C61;
+  background: $color-str-red;
+	&:hover{
+		background: $color-str-hov-red;
+	}
+	@include md() {
+		width: 150px;
+		height: 50px;
+    margin-right: 5px;
+	}
+	@include sm() {
+		width: 100px;
+		height: 40px;
+	}
 }
 .reservation_icon_photo{
-  width: 40px;
-  height: 40px;
+  width: 30px;
+	@include md() {
+		width: 24px;
+	}
+	@include sm() {
+		width: 20px;
+	}
 }
-.login_icon, .shopping_cart_icon{
-  width: 60px;
-  height: 60px;
+.login_icon{
+  width: 56px;
+  height: 56px;
   margin-right: 10px;
+  @include md() {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
 }
 .icon_text{
-  padding-left: 10px;
+  padding-left: 8px;
   font-size: 20px;
   font-weight: 600;
   color: #FFFFFF;
+	@include md() {
+		font-size: 16px;
+	}
+	@include sm() {
+		font-size: 12px;
+	}
 }
 .nav_bar_r{
   display: flex;
 }
+//漢堡
 .hb_icon{
-  width: 60px;
-  height: 60px;
+  position: relative;
+  width: 56px;
+  height: 56px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
   background-color: #168D80;
-}
-.list_photo{
-  width: 60px;
-  height: 60px;
+  @include md() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
 }
 .hb_icon .line::before{
   content: '';
   width: 30px;
-  height: 4px;
+  height: 3px;
   position: absolute;
   border-radius: 50px;
   background-color: #FFFFFF;
   transform: translate( -5px, -10px);
-  transition: .2s;
+  @include sm() {
+    width: 25px;
+    height: 2px;
+    transform: translate( -5px, -7px);
+  }
 }
 .hb_icon .line{
   width: 25px;
-  height: 4px;
+  height: 3px;
   position: absolute;
   border-radius: 50px;
   background-color: #FFFFFF;
-  transition: .2s;
+  transform: translate( 2px, 0px);
+  @include sm() {
+    width: 20px;
+    height: 2px;
+  }
 }
 .hb_icon .line::after{
   content: '';
   width: 20px;
-  height: 4px;
+  height: 3px;
   position: absolute;
   border-radius: 50px;
   background-color: #FFFFFF;
   transform: translate(5px, 10px);
-  transition: .2s;
+  @include sm() {
+    width: 15px;
+    height: 2px;
+    transform: translate( 5px, 7px);
+  }
 }
-.hb_icon:hover .line::before{
-  content: '';
-  width: 30px;
-  height: 4px;
-  position: absolute;
-  border-radius: 50px;
-  background-color: #FFFFFF;
-  transform: translate( 0px, -10px);
-  transition: .2s;
-}
-.hb_icon:hover .line{
-  width: 30px;
-  height: 4px;
-  position: absolute;
-  border-radius: 50px;
-  background-color: #FFFFFF;
-  transition: .2s;
-}
-.hb_icon:hover .line::after{
-  content: '';
-  width: 30px;
-  height: 4px;
-  position: absolute;
-  border-radius: 50px;
-  background-color: #FFFFFF;
-  transform: translate(0px, 10px);
-  transition: .2s;
+//導覽列icon
+.list_photo{
+  width: 60px;
+  height: 60px;
+  @include md() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
 }
 .nav_bar_ul{
   width: 40%;
@@ -131,6 +218,16 @@
   background: linear-gradient(-135deg,#4D8084, #1F4F4F);
   clip-path: circle(15px at calc(100% - 30px) 30px);
   transition: all 0.6s;
+  @include md() {
+    width: 70%;
+	}
+	@include sm() {
+		width: 80%;
+	}
+}
+.nav_close{
+  width: 20%;
+  float: right;
 }
 .nav_bar_li{
   width: 100%;
@@ -165,31 +262,31 @@
 
 @media screen and (max-width:769px) {
   
-  .firefly_logo{
-    width: 120px;
-    height: 50px;
-  }
-  .reservation_icon{
-    width: 160px;
-    height: 50px;
-  }
-  .reservation_icon_photo{
-    width: 30px;
-    height: 30px;
-  }
-  .icon_text{
-    font-size: 18px;
-  }
-  .login_icon{
-    width: 50px;
-    height: 50px;
-  }
-  .hb_icon{
-    width: 50px;
-    height: 50px;
-  }
-  .nav_bar_ul{
-    width: 100%;
-  }
+  // .firefly_logo{
+  //   width: 120px;
+  //   height: 50px;
+  // }
+  // .reservation_icon{
+  //   width: 160px;
+  //   height: 50px;
+  // }
+  // .reservation_icon_photo{
+  //   width: 30px;
+  //   height: 30px;
+  // }
+  // .icon_text{
+  //   font-size: 18px;
+  // }
+  // .login_icon{
+  //   width: 50px;
+  //   height: 50px;
+  // }
+  // .hb_icon{
+  //   width: 50px;
+  //   height: 50px;
+  // }
+  // .nav_bar_ul{
+  //   width: 100%;
+  // }
 
 }
