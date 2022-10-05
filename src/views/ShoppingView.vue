@@ -9,6 +9,7 @@
       <div class="wrap_product_list">
         <div class="product_list_group">
           <h3>所有商品</h3>
+          <button @click="FetchAPIFunc">hello world</button>
           <hr />
           <ul class="product_list">
             <li class="product_list_item"><h4>T恤<span class="divide_line">|</span></h4></li>
@@ -71,6 +72,7 @@ export default {
   data() {
     return {
       cart_count: 0,
+      userAllData: null,
       itemList: [
         // {} 包住的為 object
         {
@@ -125,6 +127,20 @@ export default {
       //JSON - 將點擊的資料轉成JSON 的字串格式轉換，因 javascript 陣列或物件無法直接存入localStorage
       //localStorage.setItem 是內建的函式
       localStorage.setItem('tempStorage', JSON.stringify(tempStock));
+    },
+    // 後端抓資料
+    FetchAPIFunc(){
+      fetch('http://localhost/Group%20project/firefly_camp_php/test.php').then((response) => {
+        this.fetchError = (response.status !== 200)
+        //json(): 返回 Promise，resolves 是 JSON 物件
+        return response.json()
+      }).then(responseText => {
+        const useData = responseText
+        this.userAllData = useData
+        console.log(this.userAllData);
+      }).catch((err) => {
+        this.userAllData = true
+      })
     },
   },
 };

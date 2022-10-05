@@ -10,21 +10,23 @@
             <div class="search_zone">
                 <h2 class="search_zone_title">{{sectionTitle}}</h2>
                 <div class="search_zone_option">
-                    <div class="option_theme">
-                        <select class="menu_choose">
-                        <option>主題區域</option>
-                        <option>叢林歷險</option>
-                        <option>冰雪奇緣</option>
-                        <option>荒野峽谷</option>
-                        </select>
-                    </div>
-                    <div class="option_tent">
-                        <select class="menu_choose">
-                            <option>幾人營帳</option>
-                            <option>二人營帳</option>
-                            <option>四人營帳</option>
-                            <option>六人營帳</option>
-                        </select>
+                    <div class="theme_tent_group">
+                        <div class="option_theme">
+                            <select class="menu_choose">
+                                <option>主題區域</option>
+                                <option>叢林歷險</option>
+                                <option>冰雪奇緣</option>
+                                <option>荒野峽谷</option>
+                            </select>
+                        </div>
+                        <div class="option_tent">
+                            <select class="menu_choose">
+                                <option>幾人營帳</option>
+                                <option>二人營帳</option>
+                                <option>四人營帳</option>
+                                <option>六人營帳</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="option_month">
                         <select class="menu_choose">
@@ -68,42 +70,58 @@ gsap.registerPlugin(ScrollTrigger);
             const jungle_2 = document.querySelector('.j_2');
             const jungle_3 = document.querySelector('.j_3');
             const jungle_4 = document.querySelector('.j_4');
+            gsap.registerPlugin(ScrollTrigger);
+            let speed = 100;
 
-            gsap.to(jungle_1, {
-                y: -650,
-                ease:"Bounce.easeIn",
+            let scene1 = gsap.timeline();
+            ScrollTrigger.create({
+                animation: scene1,
+                trigger: ".home_parallex img",
+                start: "top top",
+                end: "45% 100%",
+                scrub: 3,
+            });
+            let tl = gsap.timeline({repeat: 2, repeatDelay: 1});
+
+            tl.to(jungle_1, {
+                y: -400,
+                ease:"power1.out",
                 scrollTrigger: {
-                    trigger: 'home_parallex',
+                    trigger: 'ScrollTrigger',
                     scrub: true,
+                    duration: 1,
                     // markers: true,
                     // start: 'top botton-=20%',
                     // end: 'top-=20% center ',
                 }
             })
 
-            gsap.to(jungle_2 , {
-                y: -250,
-                ease:"Bounce.easeIn",
+            tl.to(jungle_2 , {
+                y: -800,
+                ease:"power1.out",
                 scrollTrigger: {
-                    trigger: "home-mountains",
+                    duration: 2,
+                    trigger: "ScrollTrigger",
                     scrub: true,
                     // markers: true,
                 }
             })
-            gsap.to(jungle_3, {
-                y: 400,
-                ease:"Bounce.easeIn",
+            tl.to(jungle_3, {
+                y: -1000,
+                ease:"power1.out",
                 scrollTrigger: {
-                    trigger: "home-mountains",
+                    duration: 3,
+                    trigger: "ScrollTrigger",
                     scrub: true,
                     // markers: true,
                 }
             })
-            gsap.to(jungle_4, {
-                y: 950,
-                ease:"Bounce.easeIn",
+            tl.to(jungle_4, {
+                y: -100,
+                ease:"power4.out",
                 scrollTrigger: {
-                    trigger: "home-mountains",
+                    duration: 3,
+                    trigger: "ScrollTrigger",
                     scrub: true,
                     // markers: true,
                 }

@@ -124,7 +124,6 @@ export default {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    // flex-wrap: wrap;
     padding: 20px;
     right: 0;
     left: 0;
@@ -140,7 +139,6 @@ export default {
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     overflow: hidden;
-    // object-fit: cover;
     img{
         height: 100%;
         object-fit: cover;
@@ -215,10 +213,10 @@ export default {
 .col_write_text {
     width: 26%;
     margin: 10px;
-    @include tb() {
+    @include lg() {
         width: 80%;
     }
-    @include sm() {
+    @include tb() {
         width: 100%;
     }
 }

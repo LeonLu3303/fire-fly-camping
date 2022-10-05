@@ -154,7 +154,7 @@ export default {
 @import '@/assets/scss/style.scss';
 .wrap_activityIsland {
   position: relative;
-  background: $color-main-yellow;
+  background: linear-gradient(to bottom, #abcbe9, $color-main-yellow);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;

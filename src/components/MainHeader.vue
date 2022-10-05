@@ -1,11 +1,12 @@
 <template>
-    <header>
+    <header class="he">
         <h1 class="sr_only">{{pageTitle}}</h1>
         <nav class="nav_bar">
             <h2 scope class="sr_only">{{navTitle}}</h2>
             <div class="nav_bar_l">
                 <router-link to="/HomeView" class="firefly_logo">
-                    <img src="@/assets/images/main/main_logo_row.png" alt="營火叢 Firefly Camping">
+                    <img class="logo_lg" src="@/assets/images/main/main_logo_row.png" alt="營火叢 Firefly Camping">
+                    <img class="logo_sm" src="@/assets/images/main/main_logo_col.png" alt="營火叢 Firefly Camping">
                 </router-link>
             </div>
             <div class="nav_bar_r">    
@@ -21,10 +22,13 @@
                     </div>
                 </router-link>
                 <div class="links">
-                    <a class="hb_icon">
+                    <a class="hb_icon" @click="isShow = 'openClose'">
                         <div class="line"></div>
                     </a>
-                    <ul class="nav_bar_ul">
+                    <ul class="nav_bar_ul" :class="{nav_tab:isShow === 'openClose'}">
+                        <li class="nav_close">
+                            <img @click.self="toggleModal" src="@/assets/images/main/main_icon_closure.png" alt="nva_closure">
+                        </li>
                         <li class="nav_bar_li">
                             <router-link v-for="item in routes" :key="item.path" :to="item.path" :class="{item_list: itemList==i}">
                                 <div class="list_photo">
@@ -38,14 +42,15 @@
             </div>
         </nav>
     </header>   
-  </template>
-  
-  <script>
-  import{routes} from '@/router/index.js'
+</template>
 
-  export default {
+<script>
+import{routes} from '@/router/index.js'
+
+export default {
     data() {
         return {
+            isShow: '',
             pageTitle: '營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇',
             navTitle: '營火叢導覽列',
             logoURL: '@/assets/images/main/main_logo_row.png',
@@ -88,12 +93,17 @@
                     name: '登入註冊',
                 },
             ],
-            // itemList: "",
         }
     },
-  }
-  </script>
-  
-  <style lang="scss">
-    @import '@/assets/Scss/Style.scss';
-  </style>
+    methods: {
+        toggleModal() { 
+            console.log('click')
+            this.isShow = !this.isShow;
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+@import '@/assets/Scss/Style.scss';
+</style>
