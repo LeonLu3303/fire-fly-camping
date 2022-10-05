@@ -9,6 +9,17 @@
     background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
+    @include md(){
+        background: url(/src/assets/images/home/home_jungle_all.png),
+        linear-gradient(to bottom, #abcbe9, $color-main-yellow);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        padding-bottom: 150px;
+    }
 }
 .reservation_cotainer{
     position: relative;
@@ -17,6 +28,7 @@
     margin-left: 10%;
     margin-right: 10%;
 }
+
 // 首頁 banner 的滾動視差動畫
 .home_parallex{
     position: absolute;
@@ -25,6 +37,12 @@
     width: 100%;
     top: 0;
     left: 0;
+    @include tb(){
+        height: 100vh;
+    }
+    @include md(){
+        display: none;
+    }
     
     .jungle_bg_img{
         position: absolute;
@@ -36,9 +54,12 @@
 .home_parallex img:nth-child(1){
     // width: 100%;
     // height: 100%;
-    bottom: -90%;
+    bottom: -80%;
     left: 0;
     z-index: 11;
+    @include tb(){
+        bottom: -40%;
+    }
 }
 .home_parallex img:nth-child(2){
     width: 100%;
@@ -46,20 +67,29 @@
     bottom: -47%;
     left: 0;
     z-index: 8;
+    @include tb(){
+        bottom: -28%;
+    }
 }
 .home_parallex img:nth-child(3){
     width: 100%;
     height: 100%;
-    bottom: -40%;
+    bottom: -47%;
     left: 0;
     z-index: 7;
+    @include tb(){
+        bottom: -20%;
+    }
 }
 .home_parallex img:nth-child(4){
     width: 100%;
     height: 100%;
-    bottom: -42%;
+    bottom: -47%;
     left: 0;
     z-index: 6;
+    @include tb(){
+        bottom: -10%;
+    }
 }
 .search_zone{
     width: 800px;
