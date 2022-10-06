@@ -71,7 +71,7 @@ import ReportLightBox from '../components/ReportLightBox.vue';
 
 export default {
     name: "ReportCard",
-    el: '#cardReports',
+    el: '#discussCard',
     components: {
         ReportLightBox,
     },
@@ -196,6 +196,7 @@ export default {
             return arr.slice((this.current - 1) * this.paginate , this.current * this.paginate);
         },
         hotData() {
+            //根據留言數做比較排序
             // console.log(this.discussCard.comment_count);
             return [...this.discussCard].sort( function(a,b) {
                 return b.comment_count - a.comment_count;
@@ -204,7 +205,7 @@ export default {
         timeDate() {
             return [...this.discussCard].sort( function(a,b) {
                 return Date.parse(b.discuss_post_time) - Date.parse(a.discuss_post_time);
-                //其轉換成秒數
+                //將時間轉換成秒數
             });
         }
     },
@@ -229,7 +230,8 @@ export default {
                 return response.json()
             }).then(responseText => {
                 const discussData = responseText
-                this.discussCard = discussData
+                this.discussCard = discussData;
+            
                 console.log(this.discussCard);
             }).catch((err) => {
                 this.discussCard = true

@@ -155,9 +155,6 @@ export default {
 .wrap_activityIsland {
   position: relative;
   background: linear-gradient(to bottom, #abcbe9, $color-main-yellow);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom center;
   padding-top: 150px;
   padding-bottom: 350px;
   @include lg() {
@@ -167,7 +164,7 @@ export default {
     padding-bottom: 150px;
   }
   @include sm(){
-    padding-bottom: 180px;
+    padding-bottom: 100px;
   }
 }
 // 首頁下面 snow 的滾動視差動畫
@@ -180,15 +177,25 @@ export default {
   object-position: 50% 50%;
   overflow: hidden;
   @include sm() {
-    bottom: -50%;
+    display: none;
   }
 }
 .home_snow_parallex .snow_bg_img {
   position: absolute;
   object-fit: contain;
+  @include xl() {
+    object-fit: cover;
+    object-position: 10% 0;
+  }
   @include lg() {
     object-fit: cover;
-    object-position: center;
+    object-position: 10% 0;
+  }
+  @include md() {
+    object-position: 30% 0;
+  }
+  @include sm() {
+    // object-position: 30% 0;
   }
 }
 .home_snow_parallex img:nth-child(1) {

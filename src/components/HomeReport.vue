@@ -128,6 +128,12 @@ export default {
             color: $color-basic-White;
         }
     }
+    @include md() {
+		width: 90%;
+	}
+    @include sm() {
+		width: 95%;
+	}
 }
 //btn 了解更多
 .report_more{

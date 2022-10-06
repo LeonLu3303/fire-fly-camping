@@ -119,7 +119,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/scss/style.scss';
-@import '../assets/scss/page/NewsView';
+@import '../assets/scss/component/HomeNews';
 </style>
