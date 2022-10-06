@@ -460,7 +460,7 @@
                             }
                         }
                     }
-                    xhr.open("post","http://localhost/phpLab/firefly_camping_php/register.php",true);
+                    xhr.open("post","http://127.0.0.1/phpLab/firefly_camping_php/register.php",true);
                     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
                     let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}&mem_name=${this.name}&mem_email=${this.email}&mem_nick_name=${this.nick_name}&mem_city=${this.city}&mem_addr=${this.addr}&mem_phone=${this.phone}`;
@@ -486,10 +486,10 @@
             }
             },
         watch: {
-            // email: function (content) {
-            //     var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-            //     this.emailflag = this.checkContentByReg(reg, content, "emailtip", "emailclass")
-            // }
+            email: function (content) {
+                var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                this.emailflag = this.checkContentByReg(reg, content, "emailtip", "emailclass")
+            }
         }
     }
     
