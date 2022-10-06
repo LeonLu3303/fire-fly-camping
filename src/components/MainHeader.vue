@@ -16,7 +16,10 @@
                     </div>
                     <p class="icon_text">{{iconName}}</p>
                 </router-link>
-                <router-link to="/Login" class="login_icon">
+                <router-link 
+                    to="/Login" 
+                    class="login_icon"
+                    >
                     <div class="login_icon_photo">
                         <img src="@/assets/images/main/main_icon_account_original.png" alt="登入註冊">
                     </div>

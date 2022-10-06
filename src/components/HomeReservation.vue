@@ -6,6 +6,7 @@
             <img class="jungle_bg_img j_3" src="@/assets/images/home/home_jungle_600_3.png" alt="">
             <img class="jungle_bg_img j_4" src="@/assets/images/home/home_jungle_600_4.png" alt="">
         </div>
+        <!-- 搜尋區 -->
         <div class="reservation_cotainer">
             <div class="search_zone">
                 <h2 class="search_zone_title">{{sectionTitle}}</h2>
@@ -84,7 +85,7 @@ gsap.registerPlugin(ScrollTrigger);
             let tl = gsap.timeline({repeat: 2, repeatDelay: 1});
 
             tl.to(jungle_1, {
-                y: -400,
+                y: 0,
                 ease:"power1.out",
                 scrollTrigger: {
                     trigger: 'ScrollTrigger',
@@ -97,7 +98,7 @@ gsap.registerPlugin(ScrollTrigger);
             })
 
             tl.to(jungle_2 , {
-                y: -800,
+                y: 600,
                 ease:"power1.out",
                 scrollTrigger: {
                     duration: 2,
@@ -107,7 +108,7 @@ gsap.registerPlugin(ScrollTrigger);
                 }
             })
             tl.to(jungle_3, {
-                y: -1000,
+                y: 800,
                 ease:"power1.out",
                 scrollTrigger: {
                     duration: 3,
@@ -117,7 +118,7 @@ gsap.registerPlugin(ScrollTrigger);
                 }
             })
             tl.to(jungle_4, {
-                y: -100,
+                y: 600,
                 ease:"power4.out",
                 scrollTrigger: {
                     duration: 3,

@@ -13,11 +13,11 @@
           </div>
           
           <div class="cart_payment_container">
-            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
+            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.product_name">
             <tbody >
               <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" /></td>
-                <td><p>{{item.title}}</p><p>數量:{{item.qty}}</p><p>單價:${{item.price}}</p><p>小計:${{item.qty * item.price}}</p></td>
+                <td class="payment_item_image"><img class="cart_prod_image" :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)" alt="" ></td>
+                <td><p>{{item.product_name}}</p><p>數量:{{item.product_qty}}</p><p>單價:${{item.product_price}}</p><p>小計:${{item.product_qty * item.product_price}}</p></td>
               </tr>
             </tbody>
           </table>
@@ -107,11 +107,13 @@
             </div>
           
           <div class="cart_payment_container">
-            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.title">
+            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.product_name">
             <tbody >
               <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img :src="require(`../assets/images/shop/shopping_prod_${item.id}.jpg`)" alt="" /></td>
-                <td><p>{{item.title}}</p><p>數量:{{item.qty}}</p><p>單價:${{item.price}}</p><p>小計:${{item.qty * item.price}}</p></td>
+                <td class="payment_item_image"><img class="details_product_img"
+                :src="require(`../assets/images/shop/shopping_prod_${item.product_pic}`)"
+                alt="hello"/></td>
+                <td><p>{{item.product_name}}</p><p>數量:{{item.product_qty}}</p><p>單價:${{item.product_price}}</p><p>小計:${{item.product_qty * item.product_price}}</p></td>
               </tr>
             </tbody>
           </table>
@@ -145,7 +147,7 @@ export default {
       this.orderList = JSON.parse(tempOrderList)
     },
     itemSum(){
-      this.itemTotal = this.orderList.reduce((acc, obj) => acc + (obj.qty * obj.price), 0)
+      this.itemTotal = this.orderList.reduce((acc, obj) => acc + (obj.product_qty * obj.product_price), 0)
     }
   },
   created() {

@@ -23,7 +23,7 @@
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide v-for="(news,slide) in newsList">
+      <swiper-slide v-for="(news,slide) in newsList" :key="news">
         <div class="news_pic">
           <img :src="require(`@/assets/images/news/news_${slide}.jpg`)" alt="最新消息照片" />
         </div>
@@ -121,5 +121,5 @@ export default {
 </script>
 <style lang="scss">
 @import '../assets/scss/style.scss';
-@import '../assets/scss/page/NewsView';
+@import '../assets/scss/component/HomeNews';
 </style>

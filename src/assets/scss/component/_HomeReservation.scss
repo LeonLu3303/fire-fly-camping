@@ -1,95 +1,127 @@
 .reservation_camp{
-    width: 100%;
-    height: 130vh;
-    background: url(/src/assets/images/home/home_jungle_cloud.png),
-    linear-gradient(to bottom, #abcbe9, $color-main-yellow);
-    padding-top: 200px;
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    overflow: hidden;
     position: relative;
+    background: linear-gradient(to bottom, #abcbe9, $color-main-yellow);
+    padding-top: 150px;
+    padding-bottom: 450px;
+    overflow: hidden;
+    @include lg() {
+        padding-bottom: 380px;
+    }
+    @include tb() {
+        padding-bottom: 240px;
+    }
     @include md(){
         background: url(/src/assets/images/home/home_jungle_all.png),
         linear-gradient(to bottom, #abcbe9, $color-main-yellow);
         background-size: cover;
-        background-position: center;
+        background-position: 10% 130%;
         background-repeat: no-repeat;
         overflow: hidden;
         position: relative;
-        height: 100%;
         padding-bottom: 150px;
     }
 }
-.reservation_cotainer{
-    position: relative;
-    z-index: 10;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-}
+
 
 // 首頁 banner 的滾動視差動畫
 .home_parallex{
     position: absolute;
     z-index: 2;
-    height: 110vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-    @include tb(){
-        height: 100vh;
-    }
-    @include md(){
-        display: none;
-    }
-    
-    .jungle_bg_img{
-        position: absolute;
-        object-fit: cover;
-        object-position: center;
-    }
-
-}
-.home_parallex img:nth-child(1){
-    // width: 100%;
-    // height: 100%;
-    bottom: -80%;
-    left: 0;
-    z-index: 11;
-    @include tb(){
-        bottom: -40%;
-    }
-}
-.home_parallex img:nth-child(2){
     width: 100%;
     height: 100%;
-    bottom: -47%;
-    left: 0;
-    z-index: 8;
-    @include tb(){
+    bottom: -50%;
+    object-position: 50% 50%;
+    @include lg() {
+        bottom: -35%;
+    }
+    @include tb() {
+        bottom: -25%;
+    }
+    @include md(){
+        bottom: -10%;
+        display: none;
+    }
+}
+.home_parallex .jungle_bg_img{
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    @include xl() {
+        object-fit: cover;
+        object-position: 10% 0;
+    }
+    @include lg() {
+    object-fit: cover;
+    object-position: 10% 0;
+    }
+    @include md() {
+    object-position: 30% 0;
+    }
+}
+.home_parallex img:nth-child(1){
+    // height: 100%;
+    z-index: 11;
+    bottom: -30%;
+    // @include lg() {
+    //     bottom: -30%;
+    // }
+    // @include tb() {
+    //     bottom: -20%;
+    // }
+    // @include md() {
+    //     bottom: -15%;
+    // }
+}
+.home_parallex img:nth-child(2){
+    // height: 100%;
+    z-index: 10;
+    bottom: -28%;
+    @include lg() {
+        bottom: -28%;
+    }
+    @include tb() {
+        bottom: -28%;
+    }
+    @include md() {
         bottom: -28%;
     }
 }
 .home_parallex img:nth-child(3){
-    width: 100%;
-    height: 100%;
-    bottom: -47%;
-    left: 0;
-    z-index: 7;
-    @include tb(){
-        bottom: -20%;
+    // height: 100%;
+    z-index: 9;
+    bottom: -25%;
+    @include lg() {
+        bottom: -25%;
+    }
+    @include tb() {
+        bottom: -25%;
+    }
+    @include md() {
+        bottom: -25%;
     }
 }
 .home_parallex img:nth-child(4){
-    width: 100%;
-    height: 100%;
-    bottom: -47%;
-    left: 0;
-    z-index: 6;
-    @include tb(){
-        bottom: -10%;
+    // height: 100%;
+    z-index: 8;
+    bottom: -22%;
+    @include lg() {
+        bottom: -27%;
     }
+    @include tb() {
+        bottom: -28%;
+    }
+    @include md() {
+        bottom: -28%;
+    }
+}
+
+//搜尋區
+.reservation_cotainer{
+    position: relative;
+    z-index: 20;
+    width: 80%;
+    max-width: 1296px;
+    margin: auto;
 }
 .search_zone{
     width: 70%;
@@ -98,14 +130,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include tb(){
+        width: 90%;
+    }
+    @include md(){
+        width: 100%;
+    }
 }
 .search_zone_title{
-    font-size: 48px;
+    font-size: 36px;
+    line-height: 50px;
     color: #1F4F4F;
+    @include tb(){
+        font-size: 32px;
+    }
+    @include md(){
+        font-size: 28px;
+    }
 }
 .search_zone_option{
     width: 100%;
-    padding: 60px 0;
+    padding: 15px 0 30px 0;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -113,25 +158,49 @@
 }
 .theme_tent_group{
     display: flex;
-    // width: 30%;
+    width: 60%;
+    @include tb(){
+        width: 100%;
+    }
 }
-// .option_month{
-//     width: 60%;
-// }
+.option_theme{
+    width: 50%;
+    padding: 5px;
+}
+.option_tent{
+    width: 50%;
+    padding: 5px;
+}
+.option_month{
+    width: 40%;
+    padding: 5px;
+    @include tb(){
+        width: 100%;
+    }
+}
 .option_theme select, 
 .option_tent select, 
 .option_month select{
-    // width: 260px;
-    // height: 70px;
+    width: 100%;
     border: none;
-    padding: 20px;
+    padding: 18px;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: #555555;
-    box-shadow: 0 0 10px rgba(97, 97, 97,10%);
-    background-color: rgba(255, 255, 255, 80%);
+    box-shadow: 0 0 10px rgba(97, 97, 97,.1);
+    background-color: rgba(255, 255, 255, .8);
+    @include lg(){
+        font-size: 18px;
+    }
+    @include tb(){
+        font-size: 18px;
+    }
+    @include sm(){
+        font-size: 16px;
+        padding: 13px;
+    }
 }
 .btn_search{
     width: 190px;

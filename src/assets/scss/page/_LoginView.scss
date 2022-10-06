@@ -39,7 +39,7 @@
 .login_btn{
     margin: 15px auto;
     text-align: center;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
     .btn_submit{
         position: static;
     }
@@ -235,7 +235,9 @@
 .container.right_panel_active .overlay-right {
     transform: translateY(20%);
 }
-
+// .register.content form{
+//     padding-bottom: 50px;
+// }
 // 手機版
 
 .container_sm{
