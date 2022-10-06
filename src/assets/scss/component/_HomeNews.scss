@@ -43,8 +43,6 @@
         }
     } 
 }
-  
-
 .news_txt{
     position: absolute;
     bottom: 0;
@@ -100,8 +98,7 @@
     margin: auto;
 }
 .btn_spacing{
-    padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 .slideActive{
     opacity: 1;
@@ -113,8 +110,6 @@
 // 下半部按鈕
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
     margin-top: 50px;
-    // margin-bottom: 100px;
-    // padding-bottom: 100px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -128,6 +123,10 @@
     margin: 20px;
     text-align: center;
 }
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet .swiper-pagination-bullet-active{
-    background-color: #ffffff ;
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap,4px);
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ffff;
 }
