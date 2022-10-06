@@ -28,7 +28,7 @@
                     </ul>
                     <ul class="tabcontent_txt">
                         <li>
-                            <input id="mem_name" class="input_box" type="text" placeholder="營火叢" />
+                            <input id="mem_name" class="input_box" type="text" placeholder="" />{{mem_name}}
                         </li>
                         <li>
                             <input id="mem_nick_name" class="input_box" type="text" placeholder="小營" />
@@ -71,37 +71,37 @@
             <ul class="tabcontent_img">
                 <li>
                     <label for="sloth" class="select_img">
-                        <input type="radio" id="sloth" name="namepic" class="input_none">
+                        <input type="radio" id="sloth" name="namepic" class="input_none" value="1">
                         <img src="@/assets/images/report/report_avatar_1.png">
                     </label>
                 </li>
                 <li>
                     <label for="bear" class="select_img">
                         <input type="radio" id="bear" name="namepic" class="input_none">
-                        <img src="@/assets/images/report/report_avatar_2.png">
+                        <img src="@/assets/images/report/report_avatar_2.png" value="2">
                     </label>
                 </li>
                 <li>
                     <label for="fox" class="select_img">
-                        <input type="radio" id="fox" name="namepic" class="input_none">
+                        <input type="radio" id="fox" name="namepic" class="input_none" value="3">
                         <img src="@/assets/images/report/report_avatar_3.png">
                     </label>
                 </li>
                 <li>
                     <label for="snake" class="select_img">
-                        <input type="radio" id="snake" name="namepic" class="input_none">
+                        <input type="radio" id="snake" name="namepic" class="input_none" value="4">
                         <img src="@/assets/images/report/report_avatar_4.png">
                     </label>
                 </li>
                 <li>
                     <label for="penguin" class="select_img">
-                        <input type="radio" id="penguin" name="namepic" class="input_none">
+                        <input type="radio" id="penguin" name="namepic" class="input_none" value="5">
                         <img src="@/assets/images/report/report_avatar_5.png">
                     </label>
                 </li>
                 <li>
                     <label for="dinosaur" class="select_img" >
-                        <input type="radio" id="dinosaur" name="namepic" class="input_none">
+                        <input type="radio" id="dinosaur" name="namepic" class="input_none" value="6">
                         <img src="@/assets/images/report/report_avatar_6.png">
                     </label>
                 </li>
@@ -114,9 +114,28 @@
 <script>
     export default {
         name: "MemberModify",
+        beforeMount(){
+            this.FetchAPIFunc()
+        },
         data(){
             return {
+                memmodifydata: {},
+                memId: 1,
             }
+        },methods:{
+            FetchAPIFunc(){
+                fetch(`http://localhost/CGD102G1/back_end/membermodify.php?memId=${this.memId}`).then((response) => {
+                this.fetchError = (response.status !== 200)
+                //json(): 返回 Promise，resolves 是 JSON 物件
+                 return response.json()})
+                 .then(responseText => {const useData = responseText
+                this.memmodifydata = useData[0]
+                console.log(this.memmodifydata);
+                }).catch((err) => {
+                this.memmodifydata = true
+             });
+            },
+
         }
     }
 </script>
