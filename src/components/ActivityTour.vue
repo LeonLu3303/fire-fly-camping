@@ -64,7 +64,6 @@
                     <ActivityCarousel :activity_block="item.name"/> 
                 </div>
                 <div class="activity_introduction_text" >
-                    <!-- <h3>{{ userAllData[`${index}`][`${1}`]}}</h3>  -->
                     <h4>{{item.infoSub}}</h4>
                     <p>{{ item.infoText }}</p>
                     <div class="activity_introduction_text_pic" :class="{reverse_pic: index%2 === 1}">
@@ -85,10 +84,6 @@ export default {
   components:{
     ActivityCarousel,
     },
-  // props: {
-  //   XMLHttpError: Boolean,
-  //   userAllData: Array
-  // },
   data(){
     return {
       activitySection:[
@@ -100,7 +95,7 @@ export default {
             titleSen:'寶藏探險',
             textSen:'寶藏探險是考驗玩家取捨的策略遊戲，會有島上的尋寶地圖，在叢林尋覓寶藏，其中會有小遊戲關卡供玩家破關，每破一個關卡就可以得到一個提示！',
             infoSub:'感受叢林的大自然氣氛',
-            infoText:'叢林探險是考驗玩家取捨的策略遊戲。玩家們扮演攝影團隊，在叢林追尋動物的蹤跡，拍下他們迷人的身影。然而，在叢林探險時也會遭遇各種問題，除了身邊的夥伴可能會帶著照片偷跑，還要提防有害的蚊蟲襲擊，不小心得了傳染病就只能一無所獲的回家休息了！',
+            infoText:'叢林探險地區擁有大面積原生植物，還有許多叢林動物的蹤跡，讓您不用飛到熱帶國家也可以享受到同樣的景致，尤其特別喜歡享受大自然的遊客，千萬不要錯過叢林探險地區。然而，在叢林探險地區冒險，無須擔心安全的問題，並不會受到動物的攻擊，但要小心蚊蟲襲擊，若遇到突發狀況，也可隨時聯繫到工作人員！',
             imgUrl:require('@/assets/images/activity/activity_1.png'),
             imgShadow:require('@/assets/images/activity/activity_2.png'),
             imgInfo:require('@/assets/images/activity/activity_23.jpg'),
@@ -116,7 +111,7 @@ export default {
             sub:'冰雪奇緣',
             textFir:'一年四季都可以享受到滑雪活動，場內設備非常安全，滑雪體驗一定會伴隨教練，所以教練的互動也是很重要的一環，進階課程將會藉著人工冰攀場來練習基礎的冰攀技巧，以因應實際演練中許多複雜混合的地形。',
             titleSen:'冰上釣魚',
-            textSen:'冬天除了玩冰魚節慶典，還有冰上釣魚活動，露營期間您可在厚達40公分以上的冰層找個好位置，將釣竿放進冰釣窟窿，享受冰上垂釣的樂趣！當山川魚上鉤後，您還可以在現場的燒烤區、活動區品嚐山川魚鮮美的滋味，除了冰上釣魚體驗，現場也能玩雪盆、雪橇！',
+            textSen:'冰上釣魚活動，露營期間您可在厚達40公分以上的冰層找個好位置，將釣竿放進冰釣窟窿，享受冰上垂釣的樂趣！當山川魚上鉤後，您還可以在現場的燒烤區、活動區品嚐雪地魚鮮美的滋味，除了冰上釣魚體驗，現場也能玩雪盆、雪橇！',
             infoSub:'美麗的雪景，使人的心靈變得一樣美麗純潔',
             infoText:'冰雪奇緣地區為一年四季都為雪季，讓您無需等待到冬天也可以滑雪，並欣賞雪山美景，除了一般雪地活動之外，也可來場雪地健行，享受近距離仔細觀察大自然的樂趣，有膨鬆柔軟的粉雪綿延不絕，且能在導遊允許的範圍內自由玩耍，在飄落新雪的雪地上蹦蹦跳跳、或跟同伴打打雪仗、或用雪橇從小小的雪丘上飛速俯衝而下等，能享受多彩多姿的玩雪樂趣。',
             imgUrl:require('@/assets/images/activity/activity_12.png'),
@@ -135,8 +130,7 @@ export default {
             textFir:'看著來自各國的專業飛行員駕駛碩大的夢幻熱氣球，滿載觀眾們的興奮期盼漫天飄遠，徜徉在縱谷間的大峽谷之中，是這裡不可錯過的一大美景。熱氣球自由飛空中遊覽，除了現場體驗升空的感動，還有視覺及聽覺浪漫激盪的精采饗宴。',
             titleSen:'攀岩體驗',
             textSen:'峽谷運動攀登將先鋒攀登保護支點都已經事先用錨栓打好的路線，該些錨栓在路線上的距離配置均勻，不會讓攀登者的墜落距離過長。錨栓通常都是路線開發者從路線上方垂降下來時打進岩壁的。天然岩場用錨栓架設的路線，以及人工岩場中可供先鋒的路線，都是屬於運動攀登路線。',
-            infoSub:'感受峽谷的大自然氣氛',
-            infoText:'臺灣大部分的峽谷是發育在河床兩旁的兩岸的峽谷，大安溪峽谷是發育在比較平坦的河床，河床上面突然抬高以後，然後下切，發育在沉積岩上。臺灣的地震頻繁造成多變的地形，因此形成了不少峽谷地形；不像其他國家的峽谷，需要經過長年累月才能形成磅礡的氣勢，峽谷的壯觀景色，大自然的鬼斧神工，令人嘖嘖稱奇！',
+            infoText:'荒野峽谷地區是由河流向下切蝕形成河谷，但由於河谷兩旁的谷壁易因侵蝕或崩塌，不斷擴大而形成V形橫剖面，不需飛到美國也可以就近體驗峽谷的壯觀景色，如果想在天上目睹峽谷全貌的話，可以乘坐熱氣球，由專人為您導覽解說，讓您可以一邊享受壯麗景觀的同時，也可以更了解峽谷地形的形成演變史。',
             imgUrl:require('@/assets/images/activity/activity_18.png'),
             imgShadow:require('@/assets/images/activity/activity_2.png'),
             imgInfo:require('@/assets/images/activity/activity_25.jpg'),
@@ -158,8 +152,6 @@ export default {
           "dot_canyon"
       ],
       openCollapse: [0, 0 ,0],
-      userAllData:[],
-      fetchError: false,
   }
 },
   methods:{
@@ -170,25 +162,6 @@ export default {
     dotHander(index, num) {
       this.openCollapse[index] = num;
     },
-  
-    FetchAPIFunc(){
-      fetch('http://localhost/CGD102G1/back_end/test.php').then((response) => {
-        this.fetchError = (response.status !== 200)
-        //json(): 返回 Promise，resolves 是 JSON 物件
-        return response.json()
-      }).then(responseText => {
-        console.log("------",responseText)
-        const useData = responseText
-
-        this.userAllData = useData
-        console.log(this.userAllData);
-      }).catch((err) => {
-        this.userAllData = true
-      });
-    },
-  },
-  created(){
-    this.FetchAPIFunc()
   },
   mounted() {
     const island = document.querySelectorAll(".island");
@@ -343,7 +316,8 @@ export default {
 //叢林小島錨點定位
   .dot_jungle{
     .dot_first, .dot_second{
-      width: 50px;
+      width: 55px;
+      cursor: pointer;
     }
     .dot_first{
       position: absolute;
@@ -383,7 +357,8 @@ export default {
 //雪地錨點定位
   .dot_ice{
     .dot_first, .dot_second{
-        width: 50px;
+      width: 55px;
+      cursor: pointer;
       }
     .dot_first{
       position: absolute;
@@ -427,7 +402,8 @@ export default {
   //峽谷定位錨點
   .dot_canyon{
     .dot_first, .dot_second{
-      width: 50px;
+      width: 55px;
+      cursor: pointer;
     }
     .dot_first{
       position: absolute;
