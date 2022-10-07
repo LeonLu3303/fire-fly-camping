@@ -9,34 +9,34 @@
                 <div class="col_postcard">
                     <div class="postcard_group">
                         <div class="postcard_release">
-                            <h3 class="postcard_title_area">{{enterTitle}}</h3>
-                            <p class="postcard_text_area">{{enterText}}</p>
+                            <h3 class="postcard_title_area">{{discuss_title}}</h3>
+                            <p class="postcard_text_area">{{discuss_content}}</p>
                         </div>
                         <!-- 頭像 會員 0929-->
                         <div class="postcard_member_data">
                             <div class="member_content">
                                 <div class="postcard_member_pic">
-                                    <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                                    <img :src="require(`@/assets/images/report/report_avatar_${mem_pic}.png`)" alt="avatar">
                                 </div>
                                 <div class="postcard_name_time">
-                                    <h4 class="postcard_member_name">{{memberName}}</h4>
-                                    <p class="postcard_release_time">{{releaseTime}}</p>
+                                    <h4 class="postcard_member_name">{{mem_name}}</h4>
+                                    <!-- <p class="postcard_release_time">{{discuss_post_time}}</p> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="postcard_bg">
-                        <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
+                        <img :src="require(`@/assets/images/report/report_postcard_${background_type}.jpg`)" alt="postcard">
                     </div>
                 </div>
 
                 <!-- 輸入欄 0929-->
                 <form class="col_write_text">
-                    <input class="enter_title" type="text" maxlength="15" v-model="enterTitle"/>
-                    <textarea class="enter_text" name="enter_text" type="text" maxlength="300" v-model="enterText" ></textarea>
+                    <input class="enter_title" type="text" maxlength="15" v-model="discuss_title"/>
+                    <textarea class="enter_text" name="enter_text" type="text" maxlength="300" v-model="discuss_content" ></textarea>
                     <div class="confirm_choose_contain">
                         <button class="btn_confirm" id="publish_report" href="#">發佈報告</button>
-                        <select class="btn_bg_choose" v-model="selectBg">
+                        <select class="btn_bg_choose" v-model="background_type">
                             <option class="bg_choose" disabled value="1">選擇背景</option>
                             <option class="bg_choose" value="1">叢林歷險</option>
                             <option class="bg_choose" value="2">冰雪奇緣</option>
@@ -54,30 +54,12 @@ export default {
     name: 'ReportPublish',
     data() {
         return {
-            activeTab: 'snow',
-            enterTitle: '請輸入標題(15字以內)',
-            enterText: '請輸入內文(300字以內)',
-            memberPic: '@/assets/images/report/report_avatar_1.png',
-            memberName: '會員名稱',
-            releaseTime: '2022/09/22',
-            selectBg: '1',
-            bgPic: [
-                {
-                val: '1',
-                theme: '叢林歷險',
-                bg: '@/assets/images/report/report_postcard_1.jpg',
-                },
-                {
-                val: '2',
-                theme: '冰雪奇緣',
-                bg: '@/assets/images/report/report_postcard_2.jpg',
-                },
-                {
-                val: '3',
-                theme: '荒野峽谷',
-                bg: '@/assets/images/report/report_postcard_3.jpg',
-                },
-            ],
+            discuss_title: '請輸入標題(15字以內)',
+            discuss_content: '請輸入內文(300字以內)',
+            mem_pic: '0',
+            mem_name: '',
+            discuss_post_time: '',
+            background_type: '1',
         };
     },
 };

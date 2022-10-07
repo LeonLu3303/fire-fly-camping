@@ -51,8 +51,11 @@
                 </table>
                 <div class="cart_table_btn">
                     <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
-                    <router-link to="/ShoppingPayment"><button class="btn_purchase">前往結帳</button></router-link>
+                    <button @click="popUpLogin" class="btn_purchase" >前往結帳</button>
                 </div>
+                <!-- 點擊直接購買後 跳出請先登入 提醒 -->
+                <!-- @close 是component $emit 那邊的命名 -->
+                <ShopLoginBox @close="loginBox" v-if="login"></ShopLoginBox>
         </div>
 </div>
 </section>
@@ -62,21 +65,31 @@
 <script>
 import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
+import ShopLoginBox from '@/components/ShopLoginBox.vue'
 
 export default {
 
     components:{
     MainHeader,
     MainFooter,
+    ShopLoginBox
     },
     data() {
         return {
             itemSelect: {},
             products: [],
-            cart: []
+            cart: [],
+            login: false //請先登入
         }
     },
     methods: {
+        loginBox (response) {
+            this.login = response
+        },
+        popUpLogin () {
+            // 點擊直接購買 - 請先登入提示
+            this.login = true
+        },
         reduce_order(index) {
             if (this.cart[index]["product_qty"] === 1) {
                 return;

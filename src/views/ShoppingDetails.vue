@@ -34,11 +34,15 @@
                 </div>
                 <h4>合計：${{realProduct.product_price * realProduct.product_qty}}</h4>
                 <div class="order_btn_box">
-                    <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link>
-                    <button class="btn_return" @click="addToOrder(realProduct)">加入購物車</button>
+                    <!-- <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link> -->
+                    <button class="btn_purchase" @click="popUpLogin(realProduct)">直接購買</button>
+                    <button class="btn_return" @click="popUpBox(realProduct)">加入購物車</button>
                 </div> 
+                <!-- 點擊直接購買後 跳出請先登入 提醒 -->
+                <!-- @close 是component $emit 那邊的命名 -->
+                <ShopLoginBox @close="loginBox" v-if="login"></ShopLoginBox>
                 <!-- 點擊購物車後的 lightbox 提醒文 -->
-                <shoppingDetailsBox v-show="addingBox" :itemSelected="realProduct.product_name"></shoppingDetailsBox>
+                <ShoppingDetailsBox v-show="addingBox" :itemSelected="realProduct.product_name"></ShoppingDetailsBox>
             </div>
         </div>
     </div>
@@ -51,6 +55,7 @@ import MainHeader from '@/components/MainHeader.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import ShoppingDetailsBox from '@/components/ShoppingDetailsBox.vue';
 import ShoppingIcon from '@/components/ShoppingIcon.vue';
+import ShopLoginBox from '@/components/ShopLoginBox.vue';
 
 export default {
     components:{
@@ -58,15 +63,20 @@ export default {
     MainFooter,
     ShoppingDetailsBox,
     ShoppingIcon,
+    ShopLoginBox,
     },
     data() {
         return {
             realProduct: {}, //當時的商品
             orderList: [], //存入購物車
-            addingBox: false //加入購物車前燈箱隱藏 ->false 
+            addingBox: false, //加入購物車前燈箱隱藏 ->false 
+            login: false //請先登入
         };
     },
     methods: {
+        loginBox (response) {
+            this.login = response
+        },
         reduce_order(product_qty) {
         if (product_qty !== 1) {
             this.realProduct.product_qty -= 1;
@@ -77,13 +87,20 @@ export default {
             this.realProduct.product_qty += 1;
         }
         },
+        popUpBox (realProduct) {
+            // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
+            this.addingBox = true
+            // setTimeout 非同步執行，三秒後false = 隱藏
+            setTimeout(() => this.addingBox = false, 3000)
+            this.addToOrder(realProduct)
+        },
+        popUpLogin (realProduct) {
+            // 點擊直接購買 - 請先登入提示
+            this.login = true
+            this.addToOrder(realProduct)
+        },
         // addToOrder - 加入購物車
         addToOrder (realProduct) {
-        // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
-        this.addingBox = true
-        // setTimeout 非同步執行，三秒後false = 隱藏
-        setTimeout(() => this.addingBox = false, 3000)
-
         // 用當前商品名稱比對購物車商品名稱，會返回 index，如商品不在會返回 -1
         const indexProduct = this.orderList.findIndex((item) => item.product_name === realProduct.product_name)
         // 判斷商品是否已存在購物車
