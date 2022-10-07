@@ -1,0 +1,129 @@
+.footer_about{
+    background-color: #4D8084;
+}
+.footer_cotainer{
+    width: 80%;
+    max-width: 1296px;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    @include md() {
+		width: 90%;
+	}
+    @include sm() {
+		width: 95%;
+	}
+}
+.footer_row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer_info{
+    width: 50%;
+    padding: 10px;
+    @include tb() {
+		width: 100%;
+	}
+    @include md() {
+		width: 100%;
+	}
+}
+.footer_info_attention, .footer_info_navigation, .footer_info_social_media, .media_photo{
+    display: flex;
+}
+.footer_info_attention{
+    padding-bottom: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-basic-White;
+}
+.footer_info_navigation{
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-basic-White;
+    @include tb() {
+		font-size: 16px;
+	}
+    @include md() {
+		font-size: 16px;
+	}
+    @include sm() {
+		font-size: 14px;
+	}
+}
+.footer_info_navigation a{
+    color: $color-basic-White;
+    &:hover{
+        color: $color-basic-White;
+    }
+}
+.footer_info_social_media{
+    padding-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.media_photo{
+    width: 40px;
+    margin: 0 10px;
+    @include tb() {
+		width: 30px;
+	}
+}
+.media_title{
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-basic-White;
+    @include tb() {
+		font-size: 16px;
+	}
+    @include md() {
+		font-size: 14px;
+	}
+}
+.footer_about_cotainer{
+    width: 45%;
+    margin: 10px;
+    padding: 20px;
+    background-color: $color-basic-White;
+    border-radius: 10px;
+    @include tb() {
+		width: 100%;
+	}
+    @include md() {
+		width: 100%;
+	}
+}
+.about_title{
+    text-align: center;
+    color: #4D8084;
+}
+.about_txt{
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color:#454545;
+}
+.footer_logo{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+}
+
+.copyright{
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: $color-basic-White;
+}
+.statement{
+    padding-top: 10px;
+    font-size: 12px;
+    color: $color-basic-White;
+    text-align: left;
+}
+.statement a{
+    display: inline;
+}

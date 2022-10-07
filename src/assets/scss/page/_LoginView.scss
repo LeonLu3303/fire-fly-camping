@@ -1,0 +1,327 @@
+.wrap_login{
+    // margin: -20px 0 50px;
+    padding-bottom: 150px;
+    // height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat',sans-serif;
+    background-image: url(/src/assets/images/home/home_jungle_all.png);
+    background-size: cover;
+    background-position: bottom center;
+}
+//大標題
+.overlay .title{
+    margin: 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+.form-container .title{
+    margin: 50px auto;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.85);;
+}
+//文字
+.overlay p{    
+    margin: 20px 0 30px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: .5px;
+}
+//忘記密碼
+.forgot_psw{    
+    margin: 15px 0;
+    text-decoration: none;
+    color: #333;
+    align-self: flex-end;
+}
+// 註冊登入按鈕
+.login_btn{
+    margin: 15px auto;
+    text-align: center;
+    margin-bottom: 50px;
+    .btn_submit{
+        position: static;
+    }
+}
+// 檢查帳號按鈕
+#check_id,#check_email{
+    font-size: 12px;
+    width: 60px;
+    height: 20px;
+    float: right;
+    line-height: 18px;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    padding: 0;
+    &:hover{
+        cursor: pointer;
+    }
+}
+// 表格內容
+.txtb {    
+    margin: 10px 0;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    input {
+        padding: 0 3px;
+        height: 35px;
+        font-size: 15px;
+        color: #333;
+        border: none;
+        width: 70%;
+        outline: none;
+        background: none;
+        float: left;
+        margin: 0;
+    }
+    label{
+        // content: attr(data-placeholder);
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: #adadad;
+        transform: translateY(-50%);
+        transition: .5s;
+        &:hover{
+            cursor:auto ;
+        }
+    }
+}
+#register_id_block{
+    position: relative;
+}
+// 居住縣市
+#city{
+    border-bottom:none;
+    margin-bottom: 20px;
+}
+#register_city{
+    float: right;
+}
+#register_city_title_label{
+    display: block;
+    @include tb(){
+        display: none;
+    }
+}
+.register_city_title{
+    display: none;
+    color: #adadad;
+    // margin-bottom: 5px;
+    text-align: left;
+    @include tb(){
+        display: block;
+    }
+}
+.focus label {
+    top: -10px;
+}
+// 中間區域
+.wrap_login .container{
+    width: 70%;
+    min-height: 500px;   
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    margin-top: 200px;
+}
+.form-container form{
+    padding: 0 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #fff;
+}
+.form-container.sign-up-container form{
+    justify-content: flex-start;
+}
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all .6s ease-in-out;
+}
+//登入頁面
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+    overflow-y: scroll;
+}
+//立即註冊/馬上登入區塊
+.overlay-container {
+    position:absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform .6s ease-in-out;
+    z-index: 100;
+}
+.overlay {
+    background-image: linear-gradient(120deg,#82CAA5,#28776C);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateY(0);
+    transition: transform .6s ease-in-out;
+}
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform .6s ease-in-out;
+    @include sm(){
+
+    }
+}
+.overlay-right {
+    right: 0;
+    transform: translateY(0);
+    
+}
+.overlay-left {
+    transform: translateY(-20%);
+}
+//控制登入/註冊畫面顯示
+.container{
+    @include md(){
+        display: none;
+    }
+}
+
+.container.right_panel_active .sign-in-container {
+    // transform: translateY(100%);
+    display: none;
+}
+
+.container.right_panel_active .overlay-container {
+    transform: translateX(-100%);
+}
+.container.right_panel_active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+.container.right_panel_active .overlay {
+    transform: translateX(50%);
+}
+.container.right_panel_active .overlay-left {
+    transform: translateY(0);
+}
+.container.right_panel_active .overlay-right {
+    transform: translateY(20%);
+}
+// .register.content form{
+//     padding-bottom: 50px;
+// }
+// 手機版
+
+.container_sm{
+    display: none;
+    @include md(){
+        width: 80%;
+        margin: auto;
+        padding-top:150px ;
+        display: block;
+    }
+    
+}
+.tabs{
+    display: flex;
+}
+
+.tab{
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+    &:hover{
+        cursor: pointer;
+    }
+}
+#login_tab{
+    background-color: #f5f2e9;
+}
+#register_tab{
+    background-color: #168d80;
+    color: #fff;
+}
+.content{
+    // display: none;
+    padding: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 0 10px 10px 10px;
+    form{
+        width: 70%;
+        input{
+            width: 100%;
+        }
+    }
+    .txtb_sm{
+        margin-bottom: 50px;
+        .input_title{
+            margin-bottom: 5px;
+        }
+        .register_city_title{
+            color: #fff;
+        }
+        #register_city_sm{
+            color: #333;
+        }
+    }
+    #register_id_block_sm,#register_email_block_sm{
+        position: relative;
+    }
+    #check_id_sm,#check_email_sm{
+        font-size: 16px;
+        padding: 5px;
+        margin: 5px 0 0 0;
+        width: 100px;
+        position: absolute;
+        right: 0;
+    }
+    
+}
+.content.login{
+    background-color: #f5f2e9;
+    
+}
+.content.register{
+    // display: none;
+    background-color: #168d80;
+    color: #fff;
+    input{
+        border: none;
+    }
+    .btn_submit{
+        margin: 0px auto 50px auto;
+    }
+}

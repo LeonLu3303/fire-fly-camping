@@ -1,0 +1,35 @@
+/* 文字共用 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Roboto:wght@400;700;900&display=swap');
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    font-size: $title_h1;
+    font-weight: 700;
+    letter-spacing: 6px
+}
+h2{
+    font-size: $title_h2;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: $color-aid-green3;
+}
+h3{
+    font-size: $title_h3;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 34px;
+}
+h4{
+    font-size: $title_h4;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 22px;
+}
+p{
+    font-size: $txt_p;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+}

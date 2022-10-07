@@ -1,0 +1,58 @@
+.featured_products{
+    width: 100%;
+    background: 
+    url(/src/assets/images/activity/activity_canyon_p.png) center bottom / contain no-repeat,
+    linear-gradient(to bottom, #abcbe9, $color-main-yellow);
+}
+.products_cotainer{
+    width: 80%;
+    max-width: 1296px;
+    margin: auto;
+    padding: 150px 0px;
+    @include md() {
+		width: 90%;
+	}
+    @include sm() {
+		width: 95%;
+	}
+}
+.section_title{
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+.content_group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.products_name{
+    color: $color-str-green;
+}
+.content_card{
+    margin: 20px;
+    padding: 15px;
+    width: 28%;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255, 80%);
+    @include tb(){
+        margin: 10px;
+        width: 40%;
+    }
+    @include md(){
+        width: 100%;
+    }
+    @include sm(){
+        width: 100%;
+    }
+}
+.content_group p{
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.btn_page_link{
+    margin: 0 auto;
+    margin-top: 50px;
+}

@@ -1,0 +1,132 @@
+.wrap_News{
+    background-color: #44726B;
+    padding-top: 50px;
+}
+#home_news{
+    color: #ffffff;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 810px;
+    height: 540px;
+    position: relative;
+    @include tb(){
+        width: 600px;
+        height: 400px;
+    }
+    @include md(){
+        width: 300px;
+        height: 200px;
+    }
+    @include sm(){
+        width: 300px;
+        height: 200px;
+    }
+    .news_pic{
+        img {
+            display: block;
+            width: 100%;
+        }   
+        &::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(transparent,rgb(0, 0, 0));
+            position: absolute;
+        }
+    } 
+}
+.news_txt{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #ffffff;
+    z-index: 3;
+    @include md{
+        justify-content: start;
+        overflow: hidden;
+    }
+    @include sm{
+        justify-content: start;
+    }
+    h3{
+        padding: 8px;
+        color: #ffffff;
+        @include md{
+            font-size: 14px;
+            line-height: 20px;
+            padding: 4px;
+        }
+        @include sm{
+            font-size: 14px;
+            line-height: 20px;
+            padding: 4px;
+        }
+
+    }
+    p{  
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 8px;
+        @include md{
+            font-size: 12px;
+            line-height: 20px;
+            padding: 4px;
+        }
+        @include sm{
+            font-size: 12px;
+            line-height: 20px;
+            padding: 4px;
+        }
+    }
+}
+.btn_page_link.news_link{
+    margin: auto;
+}
+.btn_spacing{
+    padding-bottom: 150px;
+}
+.slideActive{
+    opacity: 1;
+    z-index: 1;
+}
+.slideShow{
+    display: flex;
+}
+// 下半部按鈕
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    margin: 20px;
+    text-align: center;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap,4px);
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ffff;
+}

@@ -1,0 +1,94 @@
+
+.shop_section{
+  background-color: $color-main-yellow;
+  position: relative;
+  .shop_container{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 150px 0;
+    box-sizing: border-box;
+  }
+}
+.wrap_product_list{
+  padding: 0 4%;
+  .product_list{
+    display: flex;
+    padding: 1rem 0;
+    @include md(){
+      h3{
+        font-size: 16px;
+      }
+      h4{
+        font-size: 14px;
+      }
+    }
+    .divide_line{
+      padding: 0 10px;
+      color: gray;
+      font-weight: 300;
+    }
+  }
+}
+.wrap_cards_product_info{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  .product_content{
+    padding: 1rem;
+  }
+}
+.wrap_cards_product{
+  width: 350px;
+  overflow: hidden;
+  @include tb(){
+    width: 300px;
+  }
+}
+
+.product_card_item{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
+  margin: 1rem 0.5rem;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  // 包圖片的盒子
+  .product_img_box{
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    // 圖片
+    .details_product_img{
+      overflow: hidden;
+      &:hover{
+        transform: scale(1.1);
+        transition: all 0.5s linear;
+      }
+    }
+    
+  }
+}
+.product_content{
+  flex-grow: 1;
+  h3{
+    color: $color-str-green;
+    padding: 0.5rem 0;
+  }
+  @include md(){
+    h3{
+      font-size: 18px;
+    }
+    h4{
+      font-size: 16px;
+    }
+  }
+}
+
+
+

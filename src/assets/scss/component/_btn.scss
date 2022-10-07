@@ -1,0 +1,148 @@
+//首頁連結，綠底白字 hover深綠底白字
+.btn_page_link{
+    width: 190px;
+    font-size: $title_h4;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 30px;
+    color: $color-basic-White;
+    background-color: $color-str-green;
+    padding: 18px 0;
+    cursor: pointer;
+    @include tb() {
+        font-size: $txt_btn;
+		width: 150px;
+        padding: 15px 0;
+	}
+    
+}
+.btn_page_link:hover{
+    color: $color-basic-White;
+    background-color: $color-str-hov-green;
+}
+
+//營區預定，小預訂btn 
+//透明底白字 hover白底綠字
+.btn_booking_min{
+    width: 100px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-basic-White;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 2px solid $color-basic-White;
+    padding: 8px 0;
+    cursor: pointer;
+}
+.btn_booking_min:hover{
+    color: $color-str-hov-green;
+    background-color: $color-basic-White;
+    border: 2px solid $color-basic-White;
+}
+
+//上一步、下一步、提交、登入、註冊
+//綠字白底 hover白底綠字
+.btn_submit{
+    width: 140px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-str-green;
+    background: $color-basic-White;
+    border: 2px solid $color-str-green;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.btn_submit:hover{
+    color: $color-basic-White;
+    background-color: $color-str-hov-green;
+    border: 2px solid $color-str-hov-green;
+}
+
+//立即註冊、馬上登入
+//透明底白字 hover白底綠字
+.btn_login_register{
+    width: 140px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-basic-White;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: 2px solid $color-basic-White;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.btn_login_register:hover{
+    color: $color-str-hov-green;
+    background-color: $color-basic-White;
+}
+
+//商城的返回按鈕 同submit 只是沒有line-height版本
+//取消訂單，白底綠字
+.btn_return{
+    width: 140px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-str-green;
+    background: $color-basic-White;
+    border: 2px solid $color-str-green;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.btn_return:hover{
+    color: $color-basic-White;
+    background-color: $color-str-hov-green;
+    border: 2px solid $color-str-hov-green;
+}
+
+// 商城的點擊購買，綠底白字
+.btn_purchase{
+    width: 140px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-basic-White;
+    background: $color-str-green;
+    border: 2px solid $color-str-green;
+    padding: 10px 0;
+    cursor: pointer;
+    &:hover{
+        color: $color-basic-White;
+        background-color: $color-str-hov-green;
+        border: 2px solid $color-str-hov-green;
+    }
+}
+
+//储存、搜尋
+//綠底白字 hover深綠底
+.btn_confirm{
+    width: 140px;
+    font-size: $txt_btn;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 30px;
+    color: $color-basic-White;
+    background: $color-str-green;
+    border: 2px solid $color-str-green;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.btn_confirm:hover{
+    color: $color-basic-White;
+    background-color: $color-str-hov-green;
+    border: 2px solid $color-str-hov-green;
+}

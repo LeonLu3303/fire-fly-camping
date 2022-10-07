@@ -1,0 +1,279 @@
+//seo 隱藏文字
+.sr_only{
+  width: 1px;
+	height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+//導覽列
+.nav_bar{
+	width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  z-index: 50;
+	@include md() {
+		padding: 10px 10px;
+	}
+	@include sm() {
+		padding: 10px 6px;
+	}
+}
+//logo
+.firefly_logo{
+  width: 190px;
+	padding: 8px 16px;
+	border-radius: 50px;
+	background:  rgba($color: $color-main-yellow, $alpha: .4);
+	box-shadow: 0px 0px 10px 0px rgba($color: $color-main-yellow, $alpha: .4);
+	transition: .5s;
+	&:hover{
+		background:  rgba($color: $color-main-yellow, $alpha: .6);
+		box-shadow: 0px 0px 10px 3px rgba($color: $color-main-yellow, $alpha: .6);
+	}
+	@include md() {
+		width: 80px;
+		height: 80px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		@include sm() {
+			width: 60px;
+			height: 60px;
+	}
+}
+.firefly_logo img{
+	width: 80%;
+	margin: auto;
+	@include md() {
+		width: 100%;
+	}
+}
+.firefly_logo .logo_lg{
+	display: block;
+	@include md() {
+		display: none;
+	}
+		@include sm() {
+		display: none;
+	}
+}
+.firefly_logo .logo_sm{
+	display: none;
+	@include md() {
+		display: block;
+		margin: auto;
+	}
+		@include sm() {
+		display: block;
+		margin: auto;
+	}
+}
+//預定button
+.reservation_icon{
+  width: 190px;
+  height: 56px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: $color-str-red;
+	&:hover{
+		background: $color-str-hov-red;
+	}
+	@include md() {
+		width: 150px;
+		height: 50px;
+    margin-right: 5px;
+	}
+	@include sm() {
+		width: 100px;
+		height: 40px;
+	}
+}
+.reservation_icon_photo{
+  width: 30px;
+	@include md() {
+		width: 24px;
+	}
+	@include sm() {
+		width: 20px;
+	}
+}
+.login_icon{
+  width: 56px;
+  height: 56px;
+  margin-right: 10px;
+  @include md() {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
+}
+.icon_text{
+  padding-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+	@include md() {
+		font-size: 16px;
+	}
+	@include sm() {
+		font-size: 12px;
+	}
+}
+.nav_bar_r{
+  display: flex;
+}
+//漢堡
+.hb_icon{
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: $color-str-green;
+  &:hover{
+    background-color: $color-str-hov-green;
+  }
+  @include md() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
+}
+.hb_icon .line::before{
+  content: '';
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate( -5px, -10px);
+  @include sm() {
+    width: 25px;
+    height: 2px;
+    transform: translate( -5px, -7px);
+  }
+}
+.hb_icon .line{
+  width: 25px;
+  height: 3px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate( 2px, 0px);
+  @include sm() {
+    width: 20px;
+    height: 2px;
+  }
+}
+.hb_icon .line::after{
+  content: '';
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  transform: translate(5px, 10px);
+  @include sm() {
+    width: 15px;
+    height: 2px;
+    transform: translate( 5px, 7px);
+  }
+}
+//導覽列icon
+.list_photo{
+  width: 60px;
+  height: 60px;
+  @include md() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
+}
+.nav_bar_ul{
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  overflow: hidden;
+  background: linear-gradient(-135deg,#4D8084, #1F4F4F);
+  clip-path: circle(15px at calc(100% - 30px) 30px);
+  opacity: 0;
+  transition: all 0.6s;
+  @include tb() {
+    width: 40%;
+	}
+  @include md() {
+    width: 70%;
+	}
+	@include sm() {
+		width: 80%;
+	}
+}
+.nav_tab{
+  top: 0;
+  right: 0;
+  clip-path: circle(100%);
+  opacity: 1;
+  transition: all 0.6s;
+}
+.nav_close{
+  width: 60px;
+  height: 60px;
+  margin: 5% 0 10% 80%;
+  cursor: pointer;
+  @include tb() {
+    width: 50px;
+    height: 50px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
+}
+.nav_bar_li{
+  width: 100%;
+}
+.item_list{
+  padding: 14px 10px;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+.item_list:hover{
+  padding-left: 20px;
+  background-color: #8DCCB9;
+  font-weight: 800;
+}
+.nav_bar_li:not(:last-child) .item_name{
+  border-bottom: 1px solid #ddd;
+}
+.item_name{
+  margin: auto 0;
+  padding-left: 10px;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}

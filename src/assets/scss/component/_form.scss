@@ -1,0 +1,22 @@
+// input 輸入框，會員資料、訂單資料
+.input_box{
+    font-size: $txt_p;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 1px solid $color-main-green;
+    color: $color-basic-gray1;
+    background: $color-basic-White;
+}
+
+//select 下拉選單，會員資料、訂單資料
+.menu_choose{
+    font-size: $txt_p;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    padding: 5px 15px;
+    border: 1px solid $color-str-green;
+    color: $color-basic-gray2;
+    background: $color-basic-White;
+}
+
