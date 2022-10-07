@@ -20,7 +20,7 @@
                                 maxlength="20"
                                 @focus="register_id_block =1">
                         <label for="register_id">帳號</label>
-                        <div id="check_id" class="btn_submit">
+                        <div id="check_id" class="btn_submit" @click="checkId">
                             檢查帳號
                         </div>
                     </div>
@@ -57,9 +57,6 @@
                                 @focus="register_mem_email =4"
                                 >
                         <label for="register_mem_email">信箱</label>
-                        <div id="check_email" class="btn_submit">
-                            檢查信箱
-                        </div>
                     </div>            
                     <div class="txtb"
                          :class="{focus: register_mem_name ===5}">
@@ -161,7 +158,7 @@
                                 >
                         <label for="login_psw">密碼</label>
                     </div>
-                    <a href="#" class="forgot_psw">忘記密碼</a>
+                    <a href="#" class="forgot_psw" @click="forgotPsw">忘記密碼</a>
                     <div class="login_btn">
                         <router-link to ="/Member" class="btn_submit">
                             登入
@@ -225,7 +222,7 @@
                                 id="login_psw_sm" 
                                 >
                     </div>
-                    <a href="#" class="forgot_psw">忘記密碼</a>
+                    <a href="#" class="forgot_psw" @click="forgotPsw">忘記密碼</a>
                     <div class="login_btn">
                         <router-link 
                             to ="/Member" 
@@ -251,7 +248,7 @@
                                 v-model="id"
                                 maxlength="20">
                         
-                        <div id="check_id_sm" class="btn_submit">
+                        <div id="check_id_sm" class="btn_submit" @click="checkId">
                             檢查帳號
                         </div>
                     </div>
@@ -283,10 +280,6 @@
                                 v-model="email"
                                 maxlength="100"
                                 >
-                        
-                        <div id="check_email_sm" class="btn_submit">
-                            檢查信箱
-                        </div>
                     </div>            
                     <div class="txtb_sm">
                         <div class="input_title">姓名</div>
@@ -404,27 +397,50 @@
         methods:{
             show_login(index){
                 this.index -= 1;
-                console.log(index);
             },
             show_register(index){
                 this.index += 1;
-                console.log(index);
             },
-            focus_txtb(focus_index){
+            // focus_txtb(focus_index){
                 // this.focus_index += 1;
-                console.log(focus_index);
-            },
+            // },
             // blur_txtb(focus_index){
             //     this.focus_index -= 1;
             //     console.log(focus_index);
             // }
+            checkId(){
+                var xhr = new XMLHttpRequest();
+                    xhr.onload = ()=>{
+                        if(xhr.status == 200){
+                            if(xhr.responseText == 1){
+                                alert("此帳號可以使用");
+                            }else if(xhr.responseText == 0){
+                                alert("此帳號已存在");
+                            }
+                        }
+                    }
+                    xhr.open("POST","http://localhost/phpLab/firefly_camping_php/checkId.php", true);
+
+
+                    let mem_deta = `mem_id=${this.id}&`;
+                    let formIdData = new FormData();
+                    formIdData.append('mem_id', this.id);
+                    xhr.send(formIdData);
+            },
+            forgotPsw(){
+                alert('那我也沒辦法>__<')
+            },
             doRegister(){
+                var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/ ;
                 if (this.checkpsw != this.psw) {
                     alert("密碼與確認密碼不相同");
                     return;
                 }else if(this.id=='' || this.psw=='' || this.checkpsw=='' || this.email=='' || this.name=='' || this.nick_name=='' || this.phone=='' || this.addr=='' || this.city==''){
                     alert("有欄位沒有填到喔！");
                     return;
+                }
+                else if(this.email.search(emailRule) != 0){
+                    alert("信箱格式錯誤");
                 }
                 // else if(this.emailflag){
                 else{
@@ -449,48 +465,37 @@
                     */
 
                     var xhr = new XMLHttpRequest();
-                    xhr.onload = function(){
+                    xhr.onload = ()=>{
                         if(xhr.status == 200){
-                            console.log(xhr.responseText)
-                            if(xhr.responseText == "註冊成功"){
+                            if(xhr.responseText == 1){
                                 alert("註冊成功,請重新登入");
                                 window.location.replace("/Login");
-                            }else if(xhr.responseText == "此帳號已存在"){
+                            }else if(xhr.responseText == 0){
                                 alert("此帳號已存在");
                             }
                         }
                     }
-                    xhr.open("post","http://127.0.0.1/phpLab/firefly_camping_php/register.php",true);
-                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                    xhr.open("POST","http://localhost/phpLab/firefly_camping_php/register.php", true);
+
 
                     let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}&mem_name=${this.name}&mem_email=${this.email}&mem_nick_name=${this.nick_name}&mem_city=${this.city}&mem_addr=${this.addr}&mem_phone=${this.phone}`;
-                    console.log(mem_deta);
-                    xhr.send(mem_deta);
+                    let formData = new FormData();
+                    formData.append('mem_id', this.id);
+                    formData.append('mem_psw', this.psw);
+                    formData.append('mem_name', this.name);
+                    formData.append('mem_email', this.email);
+                    formData.append('mem_nick_name', this.nick_name);
+                    formData.append('mem_city', this.city);
+                    formData.append('mem_addr', this.addr);
+                    formData.append('mem_phone', this.phone);
+                    xhr.send(formData);
+
+                      
                 
                 }
-                // else{
-                //     alert("註冊失敗 有欄位錯誤")
-                // }
-            },
-
-            checkContentByReg(reg, content, tip, classname) {
-                if (reg.test(content)) {
-                    this[tip] = "V"
-                    this[classname] = "success"
-                    return true
-                } else {
-                    this[tip] = "請檢查格式"
-                    this[classname] = "error"
-                    return false
-                }
             }
             },
-        watch: {
-            email: function (content) {
-                var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-                this.emailflag = this.checkContentByReg(reg, content, "emailtip", "emailclass")
-            }
-        }
+        
     }
     
 </script>
