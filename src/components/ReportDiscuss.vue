@@ -5,15 +5,15 @@
             <div class="postcard_group">
                 <div class="postcard_release">
 
-                    <h3 class="postcard_title_area">{{enterTitle}}</h3>
-                    <p class="postcard_text_area">{{enterText}}</p>
+                    <h3 class="postcard_title_area">{{discuss.discuss_title}}</h3>
+                    <p class="postcard_text_area">{{discuss.discuss_content}}</p>
 
                     <!-- 檢舉 留言 button -->
                     <div class="report_btn">
                         <ReportLightBox/>
                         <div class="message_icon">
                             <img src="@/assets/images/report/report_msg_1.png" alt="report">
-                            <p class="message_count">{{messageCount}}</p>
+                            <p class="message_count">{{discuss.comment_count}}</p>
                         </div>
                     </div>
 
@@ -23,11 +23,11 @@
                 <div class="postcard_member_data">
                     <div class="member_content">
                         <div class="postcard_member_pic">
-                            <img src="@/assets/images/report/report_avatar_1.png" alt="avatar">
+                            <img :src="require(`@/assets/images/report/report_avatar_${discuss.mem_pic}.png`)" alt="avatar">
                         </div>
                         <div class="postcard_name_time">
-                            <h4 class="postcard_member_name">{{memberName}}</h4>
-                            <p class="postcard_release_time">{{releaseTime}}</p>
+                            <h4 class="postcard_member_name">{{discuss.mem_name}}</h4>
+                            <p class="postcard_release_time">{{discuss.discuss_post_time}}</p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
             
             <!-- 明信片背景 -->
             <div class="postcard_bg">
-                <img :src="require(`@/assets/images/report/report_postcard_${selectBg}.jpg`)" alt="postcard">
+                <img :src="require(`@/assets/images/report/report_postcard_${discuss.background_type}.jpg`)" alt="postcard">
             </div>
         </div>
     </div>
@@ -45,38 +45,16 @@
 import ReportLightBox from '../components/ReportLightBox.vue';
 
 export default {
+    props: ['discuss'],
     name: "ReportDiscuss",
     components: {
         ReportLightBox,
     },
     data() {
         return {
-            enterTitle: "請輸入標題(15字以內)",
-            enterText: "請輸入內文(300字以內)",
-            memberPic: '@/assets/images/report/report_avatar_1.png',
-            memberName: "會員名稱",
-            releaseTime: "2022/09/22",
-            messageCount: 7,
-            selectBg: '1',
-            bgPic: [
-                {
-                    val: '1',
-                    theme:'叢林歷險',
-                    bg: '@/assets/images/report/report_postcard_1.jpg'
-                },
-                {
-                    val: '2',
-                    theme:'冰雪奇緣',
-                    bg: '@/assets/images/report/report_postcard_2.jpg'
-                },
-                {
-                    val: '3',
-                    theme:'荒野峽谷',
-                    bg: '@/assets/images/report/report_postcard_3.jpg'
-                },
-            ]
+            // discussCard:[]
         }
-    }
+    },
 }
 
 </script>
@@ -84,21 +62,6 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
 
-// .wrap_report_publish{
-//     padding: 150px 0;
-//     background: $color-basic-White;
-// }
-// .report_publish_container{
-//     width: 80%;
-//     max-width: 1296px;
-//     margin: 0 auto;
-//     @include lg(){
-//         width: 90%;
-//     }
-//     @include md(){
-//         width: 95%;
-//     }
-// }
 .row_report_write{
     display: flex;
     flex-wrap: wrap;
