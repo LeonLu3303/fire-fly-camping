@@ -1,5 +1,10 @@
 <template>
   <a-calendar v-model:value="value">
+    <template #headerRender="{ value }">
+      <div class="calendar_header">
+        <div>您選擇的月份為 {{ new Date(value).getMonth() + 1 }} 月</div>
+      </div>
+    </template>
     <template #dateCellRender="{ current }">
       <ul class="events">
         <li v-for="item in getListData(current)" :key="item.content">
@@ -102,6 +107,11 @@ export default defineComponent({
       getMonthData,
     };
   },
+  watch: {
+    calendarTrigger(e) {
+      this.$emit('calendar-trigger-result', e);
+    },
+  },
 });
 </script>
 <style scoped>
@@ -123,5 +133,10 @@ export default defineComponent({
 }
 .notes-month section {
   font-size: 28px;
+}
+
+.calendar_header {
+  text-align: center;
+  padding: 20px 0;
 }
 </style>
