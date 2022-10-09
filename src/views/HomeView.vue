@@ -1,15 +1,15 @@
 <template>
   <MainHeader />
-  <!-- <div class="calender_container">
+  <div class="calender_container" v-if="calendarTrigger == true">
     <div class="calender_pos">
-      <button id="closeCalendar">
+      <button id="closeCalendar" @click="calendarTrigger = false">
         <span></span>
         <span></span>
       </button>
       <HomeCalender />
     </div>
-  </div> -->
-  <HomeReservation />
+  </div>
+  <HomeReservation :openCalendar="calendarTrigger" @abc="openCalendarGo" />
   <HomeNews />
   <HomeActivityIsland />
   <HomeReport />
@@ -47,6 +47,17 @@ export default {
     HomeReport,
     HomeProducts,
     MainFooter,
+  },
+  data() {
+    return {
+      calendarTrigger: false,
+    };
+  },
+  methods: {
+    openCalendarGo(triggerOn) {
+      // alert(triggerOn);
+      this.calendarTrigger = triggerOn;
+    },
   },
 };
 </script>

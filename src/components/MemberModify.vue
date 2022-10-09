@@ -1,7 +1,7 @@
 <template>
     <div class="mem_content_group">
         <h3>編輯會員資料</h3>
-        <form class="mem_form" action="">
+        <form class="mem_form" method="POST" enctype="multipart/form-data">
             <div class="tabcontent_text_group">
                 <div class="tabcontent_txt_group">
                     <ul class="tabcontent_txt">
@@ -28,16 +28,16 @@
                     </ul>
                     <ul class="tabcontent_txt">
                         <li>
-                            <input id="mem_name" class="input_box" type="text" v-model="memmodifydata.mem_name"/>
+                            <input id="mem_name" name="name" class="input_box" type="text" v-model="member.mem_name"/>
                         </li>
                         <li>
-                            <input id="mem_nick_name" class="input_box" type="text" v-model="memmodifydata.mem_nick_name"/>
+                            <input id="mem_nick_name" class="input_box" type="text" v-model="member.mem_nick_name"/>
                         </li>
                         <li>
-                            <input id="mem_email" class="input_box" type="email" v-model="memmodifydata.mem_email" />
+                            <input id="mem_email" name="email" class="input_box" type="email" v-model="member.mem_email" />
                         </li>
                         <li>
-                            <input id="mem_tel" class="input_box" type="tel" v-model="memmodifydata.mem_phone"/>
+                            <input id="mem_tel" class="input_box" type="tel" v-model="member.mem_phone"/>
                         </li>
                     </ul>
                 </div>
@@ -54,12 +54,12 @@
                     <ul class="tabcontent_txt">
                         <li>
                             <select  class="menu_choose" v-model="selected">
-                                <option value="">{{memmodifydata.mem_city}}</option>
+                                <option value="">{{member.mem_city}}</option>
                                 <option v-for="i in city" :key="i">{{i}}</option>
                             </select>
                         </li>
                         <li>
-                            <input  class="input_box input_addr" type="text" :value="`${memmodifydata.mem_addr}`" />
+                            <input  class="input_box input_addr" type="text" v-model="member.mem_addr" />
                         </li>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
                     </label>
                 </li>
             </ul>
-            <button class="btn_confirm" type="submit" value="Submit">儲存</button>
+            <button class="btn_confirm" type="submit" id="submit" @click="update">儲存</button>
         </form>
     </div>
 </template>
@@ -111,8 +111,13 @@
 <script>
     export default {
         name: "MemberModify",
-        beforeMount(){
-            this.FetchAPIFunc()
+        created(){
+            let checkLogin = sessionStorage.getItem('member');
+            if(checkLogin == null){
+                location.replace("/HomeView");
+            }
+            this.getMemData()
+            
         },
         data(){
             return {
@@ -122,34 +127,93 @@
 
                 selected: '',
                 memmodifydata: {},
-                memId: 1,
+                memId: '',
+                memdata:'',
+                member:''
             }
         },
         methods:{
             getMemData(){
-                const memberdata = sessionStorage.getItem('memId')
-                return this.memberdata = JSON.parse(memberdata)
-            },
-            FetchAPIFunc(){
-                fetch(`http://localhost/CGD102G1/back_end/membermodify.php?memId=${this.memId}`).then((response) => {
-                this.fetchError = (response.status !== 200)
+                this.member = JSON.parse(sessionStorage.getItem('member'));
+                // this.memId = this.member.mem_id;
+                console.log(this.member)
+                
+                fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?memId=${this.memId}`).then((response) => {
+                    this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
-                 return response.json()})
-                 .then(responseText => {const useData = responseText
-                this.memmodifydata = useData[0]
-                console.log(this.memmodifydata);
+                    return response.json()
+                }).then(responseText => {
+                    const useData = responseText
+                    this.memmodifydata = useData[0]
+                    console.log(this.memmodifydata);
                 }).catch((err) => {
-                this.memmodifydata = true
-             });
+                    this.memmodifydata = true
+                });
             },
-        },
-        // mounted(){
-        //     if(sessionStorage.getItem("memmodifydata")){
-        //         this.memmodifydata = JSON.parse(sessionStorage.getItem("memmodifydata")
-        //     }else{
-        //         FetchAPIFunc().then(useData => this.memmodifydata = useData);
-        //     } 
-        // }
+            //  FetchAPIFunc(){
+            //     fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?memId=${this.memId}`).then((response) => {
+            //         this.fetchError = (response.status !== 200)
+            //     //json(): 返回 Promise，resolves 是 JSON 物件
+            //         return response.json()
+            //     }).then(responseText => {
+            //         const useData = responseText
+            //         this.memmodifydata = useData[0]
+            //         console.log(this.memmodifydata);
+            //     }).catch((err) => {
+            //         this.memmodifydata = true
+            //     });
+            // },
+            update(e){
+                if (
+                    //指定css選擇器的節點
+                e.target.closest('button') &&
+                e.target.closest('button').id === 'submit'
+            ) {
+                //取消預設submit事件
+                e.preventDefault()
+ 
+                // 建立formData物件
+                const fd = new FormData()
+                
+                
+                // fetch post
+                fetch('http://localhost/CGD102G1/back_end/updatemembermodify.php', {
+                    method: 'POST',
+                    body: fd,
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data)
+                })
+                alert("修改成功");
+            }
+                // fetch(`http://localhost/CGD102G1/back_end/updatemembermodify.php`,
+                // { method:'POST',
+                //   headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+                //   body:new FormData(form),}).then(response=>{
+                //   console.log('響應',response)
+                // })
+                              
+                // var xhr = new XMLHttpRequest();
+                
+                xhr.open("post","http://localhost/CGD102G1/back_end/updatemembermodify.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                 let mem_deta = `mem_id=${this.id}&name=${this.mem_name}`;
+                 let formData = new FormData(form);
+                 formData.append('mem_id', this.id);
+                 formData.append('name', this.mem_name);
+                 xhr.send(formData);
+
+                let new_mem_deta = `mem_id=${this.mem_id}&name=${this.mem_name}&email=${this.mem_email}`
+                xhr.send(new_mem_deta);
+
+                alert("修改成功");
+                location.reload();
+            }
+        }
+
     }
 </script>
 
