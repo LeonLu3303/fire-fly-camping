@@ -18,7 +18,7 @@
                 </div>
             </router-link>
             <!-- 明信片留言 -->
-            <ReportDiscuss :discuss="commentCount[0]"/>
+            <ReportDiscuss v-if="commentCount.length>0" :discuss="commentCount[0]"/>
 
             <!-- 會員個人留言欄 -->
             <div class="message_member_container">
@@ -82,15 +82,6 @@ export default {
                 //     mem_name:'王小明',
                 //     mem_pic:'1',
                 // },
-                // {
-                //     discuss_no:'',
-                //     comment_no:'2',
-                //     comment_content: "沒關係我也是，沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD",
-                //     comment_date: "2022/09/28",
-                //     mem_no:'1',
-                //     mem_name:'王小明',
-                //     mem_pic:'1',
-                // }
             ],
         }
     },
@@ -100,40 +91,34 @@ export default {
             window.scrollTo(0,0)
         },
         FetchAPIComment(){
-            let discuss_no = location.search.slice(1).split('=')[1];
-            fetch(`http://localhost/phpLab_CGD102/firefly_camp_php/Comment.php?discuss_no=${discuss_no}`
+            // let discuss_no = location.search.slice(1).split('=')[1];
+            //透過 vue router取得query的值
+            this.discussId = this.$route.query && this.$route.query.discuss_no ? this.$route.query.discuss_no : null
+            //使用fetch 需加判斷式，抓不到php資料 網頁也可以出現
+            if(!this.discussId) return
+            fetch(`http://localhost/phpLab_CGD102/firefly_camp_php/Comment.php?discuss_no=${this.discussId}`
             ).then((response) => {
-                this.fetchError = (response.status !== 200)
-                //json(): 返回 Promise，resolves 是 JSON 物件
-                return response.json()
+                if(response){
+                    this.fetchError = (response.status !== 200)
+                    //json(): 返回 Promise，resolves 是 JSON 物件
+                    return response.json()
+                }
             }).then(responseText => {
-                const commentData = responseText
-                this.commentCount = commentData;
-                console.log(this.commentCount);
+                this.commentCount = responseText;
             }).catch((err) => {
-                this.commentCount = true
+                this.commentCount = []
             })
         },
     },
-    mounted(){
-        this.scrollToTop();
-        console.log(this.$route.query.discuss_no);
-        this.discussId = this.$route.query.discuss_no;
-        // 使用query，傳遞資料
-    },
     created() {
-        // alert();
+        this.FetchAPIComment();
+    },
+    mounted() {
         this.scrollToTop();
         // console.log(this.$route.query.discuss_no);
         // this.discussId = this.$route.query.discuss_no;
-        // this.discussId = this.$route.query.discuss_no;
-        
-        // alert(location.search.slice(1).split('=')[1])
-        this.FetchAPIComment();
+        // 使用query，傳遞資料
     },
-    // unmounted(){
-        
-    // },
 }
 </script>
 

@@ -41,7 +41,17 @@
                         <div class="report_btn">
                             <ReportLightBox/>
                             <!-- 連結使用抓取報告的id，discuss_no，使用query傳遞資料，?no=1-->
-                            <router-link class="message_icon" :to="`/reportMessage?discuss_no=${item.discuss_no}`">
+                            <!-- <router-link class="message_icon" :to="`/reportMessage?discuss_no=${item.discuss_no}`"> -->
+                            <router-link 
+                                class="message_icon" 
+                                :to="{
+                                    name:'ReportMessage',
+                                    // path: '/ReportMessage',
+                                    query: {
+                                        'discuss_no': item.discuss_no
+                                    }
+                                }"
+                            >
                                 <img src="@/assets/images/report/report_msg_1.png" alt="report">
                                 <p class="message_count">{{item.comment_count}}</p>
                             </router-link>
