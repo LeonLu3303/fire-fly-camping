@@ -237,7 +237,9 @@ export default {
             this.current = val
         },
         FetchAPIDiscuss(){
-            fetch('http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php').then((response) => {
+            // https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php
+            // http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php
+            fetch('https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php').then((response) => {
                 this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
                 return response.json()

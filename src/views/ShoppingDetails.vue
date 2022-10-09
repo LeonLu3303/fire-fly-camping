@@ -84,16 +84,21 @@ export default {
         }
         },
         popUpBox (realProduct) {
-            // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
-            this.addingBox = true
-            // setTimeout 非同步執行，三秒後false = 隱藏
-            setTimeout(() => this.addingBox = false, 3000)
-            this.addToOrder(realProduct)
+            // 判斷如果product.qty = 0, 即不會執行下列動作
+            if(realProduct.product_qty){
+                // 點擊加入購物車按鈕變 true 即顯示->已加入購物車
+                this.addingBox = true
+                // setTimeout 非同步執行，三秒後false = 隱藏
+                setTimeout(() => this.addingBox = false, 3000)
+                this.addToOrder(realProduct)
+            }
         },
         popUpLogin (realProduct) {
-            // 點擊直接購買 - 請先登入提示
-            this.login = true
-            this.addToOrder(realProduct)
+            if(realProduct.product_qty){
+                // 點擊直接購買 - 請先登入提示
+                this.login = true
+                this.addToOrder(realProduct)
+            }
         },
         // addToOrder - 加入購物車
         addToOrder (realProduct) {
@@ -102,7 +107,9 @@ export default {
         // 判斷商品是否已存在購物車
         if (indexProduct === -1) {
             // 如未存在於購物車，即 push 進去 orderList
-            this.orderList.push(realProduct) 
+            this.orderList.push({...realProduct}) 
+            // 加入購物車後，將 product.qty 歸 0 
+            realProduct.product_qty = 0
             // orderList 更新至 localStorage
             this.setStorage(this.orderList)
         } 
@@ -110,6 +117,8 @@ export default {
             // 如在購物車中，透過 indexProudct 知道是第幾個索引
             // 對 索引中商品 qty 進行 + 動作
             this.orderList[indexProduct].product_qty += realProduct.product_qty
+            // 加入購物車後，將 product.qty 歸 0 
+            realProduct.product_qty = 0
             this.setStorage(this.orderList)
         }
         },
