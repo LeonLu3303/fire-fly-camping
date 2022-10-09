@@ -68,8 +68,8 @@ const routes = [
     component: ReportView,
   },
   {
-    path: '/reportMessage',
-    name: 'reportMessage',
+    path: '/ReportMessage',
+    name: 'ReportMessage',
     chtName: '營火報告訊息',
     component: ReportMessageView,
   },
