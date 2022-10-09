@@ -1,29 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-// import Activity from '../views/ActivityView.vue';
-import ReportView from '../views/ReportView.vue';
-import ShoppingView from '../views/ShoppingView.vue';
-import NewsView from '../views/NewsView.vue';
-import ReportMessageView from '../views/ReportMessageView.vue';
-import ShoppingDetails from '../views/ShoppingDetails.vue';
-import ShoppingPayment from '../views/ShoppingPayment.vue';
-import ShoppingCart from '../views/ShoppingCart.vue';
-import LoadingPage from '../components/LoadingPage.vue';
-import ServiceView from '../views/ServiceView.vue';
-import LoginView from '../views/LoginView.vue';
 
 const routes = [
   {
-    path: '/HomeView',
+    path: '/',
     name: 'home',
     chtName: '首頁',
     component: HomeView,
-  },
-  {
-    path: '/',
-    name: 'LoadingPage',
-    chtName: '初始畫面',
-    component: LoadingPage,
   },
   {
     path: '/Activity',
@@ -53,7 +36,7 @@ const routes = [
     path: '/News',
     name: 'News',
     chtName: '最新消息',
-    component:NewsView,
+    component: () => import('../views/NewsView.vue'),
   },
   {
     path: '/Shopping',
@@ -65,31 +48,31 @@ const routes = [
     path: '/Report',
     name: 'Report',
     chtName: '營火報告',
-    component: ReportView,
+    component:() => import('../views/ReportView.vue') ,
   },
   {
     path: '/ReportMessage',
     name: 'ReportMessage',
     chtName: '營火報告訊息',
-    component: ReportMessageView,
+    component:() => import('../views/ReportMessageView.vue') ,
   },
   {
     path: '/ShoppingDetails',
     name: 'ShoppingDetails',
     chtName: '購物明細',
-    component: ShoppingDetails,
+    component:() => import('../views/ShoppingDetails.vue') ,
   },
   {
     path: '/ShoppingPayment',
     name: 'ShoppingPayment',
     chtName: '支付方式',
-    component: ShoppingPayment,
+    component:() => import('../views/ShoppingPayment.vue') ,
   },
   {
     path: '/ShoppingCart',
     name: 'ShoppingCart',
     chtName: '購物車',
-    component: ShoppingCart,
+    component:() => import('../views/ShoppingCart.vue') ,
   },
   {
     path: '/Service',

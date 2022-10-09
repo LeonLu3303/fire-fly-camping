@@ -63,15 +63,11 @@
 <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import MainFooter from '@/components/MainFooter.vue'
 import ShopLoginBox from '@/components/ShopLoginBox.vue'
 
 export default {
 
     components:{
-    MainHeader,
-    MainFooter,
     ShopLoginBox
     },
     data() {

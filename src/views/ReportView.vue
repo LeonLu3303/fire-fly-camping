@@ -12,16 +12,12 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
-import MainFooter from '../components/MainFooter.vue';
 import ReportPublish from '@/components/ReportPublish.vue';
 import ReportCard from '@/components/ReportCard.vue';
 import ReportLightBox from '@/components/ReportLightBox.vue';
 
 export default {
     components: {
-        MainHeader,
-        MainFooter,
         ReportPublish,
         ReportCard,
         ReportLightBox,

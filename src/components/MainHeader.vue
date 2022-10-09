@@ -4,7 +4,7 @@
         <nav class="nav_bar">
             <h2 scope class="sr_only">{{navTitle}}</h2>
             <div class="nav_bar_l">
-                <router-link to="/HomeView" class="firefly_logo">
+                <router-link to="/" class="firefly_logo">
                     <img class="logo_lg" src="@/assets/images/main/main_logo_row.png" alt="營火叢 Firefly Camping">
                     <img class="logo_sm" src="@/assets/images/main/main_logo_col.png" alt="營火叢 Firefly Camping">
                 </router-link>

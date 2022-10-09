@@ -58,14 +58,10 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue';
-import MainFooter from '@/components/MainFooter.vue';
 import ShoppingIcon from '@/components/ShoppingIcon.vue';
 
 export default {
   components: {
-    MainHeader,
-    MainFooter,
     ShoppingIcon,
   },
   beforeMount() {

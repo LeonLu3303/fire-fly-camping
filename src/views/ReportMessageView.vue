@@ -56,16 +56,12 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
-import MainFooter from '../components/MainFooter.vue';
 import ReportDiscuss from '../components/ReportDiscuss.vue';
 import ReportLightBox from '../components/ReportLightBox.vue';
 
 export default {
     name: "ReportMessage",
     components: {
-        MainHeader,
-        MainFooter,
         ReportDiscuss,
         ReportLightBox,
     },

@@ -15,21 +15,17 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue'
 import ActivityTour from '@/components/ActivityTour.vue'
 import ActivityInfo from '@/components/ActivityInfo.vue'
-import MainFooter from '@/components/MainFooter.vue'
 import {gsap} from 'gsap'
 import ActivityCarousel from '@/components/ActivityCarousel.vue'
 import ScrollDrop from '@/components/ScrollDrop.vue'
 export default {
   components:{
-    MainHeader,
     ActivityTour,
     ActivityInfo,
     ActivityCarousel,
     ScrollDrop,
-    MainFooter,
 },
       methods:{
         scrollToTop(){

@@ -1,5 +1,5 @@
 <template>
-<MainHeader></MainHeader>
+<MainHeader/>
 <section class="wrap_news">
     <div id="app">
         <div class="banner">
@@ -34,17 +34,11 @@
         </div>
     </div>
 </section>
-<MainFooter></MainFooter>
+<MainFooter/>
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue'
-import MainFooter from '../components/MainFooter.vue'
 export default{
-    components:{
-    MainHeader,
-    MainFooter
-    },
     data(){
     return{
       newsList:[],

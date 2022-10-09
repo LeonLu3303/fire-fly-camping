@@ -370,15 +370,9 @@
     <MainFooter/>
 </template>
 <script>
-    import MainHeader from '../components/MainHeader.vue'
-    import MainFooter from '../components/MainFooter.vue'
 import { watch } from '@vue/runtime-core'
 
     export default{
-        components:{
-            MainHeader,
-            MainFooter
-        },
         data(){
                 return{
                 index:0,

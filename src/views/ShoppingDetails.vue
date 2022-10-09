@@ -51,16 +51,12 @@
 <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import MainFooter from '@/components/MainFooter.vue'
 import ShoppingDetailsBox from '@/components/ShoppingDetailsBox.vue';
 import ShoppingIcon from '@/components/ShoppingIcon.vue';
 import ShopLoginBox from '@/components/ShopLoginBox.vue';
 
 export default {
     components:{
-    MainHeader,
-    MainFooter,
     ShoppingDetailsBox,
     ShoppingIcon,
     ShopLoginBox,

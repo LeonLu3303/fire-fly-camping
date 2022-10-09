@@ -31,18 +31,14 @@
     <MainFooter/>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import MainFooter from '@/components/MainFooter.vue'
 import MemberModify from '@/components/MemberModify.vue'
 import MemberCampsiteOrder from '@/components/MemberCampsiteOrder.vue'
 import MemberProductOrder from '@/components/MemberProductOrder.vue'
 export default {
     components:{
-        MainHeader,
         MemberModify,
         MemberCampsiteOrder,
         MemberProductOrder,
-        MainFooter
     },
     data(){
         return{

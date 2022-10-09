@@ -291,7 +291,6 @@
 </template>
 
 <script>
-import MainHeader from '../components/MainHeader.vue';
 import ChoosePeople from '@/components/ChoosePeople.vue';
 import ChooseCamp from '@/components/ChooseCamp.vue';
 import DatePickerVue from '@/components/DatePicker.vue';
@@ -300,7 +299,6 @@ import DatePicker from '@/components/DatePicker.vue';
 import SelectWhichActivity from '@/components/SelectWhichActivity.vue';
 import SelectWhichEquipment from '@/components/SelectWhichEquipment.vue';
 import SelectWhichMeal from '@/components/SelectWhichMeal.vue';
-import MainFooter from '../components/MainFooter.vue';
 import BookingCarouselSmallOneVue from '@/components/BookingCarouselSmallOne.vue';
 import BookingCarouselSmallTwoVue from '@/components/BookingCarouselSmallTwo.vue';
 import BookingCarouselBigVue from '@/components/BookingCarouselBig.vue';
@@ -308,7 +306,6 @@ import BookingCarouselBigVue from '@/components/BookingCarouselBig.vue';
 export default {
   name: 'Booking',
   components: {
-    MainHeader,
     ChoosePeople,
     ChooseCamp,
     DatePickerVue,
@@ -316,7 +313,6 @@ export default {
     SelectWhichActivity,
     SelectWhichEquipment,
     SelectWhichMeal,
-    MainFooter,
     BookingCarouselSmallOneVue,
     BookingCarouselSmallTwoVue,
     BookingCarouselBigVue,
