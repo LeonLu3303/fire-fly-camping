@@ -431,7 +431,7 @@ import { watch } from '@vue/runtime-core'
                             }
                         }
                     }
-                    xhr.open("POST","http://localhost/phpLab/firefly_camping_php/checkId.php", true);
+                    xhr.open("POST","http://localhost/CGD102G1/back_end/checkId.php", true);
 
 
                     let mem_deta = `mem_id=${this.id}&`;
@@ -454,7 +454,7 @@ import { watch } from '@vue/runtime-core'
                             sessionStorage.setItem("member", JSON.stringify(this.session));
                             this.loginStatus = sessionStorage.getItem("member")
                             if (this.loginStatus != '') {
-                                location.replace("/HomeView");
+                                location.replace("/Member");
                             // this.$router.push("/Login");
                             }
                         }else if(xhr.responseText == 0){
