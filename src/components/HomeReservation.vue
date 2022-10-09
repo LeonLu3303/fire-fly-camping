@@ -66,7 +66,7 @@
             </select>
           </div>
         </div>
-        <button class="btn_search">
+        <button class="btn_search" @click="showCalendar">
           {{ btnTitle }}
         </button>
       </div>
@@ -80,11 +80,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 export default {
+  props: ['openCalendar'],
   data() {
     return {
       sectionTitle: '你要去哪裡露營呢？',
       btnTitle: '搜尋',
-      calendarTrigger: false,
       whichArea: null,
       howMany: null,
       inWhatMonth: null,
@@ -92,7 +92,19 @@ export default {
     };
   },
   methods: {
-    showCalender() {},
+    showCalendar() {
+      // this.openCalendar = true;
+      this.$emit('abc', true);
+    },
+  },
+  watch: {
+    searchBooking(whichArea, howMany, inWhatMonth) {
+      if (this.whichArea != null && this.howMany != null && this.howMany) {
+        this.$emit('update-result', whichArea, howMany, inWhatMonth);
+      } else {
+        return;
+      }
+    },
   },
   mounted() {
     const jungle_1 = document.querySelector('.home_parallex img');
