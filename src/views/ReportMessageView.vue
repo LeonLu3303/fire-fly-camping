@@ -1,7 +1,7 @@
 <template>
     <MainHeader/>
     <!-- banner -->
-    <div class="banner">
+    <div class="banner" >
         <img src="@/assets/images/main/banner_report.png" alt="banner">
     </div>
     <!-- 報告留言 -->
@@ -18,7 +18,7 @@
                 </div>
             </router-link>
             <!-- 明信片留言 -->
-            <ReportDiscuss/>
+            <ReportDiscuss v-if="commentCount.length>0" :discuss="commentCount[0]"/>
 
             <!-- 會員個人留言欄 -->
             <div class="message_member_container">
@@ -30,19 +30,19 @@
 
             <!-- 其他會員留言區 -->
             <div class="other_message_wrap">
-                <div class="row_other_member" v-for="item in otherMsg" :key="item.id">
+                <div class="row_other_member" v-for="item in commentCount[1]" :key="item.comment_no">
                     <div class="col_other_data">
                         <div class="member_pic">
-                            <img :src="require(`@/assets/images/report/report_avatar_${item.id}.png`)" alt="avatar">
+                            <img :src="require(`@/assets/images/report/report_avatar_${item.mem_pic}.png`)" alt="avatar">
                         </div>
-                        <h4 class="member_name">{{item.otherMemName}}</h4>
+                        <h4 class="member_name">{{item.mem_name}}</h4>
                     </div>
                     <!-- 發佈時間 檢舉 -->
                     <div class="col_other_message">
                         <div class="other_message_content">
-                            <p class="other_write">{{item.otherMemTxt}}</p>
+                            <p class="other_write">{{item.comment_content}}</p>
                             <div class="message_time_inform">
-                                <p class="message_time">{{item.otherMemTime}}</p>
+                                <p class="message_time">{{item.comment_date}}</p>
                                 <ReportLightBox/>
                             </div>
                         </div>
@@ -52,6 +52,7 @@
         </div>
     </section>
     <MainFooter/>
+    <!-- 接收報告頁面的discuss_no，在methods寫fetch function，把discuss_no post 到後端hpp，再把function塞進 beforeMounted， -->
 </template>
 
 <script>
@@ -70,42 +71,54 @@ export default {
     },
     data() {
         return {
-            enterTitle : "完蛋了心得",
-            enterText : "我完蛋了QQ 我的動畫完蛋了",
-            memberName: "小羽",
-            otherMsg: [
-                    {
-                        id:1,
-                        otherMemPic: '@/assets/images/report/report_avatar_1.png',
-                        otherMemName: "1313",
-                        otherMemTime: "2022/09/21",
-                        otherMemTxt: "沒關係我也是，沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD"
-                    },
-                    {
-                        id:2,
-                        otherMemPic: '@/assets/images/report/report_avatar_2.png',
-                        otherMemName: "TK律師",
-                        otherMemTime: "2022/09/21",
-                        otherMemTxt: "我剛剛好像看到恐龍"
-                    },
-                    {
-                        id:3,
-                        otherMemPic: '@/assets/images/report/report_avatar_3.png',
-                        otherMemName: "Esther",
-                        otherMemTime: "2022/09/21",
-                        otherMemTxt: "活動體驗超棒的"
-                    },
-                ]
+            discussId: 0,
+            commentCount: [
+                // {
+                //     discuss_no:'',
+                //     comment_no:'1',
+                //     comment_content: "沒關係我也是，沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD",
+                //     comment_date: "2022/09/28",
+                //     mem_no:'1',
+                //     mem_name:'王小明',
+                //     mem_pic:'1',
+                // },
+            ],
         }
     },
+    //new FormData().append('變數名稱', 值)
     methods:{
         scrollToTop(){
-        window.scrollTo(0,0)
+            window.scrollTo(0,0)
+        },
+        FetchAPIComment(){
+            // let discuss_no = location.search.slice(1).split('=')[1];
+            //透過 vue router取得query的值
+            this.discussId = this.$route.query && this.$route.query.discuss_no ? this.$route.query.discuss_no : null
+            //使用fetch 需加判斷式，抓不到php資料 網頁也可以出現
+            if(!this.discussId) return
+            fetch(`http://localhost/phpLab_CGD102/firefly_camp_php/Comment.php?discuss_no=${this.discussId}`
+            ).then((response) => {
+                if(response){
+                    this.fetchError = (response.status !== 200)
+                    //json(): 返回 Promise，resolves 是 JSON 物件
+                    return response.json()
+                }
+            }).then(responseText => {
+                this.commentCount = responseText;
+            }).catch((err) => {
+                this.commentCount = []
+            })
         },
     },
-    mounted(){
-    this.scrollToTop()
-    }
+    created() {
+        this.FetchAPIComment();
+    },
+    mounted() {
+        this.scrollToTop();
+        // console.log(this.$route.query.discuss_no);
+        // this.discussId = this.$route.query.discuss_no;
+        // 使用query，傳遞資料
+    },
 }
 </script>
 

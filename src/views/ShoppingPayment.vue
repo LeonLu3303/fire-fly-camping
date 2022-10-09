@@ -1,26 +1,50 @@
 <template>
   <MainHeader></MainHeader>
-    <div class="banner">
-        <img src="@/assets/images/main/banner_shop.png" alt="banner">
-    </div>
-    <section class="section_payment">
-      <div class="payment_container">
+  <div class="banner">
+    <img src="@/assets/images/main/banner_shop.png" alt="banner" />
+  </div>
+  <section class="section_payment">
+    <div class="payment_container">
       <div class="rwd_payment_col_1">
         <div class="wrap_cart">
           <div class="rwd_amount">
             <h3 class="rwd_amount_title">結帳金額</h3>
-            <h3 class="rwd_amount_title">${{itemTotal}}</h3>
+            <h3 class="rwd_amount_title">${{ itemTotal }}</h3>
+            <!-- <div class="drop_down">
+              <img 
+                class="drop_down_img"
+                src="../assets/images/shop/shopping_down.png"
+                alt="查看更多"
+              />
+            </div> -->
           </div>
-          
+
           <div class="cart_payment_container">
-            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.product_name">
-            <tbody >
-              <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img class="cart_prod_image" :src="require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)" alt="" ></td>
-                <td><p>{{item.product_name}}</p><p>數量:{{item.product_qty}}</p><p>單價:${{item.product_price}}</p><p>小計:${{item.product_qty * item.product_price}}</p></td>
-              </tr>
-            </tbody>
-          </table>
+            <table
+              class="cart_payment_info"
+              v-for="item in orderList"
+              :key="'item' + item.product_name"
+            >
+              <tbody>
+                <tr class="table_tr_grid">
+                  <td class="payment_item_image">
+                    <img
+                      class="cart_prod_image"
+                      :src="
+                        require(`@/assets/images/shop/shopping_prod_${item.product_pic}`)
+                      "
+                      alt=""
+                    />
+                  </td>
+                  <td>
+                    <p>{{ item.product_name }}</p>
+                    <p>數量:{{ item.product_qty }}</p>
+                    <p>單價:${{ item.product_price }}</p>
+                    <p>小計:${{ item.product_qty * item.product_price }}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -32,19 +56,19 @@
             <div class="user_input_box">
               <label for="name"
                 >姓名
-                <input type="text" id="name" placeholder="營火叢" required/>
+                <input type="text" id="name" placeholder="營火叢" required />
               </label>
-              <label for=""
+              <label for="tel"
                 >電話
-                <input type="tel" placeholder="01-123456" required/>
+                <input type="tel" placeholder="01-123456" required />
               </label>
-              <label for=""
+              <label for="email"
                 >E-mail
-                <input type="email" placeholder="123@xxx.com" required/>
+                <input type="email" placeholder="123@xxx.com" required />
               </label>
             </div>
             <div class="user_input_box">
-              <label for=""
+              <label for="city"
                 >縣市
                 <select name="" id="">
                   <option value="">桃園市</option>
@@ -71,31 +95,35 @@
             <div class="user_input_box">
               <label
                 >持卡人姓名
-                <input type="text" placeholder="營火叢" required/>
+                <input type="text" placeholder="營火叢" required />
               </label>
               <label
                 >信用卡號
-                <input type="text" placeholder="1111-1234-1234" required/>
+                <input type="text" placeholder="1111-1234-1234" required />
               </label>
               <div class="credit_box">
                 <div class="credit_info">
                   <label
                     >到期日
-                    <input type="text" placeholder="08/29" required/>
+                    <input type="text" placeholder="08/29" required />
                   </label>
                 </div>
                 <div class="credit_check_no">
                   <label
                     >檢核碼
-                    <input type="text" placeholder="888" required/>
+                    <input type="text" placeholder="888" required />
                   </label>
                 </div>
               </div>
             </div>
           </form>
           <div class="btn_link_group">
-            <router-link to="/Shopping"><button class="btn_return">返回購物</button></router-link>
-            <router-link to="#" ><button class="btn_purchase">確認結帳</button></router-link>
+            <router-link to="/Shopping"
+              ><button class="btn_return">返回購物</button></router-link
+            >
+            <router-link to="#"
+              ><button class="btn_purchase">確認結帳</button></router-link
+            >
           </div>
         </div>
       </div>
@@ -103,62 +131,86 @@
         <div class="wrap_cart">
           <div class="amount">
             <h3>結帳金額</h3>
-            <h3>${{itemTotal}}</h3>
-            </div>
-          
+            <h3>${{ itemTotal }}</h3>
+          </div>
+
           <div class="cart_payment_container">
-            <table class="cart_payment_info" v-for="(item) in orderList" :key="'item' + item.product_name">
-            <tbody >
-              <tr class="table_tr_grid" >
-                <td class="payment_item_image"><img class="details_product_img"
-                :src="require(`../assets/images/shop/shopping_prod_${item.product_pic}`)"
-                alt="hello"/></td>
-                <td><p>{{item.product_name}}</p><p>數量:{{item.product_qty}}</p><p>單價:${{item.product_price}}</p><p>小計:${{item.product_qty * item.product_price}}</p></td>
-              </tr>
-            </tbody>
-          </table>
+            <table
+              class="cart_payment_info"
+              v-for="item in orderList"
+              :key="'item' + item.product_name"
+            >
+              <tbody>
+                <tr class="table_tr_grid">
+                  <td class="payment_item_image">
+                    <img
+                      class="details_product_img"
+                      :src="
+                        require(`../assets/images/shop/shopping_prod_${item.product_pic}`)
+                      "
+                      alt="hello"
+                    />
+                  </td>
+                  <td>
+                    <p>{{ item.product_name }}</p>
+                    <p>數量:{{ item.product_qty }}</p>
+                    <p>單價:${{ item.product_price }}</p>
+                    <p>小計:${{ item.product_qty * item.product_price }}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    </section>
-    
-<MainFooter></MainFooter>
+  </section>
+  <ShopOrderConfirm></ShopOrderConfirm>
+  <MainFooter></MainFooter>
 </template>
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import MainFooter from '@/components/MainFooter.vue'
+import MainHeader from "@/components/MainHeader.vue";
+import MainFooter from "@/components/MainFooter.vue";
+import ShopOrderConfirm from "@/components/ShopOrderConfirm.vue";
 
 export default {
-   components:{
+  components: {
     MainHeader,
     MainFooter,
+    ShopOrderConfirm
   },
-  date(){
+  date() {
     return {
       orderList: [],
       itemTotal: 0,
-    }
+    };
   },
   methods: {
+    // dropDown() {
+    //   alert(this.seeMore)
+    //   this.seeMore = !this.seeMore;
+    // },
     getOrderList() {
-      const tempOrderList = localStorage.getItem('cart')
-      if (!tempOrderList || tempOrderList === 'undefined') return
-      this.orderList = JSON.parse(tempOrderList)
+      const tempOrderList = localStorage.getItem("cart");
+      if (!tempOrderList || tempOrderList === "undefined") return;
+      this.orderList = JSON.parse(tempOrderList);
     },
-    itemSum(){
-      this.itemTotal = this.orderList.reduce((acc, obj) => acc + (obj.product_qty * obj.product_price), 0)
-    }
+    itemSum() {
+      this.itemTotal = this.orderList.reduce(
+        (acc, obj) => acc + obj.product_qty * obj.product_price,
+        0
+      );
+    },
   },
   created() {
-    this.getOrderList()
-    this.itemSum()
-  }
-}
+    this.getOrderList();
+    this.itemSum();
+  },
+};
 </script>
 <style lang="scss" scoped>
 @import "../assets/scss/style.scss";
-.section_payment{
+.section_payment {
   background-color: $color-main-yellow;
 }
 .payment_container {
@@ -167,12 +219,13 @@ export default {
   margin-right: 10%;
   margin-left: 10%;
   padding: 150px 0;
-  @include tb(){
+  @include tb() {
     padding: 50px 0;
     height: 100%;
     display: block;
   }
-  input, select {
+  input,
+  select {
     border: 1px solid $color-aid-green2;
     width: 100%;
     background-color: #fff;
@@ -181,10 +234,10 @@ export default {
     margin: 0.5rem 0;
   }
 }
-.payment_item_image{
+.payment_item_image {
   width: 120px;
   margin: 0 20px;
-  img{
+  img {
     width: 120px;
     height: 120px;
   }
@@ -192,17 +245,17 @@ export default {
 .payment_rows_2 {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  padding: 0 3rem;
+  padding: 0 1.5rem;
   // height: 100vh;
-  @include tb(){
+  @include tb() {
     height: 100%;
     padding: 0;
   }
 }
 
-.rwd_payment_col_1{
+.rwd_payment_col_1 {
   display: none;
-  @include tb(){
+  @include tb() {
     display: block;
     height: 100%;
     background-color: #f9f9f9;
@@ -210,15 +263,15 @@ export default {
     padding: 0 1rem;
     border-radius: 5px;
   }
-  .cart_payment_container{
+  .cart_payment_container {
     height: 100%;
   }
-  .rwd_amount{
+  .rwd_amount {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
-    .rwd_amount_title{
-    font-size: 20px;  
+    .rwd_amount_title {
+      font-size: 20px;
     }
   }
 }
@@ -230,12 +283,12 @@ export default {
   background-color: #f9f9f9;
   border-radius: 5px;
   box-shadow: 4px 5px 10px 0px rgb(59 57 57 / 10%);
-  @include tb(){
+  @include tb() {
     display: none;
   }
-  .wrap_cart{
+  .wrap_cart {
     width: 100%;
-    .amount{
+    .amount {
       border-bottom: 1px solid gray;
       display: flex;
       height: 15vh;
@@ -243,6 +296,13 @@ export default {
       align-items: center;
       padding: 40px 0;
     }
+  }
+}
+.drop_down_img {
+  width: 40px;
+  display: none;
+  @include tb() {
+    display: block;
   }
 }
 
@@ -260,50 +320,49 @@ export default {
 
 .delivery_info {
   display: flex;
-  @include tb(){
+  @include tb() {
     display: block;
   }
 }
 
 .wrap_payment {
   // height: 30vh;
-  @include tb(){
+  @include tb() {
     margin: 50px 0;
     height: 100%;
   }
 }
-.user_input_box{
-    padding: 1rem;
-    width: 280px;
-    @include tb(){
-      width: 100%;
-      display: block;
-    }
+.user_input_box {
+  padding: 1rem;
+  width: 280px;
+  @include tb() {
+    width: 100%;
+    display: block;
   }
-.table_tr_grid{
+}
+.table_tr_grid {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-    p{
-      padding: 0 5px;
-    }
+  p {
+    padding: 0 5px;
   }
+}
 .btn_link_group {
   display: flex;
   justify-content: center;
   padding: 40px 0;
-  @include tb(){
+  @include tb() {
     padding-top: 40px;
   }
   // @include md(){
   //   padding-top: 40px;
   // }
-  .btn_purchase{
+  .btn_purchase {
     margin-left: 1rem;
   }
-
 }
 .para {
   padding: 1rem;

@@ -8,7 +8,7 @@
             <div class="form-container sign-up-container">
                 <form action="">
                     <h2 class="title">註冊</h2>           
-                    
+                     
                     <div class="txtb"
                          id="register_id_block"
                          :class="{focus:register_id_block ===1}"
@@ -18,7 +18,9 @@
                                 id="register_id"
                                 v-model="id"
                                 maxlength="20"
-                                @focus="register_id_block =1">
+                                @focus="register_id_block =1"
+                                @blur="register_id_block =0"
+                                >
                         <label for="register_id">帳號</label>
                         <div id="check_id" class="btn_submit" @click="checkId">
                             檢查帳號
@@ -33,6 +35,7 @@
                                 v-model="psw"
                                 maxlength="20"
                                 @focus="register_psw =2"
+                                @blur="register_psw =0"
                                 >
                         <label for="register_psw">密碼</label>
                     </div>
@@ -44,6 +47,7 @@
                                 v-model="checkpsw"
                                 maxlength="20"
                                 @focus="register_check_psw =3"
+                                @blur="register_check_psw =0"
                                 >
                         <label for="register_check_psw">確認密碼</label>
                     </div>            
@@ -55,6 +59,7 @@
                                 v-model="email"
                                 maxlength="100"
                                 @focus="register_mem_email =4"
+                                @blur="register_mem_email =0"
                                 >
                         <label for="register_mem_email">信箱</label>
                     </div>            
@@ -66,6 +71,7 @@
                                 v-model="name"
                                 maxlength="100"
                                 @focus="register_mem_name =5"
+                                @blur="register_mem_name =0"
                                 >
                         <label for="register_mem_name">姓名</label>
                     </div>            
@@ -77,6 +83,7 @@
                                 v-model="nick_name"
                                 maxlength="20"
                                 @focus="register_nickname =6"
+                                @blur="register_nickname =0"
                                 >
                         <label for="register_nickname">暱稱</label>
                     </div>    
@@ -87,7 +94,9 @@
                                 id="register_phone"
                                 v-model="phone"
                                 maxlength="30"
-                                @focus="register_phone =7">
+                                @focus="register_phone =7"
+                                @blur="register_phone =0"
+                                >
                         <label for="register_phone">電話</label>
                     </div>           
                     <div class="txtb" id="city">
@@ -129,6 +138,7 @@
                                 v-model="addr"
                                 maxlength="300"
                                 @focus="register_addr =8"
+                                @blur="register_addr =0"
                                 >
                         <label for="register_addr">地址</label>
                     </div>            
@@ -145,7 +155,9 @@
                         <input  type="text" 
                                 name="login_id" 
                                 id="login_id"
+                                v-model="id"
                                 @click="login_id =9"
+                                @blur="login_id =0"
                                 >
                         <label for="login_id">帳號</label>
                     </div>
@@ -154,15 +166,16 @@
                         <input  type="password" 
                                 name="login_psw" 
                                 id="login_psw" 
+                                v-model="psw"
                                 @focus="login_psw =10"
+                                @blur="login_psw =0"
                                 >
                         <label for="login_psw">密碼</label>
                     </div>
                     <a href="#" class="forgot_psw" @click="forgotPsw">忘記密碼</a>
-                    <div class="login_btn">
-                        <router-link to ="/Member" class="btn_submit">
+                    <div class="login_btn btn_submit"
+                         @click="doLogin()">
                             登入
-                        </router-link>
                     </div>
                 </form>
             </div>
@@ -212,6 +225,7 @@
                         <input  type="text" 
                                 name="login_id_sm" 
                                 id="login_id_sm"
+                                v-model="id"
                                 >
                         
                     </div>
@@ -220,16 +234,13 @@
                         <input  type="password" 
                                 name="login_psw_sm" 
                                 id="login_psw_sm" 
+                                v-model="psw"
                                 >
                     </div>
                     <a href="#" class="forgot_psw" @click="forgotPsw">忘記密碼</a>
-                    <div class="login_btn">
-                        <router-link 
-                            to ="/Member" 
-                            class="btn_submit" 
-                            @click="check_login()">
+                    <div class="login_btn btn_submit" 
+                            @click="doLogin()"> 
                             登入
-                        </router-link>
                     </div>
                 </form>
             </div>
@@ -361,6 +372,7 @@
 <script>
     import MainHeader from '../components/MainHeader.vue'
     import MainFooter from '../components/MainFooter.vue'
+import { watch } from '@vue/runtime-core'
 
     export default{
         components:{
@@ -430,6 +442,46 @@
             forgotPsw(){
                 alert('那我也沒辦法>__<')
             },
+            doLogin(){
+                var xhr = new XMLHttpRequest();
+                xhr.onload = ()=>{
+                    console.log(xhr.responseText);
+                    if(xhr.status == 200){
+                        if(xhr.responseText != 0){
+                            alert("登入成功！");
+                            this.session = JSON.parse(xhr.responseText);
+                            console.log(this.session)
+                            sessionStorage.setItem("member", JSON.stringify(this.session));
+                            this.loginStatus = sessionStorage.getItem("member")
+                            if (this.loginStatus != '') {
+                                location.replace("/HomeView");
+                            // this.$router.push("/Login");
+                            }
+                        }else if(xhr.responseText == 0){
+                            alert("帳號或密碼錯誤");
+                        }
+                    }
+                }
+                xhr.open("POST","http://localhost/phpLab/firefly_camping_php/doLogin.php", true);
+
+                let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}`;
+                let formData = new FormData();
+                formData.append('mem_id', this.id);
+                formData.append('mem_psw', this.psw);
+                xhr.send(formData);
+            },
+            getMemberInfo(){
+                let xhr = new XMLHttpRequest();
+                // xhr.onload = function(){
+                //     member = JSON.parse(xhr.responseText);
+                //     if(member.mem_id){
+                //         $id("memName").innerText = member.memName;
+                //         $id("spanLogin").innerText = "登出";          
+                //     }
+                // }
+                xhr.open("get","http://localhost/phpLab/firefly_camping_php/getMemberInfo.php",true);
+                xhr.send(null);
+            },
             doRegister(){
                 var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/ ;
                 if (this.checkpsw != this.psw) {
@@ -444,32 +496,34 @@
                 }
                 // else if(this.emailflag){
                 else{
-                    /*
-                    fetch("http://localhost:8080/phpLab/firefly_camping_php/register.php",{
-                        body:JSON.stringify({mem_id:this.id,mem_psw:this.psw,mem_name:this.name,mem_nick_name:this.nick_name,mem_email:this.email,mem_city:this.city,mem_addr:this.addr,mem_phone:this.phone}),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        method:'POST',
-                    })
-                    .then((res)=>{
-                        console.log(res.text())
-                        return;
-                    })
-                    .then((res)=>{
-                        console.log("res",res);
-                    })
-                    .catch((error)=>{
-                        console.log(`Error:${error}`)
-                    })
-                    */
+                    
+                    // fetch("http://localhost:8080/phpLab/firefly_camping_php/register.php",{
+                    //     body:JSON.stringify({mem_id:this.id,mem_psw:this.psw,mem_name:this.name,mem_nick_name:this.nick_name,mem_email:this.email,mem_city:this.city,mem_addr:this.addr,mem_phone:this.phone}),
+                    //     headers: {
+                    //         'Content-Type': 'application/json'
+                    //     },
+                    //     method:'POST',
+                    // })
+                    // .then((res)=>{
+                    //     console.log(res.text())
+                    //     return;
+                    // })
+                    // .then((res)=>{
+                    //     console.log("res",res);
+                    // })
+                    // .catch((error)=>{
+                    //     console.log(`Error:${error}`)
+                    // })
+                    
 
                     var xhr = new XMLHttpRequest();
                     xhr.onload = ()=>{
+                        console.log(xhr.responseText);
                         if(xhr.status == 200){
                             if(xhr.responseText == 1){
                                 alert("註冊成功,請重新登入");
-                                window.location.replace("/Login");
+                                location.replace("/Login");
+                                // this.$router.push("/Login");
                             }else if(xhr.responseText == 0){
                                 alert("此帳號已存在");
                             }
@@ -489,13 +543,25 @@
                     formData.append('mem_addr', this.addr);
                     formData.append('mem_phone', this.phone);
                     xhr.send(formData);
-
-                      
-                
                 }
             }
-            },
+        },
+        created(){
+            this.getMemberInfo();
+        },
+        watch:{
+            id:{
+                handler(newVal){
+                    console.log(newVal)
+                    if(newVal != 0){
+                        return this.register_id_block = 1;
+                    };
+                    console.log(this.register_id_block)
+                    immediate: true;                    
+                }
         
+            }
+        }
     }
     
 </script>

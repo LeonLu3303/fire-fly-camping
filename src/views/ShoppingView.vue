@@ -76,6 +76,11 @@ export default {
     return {
       cart_count: 0,
       userAllData: [],
+      // 先寫固定的會員資料
+      member: {
+        memId: 'tibame',
+        memPsw: 'tibame',
+      },
 
       // itemList: [
       //   // {} 包住的為 object

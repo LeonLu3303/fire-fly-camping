@@ -208,13 +208,17 @@
 		height: 40px;
 	}
 }
+.links{
+
+}
 .nav_bar_ul{
+  position: absolute;
+  z-index: 60;
   width: 40%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: absolute;
   top: -100%;
   right: 0;
   overflow: hidden;

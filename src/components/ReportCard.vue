@@ -23,7 +23,7 @@
             <!-- 報告卡片 -->
             <div id="discussCard">
                 <div class="row_card_report">
-                    <div class="col_card_report" v-for="item in discussCard" :key="item.mem_no">
+                    <div class="col_card_report" v-for="item in filterData" :key="item.mem_no">
                         <div class="report_mem">
                             <div class="mem_pic">
                                 <!-- <img :src="require(`${item.memPic}`)" alt="avatar"> -->
@@ -40,10 +40,22 @@
                         </div>
                         <div class="report_btn">
                             <ReportLightBox/>
-                            <router-link class="message_icon" to="/reportMessage">
+                            <!-- 連結使用抓取報告的id，discuss_no，使用query傳遞資料，?no=1-->
+                            <!-- <router-link class="message_icon" :to="`/reportMessage?discuss_no=${item.discuss_no}`"> -->
+                            <router-link 
+                                class="message_icon" 
+                                :to="{
+                                    name:'ReportMessage',
+                                    // path: '/ReportMessage',
+                                    query: {
+                                        'discuss_no': item.discuss_no
+                                    }
+                                }"
+                            >
                                 <img src="@/assets/images/report/report_msg_1.png" alt="report">
                                 <p class="message_count">{{item.comment_count}}</p>
                             </router-link>
+                            <!-- 做click事件 -->
                         </div>
                     </div>
                 </div>
@@ -80,6 +92,7 @@ export default {
             activeBtn:'timeDate',
             current: 1,
             paginate: 6,
+            // 原始資料
             discussCard: [
                 // {
                 //     id:1,
@@ -181,7 +194,6 @@ export default {
                 //     comment_count: 3,
                 // },
             ],
-            // cardTest:null,
         }
     },
     computed: {
@@ -189,8 +201,9 @@ export default {
             //卡片長度 除以 一頁可顯示的數量，會有小數點所以要用Math無條件進位
             return Math.ceil(this.discussCard.length / this.paginate)
         },
+        //因為直接在computed做計算，資料是彈性的，做熱門和時間判斷
         filterData() {
-            //一頁有幾筆數目，透過slice做計算
+            //一頁有幾筆數目，透過slice做計算，所以不能寫discussCard原始資料
             //array.slice((page_number - 1) * page_size, page_number * page_size);
             let arr = this.activeBtn == 'timeDate' ? this.timeDate : this.hotData;
             return arr.slice((this.current - 1) * this.paginate , this.current * this.paginate);
@@ -224,7 +237,7 @@ export default {
             this.current = val
         },
         FetchAPIDiscuss(){
-            fetch('http://localhost/phpLab_CGD102/back_end/discuss.php').then((response) => {
+            fetch('http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php').then((response) => {
                 this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
                 return response.json()
@@ -318,7 +331,7 @@ export default {
 //卡片
 .row_card_report {
     display: flex;
-    // justify-content: center;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 0 0 60px;
