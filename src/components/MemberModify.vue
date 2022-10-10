@@ -117,7 +117,7 @@
                 location.replace("/HomeView");
             }
             this.getMemData()
-            
+            this.fetchtest()
         },
         data(){
             return {
@@ -126,7 +126,7 @@
                 ],
 
                 selected: '',
-                memmodifydata: {},
+                memmodifydata:{},
                 memId: '',
                 memdata:'',
                 member:''
@@ -135,10 +135,15 @@
         methods:{
             getMemData(){
                 this.member = JSON.parse(sessionStorage.getItem('member'));
-                // this.memId = this.member.mem_id;
+                this.memId = this.member.mem_id;
                 console.log(this.member)
                 
-                fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?memId=${this.memId}`).then((response) => {
+                
+            },
+            fetchtest(){
+                fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?mem_id=${this.memId}`
+                ,{method:'POST'}                
+                ).then((response) => {
                     this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
                     return response.json()
@@ -197,20 +202,20 @@
                               
                 // var xhr = new XMLHttpRequest();
                 
-                xhr.open("post","http://localhost/CGD102G1/back_end/updatemembermodify.php", true);
-                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                // xhr.open("post","http://localhost/CGD102G1/back_end/updatemembermodify.php", true);
+                // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
-                 let mem_deta = `mem_id=${this.id}&name=${this.mem_name}`;
-                 let formData = new FormData(form);
-                 formData.append('mem_id', this.id);
-                 formData.append('name', this.mem_name);
-                 xhr.send(formData);
+                //  let mem_deta = `mem_id=${this.id}&name=${this.mem_name}`;
+                //  let formData = new FormData(form);
+                //  formData.append('mem_id', this.id);
+                //  formData.append('name', this.mem_name);
+                //  xhr.send(formData);
 
-                let new_mem_deta = `mem_id=${this.mem_id}&name=${this.mem_name}&email=${this.mem_email}`
-                xhr.send(new_mem_deta);
+                // let new_mem_deta = `mem_id=${this.mem_id}&name=${this.mem_name}&email=${this.mem_email}`
+                // xhr.send(new_mem_deta);
 
-                alert("修改成功");
-                location.reload();
+                // alert("修改成功");
+                // location.reload();
             }
         }
 
