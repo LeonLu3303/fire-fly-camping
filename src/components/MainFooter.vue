@@ -27,7 +27,7 @@
                 <div class="footer_about_cotainer">
                     <h2 class="about_title">關於我們</h2>
                     <p class="about_txt">
-                    營火叢 FireFly Campsitet 成立於2022年<br>
+                    營火叢 FireFly Campsite 成立於2022年<br>
                     由緯育TibaMe CGD102_G1前端班所建置營運<br>
                     提供三大洲特色虛擬島營區預訂、主題活動規劃等服務<br>
                     營火叢為目前全網最虛擬、最時尚的露營預訂入口網站
