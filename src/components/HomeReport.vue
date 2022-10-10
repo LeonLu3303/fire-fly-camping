@@ -72,7 +72,7 @@ export default {
         FetchAPIDiscuss(){
             // https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php
             // http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php
-            fetch('http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php').then((response) => {
+            fetch('http://localhost/phpLab_CGD102/firefly_camping_php/discuss_card.php').then((response) => {
                 this.fetchError = (response.status !== 200)
                 return response.json()
             }).then(responseText => {
