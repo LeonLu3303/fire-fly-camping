@@ -118,6 +118,22 @@
 		height: 40px;
 	}
 }
+.member_icon{
+  width: 56px;
+  height: 56px;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  @include md() {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+	}
+	@include sm() {
+		width: 40px;
+		height: 40px;
+	}
+}
 .icon_text{
   padding-left: 8px;
   font-size: 20px;
@@ -265,6 +281,7 @@
   display: flex;
   justify-content: center;
   transition: 0.5s;
+  cursor: pointer;
 }
 .item_list:hover{
   padding-left: 20px;

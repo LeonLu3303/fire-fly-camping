@@ -19,9 +19,19 @@
                 <router-link 
                     to="/Login" 
                     class="login_icon"
+                    v-if="mem==''"
                     >
                     <div class="login_icon_photo">
                         <img src="@/assets/images/main/main_icon_account_original.png" alt="登入註冊">
+                    </div>
+                </router-link>
+                <router-link 
+                    to="/Member" 
+                    class="member_icon"
+                    v-if="mem!=''"
+                    >
+                    <div class="login_icon_photo">
+                        <img :src="require(`@/assets/images/report/report_avatar_${member.mem_pic}.png`)" alt="會員頭貼">
                     </div>
                 </router-link>
                 <div class="links">
@@ -39,6 +49,28 @@
                                 </div>
                                 <p class="item_name">{{item.name}}</p>
                             </router-link>
+                            <router-link class="item_list"
+                                         v-if="mem==''"
+                                         to="/Login" >
+                                <div class="list_photo">
+                                    <img :src="require(`@/assets/images/main/main_icon_account.png`)" alt="營火叢導覽列">
+                                </div>
+                                <p class="item_name">登入註冊</p>
+                            </router-link>
+                            <router-link class="item_list"
+                                         v-if="mem!=''"
+                                         to="/Member" >
+                                <div class="list_photo">
+                                    <img :src="require(`@/assets/images/main/main_icon_account.png`)" alt="營火叢導覽列">
+                                </div>
+                                <p class="item_name">會員中心</p>
+                            </router-link>
+                            <div class="item_list"
+                                         v-if="mem!=''"
+                                         to="/HomeView"
+                                         @click="logout">
+                                <p class="item_name">登出</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -51,6 +83,13 @@
 import{routes} from '@/router/index.js'
 
 export default {
+    created(){
+        let checkLogin = sessionStorage.getItem('member');
+        if(checkLogin == null){
+            location.replace("/HomeView");
+        }
+        this.getMemData()
+    },
     data() {
         return {
             isShow: '',
@@ -89,12 +128,18 @@ export default {
                     path: '/Shopping',
                     name: '營火商城',
                 },
-                {
-                    id:'account',
-                    imgURL:'@/assets/images/main/main_icon_account.png',
-                    path: '/Login',
-                    name: '登入註冊',
-                },
+                // {
+                //     id:'account',
+                //     imgURL:'@/assets/images/main/main_icon_account.png',
+                //     path: '/Login',
+                //     name: '登入註冊',
+                // },
+                // {
+                //     id:'account',
+                //     imgURL:'@/assets/images/main/main_icon_account.png',
+                //     path: '/Member',
+                //     name: '會員中心',
+                // },
             ],
         }
     },
@@ -102,6 +147,21 @@ export default {
         toggleModal() { 
             console.log('click')
             this.isShow = !this.isShow;
+        },
+        getMemData(){
+            this.member = JSON.parse(sessionStorage.getItem('member'));
+            this.memId = this.member.mem_id;
+            console.log(this.member)  
+        },
+        logout(){
+            // fetch("http://localhost/phpLab/firefly_camping_php/logout.php",{method:'GET'})
+            // .then((res)=>{location.replace("/")})
+            // .then()
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "http://localhost/phpLab/firefly_camping_php/logout.php",true);
+            xhr.send(null);
+            alert("已登出");
+            location.replace("/");
         }
     }
 }
