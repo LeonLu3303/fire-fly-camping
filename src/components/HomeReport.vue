@@ -6,26 +6,33 @@
             </div>
             <!-- 報告卡片 -->
             <div class="row_home_report">
-                <div class="col_home_report" v-for="item in cardReport" :key="item.id">
+                <div class="col_home_report" v-for="item in hotData" :key="item.mem_no">
                     <div class="report_user">
                         <div class="user_pic">
-                            <!-- 因為assets裡面的會被瀏覽器再編譯，所以需要require -->
-                            <img :src="require(`@/assets/images/report/report_avatar_${item.id}.png`)" alt="avatar">
+                            <img :src="require(`@/assets/images/report/report_avatar_${item.mem_pic}.png`)" alt="avatar">
                         </div>
                         <div class="user_data">
-                            <h4 class="user_name">{{item.userName}}</h4>
-                            <p class="release_time">{{item.releaseTime}}</p>
+                            <h4 class="user_name">{{item.mem_name}}</h4>
+                            <p class="release_time">{{item.discuss_post_time}}</p>
                         </div>
                     </div>
                     <div class="report_content">
-                        <h4 class="report_title">{{item.reportTitle}}</h4>
-                        <p class="report_txt">{{item.reportTxt}}</p>
+                        <h4 class="report_title">{{item.discuss_title}}</h4>
+                        <p class="report_txt">{{item.discuss_content}}</p>
                     </div>
                     <div class="report_btn">
                         <ReportLightBox/>
-                        <router-link class="message_icon" to="/reportMessage">
+                        <router-link 
+                            class="message_icon" 
+                            :to="{
+                                name:'ReportMessage',
+                                query: {
+                                    'discuss_no': item.discuss_no
+                                }
+                            }"
+                        >
                             <img src="@/assets/images/report/report_msg_1.png" alt="report">
-                            <p class="message_count">{{item.messageCount}}</p>
+                            <p class="message_count">{{item.comment_count}}</p>
                         </router-link>
                     </div>
                 </div>
@@ -47,70 +54,45 @@ export default {
     },
     data(){
         return {
-            cardReport: [
-                {
-                    id:1,
-                    userPic: '',
-                    userName: "是一三",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "露營景色好美，難怪這麼多人愛露營",
-                    reportTxt: "整個露營我覺得是一次很棒的體驗，不管是風景還是氛圍都完全讓人放鬆，感覺像來到世外桃源一樣，也難怪越來越多人喜歡從事露營這個活動！比較麻煩的是要開山路一個多小時左右才會抵達，但肯定是值得的！早上的太陽搭配營區根本是拍照聖地吧～快攜手一起去體驗露營的美好吧！也能享受大自然的風光，短暫逃離都市的喧囂，完全是一個很特別很值得的旅程！",
-                    messageCount: 10,
-                },
-                {
-                    id:2,
-                    userPic: '',
-                    userName: "TK律師",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "請教神人裝備",
-                    reportTxt: "小弟今年想去冰雪奇緣做露營，第一次到雪地活動遊玩，該帶甚麼裝備比較好?",
-                    messageCount: 5,
-                },
-                {
-                    id:3,
-                    userPic: '@/assets/images/report/report_avatar_3.png',
-                    userName: "小羽老師",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "傍晚的蚊子都怎麼解決？防蚊片有效嗎?",
-                    reportTxt: "我一直都是在身上噴防蚊液，但沒噴到的地方都會被偷襲，像是屁股，隔著褲子也要咬我，4點生火的時候都相安無事，到56點的時候開始多很多，一直到10點要收拾的時候蚊子才會少一點。有人有推薦嗎?",
-                    messageCount: 20,
-                },
-                {
-                    id:4,
-                    userPic: '',
-                    userName: "Esther",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "露營時的菜單有什麼，大家來說說吧",
-                    reportTxt: "喜愛露營的朋友，想必每次露營都有一定要端出來的拿手好菜吧，歡迎大家分享自己的拿手菜，我個人一定會準備:奶油、櫛瓜、杏包菇、牛排、鮭魚，牛排和鮭魚基本上只要簡單煎一煎就很好吃了，奶油還可以拿來炒杏包菇，大家快來分享自己的露營菜單吧!",
-                    messageCount: 15,
-                },
-                {
-                    id:5,
-                    userPic: '',
-                    userName: "蕭董",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "夏天露營不會熱昏，又好玩",
-                    reportTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
-                    messageCount: 3,
-                },
-                {
-                    id:6,
-                    userPic: '',
-                    userName: "柏霖老師",
-                    releaseTime: "2022/08/29",
-                    reportTitle: "太重沒辦法搭熱氣球...",
-                    reportTxt: "一直想到荒野峽谷體驗熱氣球活動，結果因為太胖不能搭，有什麼好方法可以減重的嗎，聽說穴道按摩好像蠻有用的",
-                    messageCount: 7,
-                },
-            ],
+            current: 1,
+            paginate: 6,
+            discussCard: [],
         }
+    },
+    computed: {
+        hotData() {
+            //根據留言數做比較排序
+            // console.log(this.discussCard.comment_count);
+            return [...this.discussCard].sort( function(a,b) {
+                return b.comment_count - a.comment_count;
+            });
+        },
+    },
+    methods: {
+        FetchAPIDiscuss(){
+            // https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php
+            // http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php
+            fetch('http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php').then((response) => {
+                this.fetchError = (response.status !== 200)
+                return response.json()
+            }).then(responseText => {
+                const discussData = responseText
+                this.discussCard = discussData;
+            
+                console.log(this.discussCard);
+            }).catch((err) => {
+                this.discussCard = true
+            })
+        },
+    },
+    created() {
+        this.FetchAPIDiscuss();
     },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/style.scss';
-
 
 .wrap_home_report{
     padding-top: 50px;
