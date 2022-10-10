@@ -30,7 +30,7 @@
 
             <!-- 其他會員留言區 -->
             <div class="other_message_wrap">
-                <div class="row_other_member" v-for="item in commentCount[1]" :key="item.comment_no">
+                <div class="row_other_member" v-for="item in commentDate" :key="item.comment_no">
                     <div class="col_other_data">
                         <div class="member_pic">
                             <img :src="require(`@/assets/images/report/report_avatar_${item.mem_pic}.png`)" alt="avatar">
@@ -71,14 +71,23 @@ export default {
             commentCount: [],
         }
     },
+    computed: {
+        commentDate() {
+            return [...this.commentCount[1]].sort( function(a,b) {
+                return Date.parse(b.comment_date) - Date.parse(a.comment_date);
+                //將時間轉換成秒數
+            });
+        }
+    },
     //new FormData().append('變數名稱', 值)
-    methods:{
+    methods: {
         scrollToTop(){
             window.scrollTo(0,0)
         },
         FetchAPIComment(){
             // let discuss_no = location.search.slice(1).split('=')[1];
             //透過 vue router取得query的值
+            //discussId = 條件判斷 ? 運算式A : 運算式B
             this.discussId = this.$route.query && this.$route.query.discuss_no ? this.$route.query.discuss_no : null
             //使用fetch 需加判斷式，抓不到php資料 網頁也可以出現
             if(!this.discussId) return
