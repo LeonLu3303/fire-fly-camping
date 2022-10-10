@@ -31,9 +31,9 @@
                 </div>
 
                 <!-- 輸入欄 0929-->
-                <form class="col_write_text">
-                    <input class="enter_title" type="text" maxlength="15" v-model="discuss_title"/>
-                    <textarea class="enter_text" name="enter_text" type="text" maxlength="300" v-model="discuss_content" ></textarea>
+                <form class="col_write_text" method="" action="">
+                    <input class="enter_title" type="discuss_title" maxlength="15" v-model="discuss_title"/>
+                    <textarea class="enter_text" name="discuss_content" type="text" maxlength="300" v-model="discuss_content" ></textarea>
                     <div class="confirm_choose_contain">
                         <button class="btn_confirm" id="publish_report" href="#">發佈報告</button>
                         <select class="btn_bg_choose" v-model="background_type">
