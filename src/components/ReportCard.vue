@@ -19,7 +19,6 @@
                     </button>
                 </form>
             </div>
-            <!-- <p @click="FetchAPICard">test</p> -->
             <!-- 報告卡片 -->
             <div id="discussCard">
                 <div class="row_card_report">
@@ -46,7 +45,6 @@
                                 class="message_icon" 
                                 :to="{
                                     name:'ReportMessage',
-                                    // path: '/ReportMessage',
                                     query: {
                                         'discuss_no': item.discuss_no
                                     }
@@ -93,107 +91,7 @@ export default {
             current: 1,
             paginate: 6,
             // 原始資料
-            discussCard: [
-                // {
-                //     id:1,
-                //     memPic: 1,
-                //     memName: "是一三",
-                //     discuss_post_time: "2022/10/01",
-                //     portTitle: "露營景色好美，難怪這麼多人愛露營",
-                //     portTxt: "整個露營我覺得是一次很棒的體驗，不管是風景還是氛圍都完全讓人放鬆，感覺像來到世外桃源一樣，也難怪越來越多人喜歡從事露營這個活動！比較麻煩的是要開山路一個多小時左右才會抵達，但肯定是值得的！早上的太陽搭配營區根本是拍照聖地吧～快攜手一起去體驗露營的美好吧！也能享受大自然的風光，短暫逃離都市的喧囂，完全是一個很特別很值得的旅程！",
-                //     comment_count: 10,
-                // },
-                // {
-                //     id:2,
-                //     memPic: 2,
-                //     memName: "TK律師",
-                //     discuss_post_time: "2022/09/29",
-                //     portTitle: "請教神人裝備",
-                //     portTxt: "小弟今年想去冰雪奇緣做露營，第一次到雪地活動遊玩，該帶甚麼裝備比較好?",
-                //     comment_count: 5,
-                // },
-                // {
-                //     id:3,
-                //     memPic: 3,
-                //     memName: "小羽老師",
-                //     discuss_post_time: "2022/08/29",
-                //     portTitle: "傍晚的蚊子都怎麼解決？防蚊片有效嗎?",
-                //     portTxt: "我一直都是在身上噴防蚊液，但沒噴到的地方都會被偷襲，像是屁股，隔著褲子也要咬我，4點生火的時候都相安無事，到56點的時候開始多很多，一直到10點要收拾的時候蚊子才會少一點。有人有推薦嗎?",
-                //     comment_count: 20,
-                // },
-                // {
-                //     id:4,
-                //     memPic: 4,
-                //     memName: "Esther",
-                //     discuss_post_time: "2022/08/29",
-                //     portTitle: "露營時的菜單有什麼，大家來說說吧",
-                //     portTxt: "喜愛露營的朋友，想必每次露營都有一定要端出來的拿手好菜吧，歡迎大家分享自己的拿手菜，我個人一定會準備:奶油、櫛瓜、杏包菇、牛排、鮭魚，牛排和鮭魚基本上只要簡單煎一煎就很好吃了，奶油還可以拿來炒杏包菇，大家快來分享自己的露營菜單吧!",
-                //     comment_count: 15,
-                // },
-                // {
-                //     id:5,
-                //     memPic: 5,
-                //     memName: "蕭董",
-                //     discuss_post_time: "2022/09/30",
-                //     portTitle: "夏天露營不會熱昏，又好玩",
-                //     portTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
-                //     comment_count: 3,
-                // },
-                // {
-                //     id:6,
-                //     memPic: 6,
-                //     memName: "柏霖老師",
-                //     discuss_post_time: "2022/10/04",
-                //     portTitle: "太重沒辦法搭熱氣球...",
-                //     portTxt: "一直想到荒野峽谷體驗熱氣球活動，結果因為太胖不能搭，有什麼好方法可以減重的嗎，聽說穴道按摩好像蠻有用的",
-                //     comment_count: 7,
-                // },
-                // {
-                //     id:7,
-                //     memPic: 1,
-                //     memName: "玻璃心",
-                //     discuss_post_time: "2022/08/29",
-                //     portTitle: "營火叢太爛了吧",
-                //     portTxt: "只是想問一下路怎麼走，服務人員竟然過三秒才回我，服務態度太差了吧，詛咒你們全家都得香港腳。",
-                //     comment_count: 7,
-                // },
-                // {
-                //     id:8,
-                //     memPic: 5,
-                //     memName: "女神",
-                //     discuss_post_time: "2022/09/11",
-                //     portTitle: "要烤肉的時候",
-                //     portTxt: "各位哥哥們，我是新手，在烤肉時會使用烤肉爐？還是焚火台加烤肉配件？該不該買起火師？請問有推薦哪幾款烤肉爐/焚火台(有烤肉配件)/起火師/防火毯/防熱手套？",
-                //     comment_count: 5,
-                // },
-                // {
-                //     id:9,
-                //     memPic: 4,
-                //     memName: "男神",
-                //     discuss_post_time: "2022/08/22",
-                //     portTitle: "營火叢哪個地區比較好玩嗎",
-                //     portTxt: "想找個時間去營火叢游玩，比較想去住他們的特色帳篷，有什麼要注意和推薦的嗎?",
-                //     comment_count: 20,
-                // },
-                // {
-                //     id:10,
-                //     memPic: 3,
-                //     memName: "不可以色色",
-                //     discuss_post_time: "2022/08/29",
-                //     portTitle: "不可以亂丟垃圾",
-                //     portTxt: "美麗的大自然需要你我的愛護，請留下美麗的記憶，帶走隨身的垃圾，台灣的美麗讓我慢慢地來讓你看到.",
-                //     comment_count: 15,
-                // },
-                // {
-                //     id:11,
-                //     memPic: 2,
-                //     memName: "黃金開口笑",
-                //     discuss_post_time: "2022/08/29",
-                //     portTitle: "夏天露營不會熱昏，又好玩",
-                //     portTxt: "這個夏天和家人一起去叢林歷險露營，是一個景好的地方，有茂密的樹林、美麗的天然瀑布，在露營區同時也可以體驗有趣的活動。玩的最開心的還是尋寶了吧，一步一步的解謎，還有見到奇幻的神祕物種，真是奇特的體驗啊!!",
-                //     comment_count: 3,
-                // },
-            ],
+            discussCard: [],
         }
     },
     computed: {
@@ -239,7 +137,7 @@ export default {
         FetchAPIDiscuss(){
             // https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php
             // http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php
-            fetch('https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php').then((response) => {
+            fetch('http://localhost/phpLab_CGD102/firefly_camping_php/discuss_card.php').then((response) => {
                 this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
                 return response.json()

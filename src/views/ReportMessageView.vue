@@ -72,17 +72,7 @@ export default {
     data() {
         return {
             discussId: 0,
-            commentCount: [
-                // {
-                //     discuss_no:'',
-                //     comment_no:'1',
-                //     comment_content: "沒關係我也是，沒關係我也是XD沒關係我也是XD沒關係我也是XD沒關係我也是XD",
-                //     comment_date: "2022/09/28",
-                //     mem_no:'1',
-                //     mem_name:'王小明',
-                //     mem_pic:'1',
-                // },
-            ],
+            commentCount: [],
         }
     },
     //new FormData().append('變數名稱', 值)
@@ -96,7 +86,7 @@ export default {
             this.discussId = this.$route.query && this.$route.query.discuss_no ? this.$route.query.discuss_no : null
             //使用fetch 需加判斷式，抓不到php資料 網頁也可以出現
             if(!this.discussId) return
-            fetch(`http://localhost/phpLab_CGD102/firefly_camp_php/Comment.php?discuss_no=${this.discussId}`
+            fetch(`http://localhost/phpLab_CGD102/firefly_camping_php/Comment.php?discuss_no=${this.discussId}`
             ).then((response) => {
                 if(response){
                     this.fetchError = (response.status !== 200)
