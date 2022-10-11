@@ -99,11 +99,11 @@
                   <BookingCarouselSmallOneVue :wherePick="wherePick" />
                 </div>
                 <div class="img_two_block bottom_container">
-                  <BookingCarouselSmallTwoVue />
+                  <BookingCarouselSmallTwoVue :wherePick="wherePick" />
                 </div>
               </div>
               <div class="bk_how_content_img_one_block">
-                <BookingCarouselBigVue />
+                <BookingCarouselBigVue :wherePick="wherePick" />
               </div>
             </div>
           </div>
