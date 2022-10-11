@@ -40,29 +40,20 @@
               </select>
             </div>
             <div class="option_tent">
-              <select v-model="howMany" class="menu_choose">
-                <option value="null">幾人營帳</option>
-                <option value="2">二人營帳</option>
-                <option value="4">四人營帳</option>
-                <option value="6">六人營帳</option>
+              <select v-model="whichType" class="menu_choose">
+                <option value="null">營帳類型</option>
+                <option value="1">經濟營帳</option>
+                <option value="2">豪華營帳</option>
+                <option value="3">主題營帳</option>
               </select>
             </div>
           </div>
           <div class="option_month">
-            <select v-model="inWhatMonth" class="menu_choose">
-              <option value="null">你要露營的月份是？</option>
-              <option value="1">1月</option>
-              <option value="2">2月</option>
-              <option value="3">3月</option>
-              <option value="4">4月</option>
-              <option value="5">5月</option>
-              <option value="6">6月</option>
-              <option value="7">7月</option>
-              <option value="8">8月</option>
-              <option value="9">9月</option>
-              <option value="10">10月</option>
-              <option value="11">11月</option>
-              <option value="12">12月</option>
+            <select v-model="howMany" class="menu_choose">
+              <option value="null">幾人帳篷？</option>
+              <option value="2">二人營帳</option>
+              <option value="4">四人營帳</option>
+              <option value="6">六人營帳</option>
             </select>
           </div>
         </div>
@@ -87,7 +78,7 @@ export default {
       btnTitle: '搜尋',
       whichArea: null,
       howMany: null,
-      inWhatMonth: null,
+      whichType: null,
       booked: [],
     };
   },
@@ -96,14 +87,23 @@ export default {
       // this.openCalendar = true;
       this.$emit('abc', true);
     },
+    updateResult() {
+      this.$emit('update-result', {
+        whichArea: this.whichArea,
+        howMany: this.howMany,
+        whichType: this.whichType,
+      });
+    },
   },
   watch: {
-    searchBooking(whichArea, howMany, inWhatMonth) {
-      if (this.whichArea != null && this.howMany != null && this.howMany) {
-        this.$emit('update-result', whichArea, howMany, inWhatMonth);
-      } else {
-        return;
-      }
+    whichArea(nVal) {
+      this.updateResult();
+    },
+    howMany(nVal) {
+      this.updateResult();
+    },
+    whichType(nVal) {
+      this.updateResult();
     },
   },
   mounted() {
