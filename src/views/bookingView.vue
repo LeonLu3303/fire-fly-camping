@@ -96,14 +96,14 @@
             <div class="bk_how_content_img">
               <div class="bk_how_content_img_two_block">
                 <div class="img_two_block top_container">
-                  <BookingCarouselSmallOneVue />
+                  <BookingCarouselSmallOneVue :wherePick="wherePick" />
                 </div>
                 <div class="img_two_block bottom_container">
-                  <BookingCarouselSmallTwoVue />
+                  <BookingCarouselSmallTwoVue :wherePick="wherePick" />
                 </div>
               </div>
               <div class="bk_how_content_img_one_block">
-                <BookingCarouselBigVue />
+                <BookingCarouselBigVue :wherePick="wherePick" />
               </div>
             </div>
           </div>
@@ -324,33 +324,51 @@ export default {
       bookingWhich: [
         {
           block: '叢林歷險',
-          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichActivityShow: ['遊覽動物', '寶藏探險'],
           whichEquipmentShow: [
-            '看起來很有氣氛的吊燈',
-            '超級防蚊攜帶裝置',
-            '你在想一個我沒主意了',
+            '懷舊露營燈具',
+            '野外廚房套鍋組',
+            '生存多功能工具',
+            '安全通電延長線',
           ],
-          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+          whichMealShow: [
+            '肉多多吃到飽',
+            '素食養身蔬菜',
+            '奢侈海鮮大餐',
+            '海陸雙重享受',
+          ],
         },
         {
           block: '冰雪奇緣',
-          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichActivityShow: ['滑雪體驗', '冰上釣魚'],
           whichEquipmentShow: [
-            '看起來很有氣氛的吊燈',
-            '超級防蚊攜帶裝置',
-            '你在想一個我沒主意了',
+            '懷舊露營燈具',
+            '野外廚房套鍋組',
+            '生存多功能工具',
+            '安全通電延長線',
           ],
-          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+          whichMealShow: [
+            '肉多多吃到飽',
+            '素食養身蔬菜',
+            '奢侈海鮮大餐',
+            '海陸雙重享受',
+          ],
         },
         {
           block: '荒野峽谷',
-          whichActivityShow: ['古蹟探險', '與蛇共舞'],
+          whichActivityShow: ['熱氣球遊覽大峽谷', '攀岩體驗'],
           whichEquipmentShow: [
-            '看起來很有氣氛的吊燈',
-            '超級防蚊攜帶裝置',
-            '你在想一個我沒主意了',
+            '懷舊露營燈具',
+            '野外廚房套鍋組',
+            '生存多功能工具',
+            '安全通電延長線',
           ],
-          whichMealShow: ['豪華海陸大餐', '蟲蟲滿漢全席', '叢林素食野菜盛宴'],
+          whichMealShow: [
+            '肉多多吃到飽',
+            '素食養身蔬菜',
+            '奢侈海鮮大餐',
+            '海陸雙重享受',
+          ],
         },
       ],
       bookingList: {
