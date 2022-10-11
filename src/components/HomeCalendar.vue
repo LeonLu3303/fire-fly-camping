@@ -107,6 +107,7 @@ export default defineComponent({
       getMonthData,
     };
   },
+  props: ['whichArea', 'howMany', 'inWhatMonth'],
   watch: {
     calendarTrigger(e) {
       this.$emit('calendar-trigger-result', e);
