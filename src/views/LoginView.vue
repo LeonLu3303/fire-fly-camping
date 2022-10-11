@@ -476,7 +476,7 @@ import { watch } from '@vue/runtime-core'
                 //         $id("spanLogin").innerText = "登出";          
                 //     }
                 // }
-                xhr.open("get","http://localhost/phpLab_CGD102/firefly_camping_php/getMemberInfo.php",true);
+                xhr.open("get","http://localhost/phpLab/firefly_camping_php/getMemberInfo.php",true);
                 xhr.send(null);
             },
             doRegister(){

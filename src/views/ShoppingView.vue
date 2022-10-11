@@ -134,7 +134,7 @@ export default {
       localStorage.setItem('tempStorage', JSON.stringify(tempStock));
     },
     FetchAPIFunc(){
-      fetch('http://127.0.0.1/Group%20project/firefly_camp_php/test.php').then((response) => {
+      fetch('http://127.0.0.1/Group%20project/firefly_camp_php/product.php').then((response) => {
         this.fetchError = (response.status !== 200)
         //json(): 返回 Promise，resolves 是 JSON 物件
         return response.json()

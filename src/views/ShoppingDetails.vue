@@ -34,7 +34,6 @@
                 </div>
                 <h4>合計：${{realProduct.product_price * realProduct.product_qty}}</h4>
                 <div class="order_btn_box">
-                    <!-- <router-link to ="/shoppingPayment"><button class="btn_purchase" @click="addToOrder(realProduct)">直接購買</button></router-link> -->
                     <button class="btn_purchase" @click="popUpLogin(realProduct)">直接購買</button>
                     <button class="btn_return" @click="popUpBox(realProduct)">加入購物車</button>
                 </div> 
@@ -95,9 +94,14 @@ export default {
         },
         popUpLogin (realProduct) {
             if(realProduct.product_qty){
-                // 點擊直接購買 - 請先登入提示
-                this.login = true
                 this.addToOrder(realProduct)
+                // 點擊直接購買 - 請先登入提示，如 session 已登入即會跳轉付款連結
+                if(!sessionStorage.getItem('member')) {
+                    this.login = true
+                } else {
+                    // 跳轉連結 this.$router.push
+                    this.$router.push("/ShoppingPayment")
+                }
             }
         },
         // addToOrder - 加入購物車
@@ -123,7 +127,7 @@ export default {
         }
         },
         setStorage(realProduct) {
-            // 將 realProduct 進行javaScript 字串轉換，存入 localStorage 的cart 中。
+            // 將 realProduct 進行javaScript 字串轉換，存入 localStorage 的cart(自定義的物件名稱) 中。
             localStorage.setItem('cart', JSON.stringify(realProduct))
         },
         // getStorage - 抓取shoppingView 點擊的商品

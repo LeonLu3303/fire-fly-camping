@@ -1,6 +1,6 @@
 <template>
     <!-- 訂單確認 LightBox -->
-    <div class="bg_shop_confirm" v-if="confirmBox">
+    <div class="bg_shop_confirm">
         <div class="wrap_shop_confirm">
             <div class="shop_conf_price">
                 <h4>應付金額：＄</h4>
@@ -18,13 +18,13 @@
                 <p>收件人地址：</p>
             </div>
             <div class="confirm_btn_box">
-                <button class="btn_confirm" type="button">確認無誤</button>
-                <button @click="confirmCancel" class="btn_return" type="button">取消</button>
+                <button class="btn_confirm" type="button" @click="orderCompleted">確認無誤</button>
+                <button @click="cancel" class="btn_return" type="button">取消</button>
             </div>
         </div>
     </div>
     <!-- 訂單已成立 LightBox -->
-    <div v-if="completedBox" class="container_shop_order_completed">
+    <div v-if="orderCompletedBox" class="container_shop_order_completed">
         <div class="wrap_order_completed">
             <div class="order_confirm_content">
                 <h4>訂單已成立囉～</h4>
@@ -34,7 +34,7 @@
                 <p>訂單狀態：已付款</p>
             </div>
             <div class="confirm_btn_box">
-                <button class="btn_return" @click="completedCancel" type="button">關閉</button>
+                <button class="btn_return" @click="close" type="button">關閉</button>
             </div>
         </div>
     </div>
@@ -44,15 +44,19 @@ export default {
     data () {
         return {
             confirmBox: false,
-            completedBox: false
+            orderCompletedBox: false,
         }
     },
     methods: {
-        confirmCancel () {
-        this.confirmBox = !this.confirmBox
+        // 
+        cancel () {
+        this.$emit('cancelBox',this.confirmBox)
     },
-        completedCancel () {
-        this.completedBox = !this.completedBox
+        close () {
+        this.orderCompletedBox = !this.orderCompletedBox
+    },
+        orderCompleted () {
+        this.orderCompletedBox = true
     }
     }
 }

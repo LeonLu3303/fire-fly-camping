@@ -83,8 +83,13 @@ export default {
             this.login = response
         },
         popUpLogin () {
-            // 點擊直接購買 - 請先登入提示
-            this.login = true
+            // 點擊直接購買 - 請先登入提示，如 session 有登入資訊
+                if(!sessionStorage.getItem('member')) {
+                    this.login = true
+                } else {
+                    // 跳轉連結 this.$router.push
+                    this.$router.push("/ShoppingPayment")
+                }
         },
         reduce_order(index) {
             if (this.cart[index]["product_qty"] === 1) {

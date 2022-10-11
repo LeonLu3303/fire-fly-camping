@@ -121,9 +121,7 @@
             <router-link to="/Shopping"
               ><button class="btn_return">返回購物</button></router-link
             >
-            <router-link to="#"
-              ><button class="btn_purchase">確認結帳</button></router-link
-            >
+            <button class="btn_purchase" @click="checkOut">確認結帳</button>
           </div>
         </div>
       </div>
@@ -165,7 +163,7 @@
       </div>
     </div>
   </section>
-  <ShopOrderConfirm></ShopOrderConfirm>
+  <ShopOrderConfirm v-if="confirmBox" @cancelBox="closeBox"></ShopOrderConfirm>
   <MainFooter></MainFooter>
 </template>
 <script>
@@ -175,17 +173,21 @@ export default {
   components: {
     ShopOrderConfirm
   },
-  date() {
+  data() {
     return {
       orderList: [],
       itemTotal: 0,
+      confirmBox: false,
     };
   },
   methods: {
-    // dropDown() {
-    //   alert(this.seeMore)
-    //   this.seeMore = !this.seeMore;
-    // },
+    // 從 shopOrderConfirm 的component $emit 調資料過來
+    closeBox(closeBox) {
+      this.confirmBox = closeBox
+    },
+    checkOut() {
+      this.confirmBox = true
+    },
     getOrderList() {
       const tempOrderList = localStorage.getItem("cart");
       if (!tempOrderList || tempOrderList === "undefined") return;
