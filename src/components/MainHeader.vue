@@ -27,7 +27,7 @@
           </div>
           <p class="icon_text">{{ iconName }}</p>
         </router-link>
-        <router-link to="/Login" class="login_icon" v-if="mem == ''">
+        <router-link to="/Login" class="login_icon" v-if="mem == null">
           <div class="login_icon_photo">
             <img
               src="@/assets/images/main/main_icon_account_original.png"
@@ -35,7 +35,7 @@
             />
           </div>
         </router-link>
-        <router-link to="/Member" class="member_icon" v-if="mem != ''">
+        <router-link to="/Member" class="member_icon" v-if="mem != null">
           <div class="login_icon_photo">
             <img
               :src="
@@ -74,7 +74,7 @@
                 </div>
                 <p class="item_name">{{ item.name }}</p>
               </router-link>
-              <router-link class="item_list" v-if="mem == ''" to="/Login">
+              <router-link class="item_list" v-if="mem == null" to="/Login">
                 <div class="list_photo">
                   <img
                     :src="require(`@/assets/images/main/main_icon_account.png`)"
@@ -83,7 +83,7 @@
                 </div>
                 <p class="item_name">登入註冊</p>
               </router-link>
-              <router-link class="item_list" v-if="mem != ''" to="/Member">
+              <router-link class="item_list" v-if="mem != null" to="/Member">
                 <div class="list_photo">
                   <img
                     :src="require(`@/assets/images/main/main_icon_account.png`)"
@@ -92,12 +92,7 @@
                 </div>
                 <p class="item_name">會員中心</p>
               </router-link>
-              <div
-                class="item_list"
-                v-if="mem != ''"
-                to="/HomeView"
-                @click="logout"
-              >
+              <div class="item_list" v-if="mem != ''" to="/" @click="logout">
                 <p class="item_name">登出</p>
               </div>
             </li>
@@ -115,7 +110,7 @@ export default {
   created() {
     let checkLogin = sessionStorage.getItem('member');
     if (checkLogin == null) {
-      location.replace('/HomeView');
+      return;
     }
     this.getMemData();
   },
