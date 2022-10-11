@@ -19,7 +19,7 @@
                 <router-link 
                     to="/Login" 
                     class="login_icon"
-                    v-if="mem==''"
+                    v-if="member==null"
                     >
                     <div class="login_icon_photo">
                         <img src="@/assets/images/main/main_icon_account_original.png" alt="登入註冊">
@@ -28,7 +28,7 @@
                 <router-link 
                     to="/Member" 
                     class="member_icon"
-                    v-if="mem!=''"
+                    v-if="member!=null"
                     >
                     <div class="login_icon_photo">
                         <img :src="require(`@/assets/images/report/report_avatar_${member.mem_pic}.png`)" alt="會員頭貼">
@@ -50,7 +50,7 @@
                                 <p class="item_name">{{item.name}}</p>
                             </router-link>
                             <router-link class="item_list"
-                                         v-if="mem==''"
+                                         v-if="member==null"
                                          to="/Login" >
                                 <div class="list_photo">
                                     <img :src="require(`@/assets/images/main/main_icon_account.png`)" alt="營火叢導覽列">
@@ -58,7 +58,7 @@
                                 <p class="item_name">登入註冊</p>
                             </router-link>
                             <router-link class="item_list"
-                                         v-if="mem!=''"
+                                         v-if="member!=null"
                                          to="/Member" >
                                 <div class="list_photo">
                                     <img :src="require(`@/assets/images/main/main_icon_account.png`)" alt="營火叢導覽列">
@@ -66,8 +66,8 @@
                                 <p class="item_name">會員中心</p>
                             </router-link>
                             <div class="item_list"
-                                         v-if="mem!=''"
-                                         to="/HomeView"
+                                         v-if="member!=null"
+                                         to="/"
                                          @click="logout">
                                 <p class="item_name">登出</p>
                             </div>
@@ -83,13 +83,13 @@
 import{routes} from '@/router/index.js'
 
 export default {
-    created(){
-        let checkLogin = sessionStorage.getItem('member');
-        if(checkLogin == null){
-            location.replace("/HomeView");
-        }
-        this.getMemData()
-    },
+        created(){
+            let checkLogin = sessionStorage.getItem('member');
+            if(checkLogin == null){
+                return
+            }
+            this.getMemData()
+        },
     data() {
         return {
             isShow: '',
@@ -162,6 +162,7 @@ export default {
             xhr.send(null);
             alert("已登出");
             location.replace("/");
+            // session()->forget('mem_id');
         }
     }
 }
