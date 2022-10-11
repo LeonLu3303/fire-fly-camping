@@ -96,7 +96,7 @@
             <div class="bk_how_content_img">
               <div class="bk_how_content_img_two_block">
                 <div class="img_two_block top_container">
-                  <BookingCarouselSmallOneVue />
+                  <BookingCarouselSmallOneVue :wherePick="wherePick" />
                 </div>
                 <div class="img_two_block bottom_container">
                   <BookingCarouselSmallTwoVue />

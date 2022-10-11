@@ -6,6 +6,17 @@
     <div><h3>4</h3></div>
   </a-carousel>
 </template>
+<script>
+export default {
+  props: ['wherePick'],
+  data() {
+    return {
+      pic: [[], [], []],
+    };
+  },
+  methods: {},
+};
+</script>
 
 <style lang="scss" scoped>
 .ant-carousel :deep(.slick-slide) {
