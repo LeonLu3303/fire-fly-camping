@@ -19,15 +19,19 @@ export default defineComponent({
       },
       {
         value: '1',
-        label: '露營燈',
+        label: '懷舊露營燈具',
       },
       {
         value: '2',
-        label: '卡拉OK設備',
+        label: '野外廚房套鍋組',
       },
       {
         value: '3',
-        label: '投影機',
+        label: '生存多功能工具',
+      },
+      {
+        value: '4',
+        label: '安全通電延長線',
       },
     ]);
 

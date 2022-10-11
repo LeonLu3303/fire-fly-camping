@@ -19,15 +19,19 @@ export default defineComponent({
       },
       {
         value: '1',
-        label: '奢侈海鮮大餐',
+        label: '肉多多吃到飽',
       },
       {
         value: '2',
-        label: '海陸雙重享受',
+        label: '素食養身蔬菜',
       },
       {
         value: '3',
-        label: '養身素食通腸胃',
+        label: '奢侈海鮮大餐',
+      },
+      {
+        value: '4',
+        label: '海陸雙重享受',
       },
     ]);
 
