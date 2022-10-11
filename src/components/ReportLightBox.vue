@@ -6,8 +6,14 @@
                     <div class="modal_body">
                         <p>檢舉原因</p>
                         <form action="">
-                            <textarea class="inform_txt" type="text" maxlength="300" value="請輸入檢舉原因(限150字)"></textarea>
-                            <button class="btn_confirm">送出</button>
+                            <textarea 
+                                    class="inform_txt" 
+                                    type="text" 
+                                    maxlength="150" 
+                                    placeholder="請寫入檢舉原因(150字以內)"
+                            >
+                            </textarea>
+                            <button class="btn_confirm" type="button">送出</button>
                         </form>
                         <span class="btn_closure">
                             <img src="@/assets/images/main/main_icon_closure.png" alt="closure" @click.self="toggleModal">

@@ -28,16 +28,16 @@
                     </ul>
                     <ul class="tabcontent_txt">
                         <li>
-                            <input id="mem_name" name="name" class="input_box" type="text" v-model="member.mem_name"/>
+                            <input id="mem_name" name="name" class="input_box" type="text" v-model="mem_name"/>
                         </li>
                         <li>
-                            <input id="mem_nick_name" class="input_box" type="text" v-model="member.mem_nick_name"/>
+                            <input id="mem_nick_name" class="input_box" type="text" v-model="mem_nick_name"/>
                         </li>
                         <li>
-                            <input id="mem_email" name="email" class="input_box" type="email" v-model="member.mem_email" />
+                            <input id="mem_email" name="email" class="input_box" type="email" v-model="mem_email" />
                         </li>
                         <li>
-                            <input id="mem_tel" class="input_box" type="tel" v-model="member.mem_phone"/>
+                            <input id="mem_tel" class="input_box" type="tel" v-model="mem_phone"/>
                         </li>
                     </ul>
                 </div>
@@ -53,13 +53,13 @@
                     </ul>
                     <ul class="tabcontent_txt">
                         <li>
-                            <select  class="menu_choose" v-model="selected">
-                                <option value="">{{member.mem_city}}</option>
+                            <select  class="menu_choose" v-model="mem_city">
+                                <option value=""></option>
                                 <option v-for="i in city" :key="i">{{i}}</option>
                             </select>
                         </li>
                         <li>
-                            <input  class="input_box input_addr" type="text" v-model="member.mem_addr" />
+                            <input  class="input_box input_addr" type="text" v-model="mem_addr" />
                         </li>
                     </ul>
                 </div>
@@ -68,37 +68,37 @@
             <ul class="tabcontent_img">
                 <li>
                     <label for="sloth" class="select_img">
-                        <input type="radio" id="sloth" name="namepic" class="input_none" value="1">
+                        <input type="radio" id="sloth" name="namepic" class="input_none" value="1" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_1.png">
                     </label>
                 </li>
                 <li>
                     <label for="bear" class="select_img">
-                        <input type="radio" id="bear" name="namepic" class="input_none">
+                        <input type="radio" id="bear" name="namepic" class="input_none" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_2.png" value="2">
                     </label>
                 </li>
                 <li>
                     <label for="fox" class="select_img">
-                        <input type="radio" id="fox" name="namepic" class="input_none" value="3">
+                        <input type="radio" id="fox" name="namepic" class="input_none" value="3" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_3.png">
                     </label>
                 </li>
                 <li>
                     <label for="snake" class="select_img">
-                        <input type="radio" id="snake" name="namepic" class="input_none" value="4">
+                        <input type="radio" id="snake" name="namepic" class="input_none" value="4" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_4.png">
                     </label>
                 </li>
                 <li>
                     <label for="penguin" class="select_img">
-                        <input type="radio" id="penguin" name="namepic" class="input_none" value="5">
+                        <input type="radio" id="penguin" name="namepic" class="input_none" value="5" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_5.png">
                     </label>
                 </li>
                 <li>
                     <label for="dinosaur" class="select_img" >
-                        <input type="radio" id="dinosaur" name="namepic" class="input_none" value="6">
+                        <input type="radio" id="dinosaur" name="namepic" class="input_none" value="6" v-model="mem_pic">
                         <img src="@/assets/images/report/report_avatar_6.png">
                     </label>
                 </li>
@@ -122,100 +122,81 @@
         data(){
             return {
                 city:[
-                    '基隆市','嘉義市','台北市','嘉義縣','新北市','台南市','桃園縣','高雄市','新竹市','屏東縣','新竹縣','台東縣','苗栗縣','花蓮縣','台中市','宜蘭縣','彰化縣','澎湖縣','南投縣','金門縣','雲林縣','連江縣'
+                    '基隆市','嘉義市','台北市','嘉義縣','新北市','台南市','桃園市','高雄市','新竹市','屏東縣','新竹縣','台東縣','苗栗縣','花蓮縣','台中市','宜蘭縣','彰化縣','澎湖縣','南投縣','金門縣','雲林縣','連江縣'
                 ],
 
                 selected: '',
                 memmodifydata:{},
                 memId: '',
                 memdata:'',
-                member:''
+                member:'',
+                mem_id:'',
+                mem_name:'',
+                mem_email:'',
+                mem_nick_name:'',
+                mem_city:'',
+                mem_addr:'',
+                mem_phone:'',
+                mem_pic:'',
+                mem_deta:[]
             }
         },
         methods:{
             getMemData(){
                 this.member = JSON.parse(sessionStorage.getItem('member'));
-                this.memId = this.member.mem_id;
+                this.mem_id = this.member.mem_id;
+                // this.mem_name = this.member.mem_name;
+                // this.mem_email = this.member.mem_email;
+                // this.mem_nick_name = this.member.mem_nick_name;
+                // this.mem_city = this.member.mem_city;
+                // this.mem_addr = this.member.mem_addr;
+                // this.mem_phone = this.member.mem_phone;
                 console.log(this.member)
-                
-                
+                console.log(this.mem_id)
+    
             },
             fetchtest(){
-                fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?mem_id=${this.memId}`
-                ,{method:'POST'}                
-                ).then((response) => {
+                console.log(this.mem_id)
+                fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?memId=${this.mem_id}`
+                ,
+                {method:'GET'})                
+                .then((response) => {
                     this.fetchError = (response.status !== 200)
                 //json(): 返回 Promise，resolves 是 JSON 物件
                     return response.json()
                 }).then(responseText => {
+                    console.log(responseText)
                     const useData = responseText
                     this.memmodifydata = useData[0]
-                    console.log(this.memmodifydata);
+                    this.mem_name = responseText.mem_name;
+                    this.mem_email = responseText.mem_email;
+                    this.mem_nick_name = responseText.mem_nick_name;
+                    this.mem_city = responseText.mem_city;
+                    this.mem_addr = responseText.mem_addr;
+                    this.mem_phone = responseText.mem_phone;
                 }).catch((err) => {
                     this.memmodifydata = true
                 });
             },
-            //  FetchAPIFunc(){
-            //     fetch(`http://localhost/CGD102G1/back_end/membermodifytest.php?memId=${this.memId}`).then((response) => {
-            //         this.fetchError = (response.status !== 200)
-            //     //json(): 返回 Promise，resolves 是 JSON 物件
-            //         return response.json()
-            //     }).then(responseText => {
-            //         const useData = responseText
-            //         this.memmodifydata = useData[0]
-            //         console.log(this.memmodifydata);
-            //     }).catch((err) => {
-            //         this.memmodifydata = true
-            //     });
-            // },
             update(e){
                 if (
                     //指定css選擇器的節點
-                e.target.closest('button') &&
-                e.target.closest('button').id === 'submit'
-            ) {
-                //取消預設submit事件
-                e.preventDefault()
- 
-                // 建立formData物件
-                const fd = new FormData()
+                        e.target.closest('button') &&
+                        e.target.closest('button').id === 'submit'
+                    ) {
+                    //取消預設submit事件
+                        e.preventDefault()
+                        
                 
-                
-                // fetch post
-                fetch('http://localhost/CGD102G1/back_end/updatemembermodify.php', {
-                    method: 'POST',
-                    body: fd,
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data)
-                })
+                var xhr = new XMLHttpRequest();
+               
+                xhr.open("POST","http://localhost/CGD102G1/back_end/updatemember.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                let mem_deta = `mem_id=${this.mem_id}&mem_name=${this.mem_name}&mem_email=${this.mem_email}&mem_nick_name=${this.mem_nick_name}&mem_city=${this.mem_city}&mem_addr=${this.mem_addr}&mem_phone=${this.mem_phone}&mem_pic=${this.mem_pic}`;
+                    xhr.send(mem_deta);
                 alert("修改成功");
-            }
-                // fetch(`http://localhost/CGD102G1/back_end/updatemembermodify.php`,
-                // { method:'POST',
-                //   headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
-                //   body:new FormData(form),}).then(response=>{
-                //   console.log('響應',response)
-                // })
-                              
-                // var xhr = new XMLHttpRequest();
-                
-                // xhr.open("post","http://localhost/CGD102G1/back_end/updatemembermodify.php", true);
-                // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                }
 
-                //  let mem_deta = `mem_id=${this.id}&name=${this.mem_name}`;
-                //  let formData = new FormData(form);
-                //  formData.append('mem_id', this.id);
-                //  formData.append('name', this.mem_name);
-                //  xhr.send(formData);
-
-                // let new_mem_deta = `mem_id=${this.mem_id}&name=${this.mem_name}&email=${this.mem_email}`
-                // xhr.send(new_mem_deta);
-
-                // alert("修改成功");
-                // location.reload();
             }
         }
 

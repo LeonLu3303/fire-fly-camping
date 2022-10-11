@@ -6,10 +6,18 @@
         <span></span>
         <span></span>
       </button>
-      <HomeCalender />
+      <HomeCalender
+        :whichArea="whichArea"
+        :howMany="howMany"
+        :whichType="whichType"
+      />
     </div>
   </div>
-  <HomeReservation :openCalendar="calendarTrigger" @abc="openCalendarGo" />
+  <HomeReservation
+    :openCalendar="calendarTrigger"
+    @abc="openCalendarGo"
+    @update-result="getItem"
+  />
   <HomeNews />
   <HomeActivityIsland />
   <HomeReport />
@@ -47,12 +55,24 @@ export default {
   data() {
     return {
       calendarTrigger: false,
+      whichArea: null,
+      howMany: null,
+      whichType: null,
     };
   },
   methods: {
     openCalendarGo(triggerOn) {
-      // alert(triggerOn);
-      this.calendarTrigger = triggerOn;
+      if (this.whichArea != null && this.howMany != null && this.howMany) {
+        this.calendarTrigger = triggerOn;
+      } else {
+        alert('請先選取搜尋範圍');
+      }
+    },
+    getItem({ whichArea, howMany, whichType }) {
+      console.log(whichArea, howMany, whichType);
+      this.whichArea = whichArea;
+      this.howMany = howMany;
+      this.whichType = whichType;
     },
   },
 };
