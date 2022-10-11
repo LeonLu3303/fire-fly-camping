@@ -28,7 +28,7 @@
           <img :src="require(`@/assets/images/news/${news.news_pic}`)" alt="最新消息照片" />
         </div>
         <div class="news_txt">
-            <h3>{{news_title}}</h3>
+            <h3>{{news.news_title}}</h3>
             <p class="news_content">{{news.news_content}}</p>
             <p class="news_post_time">{{news.news_post_time}}</p>
         </div>

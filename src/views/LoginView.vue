@@ -401,6 +401,9 @@ import { watch } from '@vue/runtime-core'
                 }
         },
         methods:{
+            scrollToTop(){
+                window.scrollTo(0,0)
+            },
             show_login(index){
                 this.index -= 1;
             },
@@ -516,7 +519,7 @@ import { watch } from '@vue/runtime-core'
                         if(xhr.status == 200){
                             if(xhr.responseText == 1){
                                 alert("註冊成功,請重新登入");
-                                location.replace("/Login");
+                                // location.replace("/Login");
                                 // this.$router.push("/Login");
                             }else if(xhr.responseText == 0){
                                 alert("此帳號已存在");
@@ -542,6 +545,11 @@ import { watch } from '@vue/runtime-core'
         },
         created(){
             this.getMemberInfo();
+        },
+        mounted(){
+        //要用到mounted，不能用在created中，因為Dom元件還沒被掛載，讀不到window
+        this.scrollToTop()
+
         },
         watch:{
             id:{
