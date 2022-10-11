@@ -3,111 +3,95 @@
     <template #headerRender="{ value }">
       <div class="calendar_header">
         <div>您選擇的月份為 {{ new Date(value).getMonth() + 1 }} 月</div>
+        <button type="button" @click="updateMonth">++++++</button>
       </div>
     </template>
     <template #dateCellRender="{ current }">
       <ul class="events">
-        <li v-for="item in getListData(current)" :key="item.content">
+        <!-- <li v-for="item in getListData(current)" :key="item.content">
           <a-badge :status="item.type" :text="item.content" />
-        </li>
+        </li> -->
+        {{
+          getListData2(current)
+        }}
+        <!-- <li v-for="(item, idx) in getListData2(current)" :key="idx">
+          {{ item }}
+        </li> -->
       </ul>
-    </template>
-    <template #monthCellRender="{ current }">
-      <div v-if="getMonthData(current)" class="notes-month">
-        <section>{{ getMonthData(current) }}</section>
-        <span>Backlog number</span>
-      </div>
     </template>
   </a-calendar>
 </template>
 <script>
+import dayjs from 'dayjs';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  setup() {
-    const value = ref();
-
-    const getListData = (value) => {
-      let listData;
-
-      switch (value.date()) {
-        case 8:
-          listData = [
-            {
-              type: 'warning',
-              content: 'This is warning event.',
-            },
-            {
-              type: 'success',
-              content: 'This is usual event.',
-            },
-          ];
-          break;
-
-        case 10:
-          listData = [
-            {
-              type: 'warning',
-              content: 'This is warning event.',
-            },
-            {
-              type: 'success',
-              content: 'This is usual event.',
-            },
-            {
-              type: 'error',
-              content: 'This is error event.',
-            },
-          ];
-          break;
-
-        case 15:
-          listData = [
-            {
-              type: 'warning',
-              content: 'This is warning event',
-            },
-            {
-              type: 'success',
-              content: 'This is very long usual event。。....',
-            },
-            {
-              type: 'error',
-              content: 'This is error event 1.',
-            },
-            {
-              type: 'error',
-              content: 'This is error event 2.',
-            },
-            {
-              type: 'error',
-              content: 'This is error event 3.',
-            },
-            {
-              type: 'error',
-              content: 'This is error event 4.',
-            },
-          ];
-          break;
-
-        default:
-      }
-
-      return listData || [];
-    };
-
-    const getMonthData = (value) => {
-      if (value.month() === 8) {
-        return 1394;
-      }
-    };
-
+  props: ['whichArea', 'howMany', 'whichType'],
+  data() {
     return {
-      value,
-      getListData,
-      getMonthData,
+      value: dayjs(),
+      originData: [
+        {
+          checkIn: '2022-10-11',
+          checkOut: '2022-10-13',
+        },
+        {
+          checkIn: '2022-10-12',
+          checkOut: '2022-10-16',
+        },
+        {
+          checkIn: '2022-10-20',
+          checkOut: '2022-10-21',
+        },
+      ],
     };
   },
-  props: ['whichArea', 'howMany', 'inWhatMonth'],
+  computed: {
+    sortData() {
+      let result = [];
+      this.originData.forEach((v) => {
+        const checkIn = new Date(v.checkIn);
+        const checkOut = new Date(v.checkOut);
+        const time = checkOut.getTime() - checkIn.getTime();
+        const days = Math.ceil(time / (1000 * 3600 * 24)) + 1;
+        for (let i = 0; i < days; i++) {
+          let currentDate = new Date(v.checkIn);
+          currentDate.setDate(currentDate.getDate() + i);
+          const currentDateAfterFormat = `${currentDate.getFullYear()}-${
+            currentDate.getMonth() + 1
+          }-${currentDate.getDate()}`;
+          const sameDateIndex = result.findIndex(
+            (u) => u.date == currentDateAfterFormat
+          );
+          if (sameDateIndex > -1) {
+            result[sameDateIndex].times += 1;
+          } else
+            result.push({
+              date: currentDateAfterFormat,
+              times: 1,
+            });
+        }
+      });
+      return result;
+    },
+  },
+  methods: {
+    getListData2(date) {
+      const sameDate = this.sortData.find((v) => {
+        const itemDate = new Date(v.date);
+        return (
+          itemDate.getFullYear() === new Date(date).getFullYear() &&
+          itemDate.getMonth() === new Date(date).getMonth() &&
+          itemDate.getDate() === new Date(date).getDate()
+        );
+      });
+      return sameDate?.times ?? 0;
+    },
+    updateMonth() {
+      console.log(this.value);
+      let value = this.value ?? dayjs();
+      this.value = dayjs().month(value.month() + 1);
+    },
+  },
   watch: {
     calendarTrigger(e) {
       this.$emit('calendar-trigger-result', e);

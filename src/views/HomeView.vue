@@ -9,7 +9,7 @@
       <HomeCalender
         :whichArea="whichArea"
         :howMany="howMany"
-        :inWhatMonth="inWhatMonth"
+        :whichType="whichType"
       />
     </div>
   </div>
@@ -68,10 +68,11 @@ export default {
         alert('請先選取搜尋範圍');
       }
     },
-    getItem(e1, e2, e3) {
-      this.whichArea = e1;
-      this.howMany = e2;
-      this.whichType = e3;
+    getItem({ whichArea, howMany, whichType }) {
+      console.log(whichArea, howMany, whichType);
+      this.whichArea = whichArea;
+      this.howMany = howMany;
+      this.whichType = whichType;
     },
   },
 };

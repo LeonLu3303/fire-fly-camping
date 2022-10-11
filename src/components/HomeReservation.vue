@@ -50,7 +50,7 @@
           </div>
           <div class="option_month">
             <select v-model="howMany" class="menu_choose">
-              <option value="null">您想查詢的帳篷人數類型？</option>
+              <option value="null">幾人帳篷？</option>
               <option value="2">二人營帳</option>
               <option value="4">四人營帳</option>
               <option value="6">六人營帳</option>
@@ -87,15 +87,23 @@ export default {
       // this.openCalendar = true;
       this.$emit('abc', true);
     },
+    updateResult() {
+      this.$emit('update-result', {
+        whichArea: this.whichArea,
+        howMany: this.howMany,
+        whichType: this.whichType,
+      });
+    },
   },
   watch: {
-    searchBooking(whichArea, howMany, whichType) {
-      if (this.whichArea != null && this.howMany != null && this.inWhatMonth) {
-        this.$emit('update-result', whichArea, howMany, whichType);
-      } else {
-        console.log(whichArea, howMany, whichType);
-        return;
-      }
+    whichArea(nVal) {
+      this.updateResult();
+    },
+    howMany(nVal) {
+      this.updateResult();
+    },
+    whichType(nVal) {
+      this.updateResult();
     },
   },
   mounted() {
