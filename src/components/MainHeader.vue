@@ -160,6 +160,7 @@ export default {
             let xhr = new XMLHttpRequest();
             xhr.open("get", "http://localhost/phpLab/firefly_camping_php/logout.php",true);
             xhr.send(null);
+            sessionStorage.removeItem("member", JSON.stringify(this.session));
             alert("已登出");
             location.replace("/");
             // session()->forget('mem_id');
