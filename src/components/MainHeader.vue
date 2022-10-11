@@ -27,15 +27,7 @@
           </div>
           <p class="icon_text">{{ iconName }}</p>
         </router-link>
-        <router-link to="/Login" class="login_icon" v-if="mem == null">
-          <div class="login_icon_photo">
-            <img
-              src="@/assets/images/main/main_icon_account_original.png"
-              alt="登入註冊"
-            />
-          </div>
-        </router-link>
-        <router-link to="/Member" class="member_icon" v-if="mem != null">
+        <router-link to="/Member" class="member_icon" v-if="member != null">
           <div class="login_icon_photo">
             <img
               :src="
@@ -74,7 +66,7 @@
                 </div>
                 <p class="item_name">{{ item.name }}</p>
               </router-link>
-              <router-link class="item_list" v-if="mem == null" to="/Login">
+              <router-link class="item_list" v-if="member == null" to="/Login">
                 <div class="list_photo">
                   <img
                     :src="require(`@/assets/images/main/main_icon_account.png`)"
@@ -83,7 +75,7 @@
                 </div>
                 <p class="item_name">登入註冊</p>
               </router-link>
-              <router-link class="item_list" v-if="mem != null" to="/Member">
+              <router-link class="item_list" v-if="member != null" to="/Member">
                 <div class="list_photo">
                   <img
                     :src="require(`@/assets/images/main/main_icon_account.png`)"
@@ -92,7 +84,7 @@
                 </div>
                 <p class="item_name">會員中心</p>
               </router-link>
-              <div class="item_list" v-if="mem != ''" to="/" @click="logout">
+              <div class="item_list" v-if="member !=null " to="/" @click="logout">
                 <p class="item_name">登出</p>
               </div>
             </li>
@@ -107,92 +99,78 @@
 import { routes } from '@/router/index.js';
 
 export default {
-  created() {
-    let checkLogin = sessionStorage.getItem('member');
-    if (checkLogin == null) {
-      return;
+    created(){
+        let checkLogin = sessionStorage.getItem('member');
+        if(checkLogin == null){
+            return
+        }
+        this.getMemData()
+    },
+    data() {
+        return {
+            isShow: '',
+            pageTitle: '營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇',
+            navTitle: '營火叢導覽列',
+            logoURL: '@/assets/images/main/main_logo_row.png',
+            iconName: '營區預訂',
+            routes:[
+                {
+                    id:'map',
+                    imgURL:'@/assets/images/main/main_icon_map.png',
+                    path: '/Activity',
+                    name: '營區導覽',
+                },
+                {
+                    id:'service',
+                    imgURL:'@/assets/images/main/main_icon_service.png',
+                    path: '/Service',
+                    name: '營區服務',
+                },
+                {
+                    id:'feedback',
+                    imgURL:'@/assets/images/main/main_icon_feedback.png',
+                    path: '/Report',
+                    name: '營火報告',
+                },
+                {
+                    id:'news',
+                    imgURL:'@/assets/images/main/main_icon_news.png',
+                    path: '/News',
+                    name: '最新消息',
+                },
+                {
+                    id:'store',
+                    imgURL:'@/assets/images/main/main_icon_store.png',
+                    path: '/Shopping',
+                    name: '營火商城',
+                },
+            ],
+        }
+    },
+    methods: {
+        toggleModal() { 
+            console.log('click')
+            this.isShow = !this.isShow;
+        },
+        getMemData(){
+            this.member = JSON.parse(sessionStorage.getItem('member'));
+            this.memId = this.member.mem_id;
+            console.log(this.member)  
+        },
+        logout(){
+            // fetch("http://localhost/phpLab/firefly_camping_php/logout.php",{method:'GET'})
+            // .then((res)=>{location.replace("/")})
+            // .then()
+            let xhr = new XMLHttpRequest();
+            xhr.open("get", "http://localhost/phpLab/firefly_camping_php/logout.php",true);
+            xhr.send(null);
+            sessionStorage.removeItem("member", JSON.stringify(this.session));
+            alert("已登出");
+            location.replace("/");
+            // session()->forget('mem_id');
+        }
     }
-    this.getMemData();
-  },
-  data() {
-    return {
-      isShow: '',
-      pageTitle: '營火叢｜Ｙ世代最ㄅㄧㄤˋ最HITO的露營選擇',
-      navTitle: '營火叢導覽列',
-      logoURL: '@/assets/images/main/main_logo_row.png',
-      iconName: '營區預訂',
-      routes: [
-        {
-          id: 'map',
-          imgURL: '@/assets/images/main/main_icon_map.png',
-          path: '/Activity',
-          name: '營區導覽',
-        },
-        {
-          id: 'service',
-          imgURL: '@/assets/images/main/main_icon_service.png',
-          path: '/Service',
-          name: '營區服務',
-        },
-        {
-          id: 'feedback',
-          imgURL: '@/assets/images/main/main_icon_feedback.png',
-          path: '/Report',
-          name: '營火報告',
-        },
-        {
-          id: 'news',
-          imgURL: '@/assets/images/main/main_icon_news.png',
-          path: '/News',
-          name: '最新消息',
-        },
-        {
-          id: 'store',
-          imgURL: '@/assets/images/main/main_icon_store.png',
-          path: '/Shopping',
-          name: '營火商城',
-        },
-        // {
-        //     id:'account',
-        //     imgURL:'@/assets/images/main/main_icon_account.png',
-        //     path: '/Login',
-        //     name: '登入註冊',
-        // },
-        // {
-        //     id:'account',
-        //     imgURL:'@/assets/images/main/main_icon_account.png',
-        //     path: '/Member',
-        //     name: '會員中心',
-        // },
-      ],
-    };
-  },
-  methods: {
-    toggleModal() {
-      console.log('click');
-      this.isShow = !this.isShow;
-    },
-    getMemData() {
-      this.member = JSON.parse(sessionStorage.getItem('member'));
-      this.memId = this.member.mem_id;
-      console.log(this.member);
-    },
-    logout() {
-      // fetch("http://localhost/phpLab/firefly_camping_php/logout.php",{method:'GET'})
-      // .then((res)=>{location.replace("/")})
-      // .then()
-      let xhr = new XMLHttpRequest();
-      xhr.open(
-        'get',
-        'http://localhost/phpLab/firefly_camping_php/logout.php',
-        true
-      );
-      xhr.send(null);
-      alert('已登出');
-      location.replace('/');
-    },
-  },
-};
+}
 </script>
 
 <style lang="scss">
