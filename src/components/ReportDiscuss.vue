@@ -26,8 +26,8 @@
                             <img :src="require(`@/assets/images/report/report_avatar_${discuss.mem_pic}.png`)" alt="avatar">
                         </div>
                         <div class="postcard_name_time">
-                            <h4 class="postcard_member_name">{{discuss.mem_name}}</h4>
-                            <p class="postcard_release_time">{{discuss.discuss_post_time}}</p>
+                            <h4 class="postcard_member_name">{{discuss.mem_nick_name}}</h4>
+                            <p class="postcard_release_time">{{formatDate(discuss.discuss_post_time)}}</p>
                         </div>
                     </div>
                 </div>
@@ -55,6 +55,13 @@ export default {
             // discussCard:[]
         }
     },
+    methods: {
+        //把資料庫撈出來的時間，在做轉換喧染
+        formatDate(date) {
+            const myDate = new Date(date); 
+            return `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}` 
+        },
+    }
 }
 
 </script>
