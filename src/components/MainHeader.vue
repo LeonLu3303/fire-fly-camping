@@ -27,14 +27,6 @@
           </div>
           <p class="icon_text">{{ iconName }}</p>
         </router-link>
-        <router-link to="/Login" class="login_icon" v-if="member == null">
-          <div class="login_icon_photo">
-            <img
-              src="@/assets/images/main/main_icon_account_original.png"
-              alt="登入註冊"
-            />
-          </div>
-        </router-link>
         <router-link to="/Member" class="member_icon" v-if="member != null">
           <div class="login_icon_photo">
             <img
@@ -92,7 +84,7 @@
                 </div>
                 <p class="item_name">會員中心</p>
               </router-link>
-              <div class="item_list" v-if="member != ''" to="/" @click="logout">
+              <div class="item_list" v-if="member !=null " to="/" @click="logout">
                 <p class="item_name">登出</p>
               </div>
             </li>
