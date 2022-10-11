@@ -22,15 +22,15 @@
             <!-- 報告卡片 -->
             <div id="discussCard">
                 <div class="row_card_report">
-                    <div class="col_card_report" v-for="item in filterData" :key="item.mem_no">
+                    <div class="col_card_report" v-for="item in filterData" :key="item.discuss_no">
                         <div class="report_mem">
                             <div class="mem_pic">
                                 <!-- <img :src="require(`${item.memPic}`)" alt="avatar"> -->
                                 <img :src="require(`@/assets/images/report/report_avatar_${item.mem_pic}.png`)" alt="avatar">
                             </div>
                             <div class="mem_data">
-                                <h4 class="mem_name">{{item.mem_name}}</h4>
-                                <p class="release_time">{{item.discuss_post_time}}</p>
+                                <h4 class="mem_name">{{item.mem_nick_name}}</h4>
+                                <p class="release_time">{{formatDate(item.discuss_post_time)}}</p>
                             </div>
                         </div>
                         <div class="report_content">
@@ -100,6 +100,7 @@ export default {
             return Math.ceil(this.discussCard.length / this.paginate)
         },
         //因為直接在computed做計算，資料是彈性的，做熱門和時間判斷
+        //key值要抓報告編號，只有編號都會是不樣的
         filterData() {
             //一頁有幾筆數目，透過slice做計算，所以不能寫discussCard原始資料
             //array.slice((page_number - 1) * page_size, page_number * page_size);
@@ -134,6 +135,7 @@ export default {
         selectPage(val){
             this.current = val
         },
+        // 把留言寫入資料庫
         FetchAPIDiscuss(){
             // https://tibamef2e.com/cgd102/g1/firefly_camp_php/discuss_card.php
             // http://localhost/phpLab_CGD102/firefly_camp_php/discuss_card.php
@@ -144,16 +146,26 @@ export default {
             }).then(responseText => {
                 const discussData = responseText
                 this.discussCard = discussData;
-            
                 console.log(this.discussCard);
             }).catch((err) => {
                 this.discussCard = true
             })
         },
+        //把資料庫撈出來的時間，在做轉換喧染
+        formatDate(date) {
+            const myDate = new Date(date); 
+            return `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}` 
+        }, 
     },
     created() {
         this.FetchAPIDiscuss();
     },
+    watch: {
+        // 做監聽，不管在最新和最熱都要回第一頁
+        activeBtn(){
+            this.current = 1
+        }
+    }
 }
 </script>
 
@@ -231,7 +243,7 @@ export default {
 //卡片
 .row_card_report {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 0 0 60px;

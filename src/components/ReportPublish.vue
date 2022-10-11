@@ -4,22 +4,23 @@
             <div class="title_main">
                 <h2>發佈報告</h2>
             </div>
-            <div class="row_report_write">
-                <!-- 明信片0929 -->
+            <button class="btn_confirm discuss_show" type="button" @click="checkId" v-if="discuss_show == false">我要發布報告</button>
+            <div class="row_report_write" v-if="discuss_show == true">
+                <!-- 明信片-->
                 <div class="col_postcard">
                     <div class="postcard_group">
                         <div class="postcard_release">
                             <h3 class="postcard_title_area">{{discuss_title}}</h3>
                             <p class="postcard_text_area">{{discuss_content}}</p>
                         </div>
-                        <!-- 頭像 會員 0929-->
+                        <!-- 頭像 會員-->
                         <div class="postcard_member_data">
                             <div class="member_content">
                                 <div class="postcard_member_pic">
-                                    <img :src="require(`@/assets/images/report/report_avatar_${mem_pic}.png`)" alt="avatar">
+                                    <img :src="require(`@/assets/images/report/report_avatar_${member.mem_pic}.png`)" alt="avatar">
                                 </div>
                                 <div class="postcard_name_time">
-                                    <h4 class="postcard_member_name">{{mem_name}}</h4>
+                                    <h4 class="postcard_member_name">{{member.mem_nick_name}}</h4>
                                     <!-- <p class="postcard_release_time">{{discuss_post_time}}</p> -->
                                 </div>
                             </div>
@@ -30,27 +31,29 @@
                     </div>
                 </div>
 
+                <!-- method="POST"
+                action="http://localhost/phpLab_CGD102/firefly_camping_php/report_publish.php" -->
                 <!-- 輸入欄 0929-->
                 <form 
                     class="col_write_text" 
-                    method="POST" 
-                    action="http://localhost/phpLab_CGD102/firefly_camping_php/report_publish.php"
                 >
                     <input 
                         class="enter_title" 
                         type="discuss_title" 
                         maxlength="15" 
                         v-model="discuss_title"
+                        placeholder="請輸入標題(15字以內)"
                     />
                     <textarea 
                         class="enter_text" 
                         name="discuss_content" 
                         type="text" 
                         maxlength="300" 
-                        v-model="discuss_content" 
+                        v-model="discuss_content"
+                        placeholder="請輸入內文(300字以內)"
                     ></textarea>
                     <div class="confirm_choose_contain">
-                        <button type="submit" class="btn_confirm" id="publish_report" href="#">發佈報告</button>
+                        <div @click="DiscussSend" class="btn_confirm">發佈報告</div>
                         <select 
                             class="btn_bg_choose" 
                             v-model="background_type"
@@ -68,17 +71,80 @@
 </template>
 
 <script>
+// import LoginLightBox from '../components/LoginLightBox.vue';
+
 export default {
+    components:{
+        // LoginLightBox,
+    },
     name: 'ReportPublish',
     data() {
         return {
-            discuss_title: '請輸入標題(15字以內)',
-            discuss_content: '請輸入內文(300字以內)',
-            mem_pic: '0',
-            mem_name: '',
+            discuss_no:'',
+            discuss_title: '',
+            discuss_content: '',
             discuss_post_time: '',
+            discuss_status:'1',
+            comment_count: null,
             background_type: '1',
+            mem_no:'',
+            mem_id:'',
+            mem_nick_name: '',
+            mem_pic: '0',
+            discuss_show: false, 
+            // discuss_show == true ，就秀出
         };
+    },
+    methods:{
+        //拿到會員資料
+        getMemData(){
+            this.member = JSON.parse(sessionStorage.getItem('member'));
+            this.memId = this.member.mem_id;
+            // console.log(this.member)  
+        },
+        //寫入新報告
+        DiscussSend(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST","http://localhost/phpLab_CGD102/firefly_camping_php/DiscussSend.php",true);
+            // xhr.send(null);
+
+            // let discuss_data = `mem_no=${this.member.mem_no}&
+            //                     discuss_title=${this.discuss_title}&
+            //                     discuss_content=${this.discuss_content}&
+            //                     background_type=${this.background_type}`;
+            let formData = new FormData();
+            formData.append('mem_no', this.member.mem_no);
+            formData.append('discuss_title', this.discuss_title);
+            formData.append('discuss_content', this.discuss_content);
+            formData.append('background_type', this.background_type);
+            xhr.send(formData);
+            // this.FetchAPIDiscuss();
+            alert("發佈成功");
+            this.discuss_title = '';
+            this.discuss_content = '';
+            this.background_type = '1';
+        },
+        //確認有無登入，用click事件，判斷提示
+        checkId() {
+            let checkLogin = sessionStorage.getItem('member');
+            if(checkLogin == null){
+                alert("請先登入");
+            }else{
+                this.discuss_show = true;
+            }
+        }
+    },
+    //created 是一開始就做
+    created(){
+        //是否有登入狀態
+        let checkLogin = sessionStorage.getItem('member');
+        if(checkLogin == null){
+            return
+        }else{
+            this.discuss_show = true;
+        }
+        //拿到會員資料
+        this.getMemData()
     },
 };
 </script>
@@ -100,6 +166,11 @@ export default {
     }
     @include md(){
         width: 95%;
+    }
+    .discuss_show{
+        margin: 20px auto 0 auto;
+        display: flex;
+        justify-content: center;
     }
 }
 .row_report_write{

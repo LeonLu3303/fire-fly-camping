@@ -23,8 +23,20 @@
             <!-- 會員個人留言欄 -->
             <div class="message_member_container">
                 <form class="message_personal" action="">
-                    <textarea class="personal_write" type="text" maxlength="300" placeholder="請寫入留言(300字以內)"></textarea>
-                    <button class="btn_confirm" id="publish_message" href="#">留言</button>
+                    <textarea 
+                            class="personal_write" 
+                            type="text" maxlength="300" 
+                            v-model="comment_content" 
+                            placeholder="請寫入留言(300字以內)"
+                    >
+                    </textarea>
+                    <button 
+                            class="btn_confirm" 
+                            @click="DiscussComment" 
+                            type="button"
+                    >
+                    留言
+                    </button>
                 </form>
             </div>
 
@@ -42,7 +54,7 @@
                         <div class="other_message_content">
                             <p class="other_write">{{item.comment_content}}</p>
                             <div class="message_time_inform">
-                                <p class="message_time">{{item.comment_date}}</p>
+                                <p class="message_time">{{formatDate(item.comment_date)}}</p>
                                 <ReportLightBox/>
                             </div>
                         </div>
@@ -81,9 +93,22 @@ export default {
     },
     //new FormData().append('變數名稱', 值)
     methods: {
+        //讓滾輪維持在上
         scrollToTop(){
             window.scrollTo(0,0)
         },
+        //拿到會員資料
+        getMemData(){
+            this.member = JSON.parse(sessionStorage.getItem('member'));
+            this.memId = this.member.mem_id;
+            // console.log(this.member)  
+        },
+        //把資料庫撈出來的時間，在做轉換喧染
+        formatDate(date) {
+            const myDate = new Date(date); 
+            return `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}` 
+        },
+        //抓報告id，連結報告資料
         FetchAPIComment(){
             // let discuss_no = location.search.slice(1).split('=')[1];
             //透過 vue router取得query的值
@@ -104,8 +129,26 @@ export default {
                 this.commentCount = []
             })
         },
+        //對報告進行留言
+        DiscussComment(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST","http://localhost/phpLab_CGD102/firefly_camping_php/DiscussComment.php",true);
+
+            // let comment_data = `mem_no=${this.member.mem_no}&
+            //                     discuss_no=${this.discussId}&
+            //                     comment_content=${this.comment_content}`;
+            let formData = new FormData();
+            formData.append('mem_no', this.member.mem_no);
+            formData.append('discuss_no', this.discussId);
+            formData.append('comment_content', this.comment_content);
+            xhr.send(formData);
+            this.FetchAPIComment();
+            alert("留言成功");
+            this.comment_content = '';
+        },
     },
     created() {
+        this.getMemData();
         this.FetchAPIComment();
     },
     mounted() {

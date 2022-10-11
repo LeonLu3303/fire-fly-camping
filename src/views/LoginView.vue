@@ -425,7 +425,7 @@ import { watch } from '@vue/runtime-core'
                             }
                         }
                     }
-                    xhr.open("POST","http://localhost/CGD102G1/back_end/checkId.php", true);
+                    xhr.open("POST","http://localhost/phpLab_CGD102/firefly_camping_php/checkId.php", true);
 
 
                     let mem_deta = `mem_id=${this.id}&`;
@@ -456,7 +456,7 @@ import { watch } from '@vue/runtime-core'
                         }
                     }
                 }
-                xhr.open("POST","http://localhost/phpLab/firefly_camping_php/doLogin.php", true);
+                xhr.open("POST","http://localhost/phpLab_CGD102/firefly_camping_php/doLogin.php", true);
 
                 let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}`;
                 let formData = new FormData();
@@ -473,7 +473,7 @@ import { watch } from '@vue/runtime-core'
                 //         $id("spanLogin").innerText = "登出";          
                 //     }
                 // }
-                xhr.open("get","http://localhost/phpLab/firefly_camping_php/getMemberInfo.php",true);
+                xhr.open("get","http://localhost/phpLab_CGD102/firefly_camping_php/getMemberInfo.php",true);
                 xhr.send(null);
             },
             doRegister(){
@@ -491,7 +491,7 @@ import { watch } from '@vue/runtime-core'
                 // else if(this.emailflag){
                 else{
                     
-                    // fetch("http://localhost:8080/phpLab/firefly_camping_php/register.php",{
+                    // fetch("http://localhost:8080/phpLab_CGD102/firefly_camping_php/register.php",{
                     //     body:JSON.stringify({mem_id:this.id,mem_psw:this.psw,mem_name:this.name,mem_nick_name:this.nick_name,mem_email:this.email,mem_city:this.city,mem_addr:this.addr,mem_phone:this.phone}),
                     //     headers: {
                     //         'Content-Type': 'application/json'
@@ -523,7 +523,7 @@ import { watch } from '@vue/runtime-core'
                             }
                         }
                     }
-                    xhr.open("POST","http://localhost/phpLab/firefly_camping_php/register.php", true);
+                    xhr.open("POST","http://localhost/phpLab_CGD102/firefly_camping_php/register.php", true);
 
 
                     let mem_deta = `mem_id=${this.id}&mem_psw=${this.psw}&mem_name=${this.name}&mem_email=${this.email}&mem_nick_name=${this.nick_name}&mem_city=${this.city}&mem_addr=${this.addr}&mem_phone=${this.phone}`;
